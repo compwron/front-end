@@ -1,0 +1,13 @@
+@import "colors";
+
+.navbar-light .navbar-nav .active>.nav-link {
+  color: $linkPerfume;
+}
+.navbar-light .navbar-nav .nav-item {
+  color: $linkPerfume;
+  font-size: 15px;
+  margin:0 15px;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: $linkPerfume;
+}

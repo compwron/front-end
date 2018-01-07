@@ -1,0 +1,169 @@
+$primary     : #413a74;
+$ghettoWhite : #e9ecf4;
+$linkPerfume  : #aca7d3;
+$borderWall  : #e6e6e6;
+$prettyinpink: #f26d7d;
+$pinkshadow  : #da4d5e;
+$fog         : #e7ebef;
+$gunmetal    : #393c3e;
+$aussieteal  : #3ac5c9;
+$mustard     : #f7b958;
+$muffin      : #f09231;
+$metal       : #959a9c;
+$offwhite    : #fbfbfd;
+$silver      : #cfd5db;
+$bluebird    : #5477bb;
+$bluejeans   : #3a549b;
+$greyblue    : #9aa9c8;
+$twilight    : #4e467e;
+$charcoal    : #3b374a;
+$eggblue     : #bee7f1;
+$tealish     : #72cddf;
+$lightgrey   : #ebeef3;
+$darkblue    : #1f376d;
+$blueyes     : #2589c4;
+$fbshadow    : #096194;
+$skyblue     : #4fa5e7;
+$summernight : #2e83c5;
+$lagoon      : #3ac5c9;
+$darkteal    : #20aaae;
+$red         : #ee453b;
+$stormclouds : #c2cbde;
+$supagray    : #7c8c9a;
+$lazygray    : #f5f4f9;
+$fadedred    : #da4d5e;
+$oldyeller   : #f8ba58;
+$silvertwo   : #d1d7dc;
+
+/*Social Colors*/
+$facebook    : #2589c4;
+$twitter     : #4fa5e7;
+
+
+@function theme-color($color-name, $color-variant) {
+  @return map-get(map-get($theme-color, $color-name), $color-variant);
+}
+
+/*TODO: replace bootstrap colors here with ppocket choices from above*/
+$primary-color: $lagoon;
+$warning-color: $mustard;
+$default-color: $prettyinpink;
+$danger-color:  $red;
+$success-color: $skyblue;
+$inverse-color: $linkPerfume;
+$info-color: $supagray;
+$disabled-color: $silvertwo;
+
+
+$theme-color:(
+        primary: (
+                base: $primary-color,
+                hover: darken($primary-color, 5%),
+                active: darken($primary-color, 9%),
+                shadow: darken($primary-color, 19%),
+                trans: transparentize($primary-color, 0.5)
+        ),
+        warning: (
+                base: $warning-color,
+                hover: darken($warning-color, 5%),
+                active: darken($warning-color, 9%),
+                shadow: darken($warning-color, 19%),
+                trans: transparentize($warning-color, 0.5)
+        ),
+        default: (
+                base: $default-color,
+                hover: darken($default-color, 5%),
+                active: darken($default-color, 9%),
+                shadow: darken($default-color, 19%),
+                trans: transparentize($default-color, 0.5)
+        ),
+        danger: (
+                base: $danger-color,
+                hover: darken($danger-color, 5%),
+                active: darken($danger-color, 9%),
+                shadow: darken($danger-color, 19%),
+                trans: transparentize($danger-color, 0.5)
+        ),
+        success: (
+                base: $success-color,
+                hover: darken($success-color, 5%),
+                active: darken($success-color, 9%),
+                shadow: darken($success-color, 19%),
+                trans: transparentize($success-color, 0.5)
+        ),
+        inverse: (
+                base: $inverse-color,
+                hover: darken($inverse-color, 5%),
+                active: darken($inverse-color, 9%),
+                shadow: darken($inverse-color, 9%),
+                trans: transparentize($inverse-color, 0.5)
+        ),
+        info: (
+                base: $info-color,
+                hover: darken($info-color, 5%),
+                active: darken($info-color, 9%),
+                shadow: darken($info-color, 19%),
+                trans: transparentize($info-color, 0.5)
+        ),
+        disabled: (
+                base: $disabled-color,
+                hover: darken($disabled-color, 5%),
+                active: darken($disabled-color, 9%),
+                shadow: darken($disabled-color, 19%),
+                trans: transparentize($disabled-color, 0.5)
+        ),
+        facebook: (
+                base: $facebook,
+                hover: darken($facebook, 5%),
+                active: darken($facebook, 9%),
+                shadow: darken($facebook, 19%),
+                trans: transparentize($facebook, 0.5)
+        ),
+        twitter: (
+                base: $twitter,
+                hover: darken($twitter, 5%),
+                active: darken($twitter, 9%),
+                shadow: darken($twitter, 10%),
+                trans: transparentize($twitter, 0.5)
+        ),
+
+
+);
+
+// Elements color
+$border-color:#ddd;
+
+/*Item color*/
+@mixin item-color($color){
+  color: $color;
+}
+.lagoon {
+  @include item-color($lagoon);
+}
+.primary {
+  @include item-color($primary);
+}
+.gunmetal {
+  color: $gunmetal!important;
+}
+.supagray {
+  @include item-color($supagray);
+}
+
+/*Background colors*/
+@mixin bg-color($color){
+  background-color: $color;
+}
+.bg-prettyinpink{
+  @include bg-color($prettyinpink);
+}
+.bg-linkpefume{
+  @include bg-color($linkPerfume);
+}
+.bg-lazygray {
+  @include bg-color($lazygray)
+}
+.bg-ghetto-white{
+  @include bg-color($ghettoWhite);
+}
+
