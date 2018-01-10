@@ -23,6 +23,10 @@ import { AccountnotificationComponent } from './components/account-setting/accou
 import { AccountdonationsComponent } from './components/account-setting/accountdonations/accountdonations.component';
 import { SignupComponent } from './components/authorization/signup/signup.component';
 import { LoginComponent } from './components/authorization/login/login.component';
+import { ResourcesComponent } from './components/community-resources/resources/resources.component';
+import { ArticleComponent } from './components/community-resources/article/article.component';
+import { FaqComponent } from './components/faq/faq/faq.component';
+import { AppcontentsComponent } from './table-of-contents/appcontents/appcontents.component';
 
 
 const appRoutes: Routes = [
@@ -38,7 +42,11 @@ const appRoutes: Routes = [
   {path:'account/notification', component:AccountnotificationComponent},
   {path:'account/donation-hist', component:AccountdonationsComponent},
   {path:'signup', component:SignupComponent},
-  {path:'login', component:LoginComponent}
+  {path:'login', component:LoginComponent},
+  {path:'resources', component:ResourcesComponent},
+  {path:'resources/:id', component:ArticleComponent},
+  {path:'faq', component:FaqComponent},
+  {path:'tableofcontents', component:AppcontentsComponent}
 ]
 
 @NgModule({
@@ -58,7 +66,11 @@ const appRoutes: Routes = [
     AccountnotificationComponent,
     AccountdonationsComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ResourcesComponent,
+    ArticleComponent,
+    FaqComponent,
+    AppcontentsComponent
   ],
   imports: [
     BrowserModule,
