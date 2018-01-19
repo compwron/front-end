@@ -1,4 +1,6 @@
-<section class="container">
+<section class="bg-ghetto-white p-3">
+  <div class="container my-5">
+    <section class="container">
   <div class="row">
     <div class="col-lg-3">
     </div>
@@ -11,22 +13,23 @@
             </div>
           </div>
           <ul>
-            <li><a href="http://localhost:4200/signup" class="text-muted">Sign Up</a></li>
-            <li><a href="http://localhost:4200/login" class="text-muted">Login</a></li>
-            <li><a href="http://localhost:4200/faq" class="text-muted">FAQ</a></li>
-            <li><a href="http://localhost:4200/resources" class="text-muted">Community Resources</a></li>
-            <li><a href="http://localhost:4200/resources/:id" class="text-muted">Community Articles</a></li>
-            <li><a href="http://localhost:4200/account/basic-info" class="text-muted">Basic Info</a></li>
-            <li><a href="http://localhost:4200/account/notification" class="text-muted">Notifications</a></li>
-            <li><a href="http://localhost:4200/account/donation-hist" class="text-muted">Donantion History</a></li>
-            <li><a href="http://localhost:4200/campaigns" class="text-muted">Public Campaigns</a></li>
-            <li><a href="http://localhost:4200/campaigns/:id" class="text-muted">Campaign Giver View/indiv-camp</a></li>
-            <li><a href="http://localhost:4200/mycampaigns" class="text-muted">Campaign Dashboard</a></li>
-            <li><a href="http://localhost:4200/mycampaigns/:id" class="text-muted">Campaign Hostview</a></li>
-            <li><a href="http://localhost:4200/mycampaigns/:id/add" class="text-muted">Add Campaign</a></li>
-            <li><a href="http://localhost:4200/mycampaigns/:id/edit" class="text-muted">Edit Campaign</a></li>
-            <li><a href="http://localhost:4200/sg/buttons" class="text-muted">Style Guide: Buttons</a></li>
-            <li><a href="http://localhost:4200/sg/forms" class="text-muted">Style Guide: Forms</a></li>
+            <li><a [routerLink]="['/signup']" class="text-muted">Sign Up</a></li>
+            <li><a [routerLink]="['/login']" class="text-muted">Login</a></li>
+            <li><a [routerLink]="['/faq']" class="text-muted">FAQ</a></li>
+            <li><a [routerLink]="['/resources']" class="text-muted">Community Resources</a></li>
+            <li><a [routerLink]="['/resources/:id']" class="text-muted">Community Articles</a></li>
+            <li><a [routerLink]="['/account/basic-info']" class="text-muted">Basic Info</a></li>
+            <li><a [routerLink]="['/account/notification']" class="text-muted">Notifications</a></li>
+            <li><a [routerLink]="['/account/donation-hist']" class="text-muted">Donantion History</a></li>
+            <li><a [routerLink]="['/campaigns']" class="text-muted">Public Campaigns</a></li>
+            <li><a [routerLink]="['/campaigns/:id']" class="text-muted">Campaign Giver View/indiv-camp</a></li>
+            <li><a [routerLink]="['/mycampaigns']" class="text-muted">Campaign Dashboard</a></li>
+            <li><a [routerLink]="['/mycampaigns/:id']" class="text-muted">Campaign Hostview</a></li>
+            <li><a [routerLink]="['/mycampaigns/:id/add']" class="text-muted">Add Campaign</a></li>
+            <li><a [routerLink]="['/mycampaigns/:id/edit']" class="text-muted">Featured Widget</a></li>
+            <li><a [routerLink]="['/feature-widget']" class="text-muted">Edit Campaign</a></li>
+            <li><a [routerLink]="['/sg/buttons']" class="text-muted">Style Guide: Buttons</a></li>
+            <li><a [routerLink]="['/sg/forms']" class="text-muted">Style Guide: Forms</a></li>
           </ul>
         </div>
       </div>
@@ -35,3 +38,7 @@
     </div>
   </div>
 </section>
+
+  </div>
+</section>
+

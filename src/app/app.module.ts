@@ -27,6 +27,7 @@ import { ResourcesComponent } from './components/community-resources/resources/r
 import { ArticleComponent } from './components/community-resources/article/article.component';
 import { FaqComponent } from './components/faq/faq/faq.component';
 import { AppcontentsComponent } from './table-of-contents/appcontents/appcontents.component';
+import { FeatureWidgetComponent } from './components/feature-widget/feature-widget.component';
 
 
 const appRoutes: Routes = [
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
   {path:'resources', component:ResourcesComponent},
   {path:'resources/:id', component:ArticleComponent},
   {path:'faq', component:FaqComponent},
+  {path:'feature-widget', component:FeatureWidgetComponent},
   {path:'tableofcontents', component:AppcontentsComponent}
 ]
 
@@ -70,7 +72,8 @@ const appRoutes: Routes = [
     ResourcesComponent,
     ArticleComponent,
     FaqComponent,
-    AppcontentsComponent
+    AppcontentsComponent,
+    FeatureWidgetComponent
   ],
   imports: [
     BrowserModule,
