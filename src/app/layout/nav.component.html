@@ -1,8 +1,8 @@
-<nav style="background-color: #413a74;" class="navbar navbar-toggleable-md navbar-light bg-faded py-3">
+<nav style="background-color: #413a74;" class="sticky-top navbar navbar-collapse navbar-toggleable-md navbar-light bg-faded py-3">
   <div class="container">
     <img src="./assets/images/logo.png" style="width:150px"/>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Campaigns <span class="sr-only">(current)</span></a>
         </li>
@@ -13,6 +13,35 @@
           <a class="nav-link" href="#">Community Resources</a>
         </li>
       </ul>
+      <form class="form-inline my-2 my-lg-0 mr-sm-2" >
+        <a href="#" class="font-14 pr-4">Log In </a>
+        <button class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
+      </form>
+      <form class="form-inline my-2 my-lg-0 mr-sm-2" hidden="true">
+        <button class="btn btn-default btn my-2 my-sm-0 font-14">Add Campaign</button>
+        <div class="nav-item dropdown pl-2 nav-drop">
+          <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="icofont icofont-bell-alt"></i>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Alert</a>
+            <a class="dropdown-item" href="#">Alert</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown ">
+          <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sarah Peters
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">My Campaigns</a>
+            <a class="dropdown-item" href="#">Account Settings</a>
+            <a class="dropdown-item" href="#">Payment Settings</a>
+            <a class="dropdown-item" href="#">Notifiction</a>
+            <a class="dropdown-item" href="#">Donation History</a>
+            <a class="dropdown-item" href="#">Log Out</a>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
 </nav>

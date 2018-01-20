@@ -33,7 +33,7 @@
 /*@mixin font-sizing($size){
     font-size: $size+px;
 }
-
+.font-8 {@include font-sizing(8)}
 .font-9 {@include font-sizing(9)}
 .font-10 {@include font-sizing(10)}
 .font-11 {@include font-sizing(11)}
@@ -46,7 +46,7 @@
 .font-20 {@include font-sizing(20)}*/
 
 /*Font-Sizes-Start*/
-$fs-range-start: 9;
+$fs-range-start: 8;
 $fs-range-end: 26;
 @while $fs-range-start < $fs-range-end {
   .font-#{$fs-range-start} {
@@ -196,12 +196,28 @@ $ppx-step: 5;
 }
 
 /*--------------Cortney-------------*/
-h2, h6 {
+body {
+  font-family:'Open Sans', sans-serif;
+}
+
+h2, h6, h3 {
   color: #413a74;
 }
 
+h5 {
+  color: #00bacb;
+}
+
+h4 {
+  color: #f26d7d;
+}
+
+.banner-txt {
+  color: white;
+}
+
 .string-link {
-  color: #3ac5c9;
+  color: #00bacb;
 }
 
 .left-border {
@@ -214,4 +230,57 @@ h2, h6 {
   color: #233442 !important;
 }
 
+.receipt-btn {
+  background-color:#f2f3f8;
+  border-color: #f2f3f8;
+  box-shadow: none;
+  color: #233442 !important;
+}
 
+.camp-stat {
+  border-color: #f2f3f8;
+  box-shadow: none;
+}
+
+.nav-drop:hover {
+  color: #aca7d3;
+}
+
+.dropdown-toggle[aria-expanded="true"] {
+  color: #aca7d3 !important;
+}
+
+.faq-link {
+  color: #3ac5c9;
+}
+
+.faq-link:hover {
+  color: #3ac5c9;
+  text-decoration: none;
+}
+
+.faq-link:not(.collapsed){
+  color: #3ac5c9;
+  text-decoration: none;
+}
+
+.faq-scroll {
+  line-height: 3.27;
+}
+
+.twilight {
+  color: #423b74;
+}
+
+.blog-item-box {
+  height:490px;
+  padding:4px;
+}
+
+.questions {
+  line-height: 2.5;
+}
+
+.camp-card {
+  background-color: white !important;
+}

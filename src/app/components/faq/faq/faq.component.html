@@ -1,6 +1,6 @@
 <div style="background-color:  #5e55a4; color: white; padding:16px;">
-  <div class="container">
-    <h2>Frequently Asked Questions</h2>
+  <div class="container ">
+    <h2 class="banner-txt">Frequently Asked Questions</h2>
  </div>
 </div>
 <section class="bg-ghetto-white p-5">
@@ -9,48 +9,38 @@
 
     <div class="container">
         <div class="row">
-
             <div class="col-sm-4">
                 <div class="list-group">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="#" class="text-muted">
-                                        Cras justo odio
-                                    </a>
+                            <div id="list-example" class="list-group">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a class="faq-link faq-scroll string-link" [routerLink]="['/faq']" fragment="basics" (click)="onAnchorClick()">
+                                            Pride Pocket Basics
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="#" class="text-muted">
-                                        Dapibus ac facilisis in
-                                    </a>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a class="faq-link faq-scroll string-link" [routerLink]="['/faq']" fragment="recipients_contributors" (click)="onAnchorClick()">
+                                            Recipients & Contributors
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="#" class="text-muted">
-                                        Morbi leo risus
-                                    </a>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <a class="faq-link faq-scroll string-link" [routerLink]="['/faq']" fragment="resources" (click)="onAnchorClick()">
+                                            Community Resources
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="#"class="text-muted">
-                                        Porta ac consectetur ac
-                                    </a>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <a href="#" class="text-muted" disabled>
-                                        Vestibulum at eros
-                                    </a>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <span class="faq-link faq-scroll string-link" [routerLink]="['/faq']" fragment="security" (click)="onAnchorClick()">
+                                        Security & Safety
+                                    </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -63,173 +53,146 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div id=pride_pocket_basics class="item">
-                            Pride Pocket Basics
+                        <div id="basics" class="item">
+                            <h4 >Pride Pocket Basics</h4>
                             <hr>
                         </div>
-
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
-                                    <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion1"
-                                       aria-expanded="false" aria-controls="firstAccordion1" class="text-muted">
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
+                                    <a  data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion1"
+                                       aria-expanded="false" aria-controls="firstAccordion1" class="faq-link">
                                         What is Pride Pocket?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
                             <div id="firstAccordion1" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Croissant oat cake apple pie oat cake. Dragée topping icing dragée. Halvah jelly
-                                    tiramisu jujubes chocolate danish jelly-o macaroon sweet.<br><br>
-
-                                    Chocolate dessert chocolate chocolate cake candy. Jelly halvah oat cake jelly beans
-                                    pudding jelly. Brownie fruitcake donut oat cake topping caramels. Croissant sesame
-                                    snaps muffin chupa chups apple pie cookie chupa chups jujubes.<br><br>
+                                    Pride Pocket is an LGBTQ+ focused resource center and compassionate crowdfunding platform. Our team of LGBTQ+ individuals have donated their time, effort, and poured our hearts into building this for you.<br>
+                                    <br>
+                                    Our goal is to provide educational, factual, and informative articles about LGBTQ+ topics. Additionally, in order to better help member of the community take action, we have built a compassionate crowdfunding platform. This means that if you create a campaign, you will keep 100% of the monetary contributions donated to your cause.
 
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion2"
-                                        aria-expanded="false" aria-controls="firstAccordion2" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion2" class="faq-link">
                                         Pride Pocket vs GofundMe, Indiegogo, Kickstarted, etc?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
                             <div id="firstAccordion2" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Sesame snaps topping chocolate cake bonbon biscuit cheesecake sesame snaps soufflé
-                                    candy. Jelly wafer sweet tiramisu oat cake cake. Donut carrot cake topping lemon
-                                    drops cookie. Cupcake chocolate bar marshmallow liquorice liquorice sweet.<br><br>
-
-                                    Topping cheesecake topping macaroon liquorice. Gingerbread lemon drops chocolate
-                                    bar. Lemon drops dragée cotton candy chupa chups chocolate gingerbread donut.
-                                    Gummies toffee chocolate cake ice cream wafer marzipan sweet.
+                                    Unlike other crowdfunding platforms, Pride Pocket was built specifically to educate and empower LGBTQ+ individuals to take action in their lives.<br>
+                                    <br>
+                                    Another key differentiator is that our organization does NOT charge a platform fee. So, while other crowdfunding platforms claim that they are there to help you reach your goals and see you succeed, they are actually taking 8%+ of any monetary donations to your campaign. We do not do that. Additionally, many similar platforms claim that it is not fair to charge the person donating. We disagree. A transaction fee is absolutely necessary in order to move money from one account to another. Those who are in desperate need are the ones starting these campaigns. It is our belief that they should keep 100% of the contributions their campaigns receive. The donator is charge ONLY the minimal transaction fee. Nothing else.<br>
+                                    <br>
+                                    Pride Pocket is also much more than just a crowdfunding site. As all of our team members are LGBTQ+ individuals, we understand the absolute need to spread factual articles to help our community better navigate life scenarios. Our community resources are all written specifically about LGBTQ+ topics and are there to answer the “how do I’s” and “what can I do’s” you might be faced with.
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion3"
-                                    aria-expanded="false" aria-controls="firstAccordion3" class="text-muted">
+                                    aria-expanded="false" aria-controls="firstAccordion3" class="faq-link">
                                     How much does it cost to use Pride Pocket?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
                             <div id="firstAccordion3" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Sweet chupa chups tart toffee croissant croissant carrot cake gummi bears wafer.
-                                    Jelly-o fruitcake biscuit bear claw chocolate. Pudding chocolate cake chocolate bar cupcake.<br><br>
-
-                                    Dessert apple pie bear claw sweet roll. Topping sugar plum gummies soufflé pudding
-                                    cake ice cream. Powder pie ice cream carrot cake tart pastry. Halvah marzipan
-                                    chocolate cotton candy dessert icing gummies liquorice carrot cake.
+                                    Price Pocket is absolutely free to use. There are no membership dues, subscriptions, platform fees, etc. We are and always will be free.<br>
+                                    <br>
+                                    Our crowdfunding platform DOES charge a transaction fee to the individuals who are donating to the campaign. This is the only way for us to facilitate a monetary contribution.
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion4"
-                                        aria-expanded="false" aria-controls="firstAccordion4" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion4" class="faq-link">
                                         When & why would I use Pride Pocket?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion4" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Tiramisu chocolate jelly-o dragée. Liquorice chupa chups apple pie. Cake cheesecake
-                                    cake toffee icing. Tiramisu jujubes bonbon candy canes oat cake.<br><br>
-
-                                    Cookie bonbon dessert cookie apple pie. Marshmallow wafer danish cake jelly candy
-                                    apple pie pie. Cake tiramisu oat cake tootsie roll tart sesame snaps toffee.
+                                    Pride Pocket is primarily meant for helping people raise funds for major life events or in times of financial hardship. As the majority of recipients are LGBTQ, we have made it a priority to provide a safe place to find information and ask family and friends for support. Pride Pocket provides a very simple and visually appealing user interface that empowers users to invite guests, pick items for a wishlist, and track savings.
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion5"
-                                        aria-expanded="false" aria-controls="firstAccordion5" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion5" class="faq-link">
                                         Can I use Prise Pocket if I am not LGBTQ+?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion5" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    5Brownie liquorice sugar plum sesame snaps sugar plum sesame snaps ice cream. Powder
-                                    danish soufflé sugar plum tart macaroon cotton candy chupa chups cotton candy. Sugar
-                                    plum fruitcake brownie.<br><br>
-
-                                    Fruitcake marshmallow cake ice cream cheesecake. Chupa chups dessert donut jelly.
-                                    Chocolate bonbon halvah sugar plum sugar plum.<br><br>
-
-                                    Dessert sweet roll powder pudding soufflé. Ice cream gummi bears apple pie cupcake
-                                    sesame snaps chupa chups powder. Icing soufflé danish. Oat cake lollipop marshmallow
-                                    donut muffin candy pie jujubes biscuit.
+                                    Yes. As long as your campaign is in no way harmful, hateful, or in any way violates our terms of service you do not have to be LGBTQ+.
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion6"
-                                        aria-expanded="false" aria-controls="firstAccordion6" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion6" class="faq-link">
                                         How do I close my account?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion6" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Icing caramels chupa chups. Carrot cake jujubes powder sweet roll. Cupcake liquorice
-                                    tiramisu. Soufflé icing topping jujubes.<br><br>
-
-                                    Soufflé tart marshmallow. Biscuit sesame snaps toffee candy canes cake icing.
-                                    Biscuit jelly-o jelly gummi bears toffee marshmallow bear claw. Pastry chocolate bar
-                                    candy canes pudding halvah gummies croissant danish.
+                                    You can close your account at any time. To do so, go to your account settings, reach out to our customer support at support@pridepocket.org.
                                 </p>
                             </div>
                         </div>
-
+<!--
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion7"
-                                        aria-expanded="false" aria-controls="firstAccordion7" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion7" class="faq-link">
                                         What is a wishlist?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
@@ -246,18 +209,18 @@
                                     powder lemon drops gummi bears.
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+<!--                         <div class="item">
+                            <div class="row pb-2">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion8"
-                                        aria-expanded="false" aria-controls="firstAccordion8" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion8" class="faq-link">
                                         How do people send gifts form their wishlist?
                                         </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
@@ -272,31 +235,24 @@
                                     macaroon gummies tootsie roll chocolate cake danish.
                                 </p>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion9"
-                               aria-expanded="false" aria-controls="firstAccordion9" class="text-muted">
+                               aria-expanded="false" aria-controls="firstAccordion9" class="faq-link">
                                 Is there a minimum amount I need to donate?
                             </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion9" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Gingerbread croissant cheesecake cotton candy apple pie chocolate cake chocolate
-                                    cake. Danish soufflé liquorice candy canes chocolate bar sweet roll macaroon
-                                    cheesecake. Chocolate cake bear claw croissant soufflé sweet soufflé croissant. Cake
-                                    ice cream oat cake chocolate bar sugar plum.<br><br>
-
-                                    Cake cotton candy chocolate bar. Biscuit fruitcake bear claw sweet roll. Sesame
-                                    snaps chocolate wafer cookie. Tiramisu tiramisu halvah danish donut cotton candy
-                                    biscuit fruitcake oat cake.
+                                    No. When it comes to crowdfunding, like all fundraising, any amount helps.
                                 </p>
                             </div>
                         </div>
@@ -304,64 +260,49 @@
                         <br><br>
 
                         <!-- =========================================================================== -->
-                        <div id="recipient_&_contributors" class="item">
-                            Recipient & Contributors
+                        <div id="recipients_contributors" class="item">
+                            <h4 >Recipient & Contributors</h4>
                             <hr>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion10"
-                                        aria-expanded="false" aria-controls="firstAccordion10" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion10" class="faq-link">
                                         How much of my donation does the fund raiser keep?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion10" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Croissant oat cake apple pie oat cake. Dragée topping icing dragée. Halvah jelly
-                                    tiramisu jujubes chocolate danish jelly-o macaroon sweet.<br><br>
-
-                                    Chocolate dessert chocolate chocolate cake candy. Jelly halvah oat cake jelly beans
-                                    pudding jelly. Brownie fruitcake donut oat cake topping caramels. Croissant sesame
-                                    snaps muffin chupa chups apple pie cookie chupa chups jujubes.<br><br>
-
-                                    Jelly beans muffin donut bear claw cake halvah tiramisu. Marzipan brownie soufflé
-                                    sweet muffin candy canes croissant gummi bears powder. Soufflé liquorice icing
-                                    gingerbread apple pie.<br><br>
-
-                                    Halvah cookie topping biscuit dessert candy topping. Macaroon sweet roll cookie
-                                    tootsie roll gummies gummies topping donut oat cake. Croissant jelly carrot cake
-                                    pastry soufflé.
+                                    The campaign will keep 100% of the donations they receive. Seriously. Every cent donated will be received by the campaign.
                                 </p>
                             </div>
                         </div>
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion11"
-                                        aria-expanded="false" aria-controls="firstAccordion11" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion11" class="faq-link">
                                         Why was I charged a transaction fee to donate?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion11" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Jujubes jelly muffin liquorice. Marshmallow gummies oat cake. Macaroon chocolate
-                                    cake jelly beans oat cake.<br><br>
-
-                                    Sweet bonbon icing. Tart ice cream gummies sweet bonbon carrot cake candy canes
-                                    icing jelly. Sweet cake candy bear claw chocolate bar cupcake gummies. Chocolate
-                                    cake sesame snaps marshmallow chupa chups marzipan tiramisu.
+                                    Pride Pocket does not charge any platform fees, membership fees, etc. However, in order to facilitate the movement of money a transaction fee must be paid to the third party financial institution. PayPal, WePay, Stripe, etc all charge the same fees (2.9% + $0.30 for every transaction). Most crowdfunding platforms charge the host of the campaign for every transaction fee as well as a 5% or HIGHER platform fee.
+                                    <br>
+                                    <br>
+                                    What that means is that a campaign that reaches their goal of $100 automatically has 8%+ taken away to pay for the use of the platform and transfer of money. Pride Pocket’s model charges the person donating the minimal transaction fee, as it is impossible to move the money without it. We do not charge any platform fees and promise to keep pricing as low as possible for all parties involved.
                                 </p>
                             </div>
                         </div>
@@ -369,35 +310,27 @@
                         <br><br>
                         <!-- =========================================================================== -->
 
-                        <div id="community_resources" class="item">
-                            Community Resources
+                        <div id="resources" class="item">
+                            <h4>Community Resources</h4>
                             <hr>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion12"
-                                        aria-expanded="false" aria-controls="firstAccordion12" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion12" class="faq-link">
                                         What resources does Pride Pocket offer?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion12" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Sugar plum bonbon croissant halvah gummi bears. Donut cake caramels cake gummi bears
-                                    gummies ice cream. Pudding jujubes candy.<br><br>
-
-                                    Cake muffin tart sweet roll brownie. Fruitcake toffee cheesecake chocolate macaroon
-                                    gummies jelly dessert pastry. Marshmallow carrot cake lemon drops cupcake lollipop.
-                                    Cake pie lemon drops soufflé.<br><br>
-
-                                    Sweet roll fruitcake cotton candy. Apple pie icing candy soufflé. Pastry tiramisu
-                                    carrot cake cookie marshmallow topping. Macaroon jujubes fruitcake.
+                                    We are building out our community resources every week. Currently we offer factual, informative articles about LGBTQ+ related issues. Our goal is to provide recommendations, directories, and much more. If you would like to provide feedback or get involved with the Pride Pocket team, please reach out to us!
                                 </p>
                             </div>
                         </div>
@@ -405,85 +338,73 @@
                         <br><br>
                         <!-- =========================================================================== -->
 
-                        <div id="security_&_safety" class="item">
-                            Security & Safety
+                        <div id="security" class="item">
+                            <h4 >Security & Safety</h4>
                             <hr>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion13"
-                                        aria-expanded="false" aria-controls="firstAccordion13" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion13" class="faq-link">
                                         Is my personal information secure with Pride Pocket?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion13" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Biscuit fruitcake marshmallow halvah bear claw cheesecake chocolate bar oat cake.
-                                    Candy jelly-o topping. Bonbon carrot cake chocolate cake powder jelly-o apple pie
-                                    dragée.<br><br>
-
-                                    Cookie cookie biscuit soufflé ice cream. Pudding danish apple pie powder jelly
-                                    biscuit halvah biscuit cotton candy. Gummies chocolate cake halvah cupcake halvah.
+                                    Completely. We take security very seriously. The LGBTQ+ community is one that faces much adversity. Many of our members are not publicly out to everyone, and it is our mission to make sure that they have the option to keep it that way.
+                                    <br>
+                                    <br>
+                                    All campaigns are unsearchable UNLESS SPECIFICALLY given permission to be. This way, if anyone shares their campaign with only the few friends and family who they feel comfortable with, the page can not be accidentally searched for by anyone else.
+                                    <br>
+                                    <br>
+                                    Personal information is encrypted and all financial info security is guaranteed by our third party provider.otton candy. Gummies chocolate cake halvah cupcake halvah.
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion14"
-                                        aria-expanded="false" aria-controls="firstAccordion14" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion14" class="faq-link">
                                         Are Transactions secure with Pride Pocket?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion14" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Bear claw bear claw sweet sugar plum oat cake oat cake jelly beans chupa chups
-                                    liquorice. Ice cream gummi bears caramels jelly gingerbread macaroon. Tiramisu pie
-                                    candy chocolate bar dragée dessert tiramisu sugar plum powder. Oat cake candy canes
-                                    pie lemon drops jelly-o cheesecake sugar plum sweet.<br><br>
-
-                                    Marshmallow jelly-o chupa chups lollipop candy canes chocolate bar. Sesame snaps
-                                    sugar plum bear claw. Cake chocolate cake gummies bonbon cookie tiramisu apple pie
-                                    caramels.
+                                    All transactions are facilitated through a third party provider, PayPal. The security is guaranteed by Pride Pocket as well as PayPal.
                                 </p>
                             </div>
                         </div>
 
                         <div class="item">
-                            <div class="row">
-                                <div class=col-sm-10>
+                            <div class="row pb-2 questions">
+                                <div class="col-sm-11">
                                     <a data-toggle="collapse" data-parent="#firstAccordion" href="#firstAccordion15"
-                                        aria-expanded="false" aria-controls="firstAccordion15" class="text-muted">
+                                        aria-expanded="false" aria-controls="firstAccordion15" class="faq-link">
                                         Why are some donations anonymous?
                                     </a>
                                 </div>
-                                <div class=col-sm-2>
-                                    >
+                                <div class="col-sm-1">
+                                    <i class="faq-link icofont icofont-caret-right"></i>
                                 </div>
                             </div>
 
                             <div id="firstAccordion15" class="collapse" role="tabpanel">
                                 <p class="mb-3">
-                                    Chocolate sugar plum jelly beans oat cake jelly. Macaroon marzipan lollipop sesame
-                                    snaps topping pastry halvah. Pie gummies bear claw jujubes lemon drops cotton candy.<br><br>
-
-                                    Pudding caramels tart tootsie roll lollipop biscuit cotton candy oat cake. Wafer
-                                    gummi bears jelly beans chocolate bar fruitcake cotton candy croissant halvah.
-                                    Caramels cupcake jelly-o donut. Cupcake lollipop sugar plum wafer sweet sesame snaps
-                                    muffin bonbon.
+                                    We understand that sometimes it is hard to be openly supportive of LGBTQ+ issues or individuals if one is in the closet or for various other reasons. Because of this we do allow for donations to be contributed to a campaign anonymously.
                                 </p>
                             </div>
                         </div>

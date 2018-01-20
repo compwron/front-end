@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from '@angular/router'
+import {RouterModule, Routes } from '@angular/router';
+
 
 // Layout
 import {FooterComponent} from "./layout/footer.component";
@@ -28,6 +29,8 @@ import { ArticleComponent } from './components/community-resources/article/artic
 import { FaqComponent } from './components/faq/faq/faq.component';
 import { AppcontentsComponent } from './table-of-contents/appcontents/appcontents.component';
 import { FeatureWidgetComponent } from './components/feature-widget/feature-widget.component';
+import { AuthorWidgetComponent } from './components/author-widget/author-widget.component';
+import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component';
 
 
 const appRoutes: Routes = [
@@ -73,7 +76,9 @@ const appRoutes: Routes = [
     ArticleComponent,
     FaqComponent,
     AppcontentsComponent,
-    FeatureWidgetComponent
+    FeatureWidgetComponent,
+    AuthorWidgetComponent,
+    PaymentWidgetComponent,
   ],
   imports: [
     BrowserModule,
