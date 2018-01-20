@@ -7,9 +7,11 @@
             <div class="card-body">
               <div class="container row p-4" style="margin:0 auto;">
                 <div class="container">
+                  <div class="row">
                   <div class="col-lg-12">
                     <h2>My Profile</h2>
                   </div>
+                </div>
                 </div>
                 <div class="row my-4">
                   <div class="col-md-12">
@@ -34,7 +36,7 @@
                   <div class="row">
                     <div class="col-lg-12">
                       <br>
-                      <h6>Donation History</h6>
+                      <h6 class="font-weight-bold">Donation History</h6>
                     </div>
                   </div>
                 </div>
@@ -43,76 +45,98 @@
                   <div class="col-lg-12">
                   <div class="table-responsive">
                     <table class="table p-5">
-                      <thead class="thead-light" style="background-color: #e9ecf4;">
+                      <thead class="thead-light" style="background-color: #e9ecf4; height:65px;">
                         <tr>
-                          <th>HOST</th>
-                          <th>NAME</th>
-                          <th>CAMPAIGN</th>
-                          <th>TYPE OF EVENT</th>
-                          <th>AMOUNT</th>
-                          <th>DATE</th>
-                          <th>CAMPAIGN STATUS</th>
-                          <th>RECEIPT</th>
+                          <th class="font-12 pb-4">Host</th>
+                          <th class="font-12 pb-4">Name</th>
+                          <th class="font-12 pb-4">Campaign</th>
+                          <th class="font-12 pb-4">Type of Event</th>
+                          <th class="font-12 pb-4">Amounte</th>
+                          <th class="font-12 pb-4">Date</th>
+                          <th class="font-12 pb-4">Campaign Status</th>
+                          <th class="font-12 pb-4">Receipt</th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
                           <td><img class="rounded-circle"src="http://via.placeholder.com/40X40" /></  td>
-                          <td >Jessica Sykes</td>
-                          <td><a ref="">Jessica needs hormones</a></td>
-                          <td><a class="btn btn-primary btn-sm mb-2" href="#" role="button">Medical</ a>
-                          <a class="btn btn-primary btn-sm mb-2" href="#" role="button">Transition</a >
-                         <a class="btn btn-primary btn-sm mb-2" href="#" role="button">Transition</a> </td>
-                          <td>$125</td>
-                          <td>2/3/17</td>
-                          <td><button type="button" class="btn btn-primary btn-rounded btn-sm"> primary</button></td>
+                          <td class="font-12">Jessica Sykes</td>
+                          <td class="font-12"><a class="string-link" href="#">Jessica needs hormones</a></td>
                           <td>
-                            <button type="button" class="btn btn-info btn-sm btn-rounded">Download
-                            <span class="glyphicon glyphicon-chevron-down"></span></button>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Medical</label>
+                            </div>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Transition</label>
+                            </div>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Transition</label>
+                            </div>
+                            </td>
+                          <td class="font-12">$125</td>
+                          <td class="font-12">2/3/17</td>
+                          <td class="font-12">
+                            <button type="button" class="btn btn-warning btn-sm btn-rounded camp-stat px-4">Pending</button>
+                          <td>
+                            <button type="button" class="btn btn-info btn-sm btn-rounded receipt-btn">Download</button>
                           </td>
                         </tr>
                         <tr>
                           <td><img class="rounded-circle"src="http://via.placeholder.com/40X40" /></  td>
-                          <td scope="row">Mason Jackson</td>
-                          <td><a ref="">Help Mason pay their legal fees</a></td>
-                          <td><button type="button" class="btn btn-info btn-sm">Legal Fees</button>
-                          </td>
-                          <td>$50</td>
-                          <td>7/21/17</td>
-                          <td><button type="button" class="btn btn-default btn-rounded btn-sm"> default</button></td>
+                          <td class="font-12" scope="row">Mason Jackson</td>
+                          <td class="font-12"><a class="string-link" href="#">Help Mason pay their legal fees</a></td>
                           <td>
-                            <button type="button" class="btn btn-info btn-sm btn-rounded">Download
-                            <span class="glyphicon glyphicon-chevron-down"></span></button>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Legal Fees</label>
+                            </div>
+                          </td>
+                          <td class="font-12">$50</td>
+                          <td class="font-12">7/21/17</td>
+                          <td>
+                            <button type="button" class="btn btn-inverse btn-sm btn-rounded camp-stat px-4">Active</button>
+                          <td>
+                            <button type="button" class="btn btn-info btn-sm btn-rounded receipt-btn">Download</button>
                           </td>
                         </tr>
                         <tr>
                           <td><img class="rounded-circle"src="http://via.placeholder.com/40X40" /></td>
-                          <td scope="row">Sarah Garcia</td>
-                          <td><a ref="">Aileen and Sarah's honeymoon fund</a></td>
-                          <td><button type="button" class="btn btn-info btn-sm">Wedding</button>
-                          <button type="button" class="btn btn-info btn-sm">Trveling</button>
-                          </td>
-                          <td>$100</td>
-                          <td>8/13/17</td>
-                          <td><button type="button" class="btn btn-warning btn-rounded btn-sm">secondary</button></td>
+                          <td class="font-12" scope="row">Sarah Garcia</td>
+                          <td class="font-12"><a class="string-link" href="#">Aileen and Sarah's honeymoon fund</a></td>
                           <td>
-                            <button type="button" class="btn btn-info btn-sm btn-rounded">Download
-                            <span class="glyphicon glyphicon-chevron-down"></span></button>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Wedding</label>
+                            </div>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Traveling</label>
+                            </div>
+                          </td>
+                          <td class="font-12">$100</td>
+                          <td class="font-12">8/13/17</td>
+                          <td>
+                            <button type="button" class="btn btn-primary btn-sm btn-rounded camp-stat px-4">Complete</button>
+                          <td>
+                            <button type="button" class="btn btn-info btn-sm btn-rounded receipt-btn">Download</button>
                             </td>
                         </tr>
                         <tr>
                           <td><img class="rounded-circle"src="http://via.placeholder.com/40X40" /></  td>
-                          <td scope="row">Justin Doe </td>
-                          <td><a ref="">We are going to be dads!</a></td>
-                          <td><button type="button" class="btn btn-info btn-sm">Adoption</button>
-                          <button type="button" class="btn btn-info btn-sm">Family Plan</button>
+                          <td class="font-12" scope="row">Justin Doe </td>
+                          <td class="font-12"><a class="string-link" href="#">We are going to be dads!</a></td>
+                          <td class="font-12">
+                          <div class="label-main">
+                              <label class="label label-info don-tag font-8">Adoption</label>
+                            </div>
+                            <div class="label-main">
+                              <label class="label label-info don-tag font-8">Family</label>
+                            </div>
                           </td>
-                          <td>$250</td>
-                          <td>8/31/17</td>
-                          <td><button type="button" class="btn btn-success btn-rounded btn-sm"> success</button></td>
+                          <td class="font-12">$250</td>
+                          <td class="font-12">8/31/17</td>
                           <td>
-                            <button type="button" class="btn btn-info btn-sm btn-rounded">Download
-                            <span class="glyphicon glyphicon-chevron-down"></span></button>
+                            <button type="button" class="btn btn-success btn-sm btn-rounded camp-stat px-4">End</button>
+                            </td>
+                          <td>
+                            <button type="button" class="btn btn-info btn-sm btn-rounded receipt-btn">Download</button>
                           </td>
                         </tr>
                       </tbody>
