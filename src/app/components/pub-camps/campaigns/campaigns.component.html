@@ -1,352 +1,277 @@
 <!-- <section> -->
-    <div class="container my-4">
-        <div class="row">
-          <div class="col-md-10">
-            <h2 class="primary font-weight-bold">Pride Pocket Campaigns</h2>
-          </div>
-          <div class="col-md-2">
-            <button type="button" class="add-campaign">Add Campaign</button>
+
+<!--Section-Start-->
+<section class="bg-ghetto-white p-3">
+
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-md-10">
+        <h2 class="primary font-weight-bold">Pride Pocket Campaigns</h2>
+      </div>
+      <div class="col-md-2">
+        <button type="button" class="btn btn-default">Add Campaign</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container pb-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-2 mt-2">
+                <h5>Filter by:</h5>
+              </div>
+              <div class="col-md-8">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="twilight font-weight-bold">Categories</span>
+                </button>
+                <div class="dropdown-menu multi-column columns-2" aria-labelledby="dropdownMenuButton">
+                  <div class="form-check dropdown-item">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" value="">
+                      Select All
+                    </label>
+                  </div>
+                  <div class="dropdown-divider"></div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="multi-column-dropdown">
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Medical
+                          </label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Legal
+                          </label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Family Planning
+                          </label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Wedding
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="multi-column-dropdown">
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Emergency
+                          </label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Projects
+                          </label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Transitioning
+                          </label>
+                        </div>
+                        <div class="form-check dropdown-item">
+                          <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            Other
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-2 dropdown ">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="twilight font-weight-bold">Sort By</span>
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Newest</a>
+                  <a class="dropdown-item" href="#">Popularity</a>
+                  <a class="dropdown-item" href="#">Ending Soon</a>
+                  <a class="dropdown-item" href="#">Closest to Goal</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
     </div>
 
-    <div class="container pb-4">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-2 mt-2">
-                                <h5>Filter by:</h5>
-                            </div>
-                            <div class="col-md-8">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="twilight font-weight-bold">Categories</span>
-                                </button>
-                                <div class="dropdown-menu multi-column columns-2" aria-labelledby="dropdownMenuButton">
-                                    <div class="form-check dropdown-item">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox" value="">
-                                            Select All
-                                        </label>
-                                    </div>
-                                    <div class="dropdown-divider"></div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="multi-column-dropdown">
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Medical
-                                                    </label>
-                                                </div>
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Legal
-                                                    </label>
-                                                </div>
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Family Planning
-                                                    </label>
-                                                </div>
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Wedding
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <div class="multi-column-dropdown">
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Emergency
-                                                    </label>
-                                                </div>
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Projects
-                                                    </label>
-                                                </div>
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Transitioning
-                                                    </label>
-                                                </div>
-                                                <div class="form-check dropdown-item">
-                                                    <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox" value="">
-                                                        Other
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-2 dropdown ">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="twilight font-weight-bold">Sort By</span>
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Newest</a>
-                                    <a class="dropdown-item" href="#">Popularity</a>
-                                    <a class="dropdown-item" href="#">Ending Soon</a>
-                                    <a class="dropdown-item" href="#">Closest to Goal</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-md-12">
-                    <div class="card-deck">
-                      <div class="card">
-                        <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                        <div class="card-block camp-card">
-                            <div class="row pb-2">
-                                <div class="col-md-12">
-                                    <div class="label-main">
-                                        <label class="label label-warning px-4">Family Planning</label>
-                                    </div>
-                                </div>
-                            </div>
-                          <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
-                          <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
-                          <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    <div class="card">
-                      <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                      <div class="card-block">
-                        <div class="row pb-2">
-                            <div class="col-md-12">
-                                <div class="label-main">
-                                    <label class="label label-danger px-4">Emergancy</label>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title twilight">Laura lost her job for being gay</h5>
-                        <p class="card-text">As some of you know, my sister Laura came out recently. Unfortunately, in the state of Arkansas once the administration caught wind they let her go for her "lifestyle choices"...</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                      <div class="card-block">
-                        <div class="row pb-2">
-                            <div class="col-md-12">
-                                <div class="label-main">
-                                    <label class="label label-inverse px-4">Transition</label>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title twilight">Help Caleb pay for top surgery</h5>
-                        <p class="card-text">I'm finally getting top surgery! My insurance won't cover it at all so I'm going to have to pay out of pocket. My birthday is coming up, so you can donate here instead of get me anything...</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <!--Camp-Row-Start-->
+    <div class="row my-3">
+      <div class="col-md-12">
+        <div class="card-deck">
+          <div class="row">
+            <!--Single-Camp-Start-->
+            <div class="col-md-4 col-sm-6 mt-4">
+              <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
+                <div class="card-block camp-card">
+                  <div class="row pb-2">
+                    <div class="col-md-12">
+                      <div class="label-main">
+                        <label class="label label-rounded label-warning font-9 px-3 py-6 text-uppercase">Family Planning</label>
                       </div>
                     </div>
                   </div>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-md-12">
-                    <div class="card-deck">
-                      <div class="card">
-                        <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                        <div class="card-block">
-                            <div class="row pb-2">
-                                <div class="col-md-12">
-                                    <div class="label-main">
-                                        <label class="label label-warning px-4">Family Planning</label>
-                                    </div>
-                                </div>
-                            </div>
-                          <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
-                          <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
-                          <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    <div class="card">
-                      <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                      <div class="card-block">
-                        <div class="row pb-2">
-                            <div class="col-md-12">
-                                <div class="label-main">
-                                    <label class="label label-danger px-4">Emergancy</label>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title twilight">Laura lost her job for being gay</h5>
-                        <p class="card-text">As some of you know, my sister Laura came out recently. Unfortunately, in the state of Arkansas once the administration caught wind they let her go for her "lifestyle choices"...</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
+                  <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
+                  <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="lagoon font-weight-bold">$0
+                        <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
+                      </h2>
                     </div>
-                    <div class="card">
-                      <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                      <div class="card-block">
-                        <div class="row pb-2">
-                            <div class="col-md-12">
-                                <div class="label-main">
-                                    <label class="label label-inverse px-4">Transition</label>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title twilight">Help Caleb pay for top surgery</h5>
-                        <p class="card-text">I'm finally getting top surgery! My insurance won't cover it at all so I'm going to have to pay out of pocket. My birthday is coming up, so you can donate here instead of get me anything...</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="col-md-7">
+                      <div class="rounded-rect-1"></div>
+                    </div>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+            <!--Single-Camp-End-->
+            <!--Single-Camp-Start-->
+            <div class="col-md-4 col-sm-6 mt-4">
+              <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
+                <div class="card-block camp-card">
+                  <div class="row pb-2">
+                    <div class="col-md-12">
+                      <div class="label-main">
+                        <label class="label label-rounded label-warning font-9 px-3 py-5-px text-uppercase">Family Planning</label>
                       </div>
                     </div>
                   </div>
-                </div>
-            </div>
-            <div class="row my-3">
-                <div class="col-md-12">
-                    <div class="card-deck">
-                      <div class="card">
-                        <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                        <div class="card-block">
-                            <div class="row pb-2">
-                                <div class="col-md-12">
-                                    <div class="label-main">
-                                        <label class="label label-warning px-4">Family Planning</label>
-                                    </div>
-                                </div>
-                            </div>
-                          <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
-                          <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
-                          <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                      </div>
-                    <div class="card">
-                      <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                      <div class="card-block">
-                        <div class="row pb-2">
-                            <div class="col-md-12">
-                                <div class="label-main">
-                                    <label class="label label-danger px-4">Emergancy</label>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title twilight">Laura lost her job for being gay</h5>
-                        <p class="card-text">As some of you know, my sister Laura came out recently. Unfortunately, in the state of Arkansas once the administration caught wind they let her go for her "lifestyle choices"...</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                      </div>
+                  <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
+                  <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="lagoon font-weight-bold">$0
+                        <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
+                      </h2>
                     </div>
-                    <div class="card">
-                      <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
-                      <div class="card-block">
-                        <div class="row pb-2">
-                            <div class="col-md-12">
-                                <div class="label-main">
-                                    <label class="label label-inverse px-4">Transition</label>
-                                </div>
-                            </div>
-                        </div>
-                        <h5 class="card-title twilight">Help Caleb pay for top surgery</h5>
-                        <p class="card-text">I'm finally getting top surgery! My insurance won't cover it at all so I'm going to have to pay out of pocket. My birthday is coming up, so you can donate here instead of get me anything...</p>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h2 class="lagoon font-weight-bold">$0
-                                    <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
-                                </h2>
-                            </div>
-                            <div class="col-md-7">
-                                 <div class="rounded-rect-1"></div>
-                                </div>
-                            </div>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <div class="col-md-7">
+                      <div class="rounded-rect-1"></div>
+                    </div>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+            <!--Single-Camp-End-->
+            <!--Single-Camp-Start-->
+            <div class="col-md-4 col-sm-6 mt-4">
+              <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
+                <div class="card-block camp-card">
+                  <div class="row pb-2">
+                    <div class="col-md-12">
+                      <div class="label-main">
+                        <label class="label label-rounded label-warning font-9 px-3 py-5-px text-uppercase">Family Planning</label>
                       </div>
                     </div>
                   </div>
+                  <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
+                  <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="lagoon font-weight-bold">$0
+                        <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
+                      </h2>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="rounded-rect-1"></div>
+                    </div>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
+              </div>
             </div>
+            <!--Single-Camp-End-->
+            <!--Single-Camp-Start-->
+            <div class="col-md-4 col-sm-6 mt-4">
+              <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
+                <div class="card-block camp-card">
+                  <div class="row pb-2">
+                    <div class="col-md-12">
+                      <div class="label-main">
+                        <label class="label label-rounded label-warning font-9 px-3 py-5-px text-uppercase">Family Planning</label>
+                      </div>
+                    </div>
+                  </div>
+                  <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
+                  <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="lagoon font-weight-bold">$0
+                        <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
+                      </h2>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="rounded-rect-1"></div>
+                    </div>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+            <!--Single-Camp-End-->
+            <!--Single-Camp-Start-->
+            <div class="col-md-4 col-sm-6 mt-4">
+              <div class="card">
+                <img class="card-img-top" src="http://via.placeholder.com/234x200" alt="Card image cap">
+                <div class="card-block camp-card">
+                  <div class="row pb-2">
+                    <div class="col-md-12">
+                      <div class="label-main">
+                        <label class="label label-rounded label-warning font-9 px-3 py-5-px text-uppercase">Family Planning</label>
+                      </div>
+                    </div>
+                  </div>
+                  <h5 class="card-title twilight">Sara & Jamie Want to Start a Family</h5>
+                  <p class="card-text">Hello everyone! As you know, starting a family can be    expensive. Well, like most LGBTQ families, having a baby is a  little more...</p>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="lagoon font-weight-bold">$0
+                        <small class="text-muted gunmetal font-20">of $7,000 goal raised</small>
+                      </h2>
+                    </div>
+                    <div class="col-md-7">
+                      <div class="rounded-rect-1"></div>
+                    </div>
+                  </div>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+              </div>
+            </div>
+            <!--Single-Camp-End-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Camp-Row-End-->
+
+  </div>
+
+</section>
+<!--Section-End-->
+
+
 

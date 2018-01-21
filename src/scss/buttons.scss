@@ -33,8 +33,8 @@
 
 
 .btn {
-  padding: 0.75rem 1.35rem;
-  font-size: 15px;
+  padding: 0.45rem 1.35rem;
+  font-size: 13px;
 }
 
 button {
@@ -447,7 +447,7 @@ span.badge {
 .label {
   border-radius: 2px;
   color: #fff;
-  font-size: 11 px;
+  font-size: 11px;
   line-height: 1;
   margin-bottom: 0;
   text-transform: capitalize;
@@ -656,3 +656,6 @@ a {
 
 .text-uppercase  { text-transform: uppercase !important; }
 
+.label.label-rounded {
+  border-radius: 1em;
+}

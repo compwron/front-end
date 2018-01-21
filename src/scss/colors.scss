@@ -149,7 +149,9 @@ $border-color:#ddd;
 .supagray {
   @include item-color($supagray);
 }
-
+.aussie-teal{
+  color: $aussieteal!important;
+}
 /*Background colors*/
 @mixin bg-color($color){
   background-color: $color;
