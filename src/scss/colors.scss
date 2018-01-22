@@ -34,6 +34,7 @@ $lazygray    : #f5f4f9;
 $fadedred    : #da4d5e;
 $oldyeller   : #f8ba58;
 $silvertwo   : #d1d7dc;
+$sushigray   : #708292;
 
 /*Social Colors*/
 $facebook    : #2589c4;
@@ -145,6 +146,9 @@ $border-color:#ddd;
 }
 .gunmetal {
   color: $gunmetal!important;
+}
+.sushigray {
+  color: $sushigray!important;
 }
 .supagray {
   @include item-color($supagray);

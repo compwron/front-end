@@ -107,10 +107,22 @@ $ppx-step: 5;
     padding-top: $pres-val;
     padding-bottom: $pres-val;
   }
+  .pb-#{$ppx-range-start}-#{$unit} {
+    padding-bottom: $pres-val;
+  }
+
   .px-#{$ppx-range-start}-#{$unit} {
     padding-left: $pres-val;
     padding-right: $pres-val;
   }
+  .pl-#{$ppx-range-start}-#{$unit} {
+    padding-left: $pres-val;
+  }
+  .pr-#{$ppx-range-start}-#{$unit} {
+    padding-left: $pres-val;
+  }
+
+
   $ppx-range-start: $ppx-range-start + $ppx-step;
 }
 /*Padding-Sizes-End*/

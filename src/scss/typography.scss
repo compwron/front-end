@@ -6,3 +6,23 @@
   line-height: 1.7;
   font-size: 19px;
 }
+
+
+/* Reference links */
+ol.ordered-list-1 {
+  counter-reset: item;
+  margin-left:33px;
+  position: relative;
+}
+ol.ordered-list-1 li {
+  display: block;
+  position: relative;
+  word-wrap: break-word;
+}
+ol.ordered-list-1 li:before {
+  content: counters(item, " ");
+  counter-increment: item;
+  position: absolute;
+  left: -30px;
+}
+
