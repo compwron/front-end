@@ -31,6 +31,7 @@ import { AppcontentsComponent } from './table-of-contents/appcontents/appcontent
 import { FeatureWidgetComponent } from './components/feature-widget/feature-widget.component';
 import { AuthorWidgetComponent } from './components/author-widget/author-widget.component';
 import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 const appRoutes: Routes = [
@@ -79,6 +80,7 @@ const appRoutes: Routes = [
     FeatureWidgetComponent,
     AuthorWidgetComponent,
     PaymentWidgetComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
