@@ -22,6 +22,7 @@ import { MycampaddComponent } from './components/my-camps/mycampadd/mycampadd.co
 import { AccountbasicComponent } from './components/account-setting/accountbasic/accountbasic.component';
 import { AccountnotificationComponent } from './components/account-setting/accountnotification/accountnotification.component';
 import { AccountdonationsComponent } from './components/account-setting/accountdonations/accountdonations.component';
+import { PaymentDeetsComponent } from './components/account-setting/payment-deets/payment-deets.component';
 import { SignupComponent } from './components/authorization/signup/signup.component';
 import { LoginComponent } from './components/authorization/login/login.component';
 import { ResourcesComponent } from './components/community-resources/resources/resources.component';
@@ -32,6 +33,7 @@ import { FeatureWidgetComponent } from './components/feature-widget/feature-widg
 import { AuthorWidgetComponent } from './components/author-widget/author-widget.component';
 import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component';
 import { CategoryComponent } from './components/category/category.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 
 const appRoutes: Routes = [
@@ -43,16 +45,14 @@ const appRoutes: Routes = [
   {path:'mycampaigns/:id', component:MyindivcampComponent},//pretty sure this needs to be nested
   {path:'mycampaigns/:id/edit', component:MycampeditComponent},//pretty sure this needs to be nested
   {path:'mycampaigns/:id/add', component:MycampaddComponent},//pretty sure this needs to be nested
-  {path:'account/basic-info', component:AccountbasicComponent},
-  {path:'account/notification', component:AccountnotificationComponent},
-  {path:'account/donation-hist', component:AccountdonationsComponent},
   {path:'signup', component:SignupComponent},
   {path:'login', component:LoginComponent},
   {path:'resources', component:ResourcesComponent},
   {path:'resources/:id', component:ArticleComponent},
   {path:'faq', component:FaqComponent},
   {path:'feature-widget', component:FeatureWidgetComponent},
-  {path:'tableofcontents', component:AppcontentsComponent}
+  {path:'tableofcontents', component:AppcontentsComponent},
+  {path:'account', component:MyProfileComponent}
 ]
 
 @NgModule({
@@ -81,6 +81,8 @@ const appRoutes: Routes = [
     AuthorWidgetComponent,
     PaymentWidgetComponent,
     CategoryComponent,
+    MyProfileComponent,
+    PaymentDeetsComponent
   ],
   imports: [
     BrowserModule,
