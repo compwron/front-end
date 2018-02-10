@@ -359,3 +359,19 @@ h4 {
   color: white;
   padding-left: 6px;
 }
+
+/*footer*/
+@media only screen and  (max-width: 767px) {
+  .footer {
+    align-items: center;
+  }
+
+  .foot-item{
+    margin-left: 8%;
+    text-align: center;
+  }
+
+  .piggy{
+    padding-bottom: 6px;
+  }
+}
