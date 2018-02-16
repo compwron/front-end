@@ -1,6 +1,7 @@
 
     <div class="card">
       <div class="card-body p-4">
+        <form #paymentMod="ngForm" (ngSubmit)="onDonate(paymentMod)">
          <div class="row py-4 ">
             <div class="col-lg-12">
                 <h2 class="lagoon font-weight-bold">$0
@@ -15,7 +16,7 @@
           <div class="col-lg-12 mb-2">
             <h4 class="pt-4 twilight">Contribution to Goal</h4>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="$" aria-label="Search for...">
+              <input type="text" class="form-control" placeholder="$" aria-label="Search for..." [(ngModel)]="amount" name="amount" #pickedAmount="ngModel">
               <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button">
                   <h6 style="padding-top: 5px;"><b>USD</b></h6>
@@ -66,26 +67,26 @@
           </div>
             <div class="row mt-2">
               <div class="col-md-12">
-                <form class="px-2">
+                <div class="px-2">
                   <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for...">
+                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" #pickedName="ngModel">
                   </div>
                   <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Search for...">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Search for..." [(ngModel)]="email" name="email" #pickedEmail="ngModel">
                   </div>
                   <div class="form-group">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Post your support."></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Post your support." [(ngModel)]="message" name="message" #pickedMessage="ngModel"></textarea>
                   </div>
                   <div class="form-check ml-4">
-                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="private" name="private" #pickedPrivate="ngModel">
                     <label class="form-check-label" for="defaultCheck1">
                       <small>Post message privately</small>
                     </label>
                   </div>
-                </form>
+                </div>
                 <div class="row p-2">
                   <div class="col-md-12">
-                   <button class="btn btn-block btn-default btn-primary btn-lrg">Donate Now!</button>
+                   <button type="submit" class="btn btn-block btn-default btn-primary btn-lrg">Donate Now!</button>
                 </div>
               </div>
               <div class="row p-2">
@@ -101,5 +102,6 @@
           <p class="text-center font-9">By clicking "Donate Now" you agree to Pride Pocket's Terms of Service and Privacy Policy. WePay is a certified Level 1 PCI Compliant Service Provider (the highest level), ensuring you have bank-level security while using WePay</p>
         </div>
       </div>
+    </form>
   </div>
 
