@@ -4,7 +4,7 @@
       <div class="row my-4">
         <div class="col-lg-1">
         </div>
-        <div class="col-lg-10">
+        <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
               <div class="container row">
@@ -19,23 +19,24 @@
                       <label><b>Details</b></label>
                     </div>
                   </div>
+                  <form #newCamp="ngForm" (ngSubmit)="onAddCamp(newCamp)">
                   <div class="row">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Campaign Name" >
+                      <input type="text" class="form-control" placeholder="Campaign Name" [(ngModel)]="campName" name="email" #pickedCampName="ngModel">
                     </div>
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
                       <div class="input-group mb-3">
-                        <select class="custom-select" id="inputGroupSelect02" style="width: 100%;">
+                        <select class="custom-select" id="inputGroupSelect02" style="width: 100%;" [(ngModel)]="campType" name="campType" #pickedType="ngModel">
                           <option selected>Campaign Type</option>
-                          <option value="1">Medical</option>
-                          <option value="2">Legal</option>
-                          <option value="3">Family</option>
-                          <option value="4">Weddings</option>
-                          <option value="5">Emergency</option>
-                          <option value="6">Celebrations</option>
-                          <option value="7">Events</option>
+                          <option value="Medical">Medical</option>
+                          <option value="Legal">Legal</option>
+                          <option value="Family">Family</option>
+                          <option value="Weddings">Weddings</option>
+                          <option value="Emergency">Emergency</option>
+                          <option value="Celebrations">Celebrations</option>
+                          <option value="Events">Events</option>
                         </select>
                       </div>
                     </div>
@@ -49,7 +50,7 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="$ 0" aria-label="Amount" aria-describedby="basic-addon2">
+                        <input type="text" class="form-control" placeholder="$ 0" aria-label="Amount" aria-describedby="basic-addon2" [(ngModel)]="goal" name="goal" #pickedGoal="ngModel">
                         <div class="input-group-addon">
                           <span class="input-group-text" id="basic-addon2">USD</span>
                         </div>
@@ -70,7 +71,7 @@
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
+                            <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="noDate" name="noDate" #pickedDate="ngModel">
                           </div>
                         </div>
                         <p class="text-muted">Campaign End Date</p>
@@ -80,7 +81,8 @@
                   <div class="row">
                     <div class="col-md-12">
                       <div class="input-group">
-                        <input class="w-100 p-2" id="meeting" type="date" value="2011-01-13"/>
+                        <input class="w-100 p-2" id="meeting" type="date" value="2011-01-13"
+                        [(ngModel)]="date" name="date" #pickedDate="ngModel"/>
                         <div class="input-group-addon">
                           <span class="input-group-text"><i class="icofont icofont-ui-calendar"></i></span>
                         </div>
@@ -114,11 +116,9 @@
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <form>
                         <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your friends and family how they can help"></textarea>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your friends and family how they can help" [(ngModel)]="welMessage" name="message" #pickedMessage="ngModel"></textarea>
                         </div>
-                      </form>
                     </div>
                   </div>
                   <hr>
@@ -134,17 +134,17 @@
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Item 1" >
+                      <input type="text" class="form-control" placeholder="Item 1" [(ngModel)]="item1" name="item1" #pickedItem1="ngModel">
                     </div>
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Item 2" >
+                      <input type="text" class="form-control" placeholder="Item 2" [(ngModel)]="item2" name="item2" #pickedItem2="ngModel">
                     </div>
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Item 3" >
+                      <input type="text" class="form-control" placeholder="Item 3" [(ngModel)]="item3" name="item3" #pickedItem3="ngModel">
                     </div>
                   </div>
                   <div class="row mt-2">
@@ -165,25 +165,23 @@
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <form>
                         <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Thank everyone for their help."></textarea>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Thank everyone for their help." [(ngModel)]="thankYou" name="thankYou" #pickedThanks="ngModel"></textarea>
                         </div>
-                      </form>
                     </div>
                   </div>
                   <hr>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <form class="border bg-light text-dark">
+                      <div class="border bg-light text-dark">
                         <label><b>Invite Friends & Family to Contribue</b></label>
                         <div class="form-group">
-                         <input type="text" class="form-control" placeholder="Email">
+                         <input type="text" class="form-control" placeholder="Email" [(ngModel)]="fEmail" name="fEmail" #pickedFEmail="ngModel">
                         </div>
                         <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Let everyone know about your campaign and how they can help!"></textarea>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Let everyone know about your campaign and how they can help!" [(ngModel)]="eMessage" name="eMessage" #pickedEMessage="ngModel"></textarea>
                         </div>
-                      </form>
+                      </div>
                     </div>
                   </div>
                   <div class="row mt-2">
@@ -193,7 +191,7 @@
                     <div class="col-sm-2 col-switch">
                       <div class="pg-switch">
                         <label class="switch">
-                          <input type="checkbox">
+                          <input type="checkbox" [(ngModel)]="socialShare" name="socialShare" #pickedCheck="ngModel">
                           <span class="slider round">
                           </span>
                         </label>
@@ -229,7 +227,7 @@
                   </div>
                   <div class="row mt-4">
                     <div class="col-md-12">
-                      <button type="button" class="btn font-17 btn-default btn-lg btn-block">Launch Campaign</button>
+                      <button type="submit" class="btn font-17 btn-default btn-lg btn-block">Launch Campaign</button>
                     </div>
                   </div>
                   <div class="row mt-4">
@@ -239,14 +237,13 @@
                     </div>
                     <div class="col-md-4"></div>
                   </div>
+                 </form>
                 </div>
                 <div class="col-lg-3">
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-1">
         </div>
       </div>
     </section>
