@@ -8,7 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class MycampaddComponent implements OnInit {
   campName:string;
-  campType:string;
+  campType:string = "Campaign Type";
   goal:number;
   noDate:boolean;
   date:string;

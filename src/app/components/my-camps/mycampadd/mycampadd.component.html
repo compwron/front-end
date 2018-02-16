@@ -19,17 +19,19 @@
                       <label><b>Details</b></label>
                     </div>
                   </div>
-                  <form #newCamp="ngForm" (ngSubmit)="onAddCamp(newCamp)">
-                  <div class="row">
+                  <form #editCamp="ngForm" (ngSubmit)="onAddCamp(editCamp)">
+                  <div class="row" [class.has-danger]="pickedCampName.errors">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Campaign Name" [(ngModel)]="campName" name="email" #pickedCampName="ngModel">
+                      <input type="text" class="form-control" placeholder="Campaign Name" [(ngModel)]="campName" name="campName" #pickedCampName="ngModel" maxlength="36" minlength="12" ngModel #pickedCampName="ngModel" name="campName">
+                      <div class="form-control-feedback" *ngIf="pickedCampName.errors">
+                          Sorry, must be longer than 12 and shorter 36 characters.</div>
                     </div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-2" [class.has-danger]="pickCampType.errors">
                     <div class="col-md-12">
                       <div class="input-group mb-3">
-                        <select class="custom-select" id="inputGroupSelect02" style="width: 100%;" [(ngModel)]="campType" name="campType" #pickedType="ngModel">
-                          <option selected>Campaign Type</option>
+                        <select class="custom-select" id="inputGroupSelect02" ngModel style="width: 100%;" [(ngModel)]="campType" name="campType" #pickCampType="ngModel" required>
+                          <option>Campaign Type</option>
                           <option value="Medical">Medical</option>
                           <option value="Legal">Legal</option>
                           <option value="Family">Family</option>
@@ -38,6 +40,8 @@
                           <option value="Celebrations">Celebrations</option>
                           <option value="Events">Events</option>
                         </select>
+                        <div class="form-control-feedback" *ngIf="pickCampType.errors">
+                          Sorry, must select a type.</div>
                       </div>
                     </div>
                   </div>
@@ -47,19 +51,21 @@
                       <label><b>Campaign Goal</b></label>
                     </div>
                   </div>
-                  <div class="row">
+                  <div class="row" [class.has-danger]="pickedGoal.errors">
                     <div class="col-md-12">
                       <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="$ 0" aria-label="Amount" aria-describedby="basic-addon2" [(ngModel)]="goal" name="goal" #pickedGoal="ngModel">
+                        <input type="text" pattern="[0-9]+" class="form-control" placeholder="$ 0" aria-label="Amount" aria-describedby="basic-addon2" [(ngModel)]="goal" ngModel name="goal" #pickedGoal="ngModel">
                         <div class="input-group-addon">
                           <span class="input-group-text" id="basic-addon2">USD</span>
                         </div>
                       </div>
                     </div>
+                    <div class="form-control-feedback" *ngIf="pickedGoal.errors">
+                          Sorry, only numbers.</div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <p class="text-muted">The gifters whom provide funds will be responsible for a 2.9% PayPal Fee + $0.30 for the transaction..</p>
+                      <p class="text-muted">The gifters whom provide funds will be responsible for a 2.9% WePay Fee + $0.30 for the transaction..</p>
                     </div>
                   </div>
                   <hr>
@@ -74,7 +80,7 @@
                             <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="noDate" name="noDate" #pickedDate="ngModel">
                           </div>
                         </div>
-                        <p class="text-muted">Campaign End Date</p>
+                        <p class="text-muted pl-3">Don't End Campaign</p>
                       </div>
                     </div>
                   </div>
@@ -111,15 +117,17 @@
                   <hr>
                   <div class="row mt-2">
                     <div class="col-md-12">
-                      <label><b>Welcome Message</b></label>
+                      <label><b>Description</b></label>
                     </div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-2" [class.has-danger]="pickedMessage.errors">
                     <div class="col-md-12">
                         <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your friends and family how they can help" [(ngModel)]="welMessage" name="message" #pickedMessage="ngModel"></textarea>
+                          <textarea class="form-control" pattern="[a-zA-Z0-9 ]+" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your friends and family how they can help" [(ngModel)]="welMessage" ngModel name="message" minlength="36" maxlength="1000" #pickedMessage="ngModel"></textarea>
                         </div>
                     </div>
+                    <div class="form-control-feedback" *ngIf="pickedMessage.errors">
+                          Must be at least 36 characters</div>
                   </div>
                   <hr>
                   <div class="row mt-2">

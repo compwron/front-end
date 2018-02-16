@@ -13,16 +13,18 @@
             </div>
           </div>
         <div class="row card" style="background-color: #fbfbfd;">
-          <div class="col-lg-12 mb-2">
+          <div class="col-lg-12 mb-2" [class.has-danger]="pickedAmount.errors">
             <h4 class="pt-4 twilight">Contribution to Goal</h4>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="$" aria-label="Search for..." [(ngModel)]="amount" name="amount" #pickedAmount="ngModel">
+              <input type="text" class="form-control" placeholder="$" aria-label="Search for..." [(ngModel)]="amount" pattern="[0-9]+"ngModel name="amount" #pickedAmount="ngModel">
               <span class="input-group-btn">
                 <button class="btn btn-secondary" type="button">
                   <h6 style="padding-top: 5px;"><b>USD</b></h6>
                 </button>
               </span>
             </div>
+            <div class="form-control-feedback" *ngIf="pickedAmount.errors">
+             Must enter an amount.</div>
           </div>
           <div class="row h-calc">
             <div class="col-sm-1">
@@ -68,12 +70,16 @@
             <div class="row mt-2">
               <div class="col-md-12">
                 <div class="px-2">
-                  <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" #pickedName="ngModel">
+                  <div class="input-group mb-2" [class.has-danger]="pickedName.errors">
+                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" minlength="6" maxlength="36" patter="[a-zA-Z]+" #pickedName="ngModel">
                   </div>
-                  <div class="input-group mb-2">
-                    <input type="text" class="form-control" placeholder="Email" aria-label="Search for..." [(ngModel)]="email" name="email" #pickedEmail="ngModel">
+                  <div class="form-control-feedback" *ngIf="pickedEmail.errors">
+                          must enter name.</div>
+                  <div class="input-group mb-2" [class.has-danger]="pickedEmail.errors">
+                    <input type="text" class="form-control" placeholder="Email" aria-label="Search for..." [(ngModel)]="email" name="email" minlength="6" maxlength="36" #pickedEmail="ngModel">
                   </div>
+                  <div class="form-control-feedback" *ngIf="pickedEmail.errors">
+                          must enter email.</div>
                   <div class="form-group">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Post your support." [(ngModel)]="message" name="message" #pickedMessage="ngModel"></textarea>
                   </div>
