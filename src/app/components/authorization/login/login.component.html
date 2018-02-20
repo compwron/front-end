@@ -24,7 +24,7 @@
                   <form #currentUser="ngForm" (ngSubmit)="onLogin(currentUser)">
                     <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12">
-                        <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" minlength="6" maxlength="36" name="email" #pickedEmail="ngModel" required>
+                        <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" minlength="6" maxlength="36" name="email" #pickedEmail="ngModel">
                       </div>
                       <div class="form-control-feedback" *ngIf="pickedEmail.errors">
                           must enter email.</div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <button type="submit" class="btn btn-block btn-warning btn-primary p-2 h-100 font-20">Log In</button>
+                        <button type="submit" class="btn btn-block btn-warning btn-primary p-2 h-100 font-20" [disabled]="!currentUser.form.valid">Log In</button>
                       </div>
                     </div>
                     <div>

@@ -2,31 +2,43 @@
                 <div class="row">
                   <div class="col-lg-6">
                    <form #basicInfo="ngForm" (ngSubmit)="onSubmit(basicInfo)" class="mr-5">
-                    <div class="form-group row">
-                      <div class="col-md-12 ">
+                    <div class="form-group row" [class.has-danger]="pickedName.errors">
+                      <div class="col-md-12">
                         <label><b>Who are you saving for?</b></label>
-                        <input type="text" class="form-control" placeholder="Full Name" [(ngModel)]="name" name="name" #pickedName="ngModel">
+                        <input type="text" pattern="[a-zA-Z0-9 ]+" minlength="6" maxlength="36" class="form-control" placeholder="Full Name" [(ngModel)]="name" name="name" #pickedName="ngModel">
                       </div>
+                      <div class="form-control-feedback" *ngIf="pickedName.errors">
+                          must enter name.</div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
                         <button type="button" class="btn btn-info mb-2 float-right" style="background-color: #e9ecf4; border: #e9ecf4;  color: #424958;">+ Another Person</button>
                       </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12 ">
                         <label><b>Update Email</b></label>
                         <input type="email" class="form-control" placeholder="Update Email" [(ngModel)]="email" name="email" #pickedEmail="ngModel">
                       </div>
+                      <div class="form-control-feedback" *ngIf="pickedEmail.errors">
+                          Enter valid email</div>
                     </div>
                     <div class="form-group row">
                       <div class="col-md-12 ">
                         <label><b>Update Password</b></label>
-                        <input type="password" class="form-control" placeholder="Update Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
-                        <input type="password" class="form-control mt-2" placeholder="Confirm Password"  [(ngModel)]="password2" name="password2" #pickedPassword2="ngModel">
+                        <div  [class.has-danger]="pickedPassword.errors">
+                          <input type="password" class="form-control" placeholder="Update Password" [(ngModel)]="password" ngModel name="password" #pickedPassword="ngModel" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password" minlegth="8" maxlength="36">
+                          <div class="form-control-feedback" *ngIf="pickedPassword.errors">
+                          Enter valid password</div>
+                        </div>
+                        <div [class.has-danger]="pickedPassword2.errors">
+                          <input type="password" class="form-control mt-2" placeholder="Confirm Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password" minlegth="8" maxlength="36" ngModel  [(ngModel)]="password2" name="password2" #pickedPassword2="ngModel">
+                        </div>
+                        <div class="form-control-feedback" *ngIf="pickedPassword2.errors">
+                          Enter valid password</div>
                       </div>
                     </div>
-                    <button type="submit" class="h-100 btn btn-lg btn-block btn-primary">Submit</button>
+                    <button type="submit" class="h-100 btn btn-lg btn-block btn-primary" [disabled]="!basicInfo.form.valid">Submit</button>
                   </form>
                 </div>
                 <div class="col-lg-6">

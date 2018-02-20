@@ -11,7 +11,7 @@
                 <div class="col-lg-9">
                   <div class="row">
                     <div class="col-md-12">
-                      <h2>Edit Campaign</h2>
+                      <h2>Add a Campaign</h2>
                     </div>
                   </div>
                   <div class="row">
@@ -22,8 +22,8 @@
                   <form #editCamp="ngForm" (ngSubmit)="onEditCamp(editCamp)">
                   <div class="row" [class.has-danger]="pickedCampName.errors">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Campaign Name" [(ngModel)]="campName" name="campName" #pickedCampName="ngModel" maxlength="36" minlength="12" ngModel #pickedCampName="ngModel" name="campName">
-                      <div class="form-control-feedback" *ngIf="pickedCampName.errors">
+                      <input type="text" pattern="[a-zA-Z0-9 ]+" class="form-control" placeholder="Campaign Name" [(ngModel)]="campName" name="campName" #pickedCampName="ngModel" maxlength="36" minlength="12" ngModel #pickedCampName="ngModel" name="campName">
+                      <div class="form-control-feedback" *ngIf="pickedCampName.touched && pickedCampName.errors">
                           Sorry, must be longer than 12 and shorter 36 characters.</div>
                     </div>
                   </div>
@@ -77,7 +77,7 @@
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                           <div class="input-group-text">
-                            <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="noDate" name="noDate" #pickedDate="ngModel">
+                            <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="noDate" name="noDate" #pickedNoDate="ngModel">
                           </div>
                         </div>
                         <p class="text-muted pl-3">Don't End Campaign</p>
@@ -86,12 +86,14 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="input-group">
+                      <div class="input-group" [class.has-danger]="pickedDate.errors">
                         <input class="w-100 p-2" id="meeting" type="date" value="2011-01-13"
                         [(ngModel)]="date" name="date" #pickedDate="ngModel"/>
                         <div class="input-group-addon">
                           <span class="input-group-text"><i class="icofont icofont-ui-calendar"></i></span>
                         </div>
+                        <div class="form-control-feedback" *ngIf="pickedDate.errors">
+                          Sorry, only numbers.</div>
                       </div>
                     </div>
                   </div>
@@ -140,20 +142,26 @@
                       <p class="text-muted">Sometimes people will prefer to buy a gift rather than gift money. Let them know what else they can gift to you. Pro tip: paste a link to the item on Amazon!</p>
                     </div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-2" [class.has-danger]="pickedItem1.errors">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Item 1" [(ngModel)]="item1" name="item1" #pickedItem1="ngModel">
+                      <input pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" type="url" class="form-control" placeholder="Item 1" [(ngModel)]="item1" name="item1" ngModel #pickedItem1="ngModel">
                     </div>
+                    <div class="form-control-feedback" *ngIf="pickedItem1.errors">
+                         Should be an url</div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-2" [class.has-danger]="pickedItem2.errors">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Item 2" [(ngModel)]="item2" name="item2" #pickedItem2="ngModel">
+                      <input type="url" pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?" class="form-control" placeholder="Item 2" [(ngModel)]="item2" ngModel name="item2" #pickedItem2="ngModel">
                     </div>
+                    <div class="form-control-feedback" *ngIf="pickedItem2.errors">
+                         Should be an url</div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-2" [class.has-danger]="pickedItem3.errors">
                     <div class="col-md-12">
-                      <input type="text" class="form-control" placeholder="Item 3" [(ngModel)]="item3" name="item3" #pickedItem3="ngModel">
+                      <input pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"  type="url" class="form-control" placeholder="Item 3" [(ngModel)]="item3" ngModel name="item3" #pickedItem3="ngModel">
                     </div>
+                    <div class="form-control-feedback" *ngIf="pickedItem3.errors">
+                         Should be an url</div>
                   </div>
                   <div class="row mt-2">
                     <div class="col-md-12">
@@ -171,24 +179,28 @@
                       <p class="text-muted">Once someone has contributed to your campaign they will receive this thank you message.<p>
                     </div>
                   </div>
-                  <div class="row mt-2">
+                  <div class="row mt-2" [class.has-danger]="pickedThanks.errors">
                     <div class="col-md-12">
-                        <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Thank everyone for their help." [(ngModel)]="thankYou" name="thankYou" #pickedThanks="ngModel"></textarea>
-                        </div>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Thank everyone for their help." minlength="5" maxlength="1000" pattern="[a-zA-Z0-9 ]+" ngModel [(ngModel)]="thankYou" name="thankYou" #pickedThanks="ngModel"></textarea>
                     </div>
+                    <div class="form-control-feedback" *ngIf="pickedThanks.errors && pickedThanks.dirty">
+                    Only alphabric letters and 1000 letter limit</div>
                   </div>
                   <hr>
                   <div class="row mt-2">
                     <div class="col-md-12">
                       <div class="border bg-light text-dark">
                         <label><b>Invite Friends & Family to Contribue</b></label>
-                        <div class="form-group">
-                         <input type="text" class="form-control" placeholder="Email" [(ngModel)]="fEmail" name="fEmail" #pickedFEmail="ngModel">
+                        <div class="form-group" [class.has-danger]="pickedFEmail.errors">
+                         <input type="email" class="form-control" placeholder="Email" [(ngModel)]="fEmail" ngModel name="fEmail" #pickedFEmail="ngModel">
                         </div>
-                        <div class="form-group">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Let everyone know about your campaign and how they can help!" [(ngModel)]="eMessage" name="eMessage" #pickedEMessage="ngModel"></textarea>
+                         <div class="form-control-feedback" *ngIf="pickedItem2.errors">
+                         Needs to be a valid email</div>
+                        <div class="form-group" [class.has-danger]="pickedEMessage.errors">
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Let everyone know about your campaign and how they can help!" [(ngModel)]="eMessage" maxlength="1000" minlength="12" ngModel pattern="[a-zA-Z0-9 ]+" name="eMessage" #pickedEMessage="ngModel"></textarea>
                         </div>
+                        <div class="form-control-feedback" *ngIf="pickedItem2.errors">
+                         must be longer than 12 characters</div>
                       </div>
                     </div>
                   </div>
@@ -235,7 +247,7 @@
                   </div>
                   <div class="row mt-4">
                     <div class="col-md-12">
-                      <button type="submit" class="btn font-17 btn-default btn-lg btn-block">Launch Campaign</button>
+                      <button type="submit" class="btn font-17 btn-default btn-lg btn-block" [disabled]="!editCamp.form.valid">Launch Campaign</button>
                     </div>
                   </div>
                   <div class="row mt-4">
