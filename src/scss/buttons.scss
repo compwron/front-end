@@ -1,0 +1,671 @@
+@import "colors";
+
+@mixin buttons($back-color,$border-color,$shadow-color:darken($back-color, 5%),$color:#fff,$cursor:pointer,$transition:all ease-in 0.2s){
+  background-color: $back-color;
+  border-color:$border-color;
+  color:$color;
+  cursor:$cursor;
+  transition: $transition;
+  box-shadow: 0 3px 0 0 $shadow-color;
+}
+@mixin button-hover($back-color,$border-color,$color:#fff){
+  background-color: $back-color;
+  border-color:$border-color;
+}
+@mixin button-active($back-color,$border-color,$color:#fff,$box-shadow:none){
+  background-color: $back-color !important;
+  border-color:$border-color;
+  box-shadow: 0 3px 0 0 darken($back-color, 15%);
+  color:$color;
+}
+@mixin button-focus($box-shadow:none, $color:#fff){
+  box-shadow: 0 3px 0 0 $box-shadow;
+  color:$color; /*In case we want to change*/
+}
+@mixin button-borders($color,$back-color:#fff){
+  color:$color;
+  background-color:$back-color;
+  box-shadow: none;
+}
+@mixin button-outline-focus(){
+  box-shadow: none;
+}
+
+
+.btn {
+  padding: 0.45rem 1.35rem;
+  font-size: 13px;
+}
+
+button {
+  font-style: normal;
+  font-weight: bold;
+  text-align: center;
+  color: #ffffff;
+  border-style: none;
+  border-radius: 4px;
+}
+
+.btn {
+  border-radius: 4px;
+}
+.btn:focus, .btn.focus {
+  outline: 0;
+  box-shadow: 0 2.5px 0 0 $skyblue }
+
+.btn-rounded {
+  border-radius: 100px;
+}
+.btn.btn-round {
+  border-radius: 2rem;
+}
+.btn.btn-skew {
+  transform: skew(-15deg);
+}
+.btn-sm, .btn-group-sm > .btn {
+  padding: 3px 13px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.btn-inverse {
+  background-color: #34495e;
+  border-color: #34495e;
+  color: #fff;
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+}
+.btn-outline-inverse {
+  color: #1e2a37;
+  background-color: #fff;
+  background-color: transparent;
+}
+.btn.disabled, .btn:disabled {
+  cursor: not-allowed!important;
+  opacity: .65;
+}
+
+.btn-primary {
+  @include buttons(theme-color(primary, base), theme-color(primary, base));
+  &:hover {
+    @include button-hover(theme-color(primary, hover), theme-color(primary, hover));
+  }
+  &:active {
+    @include button-active(theme-color(primary, active), theme-color(primary, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(primary, shadow))
+  }
+  &:disabled{
+    @include buttons(theme-color(primary, base), theme-color(primary, base));
+  }
+}
+.btn-default {
+  @include buttons(theme-color(default, base), theme-color(default, base));
+  &:hover {
+    @include button-hover(theme-color(default, hover), theme-color(default, hover));
+  }
+  &:active {
+    @include button-active(theme-color(default, active), theme-color(default, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(default, shadow))
+  }
+  &:disabled{
+    @include buttons(theme-color(default, base), theme-color(default, base));
+  }
+}
+.btn-success {
+  @include buttons(theme-color(success, base), theme-color(success, base));
+  &:hover {
+    @include button-hover(theme-color(success, hover), theme-color(success, hover));
+  }
+  &:active {
+    @include button-active(theme-color(success, active), theme-color(success, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(success, shadow));
+  }
+  &:disabled{
+    @include buttons(theme-color(success, base), theme-color(success, base));
+  }
+}
+
+.btn-warning {
+  @include buttons(theme-color(warning, base), theme-color(warning, base));
+  &:hover {
+    @include button-hover(theme-color(warning, hover), theme-color(warning, hover));
+  }
+  &:active {
+    @include button-active(theme-color(warning, active), theme-color(warning, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(warning, shadow));
+  }
+  &:disabled{
+    @include buttons(theme-color(warning, base), theme-color(warning, base));
+  }
+}
+
+.btn-inverse {
+  @include buttons(theme-color(inverse, base), theme-color(inverse, base));
+  &:hover {
+    @include button-hover(theme-color(inverse, hover), theme-color(inverse, hover));
+  }
+  &:active {
+    @include button-active(theme-color(inverse, active), theme-color(inverse, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(inverse, shadow));
+  }
+  &:disabled{
+    @include buttons(theme-color(inverse, base), theme-color(inverse, base));
+  }
+}
+
+.btn-info{
+  @include buttons(theme-color(info, base), theme-color(info, base));
+  &:hover {
+    @include button-hover(theme-color(info, hover), theme-color(info, hover));
+  }
+  &:active {
+    @include button-active(theme-color(info, active), theme-color(info, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(info, shadow));
+  }
+  &:disabled{
+    @include buttons(theme-color(info, base), theme-color(info, base));
+  }
+}
+
+.btn-danger{
+  @include buttons(theme-color(danger, base), theme-color(danger, base));
+  &:hover {
+    @include button-hover(theme-color(danger, hover), theme-color(danger, hover));
+  }
+  &:active {
+    @include button-active(theme-color(danger, active), theme-color(danger, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(danger, shadow));
+  }
+}
+
+/*Social buttons*/
+.btn-facebook {
+  @include buttons(theme-color(facebook, base), theme-color(facebook, base));
+  &:hover {
+    @include button-hover(theme-color(facebook, hover), theme-color(facebook, hover));
+  }
+  &:active {
+    @include button-active(theme-color(facebook, active), theme-color(facebook, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(facebook, shadow))
+  }
+  &:disabled{
+    @include buttons(theme-color(facebook, base), theme-color(facebook, base));
+  }
+}
+.btn-twitter {
+  @include buttons(theme-color(twitter, base), theme-color(twitter, base));
+  &:hover {
+    @include button-hover(theme-color(twitter, hover), theme-color(twitter, hover));
+  }
+  &:active {
+    @include button-active(theme-color(twitter, active), theme-color(twitter, active));
+  }
+  &:focus {
+    @include button-focus(theme-color(twitter, shadow))
+  }
+  &:disabled{
+    @include buttons(theme-color(twitter, base), theme-color(twitter, base));
+  }
+}
+.btn-linkedin { background-color: #007BB6; }
+.btn-dribbble { background-color: #EA4C89; }
+.btn-google-plus { background-color: #DD4B39; }
+.btn-instagram { background-color: #517FA4; }
+.btn-pinterest { background-color: #CB2027; }
+.btn-dropbox { background-color: #32506D; }
+.btn-tumblr { background-color: #00ACED; }
+
+.btn-outline-primary {
+  @include button-borders(theme-color(primary, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+.btn-outline-warning {
+  @include button-borders(theme-color(warning, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+.btn-outline-default {
+  @include button-borders(theme-color(default, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-outline-danger {
+  @include button-borders(theme-color(danger, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+.btn-outline-success {
+  @include button-borders(theme-color(success, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+.btn-outline-inverse {
+  @include button-borders(theme-color(inverse, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+  &:hover {
+    color: #fff;
+  }
+}
+
+.btn-outline-warning {
+  @include button-borders(theme-color(warning, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+.btn-outline-info {
+  @include button-borders(theme-color(info, active));
+  background-color: transparent;
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+.btn-outline-disabled {
+  @include button-borders(theme-color(disabled, active));
+  &:focus {
+    @include button-outline-focus();
+  }
+}
+
+
+
+/*Labels*/
+@mixin labels-inverse($border-color,$color){
+  border-color: $border-color;
+  color:$color !important;
+}
+
+@mixin labels-badge($back-color:#34495e,$color:#fff){
+  background-color: $back-color;
+  color:$color;
+}
+@mixin labels-badge-inverse($color,$back-color:#fff){
+  color:$color;
+  background-color: $back-color;
+}
+@mixin labels-active($back-color,$border-color,$color:#fff,$box-shadow:none){
+  background-color: $back-color !important;
+  border-color:$border-color;
+  box-shadow:$box-shadow;
+  color:$color;
+}
+.label {
+  border-radius: 4px;
+  font-size: 75%;
+  padding: 4px 7px;
+  margin-right: 5px;
+  font-weight: 700;
+  color: #fff !important;
+}
+
+.label-main {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 2px;
+}
+
+.badge {
+  border-radius: 10px;
+  padding: 3px 7px;
+}
+
+.label.label-lg {
+  padding: 8px 21px;
+}
+
+.label.label-md {
+  padding: 6px 14px;
+}
+
+.badge-lg {
+  padding: 5px 9px;
+  font-size: 14px;
+}
+
+.badge-md {
+  padding: 4px 8px;
+  font-size: 14px;
+}
+
+span.badge {
+  display: inline-block !important;
+}
+
+.label-default {
+  @include labels-active(theme-color(default, base), theme-color(default, base));
+}
+
+.label-inverse-default {
+  border: 1px solid;
+  @include labels-inverse(theme-color(default, base), theme-color(default, base));
+}
+
+.label-inverse-primary {
+  border: 1px solid;
+  @include labels-inverse(theme-color(primary, base), theme-color(primary, base));
+}
+
+.label-inverse-success {
+  border: 1px solid;
+  @include labels-inverse(theme-color(success, base), theme-color(success, base));
+}
+
+.label-inverse-warning {
+  border: 1px solid;
+  @include labels-inverse(theme-color(warning, base), theme-color(warning, base));
+}
+
+.label-inverse-danger {
+  border: 1px solid;
+  @include labels-inverse(theme-color(danger, base), theme-color(danger, base));
+}
+
+.label-inverse-info {
+  border: 1px solid;
+  @include labels-inverse(theme-color(info, base), theme-color(info, base));
+}
+
+.label-inverse-info-border {
+  border: 1px solid;
+  @include labels-inverse(theme-color(inverse, base), theme-color(inverse, base));
+}
+
+.badge-inverse-default {
+  border: 1px solid;
+  @include labels-inverse(theme-color(default, base), theme-color(default, base));
+}
+
+.badge-inverse-primary {
+  border: 1px solid;
+  @include labels-inverse(theme-color(primary, base), theme-color(primary, base));
+}
+
+.badge-inverse-success {
+  border: 1px solid;
+  @include labels-inverse(theme-color(success, base), theme-color(success, base));
+}
+
+.badge-inverse-warning {
+  border: 1px solid;
+  @include labels-inverse(theme-color(warning, base), theme-color(warning, base));
+}
+
+.badge-inverse-danger {
+  border: 1px solid;
+  @include labels-inverse(theme-color(danger, base), theme-color(danger, base));
+}
+
+.badge-inverse-info {
+  border: 1px solid;
+  @include labels-inverse(theme-color(inverse, base), theme-color(inverse, base));
+}
+
+.label-icon label {
+  position: absolute;
+}
+.label {
+  border-radius: 2px;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
+/*DYNAMIC-LOOP*/
+$label-name:primary,
+warning,
+default,
+danger,
+success,
+inverse,
+info;
+$label-color:$primary-color,
+$warning-color,
+$default-color,
+$danger-color,
+$success-color,
+$inverse-color,
+$info-color;
+@each $var in $label-name {
+  $i: index($label-name, $var);
+  .label-#{$var} {
+    background-color: nth($label-color, $i);
+  }
+}
+.icofont.icofont-envelope {
+  font-size: 20px;
+}
+
+.btn-pretty-pink {
+  color: #fff;
+  background-color: $prettyinpink;
+  border-color: transparent;
+  box-shadow: 0 2px 0 0 $pinkshadow;
+  padding:10px 16px;
+}
+.btn-linkperfume{
+  color: #fff;
+  background-color: $linkPerfume;
+  border-color: transparent;
+  box-shadow: 0 2px 0 0 $pinkshadow;
+  padding:10px 16px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.mini {
+  width: 85px;
+  height: 29px;
+}
+
+.regular {
+  width: 111.2px;
+  height: 37.5px;
+}
+
+.facebook-connect {
+  width: 400px;
+  height: 55px;
+  background-color: $bluebird;
+  box-shadow: 0 2px 0 0 $darkblue;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 5px; /*remove when added to site*/
+}
+
+.fb-share {
+  background-color: $blueyes;
+  box-shadow: 0 2px 0 0 $fbshadow;
+}
+
+.twitter-share {
+  background-color: $skyblue;
+  box-shadow: 0 2px 0 0 $summernight;
+}
+
+.email-share {
+  background-color: $lagoon;
+  box-shadow: 0 2px 0 0 $darkteal;
+}
+
+.paypal {
+  width: 400px;
+  height: 55px;
+  background-color: $prettyinpink;
+  box-shadow: 0 2px 0 0 $pinkshadow;
+  font-size: 20px;
+}
+
+/*in app button*/
+
+.grey-btn {
+  font-family: "Gotham SSm A", "Gotham SSm B";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+  color: $gunmetal;
+}
+
+.login {
+  width: 400px;
+  height: 55px;
+  background-color: $mustard;
+  box-shadow: 0 2px 0 0 $muffin;
+  font-family: IdealSans;
+  font-size: 20px;
+}
+
+.sml-join {
+  width: 107px;
+  height: 37.5px;
+  background-color: $mustard;
+  box-shadow: 0 2px 0 0 $muffin;
+  font-size: 16px;
+}
+
+.join {
+  width: 450px;
+  height: 55px;
+  background-color: $mustard;
+  box-shadow: 0 2px 0 0 $muffin;
+  font-size: 20px;
+}
+
+.subscribe {
+  width: 122px;
+  height: 44px;
+  background-color: $mustard;
+  box-shadow: 0 2px 0 0 $muffin;
+  font-size: 18px;
+}
+
+.add-campaign {
+  width: 141.2px;
+  height: 37.5px;
+  background-color: $prettyinpink;
+  box-shadow: 0 2px 0 0 $pinkshadow;
+  font-size: 16px;
+}
+
+.add-person, .add-item {
+  width: 175px;
+  height: 37.5px;
+  background-color: $ghettoWhite;
+  border: solid 1px $borderWall;
+  box-shadow: 0 2px 0 0 $stormclouds;
+  margin-top: 5px; /*remove when added to site*/
+}
+
+.choose-file {
+  width: 126px;
+  height: 37.5px;
+  background-color: $ghettoWhite ;
+  border: solid 1px $borderWall;
+  box-shadow: 0 2px 0 0 $stormclouds;
+}
+
+.host-view {
+  width: 141.2px;
+  height: 37.5px;
+  background-color: $linkPerfume;
+  box-shadow: 0 2px 0 0 rgba(65, 58, 116, 0.62);
+  font-size: 16px;
+}
+
+.campaign-list {
+  width: 141.2px;
+  height: 37.5px;
+  background-color: $ghettoWhite ;
+  box-shadow: 0 2px 0 0 $stormclouds;
+  font-size: 16px;
+  color: #393c3e;
+}
+
+.deactivate {
+  width: 189px;
+  height: 37.5px;
+  border: solid 2px $red;
+  background-color: #fff;
+  font-family: GothamHTF;
+  font-size: 16px;
+  color: $red;
+}
+
+.sml-launch {
+  width: 171.2px;
+  height: 37.5px;
+  background-color: $prettyinpink;
+  box-shadow: 0 2px 0 0 $pinkshadow;
+  font-size: 16px;
+}
+
+.launch {
+  width: 650px;
+  height: 55px;
+  background-color: $prettyinpink;
+  box-shadow: 0 2px 0 0 $pinkshadow;
+  font-family: IdealSans;
+  font-size: 20px;
+  margin-top: 5px; /*remove when add to app*/
+}
+
+.text-uppercase  { text-transform: uppercase !important; }
+
+.label.label-rounded {
+  border-radius: 1em;
+}
+
+
+/*overrides*/
+.btn-facebook:hover {
+  color: white;
+}
+
+.btn-inverse:hover{
+  color: white;
+}

@@ -1,0 +1,11 @@
+@media only screen and (max-width: 1080px) {
+  [class*="col-"] {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 691px) {
+  .edit {
+    float-right: none;
+  }
+}

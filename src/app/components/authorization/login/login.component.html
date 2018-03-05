@@ -1,0 +1,74 @@
+<section class="bg-ghetto-white p-3">
+  <div class="container my-5">
+    <section>
+      <div class="row my-4">
+        <div class="col-lg-3">
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                  <div class="col-md-1">
+                  </div>
+                  <div class="col-md-10">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <h2 class="title pl-4 text-center">Log In To Your Account</h2>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="txt-small font-12 text-center">Don’t have an account? <a href="#" class="string-link">Join Now</a></p>
+                    </div>
+                  </div>
+                  <form #currentUser="ngForm" (ngSubmit)="onLogin(currentUser)">
+                    <div class="form-group row" [class.has-danger]="pickedEmail.errors">
+                      <div class="col-md-12">
+                        <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" minlength="6" maxlength="36" name="email" #pickedEmail="ngModel">
+                      </div>
+                      <div class="form-control-feedback" *ngIf="pickedEmail.errors">
+                          must enter email.</div>
+                    </div>
+                    <div class="form-group row" [class.has-danger]="pickedPassword.errors">
+                      <div class="input-group col-md-12">
+                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password"  class="form-control" id="password" minlegth="8" maxlength="36" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
+                        <div class="input-group-addon p-3">
+                            <i class="icofont icofont-eye"></i>
+                        </div>
+                      </div>
+                      <div class="form-control-feedback" *ngIf="pickedPassword.errors">
+                          Password must contain UpperCase, LowerCase, Number/SpecialChar and min 8 characters.</div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <button type="submit" class="btn btn-block btn-warning btn-primary p-2 h-100 font-20" [disabled]="!currentUser.form.valid">Log In</button>
+                      </div>
+                    </div>
+                    <div>
+                        <hr class="hr-text">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <a href="#fakelink" class="btn btn-facebook btn-block mb-2 h-100 font-18 "><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="col-md-12 text-center">
+                        <a href="#" class="string-link">Forgot password?</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-1">
+                </div>
+              </div>
+            </div>
+           <div class="col-lg-3">
+           </div>
+        </div>
+      </div>
+    </div>
+    </section>
+  </div>
+</section>
+

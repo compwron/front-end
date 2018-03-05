@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="56" viewBox="0 0 76 56">
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#F6F6FA" d="M1.196.553h73.737v48.868H1.196z"/>
+        <path fill="#140534" d="M74.38 1.184v47.684H1.828V1.184H74.38zM75.564 0H.643v50.053h74.921V0z"/>
+        <path fill="#FFF" d="M1.196 5.29h73.737v48.868H1.196z"/>
+        <path fill="#140534" d="M74.38 5.921v47.684H1.828V5.921H74.38zm1.184-1.184H.643V54.789h74.921V4.737z"/>
+        <path fill="#413B74" d="M1.828 5.921H74.38v5.526H1.828z"/>
+        <path fill="#F6F6FA" d="M1.828 11.447H74.38v42.237H1.828z"/>
+        <path fill="#E2E0EF" d="M46.117 11.29H74.38v42.316H46.117z"/>
+        <path fill="#26A7DF" stroke="#140534" stroke-width="1.2" d="M49.433 15.158h5.447v5.605h-5.447z"/>
+        <path stroke="#26A7DF" stroke-width="1.5" d="M59.775 16.895h6.947"/>
+        <path stroke="#140534" stroke-width="1.2" d="M59.775 19.421h9.632"/>
+        <path stroke="#140534" stroke-width="1.5" d="M6.643 45H39.25M6.643 49.737H36.96"/>
+        <path fill="#F285A1" stroke="#140534" stroke-width="1.2" d="M6.644 16.421h34.895v18.316H6.644z"/>
+        <path fill="#72CCDE" stroke="#140534" stroke-width="1.2" d="M49.433 25.105h5.447v5.605h-5.447z"/>
+        <path stroke="#26A7DF" stroke-width="1.5" d="M59.775 26.842h6.947M6.643 40.658h27.553"/>
+        <path stroke="#140534" stroke-width="1.2" d="M59.775 29.447h9.632"/>
+        <path fill="#F5B758" stroke="#140534" stroke-width="1.2" d="M49.433 35.052h5.447v5.605h-5.447z"/>
+        <path stroke="#26A7DF" stroke-width="1.5" d="M59.775 36.868h6.947"/>
+        <path stroke="#140534" stroke-width="1.2" d="M59.775 39.395h9.632M46.117 11.29v42.315"/>
+        <g fill="#140534" opacity=".4" transform="translate(3.012 1.579)">
+            <circle cx="1.026" cy="1.342" r="1"/>
+        </g>
+        <g fill="#140534" opacity=".4" transform="translate(5.38 1.579)">
+            <circle cx="1.184" cy="1.342" r="1"/>
+        </g>
+        <g fill="#140534" opacity=".4" transform="translate(7.749 1.579)">
+            <circle cx="1.263" cy="1.342" r="1"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,13 @@
+@media only screen and (min-width: 576px) {
+    /* For desktop: */
+    app-category {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    /* For mobile phones: */
+      app-feature-widget {
+        display: none;
+    }
+}

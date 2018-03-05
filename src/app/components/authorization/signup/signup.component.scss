@@ -1,0 +1,22 @@
+@media only screen and (max-width: 991px) {
+     /*For desktop:*/
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .left-border {
+      border-left: 0;
+    }
+
+    .r-txt {
+      text-align: center;
+    }
+
+    .r-img {
+      margin-left: 42%;
+    }
+
+    .su-form {
+      padding-left: 20%;
+    }
+}
