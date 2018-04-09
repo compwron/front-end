@@ -38,6 +38,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { CampaignBriefComponent } from './campaign-brief/campaign-brief.component';
 import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
+import { CampaignOneService } from './services/campaign-one.service';
 
 
 const appRoutes: Routes = [
@@ -97,7 +98,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-	CampaignService
+	CampaignService,
+	CampaignOneService
   ],
   bootstrap: [AppComponent]
 })

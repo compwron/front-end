@@ -1,4 +1,4 @@
-<div class="card">
+<a routerLink="/campaigns/{{ campaign.id }}" class="card">
 	<img class="card-img-top" [src]="campaign.banner" alt="campaign banner image" />
 	<div class="card-block camp-card">
 		<div class="row pb-2">
@@ -34,4 +34,4 @@
 			<div>is this campaign is published? {{ campaign.published }} </div>
 		</div>
 	</div>
-</div>
+</a>
