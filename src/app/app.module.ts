@@ -11,9 +11,11 @@ import {NavComponent} from "./layout/nav.component";
 import { ButtonsComponent } from './sg/buttons/buttons.component';
 import { FormsComponent } from './sg/forms/forms.component';
 
+import { CampaignService } from './campaign.service'
 
 import { AppComponent } from './app.component';
 import { CampaignsComponent } from './components/pub-camps/campaigns/campaigns.component';
+import { CampaignBriefComponent } from './campaign-brief/campaign-brief.component'
 import { IndivCampComponent } from './components/pub-camps/indiv-camp/indiv-camp.component';
 import { MycampaignsComponent } from './components/my-camps/mycampaigns/mycampaigns.component';
 import { MyindivcampComponent } from './components/my-camps/myindivcamp/myindivcamp.component';
@@ -34,6 +36,8 @@ import { AuthorWidgetComponent } from './components/author-widget/author-widget.
 import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component';
 import { CategoryComponent } from './components/category/category.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { CampaignBriefComponent } from './campaign-brief/campaign-brief.component';
+import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component';
 
 
 const appRoutes: Routes = [
@@ -63,6 +67,7 @@ const appRoutes: Routes = [
     FooterComponent,
     FormsComponent,
     CampaignsComponent,
+    CampaignBriefComponent,
     IndivCampComponent,
     MycampaignsComponent,
     MyindivcampComponent,
@@ -82,14 +87,18 @@ const appRoutes: Routes = [
     PaymentWidgetComponent,
     CategoryComponent,
     MyProfileComponent,
-    PaymentDeetsComponent
+    PaymentDeetsComponent,
+    CampaignBriefComponent,
+    CampaignDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+	CampaignService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

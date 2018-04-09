@@ -1,20 +1,20 @@
 <nav style="background-color: #413a74;" class="sticky-top navbar navbar-collapse navbar-toggleable-md navbar-light bg-faded ">
   <div class="container">
-    <img src="./assets/images/logo.png" style="width:150px"/>
+  	<a routerLink="tableofcontents" ><img src="./assets/images/logo.png" style="width:150px"/></a>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Campaigns <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/campaigns" >Campaigns <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">FAQs</a>
+          <a class="nav-link" routerLink="/faq" >FAQs</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Community Resources</a>
+          <a class="nav-link" routerLink="/resources" >Community Resources</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 mr-sm-2" >
-        <a href="#" class="font-14 pr-4 login-link">Log In </a>
+        <a class="font-14 pr-4 login-link" routerLink="/login" >Log In </a>
         <button class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
       </form>
       <form class="form-inline my-2 my-lg-0 mr-sm-2" hidden="true">
