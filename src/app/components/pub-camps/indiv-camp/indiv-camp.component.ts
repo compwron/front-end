@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { CampaignOneService } from '../../../services/campaign-one.service'
-import { Campaign } from '/objects/Campaign'
+import { Campaign } from '../../../objects/Campaign'
 
 @Component({
   selector: 'app-indiv-camp',

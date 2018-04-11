@@ -13,10 +13,11 @@
           <a class="nav-link" routerLink="/resources" >Community Resources</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-sm-2" >
+      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!loggedIn()" >
         <a class="font-14 pr-4 login-link" routerLink="/login" >Log In </a>
-        <button class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
+    	<button routerLink="/signup" class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
       </form>
+      <button *ngIf="loggedIn()" routerLink="/login" (click)="signOut()" >Log Out</button>
       <form class="form-inline my-2 my-lg-0 mr-sm-2" hidden="true">
         <button class="btn btn-default btn my-2 my-sm-0 font-14">Add Campaign</button>
         <div class="nav-item dropdown pl-2 nav-drop">

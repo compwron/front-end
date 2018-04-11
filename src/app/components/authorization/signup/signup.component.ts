@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { LoginService } from '../../../services/login.service'
+
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -12,7 +15,9 @@ export class SignupComponent implements OnInit {
   password:string;
 
   onSignUp(form:NgForm) {
-    console.log(form.value)
+    // console.log(form.value)
+    let { name, email, password } = form.value
+    
   }
   constructor() { }
 
