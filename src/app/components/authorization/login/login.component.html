@@ -21,7 +21,7 @@
                       <p class="txt-small font-12 text-center">Don’t have an account? <a routerLink="/signup" class="string-link">Join Now</a></p>
                     </div>
                   </div>
-                  <form #currentUser="ngForm" (ngSubmit)="onLogin(currentUser)">
+                  <form #currentUser="ngForm" (ngSubmit)="emailLogin(currentUser)">
                     <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12">
                         <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" minlength="6" maxlength="36" name="email" #pickedEmail="ngModel">

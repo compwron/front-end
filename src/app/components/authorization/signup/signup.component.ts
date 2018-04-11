@@ -10,16 +10,18 @@ import { LoginService } from '../../../services/login.service'
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-  name:string;
+  displayName:string;
   email:string;
   password:string;
 
+  constructor(
+  	private loginService: LoginService
+  ) { }
+
   onSignUp(form:NgForm) {
-    // console.log(form.value)
-    let { name, email, password } = form.value
-    
+    let { displayName, email, password } = form.value
+    this.loginService.emailSignup(email, password, displayName)
   }
-  constructor() { }
 
   ngOnInit() {
   }

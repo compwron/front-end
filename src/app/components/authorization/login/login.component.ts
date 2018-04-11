@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 	emailLogin (form: NgForm): void {
 		let { email, password } = form.value
 		console.log("tried to login with uin/pw")
-		this.loginService.email(uin, pw)
+		this.loginService.email(email, password)
 	}
 	
 	ngOnInit() {

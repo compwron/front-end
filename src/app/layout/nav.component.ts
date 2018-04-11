@@ -10,10 +10,6 @@ export class NavComponent implements OnInit {
 		private loginService: LoginService
 	) {}
 	
-	loggedIn (): bool {
-		console.log("checking login: ", this.loginService.loggedIn())
-		return this.loginService.loggedIn()
-	}
-	
+	loggedIn (): bool { return this.loginService.loggedIn() }
 	signOut (): void { this.loginService.signOut() }
 }
