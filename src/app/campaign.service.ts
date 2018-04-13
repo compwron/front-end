@@ -9,7 +9,7 @@ import { Campaign } from './objects/Campaign'
 // import { User } from '../objects/campaign'
 // import { Article } from '../objects/campaign'
 
-import { db } from './utilities/utilities'
+import { db, firebase } from './utilities/utilities'
 
 @Injectable()
 export class CampaignService {
@@ -18,10 +18,13 @@ export class CampaignService {
 	getCampaigns(): Observable<Campaign[]> {
 		const dbObjects = fromPromise(db.collection("campaigns").get())
 
-		const extractCampaigns = map(snapshot => {
-			let campaigns: Campaign[] = []
-			snapshot.forEach(c => campaigns.push(Object.assign({}, c.data(), { id: c.id })))
-			return campaigns
+		const extractCampaigns = map((snapshot: firebase.firestore.QuerySnapshot) => {
+			if (!snapshot.empty) {
+				let campaigns: Campaign[] = []
+				snapshot.forEach(c => campaigns.push(Object.assign({}, c.data(), { id: c.id })))
+				return campaigns
+			}
+			else return []
 		})
 		
 		const campaigns = extractCampaigns(dbObjects)

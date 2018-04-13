@@ -13,7 +13,7 @@
     ]
   },
   "hosting": {
-    "public": "src/assets",
+    "public": "dist",
     "ignore": [
       "firebase.json",
       "**/.*",

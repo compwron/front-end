@@ -18,16 +18,18 @@ export class LoginService {
 	) { }
 
 	authKey: string
-	user: string
+	user //: User
 	displayName: string
 	previous: string = "/"
-	pridepocketUser: User
+	pridepocketUser //: User
 	
-	extractUser = map(response => response.user)
+	extractUser = map((response: firebase.auth.UserCredential) => response.user)
 	
-	loggedIn (): bool { return !!firebase.auth().currentUser }
+	loggedIn (): boolean { return !!firebase.auth().currentUser }
 
 	setPrevious (previous): void { this.previous = previous }
+
+	getCurrentUserId (): string { firebase.auth().currentUser.uid }
 
 	handleCallback (observable): void {
 		// inject a spinner service on the constructor and trigger it here
@@ -58,7 +60,7 @@ export class LoginService {
 			
 			// route to the page the user started at?
 			this.router.navigateByUrl(this.previous)
-		}
+		})
 	}
 
 	// handleEmailSignin (onAuthStateChanged) {
@@ -91,12 +93,12 @@ export class LoginService {
 				// route to the page the user started at?
 				this.router.navigateByUrl(this.previous)
 			}
-		}
+		})
 	}
 
 	facebook (): void {
 		const provider = new firebase.auth.FacebookAuthProvider()
-		const o = fromPrommise(firebase.auth().signInWithPopup(provider))
+		const o = fromPromise(firebase.auth().signInWithPopup(provider))
 		
 		this.handleCallback(this.extractUser(o))
 

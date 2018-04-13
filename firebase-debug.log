@@ -1,0 +1,43 @@
+[debug] [2018-04-13T02:38:06.566Z] ----------------------------------------------------------------------
+[debug] [2018-04-13T02:38:06.572Z] Command:       /usr/bin/nodejs /home/cjohnson/.npm-packages/bin/firebase functions:shell
+[debug] [2018-04-13T02:38:06.574Z] CLI Version:   3.18.0
+[debug] [2018-04-13T02:38:06.574Z] Platform:      linux
+[debug] [2018-04-13T02:38:06.574Z] Node Version:  v7.10.1
+[debug] [2018-04-13T02:38:06.584Z] Time:          Thu Apr 12 2018 19:38:06 GMT-0700 (PDT)
+[debug] [2018-04-13T02:38:06.584Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-13T02:38:06.616Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-13T02:38:06.617Z] > authorizing via signed-in user
+[debug] [2018-04-13T02:38:06.622Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-13T02:38:06.623Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/FUC2-K71jp_a_7tZy-w1GhFN6ertF1xx2sCLBJU4bZc',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Thu Apr 12 2018 19:38:06 GMT-0700 (PDT)
+[debug] [2018-04-13T02:38:07.202Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-13T02:38:07.210Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/pridepocket-3473b  
+  
+ Thu Apr 12 2018 19:38:07 GMT-0700 (PDT)
+[debug] [2018-04-13T02:38:07.905Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-13T02:38:07.909Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/pridepocket-3473b/tokens  
+  
+ Thu Apr 12 2018 19:38:07 GMT-0700 (PDT)
+[debug] [2018-04-13T02:38:09.037Z] <<< HTTP RESPONSE 200
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-04-13T02:38:11.587Z] Fetching environment
+[debug] [2018-04-13T02:38:11.593Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/pridepocket-3473b  
+  
+ Thu Apr 12 2018 19:38:11 GMT-0700 (PDT)
+[debug] [2018-04-13T02:38:12.435Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-13T02:38:12.437Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/760914673438:getServerAppConfig  
+  
+ Thu Apr 12 2018 19:38:12 GMT-0700 (PDT)
+[debug] [2018-04-13T02:38:13.053Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-13T02:38:13.056Z] Starting @google-cloud/functions-emulator
+[debug] [2018-04-13T02:38:17.182Z] Parsing function triggers
+[info] ✔  functions: pay
+[info] ✔  functions: register
+[info] ✔  functions: t
+[info] ✔  functions: redirect

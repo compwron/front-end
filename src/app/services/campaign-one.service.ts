@@ -6,7 +6,7 @@ import { fromPromise } from 'rxjs/observable/fromPromise'
 
 import { Campaign } from '../objects/Campaign'
 
-import { db } from '../utilities/utilities'
+import { db, firebase } from '../utilities/utilities'
 
 @Injectable()
 export class CampaignOneService {
@@ -14,7 +14,7 @@ export class CampaignOneService {
 	
 	get (id): Observable<Campaign> {
 		const dbObject = fromPromise(db.collection("campaigns").doc(id).get())
-		const extractCampaign = map(response => Object.assign({}, response.data(), { id: response.id }))
+		const extractCampaign = map((response: firebase.firestore.DocumentSnapshot) => Object.assign({}, response.data(), { id: response.id }))
 		const campaign =  extractCampaign(dbObject)
 		return campaign
 	}

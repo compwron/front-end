@@ -1,0 +1,3087 @@
+2018-04-12T00:15:26.058Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:15:26.090Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:15:26.094Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:15:26.101Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:15:26.238Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-12T00:15:26.270Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-12T00:22:42.681Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:22:42.715Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:22:42.726Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:22:42.741Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:22:42.840Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-12T00:22:42.932Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-12T00:30:53.514Z - info: User function triggered, starting execution
+2018-04-12T00:30:56.011Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:30:56.041Z - info: Execution took 2623 ms, finished with status: 'crash'
+2018-04-12T00:30:56.068Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:31:18.418Z - info: User function triggered, starting execution
+2018-04-12T00:31:21.094Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:31:21.107Z - info: Execution took 3952 ms, finished with status: 'crash'
+2018-04-12T00:31:21.135Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:31:54.792Z - info: User function triggered, starting execution
+2018-04-12T00:31:56.716Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:31:56.726Z - info: Execution took 2963 ms, finished with status: 'crash'
+2018-04-12T00:31:56.756Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:35:29.515Z - info: User function triggered, starting execution
+2018-04-12T00:35:30.709Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:35:30.717Z - info: Execution took 2233 ms, finished with status: 'crash'
+2018-04-12T00:35:30.743Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:37:46.198Z - info: User function triggered, starting execution
+2018-04-12T00:37:47.929Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:37:47.939Z - info: Execution took 2807 ms, finished with status: 'crash'
+2018-04-12T00:37:47.965Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:39:01.577Z - info: User function triggered, starting execution
+2018-04-12T00:39:02.962Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:39:02.977Z - info: Execution took 2461 ms, finished with status: 'crash'
+2018-04-12T00:39:03.008Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:40:32.646Z - info: User function triggered, starting execution
+2018-04-12T00:40:34.249Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:40:34.264Z - info: Execution took 2644 ms, finished with status: 'crash'
+2018-04-12T00:40:34.304Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:41:00.134Z - info: User function triggered, starting execution
+2018-04-12T00:41:01.496Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:41:01.508Z - info: Execution took 2402 ms, finished with status: 'crash'
+2018-04-12T00:41:01.531Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:41:33.762Z - info: User function triggered, starting execution
+2018-04-12T00:41:36.107Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:41:36.116Z - info: Execution took 3629 ms, finished with status: 'crash'
+2018-04-12T00:41:36.152Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:43:54.912Z - info: User function triggered, starting execution
+2018-04-12T00:43:56.632Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:43:56.645Z - info: Execution took 3016 ms, finished with status: 'crash'
+2018-04-12T00:43:56.673Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:44:56.911Z - info: User function triggered, starting execution
+2018-04-12T00:44:58.198Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:44:58.209Z - info: Execution took 2586 ms, finished with status: 'crash'
+2018-04-12T00:44:58.238Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:45:35.911Z - info: User function triggered, starting execution
+2018-04-12T00:45:37.329Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:45:37.344Z - info: Execution took 2495 ms, finished with status: 'crash'
+2018-04-12T00:45:37.379Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:45:45.656Z - info: User function triggered, starting execution
+2018-04-12T00:45:46.986Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:45:46.994Z - info: Execution took 2586 ms, finished with status: 'crash'
+2018-04-12T00:45:47.012Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:46:51.329Z - info: User function triggered, starting execution
+2018-04-12T00:46:52.646Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:46:52.661Z - info: Execution took 1433 ms, finished with status: 'crash'
+2018-04-12T00:46:52.676Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:47:11.777Z - info: User function triggered, starting execution
+2018-04-12T00:47:12.975Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:47:12.983Z - info: Execution took 2465 ms, finished with status: 'crash'
+2018-04-12T00:47:12.998Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:47:38.221Z - info: User function triggered, starting execution
+2018-04-12T00:47:39.556Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:47:39.568Z - info: Execution took 2418 ms, finished with status: 'crash'
+2018-04-12T00:47:39.601Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:47:46.009Z - info: User function triggered, starting execution
+2018-04-12T00:47:48.192Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:47:48.199Z - info: Execution took 3236 ms, finished with status: 'crash'
+2018-04-12T00:47:48.215Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:48:08.204Z - info: User function triggered, starting execution
+2018-04-12T00:48:09.528Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:48:09.542Z - info: Execution took 2594 ms, finished with status: 'crash'
+2018-04-12T00:48:09.576Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:48:37.631Z - info: User function triggered, starting execution
+2018-04-12T00:48:39.058Z - error: undefined:1
+<!DOCTYPE html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:81:47)
+    at emitNone (events.js:91:20)
+    at IncomingMessage.emit (events.js:188:7)
+    at endReadableNT (_stream_readable.js:975:12)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-12T00:48:39.070Z - info: Execution took 2698 ms, finished with status: 'crash'
+2018-04-12T00:48:39.098Z - error: Function worker crashed with exit code: 1
+2018-04-12T00:55:24.337Z - info: User function triggered, starting execution
+2018-04-12T00:55:24.362Z - info: Execution took 23 ms, user function completed successfully
+2018-04-12T00:55:31.907Z - info: User function triggered, starting execution
+2018-04-12T00:55:31.981Z - info: IncomingMessage {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 16384,
+     buffer: BufferList { head: null, tail: null, length: 0 },
+     length: 0,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: false,
+     endEmitted: false,
+     reading: false,
+     sync: true,
+     needReadable: false,
+     emittedReadable: false,
+     readableListening: false,
+     resumeScheduled: false,
+     defaultEncoding: 'utf8',
+     ranOut: false,
+     awaitDrain: 0,
+     readingMore: true,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  socket: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 32237,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  connection: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 32237,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  httpVersionMajor: 1,
+  httpVersionMinor: 1,
+  httpVersion: '1.1',
+  complete: false,
+  headers: { connection: 'close', host: 'localhost:5000' },
+  rawHeaders: [ 'connection', 'close', 'host', 'localhost:5000' ],
+  trailers: {},
+  rawTrailers: [],
+  upgrade: false,
+  url: '/',
+  method: 'GET',
+  statusCode: null,
+  statusMessage: null,
+  client: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 32237,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  _consuming: false,
+  _dumped: false,
+  next: [Function: next],
+  baseUrl: '',
+  originalUrl: '/',
+  _parsedUrl: 
+   Url {
+     protocol: null,
+     slashes: null,
+     auth: null,
+     host: null,
+     port: null,
+     hostname: null,
+     hash: null,
+     search: null,
+     query: null,
+     pathname: '/',
+     path: '/',
+     href: '/',
+     _raw: '/' },
+  params: {},
+  query: {},
+  res: 
+   ServerResponse {
+     domain: null,
+     _events: { finish: [Object] },
+     _eventsCount: 1,
+     _maxListeners: undefined,
+     output: [],
+     outputEncodings: [],
+     outputCallbacks: [],
+     outputSize: 0,
+     writable: true,
+     _last: false,
+     upgrading: false,
+     chunkedEncoding: false,
+     shouldKeepAlive: false,
+     useChunkedEncodingByDefault: true,
+     sendDate: true,
+     _removedHeader: {},
+     _contentLength: null,
+     _hasBody: true,
+     _trailer: '',
+     finished: false,
+     _headerSent: false,
+     socket: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 32237,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     connection: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 32237,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     _header: null,
+     _headers: 
+      { 'x-powered-by': 'Express',
+        'cache-control': 'no-cache, no-store, must-revalidate',
+        pragma: 'no-cache',
+        expires: '0' },
+     _headerNames: 
+      { 'x-powered-by': 'X-Powered-By',
+        'cache-control': 'Cache-Control',
+        pragma: 'Pragma',
+        expires: 'Expires' },
+     _onPendingData: [Function: bound updateOutgoingData],
+     _sent100: false,
+     _expect_continue: false,
+     req: [Circular],
+     locals: {} },
+  body: {} }
+2018-04-12T00:55:32.002Z - info: Execution took 91 ms, user function completed successfully
+2018-04-12T00:55:58.499Z - info: User function triggered, starting execution
+2018-04-12T00:55:58.581Z - info: IncomingMessage {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 16384,
+     buffer: BufferList { head: null, tail: null, length: 0 },
+     length: 0,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: false,
+     endEmitted: false,
+     reading: false,
+     sync: true,
+     needReadable: false,
+     emittedReadable: false,
+     readableListening: false,
+     resumeScheduled: false,
+     defaultEncoding: 'utf8',
+     ranOut: false,
+     awaitDrain: 0,
+     readingMore: true,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  socket: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 58854,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  connection: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 58854,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  httpVersionMajor: 1,
+  httpVersionMinor: 1,
+  httpVersion: '1.1',
+  complete: false,
+  headers: { connection: 'close', host: 'localhost:5000' },
+  rawHeaders: [ 'connection', 'close', 'host', 'localhost:5000' ],
+  trailers: {},
+  rawTrailers: [],
+  upgrade: false,
+  url: '/',
+  method: 'GET',
+  statusCode: null,
+  statusMessage: null,
+  client: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 58854,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  _consuming: false,
+  _dumped: false,
+  next: [Function: next],
+  baseUrl: '',
+  originalUrl: '/',
+  _parsedUrl: 
+   Url {
+     protocol: null,
+     slashes: null,
+     auth: null,
+     host: null,
+     port: null,
+     hostname: null,
+     hash: null,
+     search: null,
+     query: null,
+     pathname: '/',
+     path: '/',
+     href: '/',
+     _raw: '/' },
+  params: {},
+  query: {},
+  res: 
+   ServerResponse {
+     domain: null,
+     _events: { finish: [Object] },
+     _eventsCount: 1,
+     _maxListeners: undefined,
+     output: [],
+     outputEncodings: [],
+     outputCallbacks: [],
+     outputSize: 0,
+     writable: true,
+     _last: false,
+     upgrading: false,
+     chunkedEncoding: false,
+     shouldKeepAlive: false,
+     useChunkedEncodingByDefault: true,
+     sendDate: true,
+     _removedHeader: {},
+     _contentLength: null,
+     _hasBody: true,
+     _trailer: '',
+     finished: false,
+     _headerSent: false,
+     socket: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 58854,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     connection: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 58854,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     _header: null,
+     _headers: 
+      { 'x-powered-by': 'Express',
+        'cache-control': 'no-cache, no-store, must-revalidate',
+        pragma: 'no-cache',
+        expires: '0' },
+     _headerNames: 
+      { 'x-powered-by': 'X-Powered-By',
+        'cache-control': 'Cache-Control',
+        pragma: 'Pragma',
+        expires: 'Expires' },
+     _onPendingData: [Function: bound updateOutgoingData],
+     _sent100: false,
+     _expect_continue: false,
+     req: [Circular],
+     locals: {} },
+  body: {} }
+2018-04-12T00:55:58.591Z - info: Execution took 90 ms, user function completed successfully
+2018-04-12T01:01:40.566Z - info: User function triggered, starting execution
+2018-04-12T01:01:40.616Z - info: IncomingMessage {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 16384,
+     buffer: BufferList { head: null, tail: null, length: 0 },
+     length: 0,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: false,
+     endEmitted: false,
+     reading: false,
+     sync: true,
+     needReadable: false,
+     emittedReadable: false,
+     readableListening: false,
+     resumeScheduled: false,
+     defaultEncoding: 'utf8',
+     ranOut: false,
+     awaitDrain: 0,
+     readingMore: true,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  socket: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 400922,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  connection: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 400922,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  httpVersionMajor: 1,
+  httpVersionMinor: 1,
+  httpVersion: '1.1',
+  complete: false,
+  headers: { connection: 'close', host: 'localhost:5000' },
+  rawHeaders: [ 'connection', 'close', 'host', 'localhost:5000' ],
+  trailers: {},
+  rawTrailers: [],
+  upgrade: false,
+  url: '/',
+  method: 'GET',
+  statusCode: null,
+  statusMessage: null,
+  client: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 400922,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  _consuming: false,
+  _dumped: false,
+  next: [Function: next],
+  baseUrl: '',
+  originalUrl: '/',
+  _parsedUrl: 
+   Url {
+     protocol: null,
+     slashes: null,
+     auth: null,
+     host: null,
+     port: null,
+     hostname: null,
+     hash: null,
+     search: null,
+     query: null,
+     pathname: '/',
+     path: '/',
+     href: '/',
+     _raw: '/' },
+  params: {},
+  query: {},
+  res: 
+   ServerResponse {
+     domain: null,
+     _events: { finish: [Object] },
+     _eventsCount: 1,
+     _maxListeners: undefined,
+     output: [],
+     outputEncodings: [],
+     outputCallbacks: [],
+     outputSize: 0,
+     writable: true,
+     _last: false,
+     upgrading: false,
+     chunkedEncoding: false,
+     shouldKeepAlive: false,
+     useChunkedEncodingByDefault: true,
+     sendDate: true,
+     _removedHeader: {},
+     _contentLength: null,
+     _hasBody: true,
+     _trailer: '',
+     finished: false,
+     _headerSent: false,
+     socket: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 400922,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     connection: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 400922,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     _header: null,
+     _headers: 
+      { 'x-powered-by': 'Express',
+        'cache-control': 'no-cache, no-store, must-revalidate',
+        pragma: 'no-cache',
+        expires: '0' },
+     _headerNames: 
+      { 'x-powered-by': 'X-Powered-By',
+        'cache-control': 'Cache-Control',
+        pragma: 'Pragma',
+        expires: 'Expires' },
+     _onPendingData: [Function: bound updateOutgoingData],
+     _sent100: false,
+     _expect_continue: false,
+     req: [Circular],
+     locals: {} },
+  body: {} }
+2018-04-12T01:01:40.622Z - info: Execution took 56 ms, user function completed successfully
+2018-04-12T01:03:13.758Z - info: User function triggered, starting execution
+2018-04-12T01:03:13.765Z - info: {}
+2018-04-12T01:03:13.798Z - info: Execution took 43 ms, user function completed successfully
+2018-04-12T01:03:34.905Z - info: User function triggered, starting execution
+2018-04-12T01:03:34.910Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:03:34.913Z - info: Execution took 8 ms, user function completed successfully
+2018-04-12T01:03:59.086Z - info: User function triggered, starting execution
+{ displayName: 'donkey', uid: '12345678' }
+Execution took 1 ms, user function completed successfully
+2018-04-12T01:08:02.357Z - info: User function triggered, starting execution
+{ displayName: 'donkey', uid: '12345678' }
+Execution took 1 ms, user function completed successfully
+2018-04-12T01:10:22.672Z - info: User function triggered, starting execution
+2018-04-12T01:10:22.681Z - info: {}
+2018-04-12T01:10:22.726Z - info: Execution took 58 ms, user function completed successfully
+2018-04-12T01:10:44.326Z - info: User function triggered, starting execution
+2018-04-12T01:10:44.331Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:10:44.338Z - info: Execution took 6 ms, user function completed successfully
+2018-04-12T01:11:01.420Z - info: User function triggered, starting execution
+2018-04-12T01:11:01.421Z - info: { displayName: 'donkey', uid: '12345678' }
+Execution took 2 ms, user function completed successfully
+2018-04-12T01:12:30.505Z - info: User function triggered, starting execution
+2018-04-12T01:12:30.513Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:12:30.525Z - info: Execution took 19 ms, user function completed successfully
+2018-04-12T01:13:26.355Z - info: User function triggered, starting execution
+2018-04-12T01:13:26.358Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:13:26.362Z - info: Execution took 6 ms, user function completed successfully
+2018-04-12T01:13:41.669Z - info: User function triggered, starting execution
+2018-04-12T01:13:41.673Z - info: { displayName: 'donkey', uid: '12345678' }
+Execution took 2 ms, user function completed successfully
+2018-04-12T01:14:09.515Z - info: User function triggered, starting execution
+2018-04-12T01:14:09.523Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:14:09.535Z - info: Execution took 20 ms, user function completed successfully
+2018-04-13T01:38:42.145Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T01:38:42.256Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:38:42.473Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-13T01:38:42.625Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T01:38:42.645Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:38:42.792Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-13T01:38:42.878Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T01:38:42.885Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:38:43.032Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T01:38:43.045Z - error: Function worker killed by signal: SIGKILL
+2018-04-13T01:38:43.077Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-13T01:38:43.223Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGKILL
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker killed by signal: SIGKILL
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-13T01:47:42.580Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T01:47:42.626Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:47:42.782Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-13T01:47:42.931Z - error: fs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T01:47:42.988Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:47:43.095Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGKILL, errors=[Function worker killed by signal: SIGKILL]
+2018-04-13T01:47:43.097Z - error:  code=500, status=INTERNAL, message=Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9), errors=[Function worker crashed with exit code: 1
+undefinedfs.js:1400
+    throw error;
+    ^
+
+Error: watch /home/cjohnson/Downloads/projects/pridepocket/functions ENOSPC
+    at exports._errnoException (util.js:1050:11)
+    at FSWatcher.start (fs.js:1398:19)
+    at Object.fs.watch (fs.js:1424:11)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:172:10)
+    at emitTwo (events.js:106:13)
+    at process.emit (events.js:194:7)
+    at process.nextTick (internal/child_process.js:766:12)
+    at _combinedTickCallback (internal/process/next_tick.js:73:7)
+    at process._tickCallback (internal/process/next_tick.js:104:9)]
+2018-04-13T01:47:43.180Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGKILL, errors=[Function worker killed by signal: SIGKILL]
+2018-04-13T01:49:36.588Z - info: User function triggered, starting execution
+2018-04-13T01:49:36.733Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T01:49:36.745Z - info: Execution took 210 ms, finished with status: 'crash'
+2018-04-13T01:49:36.777Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:49:52.347Z - info: User function triggered, starting execution
+2018-04-13T01:49:52.480Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T01:49:52.499Z - info: Execution took 1995 ms, finished with status: 'crash'
+2018-04-13T01:49:52.529Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:50:30.436Z - info: User function triggered, starting execution
+2018-04-13T01:50:30.567Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T01:50:30.582Z - info: Execution took 1769 ms, finished with status: 'crash'
+2018-04-13T01:50:30.606Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:51:39.108Z - info: User function triggered, starting execution
+2018-04-13T01:51:39.239Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T01:51:39.249Z - info: Execution took 1987 ms, finished with status: 'crash'
+2018-04-13T01:51:39.274Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:52:12.152Z - info: User function triggered, starting execution
+2018-04-13T01:52:12.292Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T01:52:12.305Z - info: Execution took 1791 ms, finished with status: 'crash'
+2018-04-13T01:52:12.338Z - error: Function worker crashed with exit code: 1
+2018-04-13T01:52:56.006Z - info: User function triggered, starting execution
+2018-04-13T01:52:56.137Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T01:52:56.150Z - info: Execution took 1792 ms, finished with status: 'crash'
+2018-04-13T01:52:56.179Z - error: Function worker crashed with exit code: 1
+2018-04-13T02:39:06.259Z - info: User function triggered, starting execution
+2018-04-13T02:39:06.373Z - error: events.js:163
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
+    at errnoException (dns.js:28:10)
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:73:26)
+2018-04-13T02:39:06.394Z - info: Execution took 183 ms, finished with status: 'crash'
+2018-04-13T02:39:06.427Z - error: Function worker crashed with exit code: 1
+2018-04-13T02:39:15.358Z - info: User function triggered, starting execution
+2018-04-13T02:39:16.920Z - info: Execution took 1575 ms, user function completed successfully

@@ -10,6 +10,8 @@ export class NavComponent implements OnInit {
 		private loginService: LoginService
 	) {}
 	
-	loggedIn (): bool { return this.loginService.loggedIn() }
+	ngOnInit () {}
+	
+	loggedIn (): boolean { return this.loginService.loggedIn() }
 	signOut (): void { this.loginService.signOut() }
 }
