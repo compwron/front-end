@@ -3085,3 +3085,83 @@ Error: getaddrinfo ENOTFOUND http://www.google.com http://www.google.com:443
 2018-04-13T02:39:06.427Z - error: Function worker crashed with exit code: 1
 2018-04-13T02:39:15.358Z - info: User function triggered, starting execution
 2018-04-13T02:39:16.920Z - info: Execution took 1575 ms, user function completed successfully
+2018-04-13T15:52:07.584Z - info: User function triggered, starting execution
+2018-04-13T15:52:09.106Z - info: Execution took 1519 ms, user function completed successfully
+2018-04-13T15:52:30.906Z - info: User function triggered, starting execution
+2018-04-13T15:52:32.121Z - info: Execution took 1211 ms, user function completed successfully
+2018-04-13T15:52:42.647Z - info: User function triggered, starting execution
+2018-04-13T15:52:45.693Z - info: Execution took 3046 ms, user function completed successfully
+2018-04-13T15:53:03.448Z - info: User function triggered, starting execution
+2018-04-13T15:53:04.760Z - info: Execution took 1295 ms, user function completed successfully
+2018-04-13T15:57:13.295Z - info: User function triggered, starting execution
+2018-04-13T15:57:15.071Z - info: Execution took 1770 ms, user function completed successfully
+2018-04-13T15:57:51.092Z - info: User function triggered, starting execution
+2018-04-13T15:57:53.680Z - info: Execution took 2590 ms, user function completed successfully
+2018-04-13T16:13:09.359Z - info: User function triggered, starting execution
+2018-04-13T16:13:10.627Z - info: something went wrong calling checkout/create TypeError: First argument must be a string or Buffer
+    at ServerResponse.end (_http_outgoing.js:605:11)
+    at promiseCall.then.r (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:64:18)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+2018-04-13T16:13:27.583Z - info: User function triggered, starting execution
+2018-04-13T16:13:28.511Z - info: something went wrong calling checkout/create TypeError: First argument must be a string or Buffer
+    at ServerResponse.end (_http_outgoing.js:605:11)
+    at promiseCall.then.r (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:64:18)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+2018-04-13T16:13:42.425Z - info: User function triggered, starting execution
+2018-04-13T16:13:43.434Z - info: something went wrong calling checkout/create TypeError: First argument must be a string or Buffer
+    at ServerResponse.end (_http_outgoing.js:605:11)
+    at promiseCall.then.r (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:64:18)
+    at process._tickCallback (internal/process/next_tick.js:109:7)
+2018-04-13T16:17:48.079Z - info: User function triggered, starting execution
+2018-04-13T16:17:49.559Z - info: Execution took 1479 ms, user function completed successfully
+2018-04-13T16:20:37.542Z - info: User function triggered, starting execution
+2018-04-13T16:20:38.593Z - info: Execution took 1045 ms, user function completed successfully
+2018-04-13T16:21:22.037Z - info: User function triggered, starting execution
+2018-04-13T16:21:22.685Z - info: Execution took 651 ms, user function completed successfully
+2018-04-13T16:22:51.674Z - info: User function triggered, starting execution
+2018-04-13T16:22:52.742Z - info: Execution took 1058 ms, user function completed successfully
+2018-04-13T16:23:02.411Z - info: User function triggered, starting execution
+2018-04-13T16:23:03.100Z - info: Execution took 691 ms, user function completed successfully
+2018-04-13T16:23:23.901Z - info: User function triggered, starting execution
+2018-04-13T16:23:24.771Z - info: Execution took 866 ms, user function completed successfully
+2018-04-13T16:25:21.830Z - info: User function triggered, starting execution
+2018-04-13T16:25:24.437Z - info: Execution took 2604 ms, user function completed successfully
+2018-04-13T16:25:40.470Z - info: User function triggered, starting execution
+2018-04-13T16:25:41.364Z - info: Execution took 895 ms, user function completed successfully
+2018-04-13T16:26:10.360Z - info: User function triggered, starting execution
+2018-04-13T16:26:11.327Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:26:11.363Z - info: Execution took 1000 ms, user function completed successfully
+2018-04-13T16:27:12.372Z - info: User function triggered, starting execution
+2018-04-13T16:27:13.466Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:27:13.480Z - info: Execution took 1103 ms, user function completed successfully
+2018-04-13T16:28:12.814Z - info: User function triggered, starting execution
+2018-04-13T16:28:14.560Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:28:14.583Z - info: Execution took 1770 ms, user function completed successfully
+2018-04-13T16:30:45.281Z - info: User function triggered, starting execution
+2018-04-13T16:30:46.109Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:30:46.125Z - info: Execution took 841 ms, user function completed successfully
+2018-04-13T16:31:55.912Z - info: User function triggered, starting execution
+2018-04-13T16:31:57.578Z - info: Execution took 1668 ms, user function completed successfully
+2018-04-13T16:33:25.496Z - info: User function triggered, starting execution
+2018-04-13T16:33:26.800Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:33:26.819Z - info: Execution took 1322 ms, user function completed successfully
+2018-04-13T16:33:47.895Z - info: User function triggered, starting execution
+2018-04-13T16:33:48.731Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:33:48.741Z - info: Execution took 857 ms, user function completed successfully
+2018-04-13T16:36:28.511Z - info: User function triggered, starting execution
+2018-04-13T16:36:32.434Z - info: { error: 'invalid_request',
+  error_description: 'account_id parameter is required',
+  error_code: 1004 }
+2018-04-13T16:36:32.439Z - info: Execution took 3925 ms, user function completed successfully

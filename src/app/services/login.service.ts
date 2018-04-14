@@ -29,7 +29,7 @@ export class LoginService {
 
 	setPrevious (previous): void { this.previous = previous }
 
-	getCurrentUserId (): string { firebase.auth().currentUser.uid }
+	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
 
 	handleCallback (observable): void {
 		// inject a spinner service on the constructor and trigger it here
