@@ -45,7 +45,8 @@ import { WepayRegisterComponent } from './components/wepay-register/wepay-regist
 import { CampaignService } from './campaign.service'
 import { CampaignOneService } from './services/campaign-one.service'
 import { LoginService } from './services/login.service';
-import { WepayService } from './services/wepay.service'
+import { WepayService } from './services/wepay.service';
+import { AgoPipe } from './filters/ago.pipe'
 
 
 
@@ -100,7 +101,8 @@ const appRoutes: Routes = [
     PaymentDeetsComponent,
     CampaignBriefComponent,
     CampaignDetailComponent,
-    WepayRegisterComponent
+    WepayRegisterComponent,
+    AgoPipe
   ],
   imports: [
     BrowserModule,

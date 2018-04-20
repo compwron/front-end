@@ -16,6 +16,11 @@ import { db, firebase } from '../utilities/utilities'
 const client_id = '53075'
 const client_secret = '3abef328ac'
 
+class WepayPayment {
+	checkout_id: string,
+	checkout_uri: string
+}
+
 @Injectable()
 export class WepayService {
 	constructor(
@@ -86,7 +91,7 @@ export class WepayService {
 		// let response = {} // pay
 		let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/pay", payment, { headers: new HttpHeaders({ "content-type": "application/json" }) })
 			.subscribe(
-				response => {
+				response: WepayPayment => {
 					// let { checkout_id, short_description, currency, amount, checkout_uri } = response
 			
 					let batch = db.batch()

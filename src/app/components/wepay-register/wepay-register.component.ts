@@ -11,12 +11,12 @@ import { ActivatedRoute } from '@angular/router';
 export class WepayRegisterComponent implements OnInit {
 	
 	constructor(
-		private wepay: WepayService
+		private wepay: WepayService,
 		private route: ActivatedRoute
 	) { }
 	
 	ngOnInit() {
-		const { code, user_id, access_token, token_type, expires_in } = this.route.snapshot.queryParamMap.params
+		const { code, user_id, access_token, token_type, expires_in } = this.route.snapshot.queryParams
 		
 		if (access_token) this.wepay.saveAccessToken({ user_id, access_token, token_type, expires_in })
 		else this.wepay.getAccessToken(code)

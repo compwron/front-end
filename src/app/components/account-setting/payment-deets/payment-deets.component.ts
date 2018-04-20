@@ -12,7 +12,7 @@ export class PaymentDeetsComponent implements OnInit {
 	fund:string;
 	transfer:string;
 
-	registering: false
+	registering: boolean = false
 	wepayLink = this.wepay.registerLink
 	
 	constructor(
