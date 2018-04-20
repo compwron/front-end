@@ -5,9 +5,9 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class AgoPipe implements PipeTransform {
 
-  transform(value: date): date {
-    var date = new Date(value)
-    var seconds = Math.floor((new Date() - date) / 1000)
+  transform(value: Date): string {
+    // var date = new Date(value)
+    var seconds = Math.floor((new Date().getTime() - value.getTime()) / 1000)
 
     var intervals = {
       'year': 31536000,

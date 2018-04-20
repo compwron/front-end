@@ -20,8 +20,10 @@ export class CampaignService {
 
 		const extractCampaigns = map((snapshot: firebase.firestore.QuerySnapshot) => {
 			if (!snapshot.empty) {
-				let campaigns: Campaign[] = []
-				snapshot.forEach(c => campaigns.push(Object.assign({}, c.data(), { id: c.id })))
+				let campaigns = []
+				snapshot.forEach(c => {
+					campaigns.push(Object.assign({}, c.data(), { id: c.id }))
+				})
 				return campaigns
 			}
 			else return []

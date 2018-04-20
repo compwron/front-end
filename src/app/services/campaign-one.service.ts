@@ -12,7 +12,7 @@ import { db, firebase } from '../utilities/utilities'
 export class CampaignOneService {
 	constructor() { }
 	
-	get (id): Observable<Campaign> {
+	get (id): Observable<object> {
 		const dbObject = fromPromise(db.collection("campaigns").doc(id).get())
 		const extractCampaign = map((response: firebase.firestore.DocumentSnapshot) => Object.assign({}, response.data(), { id: response.id }))
 		const campaign =  extractCampaign(dbObject)

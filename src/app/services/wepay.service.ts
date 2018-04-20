@@ -17,7 +17,7 @@ const client_id = '53075'
 const client_secret = '3abef328ac'
 
 class WepayPayment {
-	checkout_id: string,
+	checkout_id: string
 	checkout_uri: string
 }
 
@@ -90,8 +90,7 @@ export class WepayService {
 		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
 		// let response = {} // pay
 		let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/pay", payment, { headers: new HttpHeaders({ "content-type": "application/json" }) })
-			.subscribe(
-				response: WepayPayment => {
+			.subscribe((response: WepayPayment) => {
 					// let { checkout_id, short_description, currency, amount, checkout_uri } = response
 			
 					let batch = db.batch()

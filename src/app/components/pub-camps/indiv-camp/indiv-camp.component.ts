@@ -11,7 +11,7 @@ import { Campaign } from '../../../objects/Campaign'
   styleUrls: ['./indiv-camp.component.scss']
 })
 export class IndivCampComponent implements OnInit {
-	campaign: Campaign
+	campaign: object
 	
 	constructor(
 		private campaignOneService: CampaignOneService,

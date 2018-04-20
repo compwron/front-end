@@ -9,7 +9,7 @@ import { WepayService } from '../../../services/wepay.service'
   styleUrls: ['./payment-deets.component.scss']
 })
 export class PaymentDeetsComponent implements OnInit {
-	fund:string;
+	funds:string;
 	transfer:string;
 
 	registering: boolean = false

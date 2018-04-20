@@ -11,6 +11,7 @@ import { Campaign } from '../../objects/Campaign'
 export class PaymentWidgetComponent implements OnInit {
 	@Input() campaign: Campaign
 
+	email: string
 	amount: number
 	ppamount: number = 2
 	name:string
