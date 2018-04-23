@@ -1,3 +1,9 @@
+<!--beta launch requirements-->
+https://docs.google.com/document/d/14GSrIhek8VjVhXejC4mHVUTZq6YB9tMkr45gP8hDlp0/edit
+
+<!--information about how to get data out of firebase-->
+https://docs.google.com/document/d/1ezeCnXyEC1MTb3ykAafLGpe0Sd1M3WFUEHb1DEy2g5M/edit#
+
 <!--shows how to compile typescript on the fly so that cloud functions emulator loads it-->
 https://firebase.googleblog.com/2018/01/streamline-typescript-development-cloud-functions.html
 

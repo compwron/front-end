@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
-import {RouterModule, Routes } from '@angular/router'
+import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms'
 
 // Layout
@@ -46,7 +46,7 @@ import { CampaignService } from './campaign.service'
 import { CampaignOneService } from './services/campaign-one.service'
 import { LoginService } from './services/login.service';
 import { WepayService } from './services/wepay.service';
-import { AgoPipe } from './filters/ago.pipe'
+import { AgoPipe } from './filters/ago.pipe';
 
 
 
@@ -102,7 +102,7 @@ const appRoutes: Routes = [
     CampaignBriefComponent,
     CampaignDetailComponent,
     WepayRegisterComponent,
-    AgoPipe
+    AgoPipe,
   ],
   imports: [
     BrowserModule,

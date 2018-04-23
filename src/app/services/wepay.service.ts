@@ -1,25 +1,37 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { HttpHeaders } from '@angular/common/http'
+import { HttpEvent } from '@angular/common/http'
 
-import { Router } from '@angular/router';
 
+import { Observable } from 'rxjs/Observable'
+import { Router } from '@angular/router'
 import { LoginService } from './login.service'
-
+import { HttpParams } from '@angular/common/http'
 // import { WEPAY as wepay } from 'wepay'
-
 import { db, firebase } from '../utilities/utilities'
 
 // const wp = new wepay(wepay_settings)
 // wp.use_staging()
 
-const client_id = '53075'
+const client_id = 53075
 const client_secret = '3abef328ac'
 
 class WepayPayment {
 	checkout_id: string
 	checkout_uri: string
 }
+
+/*
+"client_id": "53075", "client_secret": "3abef328ac", "code": "9ddb956d67c61b241077224a8bc91b841ddeb66294f1460709", "redirect_uri": "http://localhost:4200/redirect"
+
+*/
+
+// interface AccessToken {
+// 	user_id: string
+// 	access_token: string
+// 	token_type: string
+// }
 
 @Injectable()
 export class WepayService {
@@ -29,16 +41,19 @@ export class WepayService {
 		private router: Router
 	) { }
 
-	redirect: string = "http://localhost:4200/redirect"
+	// redirect: string = "http://localhost:4200/redirect"
+	redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
+
 	registerLink: string = `https://stage.wepay.com/v2/oauth2/authorize?client_id=53075&redirect_uri=${this.redirect}&scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money`
-	tokenLink: string = `https://stage.wepay.com/v2/oauth2/token?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${this.redirect}`
+	tokenLink: string = "https://stage.wepayapi.com/v2/oauth2/token"
+	// tokenLink: string = "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token"
 	checkoutUri: string
 	registered: boolean
 	previous: string = "/"
 
 	options = {
 		headers: new HttpHeaders({
-			"content-type": "application/json"
+			"Content-Type": "application/json"
 		})
 	}
 
@@ -52,12 +67,36 @@ export class WepayService {
 		})
 	}
 
-	getAccessToken (code): void {
-		this.http.post(this.tokenLink, { code }, this.options)
+
+	/*
+		// this.saveAccessToken(response)
+		this.http.post<AccessToken>(this.tokenLink, { client_id, client_secret, code, redirect_uri: this.redirect }, this.options)
 			.subscribe(
-				response => this.saveAccessToken(response),
-				e => console.log("error getting access token")
+				response => console.log(response),
+				e => console.log("error getting access token", e)
 			)
+	*/
+	getAccessToken (code): void {
+		let access_token
+		
+		return this.getToken(code)
+			// .subscribe(
+			// 	r => console.log(r),
+			// 	e => console.log("error getting access token", e),
+			// 	() => console.log("completed: ")
+			// )
+	}
+
+	// '{"client_id": "53075", "client_secret": "3abef328ac", "code": "cbdfa48abd5ccd403b4a7078e893704b663ff4170c549d4907", "redirect_uri": "http://localhost:4200/redirect"}'
+
+	getToken (code): Observable {
+		let l = this.tokenLink + `?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${this.redirect}&code=${code}`
+
+		return fetch(l)
+			.then(r => console.log(r))
+			.catch(e => console.log(e))
+
+		// return this.http.get(l)
 	}
 
 	saveAccessToken(wepay) {
@@ -68,6 +107,7 @@ export class WepayService {
 
 		r.then(r => this.router.navigateByUrl(this.previous))
 	}
+
 
 	register ({ displayName, uid, access_token }): void {
 		// hit the register endpoint with the right credentials

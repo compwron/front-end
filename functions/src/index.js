@@ -22,6 +22,11 @@ var promiseCall = function (url, data) {
     var p = new Promise(function (resolve, reject) { return wp.call(url, data, resolve); });
     return p;
 };
+
+exports.access_token = functions.https.onRequest((req, res) => {
+	
+})
+
 // pay(JSON.stringify({ body: { account_id: 1397632302, amount: 10, fee: 1 } }))
 // pay().form({ account_id: 1397632302, amount: 10, fee: 1 })
 exports.pay = functions.https.onRequest(function (req, res) {
@@ -76,9 +81,12 @@ exports.pay = functions.https.onRequest(function (req, res) {
         res.send(r);
     })["catch"](function (e) { return console.log("something went wrong calling checkout/create", e); });
 });
+
 exports.register = functions.https.onRequest(function (req, res) {
     var _a = req.body, displayName = _a.displayName, uid = _a.uid;
+    
     console.log("in register function");
+
     var data = {
         "name": displayName,
         "description": "pridepocket donation account",
@@ -88,6 +96,7 @@ exports.register = functions.https.onRequest(function (req, res) {
             "USD"
         ]
     };
+
     return promiseCall('/account/create', data)
         .then(function (r) {
         return res.send(r);
