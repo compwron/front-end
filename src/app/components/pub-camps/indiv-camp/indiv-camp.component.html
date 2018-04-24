@@ -6,24 +6,24 @@
 
       <!--Col-Start-->
       <div class="col-lg-8 mb-3">
-        <div class="card">
+        <div class="card" *ngIf="campaign" >
           <div class="card-body">
             <div class="row">
               <div class="col-md-12">
                 <h3 class="font-weight-bold aussie-teal">
-                  Rachel and Cortney Want to Start a Family and do this and that and move to the country
+                  {{ campaign.name }}
                 </h3>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <small class="text-muted">Created February 07, 2017 – Ends July 23,2017</small>
+                <small class="text-muted">Created {{ campaign.start | date }} – Ends {{ campaign.end | date }}</small>
               </div>
             </div>
 
             <div class="row my-3">
               <div class="col-md-12">
-                <img class="img img-fluid" src="http://via.placeholder.com/600x220" />
+                <img class="img img-fluid" [src]="campaign.banner" />
               </div>
             </div>
 
@@ -44,16 +44,7 @@
             <div class="row my-4">
               <div class="col-md-12">
                 <h3 class="font-weight-bold aussie-teal">Story</h3>
-                <p>Hello everyone! As you know, starting a family can be expensive. Well, like most LGBTQ families,
-                  having a baby is a little more complicated for us. In addition to finding the right sperm donor,
-                  we have plenty of obsticles to overcome, all of which cost a bit of money and are not covered by our
-                  insurance.
-                </p>
-                <p>
-                  In lieu of wedding presents, we ask that you contribute to our “family starting fund.” Anything helps,
-                  and we have listed some other wishlist items that would be useful if you would prefer not to gift
-                  monetary contributions.
-                </p>
+                {{ campaign.description }}
               </div>
             </div>
 
@@ -61,11 +52,7 @@
               <div class="col-md-12">
                 <h3 class="font-weight-bold aussie-teal">Wishlist</h3>
                 <ul>
-                  <li>Item xyz</li>
-                  <li>Item xyz</li>
-                  <li>Item xyz</li>
-                  <li>Item xyz</li>
-                  <li>Item xyz</li>
+                  <li *ngFor="let key of objectkeys(campaign.affiliate_links)" >{{ key }}: {{ campaign.affiliate_links[key] }}</li>
                 </ul>
               </div>
             </div>
@@ -82,7 +69,7 @@
 
       <!--Col-Start-->
       <div class="col-lg-4 pay-widg">
-        <app-payment-widget></app-payment-widget>
+        <app-payment-widget [campaign]="campaign" ></app-payment-widget>
       </div>
       <!--Col-End-->
 

@@ -1,0 +1,2135 @@
+2018-04-12T01:18:03.410Z - info: Worker for register closed due to file changes.
+2018-04-12T01:18:03.418Z - info: Worker for pay closed due to file changes.
+2018-04-12T01:18:03.419Z - info: Worker for helloWorld closed due to file changes.
+2018-04-12T01:18:12.161Z - info: User function triggered, starting execution
+2018-04-12T01:18:12.168Z - info: {}
+2018-04-12T01:18:12.216Z - info: Execution took 1301 ms, finished with status: 'crash'
+2018-04-12T01:18:39.016Z - info: User function triggered, starting execution
+2018-04-12T01:18:39.024Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:18:39.068Z - info: Execution took 1118 ms, finished with status: 'crash'
+2018-04-12T01:19:48.094Z - info: User function triggered, starting execution
+2018-04-12T01:19:48.101Z - info: { displayName: 'donkey', uid: '12345678' }
+2018-04-12T01:19:48.111Z - info: { name: 'donkey',
+  description: 'wepay account for donkey',
+  reference_id: '12345678',
+  country: 'US',
+  currenices: [ 'USD' ] }
+promiseCall /account/create {"name":"donkey","description":"wepay account for donkey","reference_id":"12345678","country":"US","currenices":["USD"]}
+2018-04-12T01:19:48.153Z - info: Execution took 1344 ms, finished with status: 'crash'
+2018-04-12T01:21:41.331Z - info: User function triggered, starting execution
+2018-04-12T01:21:41.334Z - info: promiseCall before wepay call:  /account/create {"name":"donkey","description":"wepay account for donkey","reference_id":"12345678","country":"US","currenices":["USD"]}
+2018-04-12T01:21:41.464Z - info: should be a promise:  Promise { <pending> }
+2018-04-12T01:21:41.481Z - info: Execution took 1437 ms, finished with status: 'crash'
+2018-04-12T01:27:31.682Z - info: User function triggered, starting execution
+2018-04-12T01:27:31.684Z - info: promiseCall before wepay call:  /account/create {"name":"donkey","description":"wepay account for donkey","reference_id":"12345678","country":"US","currenices":["USD"]}
+2018-04-12T01:27:31.813Z - info: should be a promise:  Promise { <pending> }
+2018-04-12T01:27:31.828Z - info: Execution took 2045 ms, finished with status: 'crash'
+2018-04-12T01:28:39.492Z - info: User function triggered, starting execution
+2018-04-12T01:28:39.547Z - info: promiseCall before wepay call:  /account/create {"name":"donkey","description":"wepay account for donkey","reference_id":"12345678","country":"US","currenices":["USD"]}
+[Function: call]
+2018-04-12T01:28:39.607Z - info: should be a promise:  Promise { <pending> }
+2018-04-12T01:28:39.624Z - info: Execution took 1196 ms, finished with status: 'crash'
+2018-04-12T01:29:02.234Z - info: User function triggered, starting execution
+2018-04-12T01:29:02.350Z - info: should be a promise:  Promise { <pending> }
+2018-04-12T01:29:02.369Z - info: Execution took 1401 ms, finished with status: 'crash'
+2018-04-12T01:29:47.673Z - info: User function triggered, starting execution
+2018-04-12T01:29:47.728Z - info: Execution took 1346 ms, finished with status: 'crash'
+2018-04-12T01:32:06.818Z - info: User function triggered, starting execution
+2018-04-12T01:32:06.925Z - info: Promise { <pending> }
+2018-04-12T01:32:06.940Z - info: Execution took 1180 ms, finished with status: 'crash'
+2018-04-12T01:33:02.773Z - info: User function triggered, starting execution
+2018-04-12T01:33:02.817Z - info: Execution took 1113 ms, finished with status: 'crash'
+2018-04-12T01:33:52.882Z - info: User function triggered, starting execution
+2018-04-12T01:33:52.940Z - info: Execution took 1326 ms, finished with status: 'crash'
+2018-04-12T01:34:39.643Z - info: User function triggered, starting execution
+2018-04-12T01:34:39.644Z - info: Function crashed
+2018-04-12T01:34:39.648Z - info: ReferenceError: url is not defined
+    at exports.register.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:86:13)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T01:34:39.699Z - info: Execution took 53 ms, user function completed successfully
+2018-04-12T01:35:12.225Z - info: User function triggered, starting execution
+2018-04-12T01:35:12.272Z - info: Execution took 1104 ms, finished with status: 'crash'
+2018-04-12T01:42:44.738Z - info: User function triggered, starting execution
+2018-04-12T01:42:44.791Z - info: Execution took 1111 ms, finished with status: 'crash'
+2018-04-12T16:56:39.676Z - info: Worker for register closed due to file changes.
+2018-04-12T16:56:40.018Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T17:01:16.699Z - info: Worker for testCall closed due to file changes.
+2018-04-12T17:01:16.704Z - info: Worker for helloWorld closed due to file changes.
+2018-04-12T17:01:16.705Z - info: Worker for register closed due to file changes.
+2018-04-12T17:01:16.706Z - info: Worker for pay closed due to file changes.
+2018-04-12T17:02:35.373Z - info: User function triggered, starting execution
+2018-04-12T17:02:35.422Z - info: Execution took 1116 ms, finished with status: 'crash'
+2018-04-12T17:05:17.522Z - info: User function triggered, starting execution
+2018-04-12T17:05:17.566Z - info: Execution took 1103 ms, finished with status: 'crash'
+2018-04-12T17:05:35.142Z - info: User function triggered, starting execution
+2018-04-12T17:05:35.152Z - info: hit testCall
+2018-04-12T17:05:35.188Z - info: Execution took 1108 ms, finished with status: 'crash'
+2018-04-12T17:05:56.019Z - info: User function triggered, starting execution
+2018-04-12T17:05:56.020Z - info: hit testCall
+2018-04-12T17:05:56.025Z - info: { use_production: [Function: use_production],
+  use_staging: [Function: use_staging],
+  call: [Function: call],
+  get_access_token: [Function: get_access_token],
+  get_api_version: [Function: get_api_version],
+  get_client_id: [Function: get_client_id],
+  get_client_secret: [Function: get_client_secret],
+  set_access_token: [Function: set_access_token],
+  set_api_version: [Function: set_api_version],
+  set_client_id: [Function: set_client_id],
+  set_client_secret: [Function: set_client_secret] }
+2018-04-12T17:05:56.070Z - info: Execution took 1137 ms, finished with status: 'crash'
+2018-04-12T17:06:25.787Z - info: User function triggered, starting execution
+2018-04-12T17:06:25.794Z - info: { use_production: [Function: use_production],
+  use_staging: [Function: use_staging],
+  call: [Function: call],
+  get_access_token: [Function: get_access_token],
+  get_api_version: [Function: get_api_version],
+  get_client_id: [Function: get_client_id],
+  get_client_secret: [Function: get_client_secret],
+  set_access_token: [Function: set_access_token],
+  set_api_version: [Function: set_api_version],
+  set_client_id: [Function: set_client_id],
+  set_client_secret: [Function: set_client_secret] }
+2018-04-12T17:06:25.843Z - info: Execution took 1338 ms, finished with status: 'crash'
+2018-04-12T17:06:58.453Z - info: User function triggered, starting execution
+2018-04-12T17:06:58.457Z - info: [Function: call]
+2018-04-12T17:06:58.500Z - info: Execution took 1110 ms, finished with status: 'crash'
+2018-04-12T17:08:39.676Z - info: User function triggered, starting execution
+2018-04-12T17:08:39.680Z - info: Function crashed
+2018-04-12T17:08:39.683Z - info: ReferenceError: get_access_token is not defined
+    at exports.testCall.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:78:17)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T17:08:39.697Z - info: Execution took 21 ms, user function completed successfully
+2018-04-12T17:08:39.708Z - info: Worker for testCall closed due to file changes.
+2018-04-12T17:09:01.623Z - info: User function triggered, starting execution
+2018-04-12T17:09:01.624Z - info: PRODUCTION_daa92de3877f13535a83209c7598e2c25c746395ade6e9782e78ed92b14336f5
+2018-04-12T17:09:01.626Z - info: undefined
+110229
+32fe4f7479
+2018-04-12T17:09:01.680Z - info: Execution took 1339 ms, finished with status: 'crash'
+2018-04-12T18:24:53.391Z - info: Worker for redirect closed due to file changes.
+2018-04-12T18:24:54.073Z - info: Worker for pay closed due to file changes.
+2018-04-12T18:24:54.076Z - info: Worker for testCall closed due to file changes.
+2018-04-12T18:28:26.995Z - info: User function triggered, starting execution
+2018-04-12T18:28:27.044Z - info: Execution took 1123 ms, finished with status: 'crash'
+2018-04-12T18:30:16.206Z - info: User function triggered, starting execution
+2018-04-12T18:30:16.255Z - info: Execution took 1110 ms, finished with status: 'crash'
+2018-04-12T18:30:36.427Z - info: User function triggered, starting execution
+2018-04-12T18:30:36.478Z - info: Execution took 1118 ms, finished with status: 'crash'
+2018-04-12T18:43:01.436Z - info: User function triggered, starting execution
+2018-04-12T18:43:01.481Z - info: Execution took 1144 ms, finished with status: 'crash'
+2018-04-12T18:52:54.029Z - info: User function triggered, starting execution
+2018-04-12T18:52:54.074Z - info: Execution took 1326 ms, finished with status: 'crash'
+2018-04-12T18:53:32.188Z - info: User function triggered, starting execution
+2018-04-12T18:53:32.232Z - info: Execution took 1124 ms, finished with status: 'crash'
+2018-04-12T19:04:11.887Z - info: Worker for pay closed due to file changes.
+2018-04-12T19:04:11.892Z - info: Worker for register closed due to file changes.
+2018-04-12T19:04:11.893Z - info: Worker for redirect closed due to file changes.
+2018-04-12T19:04:11.894Z - info: Worker for testCall closed due to file changes.
+2018-04-12T19:04:44.932Z - info: User function triggered, starting execution
+2018-04-12T19:04:44.946Z - info: api cowardly errors out:  TypeError: Request with GET/HEAD method cannot have body
+    at new Request (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/node-fetch/lib/index.js:1191:10)
+    at /home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/node-fetch/lib/index.js:1369:19
+    at Function.fetch [as default] (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/node-fetch/lib/index.js:1367:9)
+    at exports.register.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:114:25)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+2018-04-12T19:04:44.959Z - info: Execution took 1286 ms, finished with status: 'crash'
+2018-04-12T19:05:56.848Z - info: User function triggered, starting execution
+2018-04-12T19:05:56.904Z - info: Execution took 1281 ms, finished with status: 'crash'
+2018-04-12T19:07:00.797Z - info: User function triggered, starting execution
+2018-04-12T19:07:00.855Z - info: Execution took 1298 ms, finished with status: 'crash'
+2018-04-12T19:07:36.996Z - info: User function triggered, starting execution
+2018-04-12T19:07:36.999Z - info: mark 0
+2018-04-12T19:07:37.058Z - info: Execution took 1300 ms, finished with status: 'crash'
+2018-04-12T19:08:09.260Z - info: User function triggered, starting execution
+2018-04-12T19:08:09.262Z - info: mark 0
+2018-04-12T19:08:09.324Z - info: Execution took 1314 ms, finished with status: 'crash'
+2018-04-12T19:08:49.005Z - info: User function triggered, starting execution
+2018-04-12T19:08:49.008Z - info: mark 0
+2018-04-12T19:08:49.013Z - info: { body: 
+   { name: 'Example Account',
+     description: 'This is just an example WePay account.',
+     reference_id: 'def456',
+     country: 'US',
+     currencies: [ 'USD' ] },
+  headers: 
+   { authorization: 'bearer STAGE_28467f7ddf1ef46e545bed9a9cb18d3103fa4e46d8a278ff461f12150093c957',
+     'content-type': 'application/json' },
+  method: 'POST',
+  mode: 'cors' }
+2018-04-12T19:08:49.084Z - info: Execution took 1325 ms, finished with status: 'crash'
+2018-04-12T19:09:17.950Z - info: User function triggered, starting execution
+mark 0
+{ body: 
+   { name: 'Example Account',
+     description: 'This is just an example WePay account.',
+     reference_id: 'GHI456',
+     country: 'US',
+     currencies: [ 'USD' ] },
+  headers: 
+   { authorization: 'bearer STAGE_28467f7ddf1ef46e545bed9a9cb18d3103fa4e46d8a278ff461f12150093c957',
+     'content-type': 'application/json' },
+  method: 'POST',
+  mode: 'cors' }
+2018-04-12T19:09:17.997Z - info: Execution took 1302 ms, finished with status: 'crash'
+2018-04-12T19:23:42.578Z - info: User function triggered, starting execution
+2018-04-12T19:23:42.580Z - info: mark 0
+2018-04-12T19:23:42.591Z - info: { body: '{"name":"Example Account","description":"This is just an example WePay account.","reference_id":"GHI456","country":"US","currencies":["USD"]}',
+  headers: 
+   { authorization: 'bearer STAGE_28467f7ddf1ef46e545bed9a9cb18d3103fa4e46d8a278ff461f12150093c957',
+     'content-type': 'application/json' },
+  method: 'POST',
+  mode: 'cors' }
+2018-04-12T19:23:42.646Z - info: Execution took 1094 ms, finished with status: 'crash'
+2018-04-12T19:24:46.640Z - info: User function triggered, starting execution
+2018-04-12T19:24:46.698Z - info: Execution took 1308 ms, finished with status: 'crash'
+2018-04-12T19:29:23.897Z - info: User function triggered, starting execution
+2018-04-12T19:29:23.971Z - info: Execution took 1316 ms, finished with status: 'crash'
+2018-04-12T19:36:05.062Z - info: User function triggered, starting execution
+2018-04-12T19:36:05.067Z - info: Function crashed
+2018-04-12T19:36:05.068Z - info: ReferenceError: data is not defined
+    at exports.register.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:120:47)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T19:36:05.096Z - info: Execution took 33 ms, user function completed successfully
+2018-04-12T19:36:28.108Z - info: User function triggered, starting execution
+2018-04-12T19:36:28.154Z - info: Execution took 1070 ms, finished with status: 'crash'
+2018-04-12T19:41:53.456Z - info: User function triggered, starting execution
+2018-04-12T19:41:53.511Z - info: Execution took 1317 ms, finished with status: 'crash'
+2018-04-12T19:41:57.673Z - info: User function triggered, starting execution
+2018-04-12T19:41:57.721Z - info: Execution took 1075 ms, finished with status: 'crash'
+2018-04-12T19:42:27.958Z - info: User function triggered, starting execution
+2018-04-12T19:42:28.004Z - info: Execution took 1293 ms, finished with status: 'crash'
+2018-04-12T19:48:58.213Z - info: User function triggered, starting execution
+2018-04-12T19:48:58.265Z - info: Execution took 1078 ms, finished with status: 'crash'
+2018-04-12T19:49:04.635Z - info: User function triggered, starting execution
+2018-04-12T19:49:04.688Z - info: Execution took 1276 ms, finished with status: 'crash'
+2018-04-12T19:49:47.962Z - info: User function triggered, starting execution
+2018-04-12T19:49:48.098Z - info: Execution took 1385 ms, finished with status: 'crash'
+2018-04-12T19:51:12.794Z - info: User function triggered, starting execution
+2018-04-12T19:51:12.841Z - info: Execution took 1285 ms, finished with status: 'crash'
+2018-04-12T19:51:57.569Z - info: Worker for testCall closed due to file changes.
+2018-04-12T19:51:57.576Z - info: Worker for redirect closed due to file changes.
+2018-04-12T19:51:57.580Z - info: Worker for pay closed due to file changes.
+2018-04-12T19:51:57.580Z - info: Worker for register closed due to file changes.
+2018-04-12T19:55:56.432Z - info: User function triggered, starting execution
+2018-04-12T19:55:56.483Z - info: Execution took 1309 ms, finished with status: 'crash'
+2018-04-12T19:56:30.268Z - info: User function triggered, starting execution
+2018-04-12T19:56:30.318Z - info: Execution took 1290 ms, finished with status: 'crash'
+2018-04-12T19:56:34.427Z - info: User function triggered, starting execution
+2018-04-12T19:56:34.476Z - info: Execution took 1075 ms, finished with status: 'crash'
+2018-04-12T20:03:37.484Z - info: User function triggered, starting execution
+2018-04-12T20:03:37.534Z - info: Execution took 1081 ms, finished with status: 'crash'
+2018-04-12T20:05:46.301Z - info: User function triggered, starting execution
+2018-04-12T20:05:46.355Z - info: Execution took 1080 ms, finished with status: 'crash'
+2018-04-12T20:34:16.332Z - info: Worker for testCall closed due to file changes.
+2018-04-12T20:34:16.463Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T20:37:42.785Z - info: Worker for pay closed due to file changes.
+2018-04-12T20:37:42.802Z - info: Worker for testCall closed due to file changes.
+2018-04-12T20:37:42.813Z - info: Worker for redirect closed due to file changes.
+2018-04-12T20:37:42.924Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:38:02.864Z - info: User function triggered, starting execution
+2018-04-12T20:38:02.866Z - info: Function crashed
+2018-04-12T20:38:02.869Z - info: ReferenceError: http is not defined
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:136:19)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T20:38:02.887Z - info: Execution took 24 ms, user function completed successfully
+2018-04-12T20:38:02.896Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:38:21.057Z - info: User function triggered, starting execution
+2018-04-12T20:38:21.064Z - info: Function crashed
+TypeError: Cannot read property 'request' of undefined
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:137:33)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T20:38:21.088Z - info: Execution took 32 ms, user function completed successfully
+2018-04-12T20:39:30.222Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:39:30.229Z - info: Worker for register closed due to file changes.
+2018-04-12T20:39:30.235Z - info: Worker for testCall closed due to file changes.
+2018-04-12T20:39:30.235Z - info: Worker for pay closed due to file changes.
+2018-04-12T20:39:30.305Z - info: Worker for redirect closed due to file changes.
+2018-04-12T20:39:41.589Z - info: User function triggered, starting execution
+2018-04-12T20:39:41.591Z - info: Function crashed
+2018-04-12T20:39:41.595Z - info: TypeError: Cannot read property 'request' of undefined
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:137:33)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T20:39:41.618Z - info: Execution took 30 ms, user function completed successfully
+2018-04-12T20:40:07.559Z - info: User function triggered, starting execution
+2018-04-12T20:40:07.563Z - info: Function crashed
+2018-04-12T20:40:07.567Z - info: TypeError: Cannot read property 'request' of undefined
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:137:34)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T20:40:07.588Z - info: Execution took 30 ms, user function completed successfully
+2018-04-12T20:40:28.079Z - info: Worker for pay closed due to file changes.
+2018-04-12T20:40:28.093Z - info: Worker for redirect closed due to file changes.
+2018-04-12T20:40:28.208Z - info: Worker for testCall closed due to file changes.
+2018-04-12T20:40:28.263Z - info: Worker for register closed due to file changes.
+2018-04-12T20:40:28.291Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:40:28.462Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T20:41:12.128Z - info: Worker for testCall closed due to file changes.
+2018-04-12T20:41:12.138Z - info: Worker for pay closed due to file changes.
+2018-04-12T20:41:12.139Z - info: Worker for redirect closed due to file changes.
+2018-04-12T20:41:12.514Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T20:41:12.518Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T20:41:59.950Z - info: Worker for redirect closed due to file changes.
+2018-04-12T20:41:59.958Z - info: Worker for register closed due to file changes.
+2018-04-12T20:41:59.961Z - info: Worker for pay closed due to file changes.
+2018-04-12T20:41:59.964Z - info: Worker for testCall closed due to file changes.
+2018-04-12T20:42:00.288Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:42:12.545Z - info: User function triggered, starting execution
+2018-04-12T20:42:12.548Z - info: Function crashed
+2018-04-12T20:42:12.550Z - info: TypeError: Cannot read property 'request' of undefined
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:137:34)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T20:42:12.580Z - info: Execution took 25 ms, user function completed successfully
+Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:42:44.992Z - info: User function triggered, starting execution
+2018-04-12T20:42:45.022Z - info: Function crashed
+2018-04-12T20:42:45.026Z - info: TypeError: First argument must be a string or Buffer
+    at ClientRequest.write (_http_outgoing.js:502:11)
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:143:13)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+2018-04-12T20:42:45.049Z - info: Execution took 59 ms, user function completed successfully
+2018-04-12T20:43:14.062Z - info: User function triggered, starting execution
+2018-04-12T20:43:14.108Z - info: Execution took 1071 ms, finished with status: 'crash'
+2018-04-12T20:43:25.694Z - info: User function triggered, starting execution
+2018-04-12T20:43:25.864Z - info: Execution took 1814 ms, finished with status: 'crash'
+2018-04-12T20:43:26.224Z - info: User function triggered, starting execution
+2018-04-12T20:43:26.230Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:43:26.679Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:139
+        response.on("data", c => b += c);
+        ^
+
+ReferenceError: response is not defined
+    at ClientRequest.http.request.r (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:139:9)
+    at Object.onceWrapper (events.js:293:19)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:522:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)
+    at TLSSocket.socketOnData (_http_client.js:411:20)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at readableAddChunk (_stream_readable.js:178:18)
+2018-04-12T20:43:26.707Z - info: Execution took 2208 ms, finished with status: 'crash'
+2018-04-12T20:43:26.725Z - error: Function worker crashed with exit code: 1
+2018-04-12T20:43:26.964Z - info: User function triggered, starting execution
+2018-04-12T20:43:26.971Z - info: User function triggered, starting execution
+2018-04-12T20:43:27.021Z - info: Execution took 2142 ms, finished with status: 'crash'
+2018-04-12T20:43:27.363Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:139
+        response.on("data", c => b += c);
+        ^
+
+ReferenceError: response is not defined
+    at ClientRequest.http.request.r (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:139:9)
+    at Object.onceWrapper (events.js:293:19)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:522:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)
+    at TLSSocket.socketOnData (_http_client.js:411:20)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at readableAddChunk (_stream_readable.js:178:18)
+2018-04-12T20:43:27.382Z - info: Execution took 2679 ms, finished with status: 'crash'
+2018-04-12T20:43:27.384Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:43:27.417Z - error: Function worker crashed with exit code: 1
+2018-04-12T20:43:27.439Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:43:27.441Z - info: User function triggered, starting execution
+2018-04-12T20:43:27.445Z - info: Execution took 2305 ms, finished with status: 'crash'
+2018-04-12T20:43:27.846Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:139
+        response.on("data", c => b += c);
+        ^
+
+ReferenceError: response is not defined
+    at ClientRequest.http.request.r (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:139:9)
+    at Object.onceWrapper (events.js:293:19)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at HTTPParser.parserOnIncomingClient [as onIncoming] (_http_client.js:522:21)
+    at HTTPParser.parserOnHeadersComplete (_http_common.js:99:23)
+    at TLSSocket.socketOnData (_http_client.js:411:20)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at readableAddChunk (_stream_readable.js:178:18)
+2018-04-12T20:43:27.857Z - info: Execution took 2519 ms, finished with status: 'crash'
+2018-04-12T20:43:27.878Z - error: Function worker crashed with exit code: 1
+2018-04-12T20:43:42.657Z - info: User function triggered, starting execution
+2018-04-12T20:43:42.708Z - info: Execution took 1293 ms, finished with status: 'crash'
+2018-04-12T20:44:20.398Z - info: User function triggered, starting execution
+2018-04-12T20:44:20.448Z - info: Execution took 1297 ms, finished with status: 'crash'
+2018-04-12T20:44:48.605Z - info: User function triggered, starting execution
+2018-04-12T20:44:48.658Z - info: Execution took 1078 ms, finished with status: 'crash'
+2018-04-12T20:45:06.056Z - info: User function triggered, starting execution
+2018-04-12T20:45:06.111Z - info: Execution took 1294 ms, finished with status: 'crash'
+2018-04-12T20:46:26.176Z - info: User function triggered, starting execution
+2018-04-12T20:46:26.220Z - info: Execution took 41 ms, user function completed successfully
+2018-04-12T20:46:26.224Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:47:26.467Z - info: User function triggered, starting execution
+2018-04-12T20:47:26.509Z - info: Execution took 44 ms, user function completed successfully
+2018-04-12T20:47:26.517Z - info: Worker for wepayApiTest closed due to file changes.
+2018-04-12T20:47:37.283Z - info: User function triggered, starting execution
+2018-04-12T20:47:37.329Z - info: Execution took 1068 ms, finished with status: 'crash'
+2018-04-12T20:47:59.118Z - info: User function triggered, starting execution
+2018-04-12T20:47:59.168Z - info: Execution took 1075 ms, finished with status: 'crash'
+2018-04-12T20:48:15.507Z - info: User function triggered, starting execution
+2018-04-12T20:48:15.551Z - info: Execution took 1070 ms, finished with status: 'crash'
+2018-04-12T20:48:44.427Z - info: User function triggered, starting execution
+2018-04-12T20:48:44.475Z - info: Execution took 1081 ms, finished with status: 'crash'
+2018-04-12T20:51:11.705Z - info: User function triggered, starting execution
+2018-04-12T20:51:11.750Z - info: Execution took 1068 ms, finished with status: 'crash'
+2018-04-12T20:51:19.953Z - info: User function triggered, starting execution
+2018-04-12T20:51:19.996Z - info: Execution took 1069 ms, finished with status: 'crash'
+2018-04-12T20:52:10.475Z - info: User function triggered, starting execution
+2018-04-12T20:52:10.520Z - info: Execution took 1291 ms, finished with status: 'crash'
+2018-04-12T20:52:15.609Z - info: User function triggered, starting execution
+2018-04-12T20:52:15.654Z - info: Execution took 1067 ms, finished with status: 'crash'
+2018-04-12T20:53:51.307Z - info: User function triggered, starting execution
+2018-04-12T20:53:51.356Z - info: Execution took 1291 ms, finished with status: 'crash'
+2018-04-12T20:54:55.924Z - info: User function triggered, starting execution
+2018-04-12T20:54:55.970Z - info: Execution took 1069 ms, finished with status: 'crash'
+2018-04-12T20:55:23.517Z - info: User function triggered, starting execution
+2018-04-12T20:55:23.562Z - info: Execution took 1069 ms, finished with status: 'crash'
+2018-04-12T20:56:12.957Z - info: User function triggered, starting execution
+2018-04-12T20:56:13.002Z - info: Execution took 1066 ms, finished with status: 'crash'
+2018-04-12T20:59:23.271Z - info: User function triggered, starting execution
+2018-04-12T20:59:23.317Z - info: Execution took 1070 ms, finished with status: 'crash'
+2018-04-12T20:59:56.614Z - info: User function triggered, starting execution
+2018-04-12T20:59:56.671Z - info: Execution took 1090 ms, finished with status: 'crash'
+2018-04-12T21:01:57.577Z - info: User function triggered, starting execution
+2018-04-12T21:01:57.628Z - info: Execution took 1075 ms, finished with status: 'crash'
+2018-04-12T21:02:51.676Z - info: User function triggered, starting execution
+2018-04-12T21:02:51.736Z - info: Execution took 1288 ms, finished with status: 'crash'
+2018-04-12T21:07:10.431Z - info: User function triggered, starting execution
+2018-04-12T21:07:10.440Z - info: Function crashed
+TypeError: Cannot read property 'request' of undefined
+    at exports.wepayApiTest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:138:34)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T21:07:10.454Z - info: Execution took 25 ms, user function completed successfully
+2018-04-12T21:08:03.813Z - info: User function triggered, starting execution
+2018-04-12T21:08:03.861Z - info: Execution took 1070 ms, finished with status: 'crash'
+2018-04-12T21:08:09.863Z - info: User function triggered, starting execution
+2018-04-12T21:08:09.910Z - info: Execution took 1076 ms, finished with status: 'crash'
+2018-04-12T21:08:37.245Z - info: User function triggered, starting execution
+2018-04-12T21:08:37.247Z - info: wepayApiTest is executing
+2018-04-12T21:08:37.293Z - info: Execution took 1071 ms, finished with status: 'crash'
+2018-04-12T21:10:39.299Z - info: User function triggered, starting execution
+2018-04-12T21:10:39.303Z - info: wepayApiTest is executing
+2018-04-12T21:10:39.356Z - info: Execution took 1079 ms, finished with status: 'crash'
+2018-04-12T21:12:42.542Z - info: User function triggered, starting execution
+2018-04-12T21:12:42.547Z - info: wepayApiTest is executing
+2018-04-12T21:12:42.599Z - info: Execution took 1078 ms, finished with status: 'crash'
+2018-04-12T21:13:58.249Z - info: User function triggered, starting execution
+2018-04-12T21:13:58.251Z - info: wepayApiTest is executing
+2018-04-12T21:13:58.296Z - info: Execution took 1077 ms, finished with status: 'crash'
+2018-04-12T21:14:16.115Z - info: User function triggered, starting execution
+2018-04-12T21:14:16.117Z - info: wepayApiTest is executing
+2018-04-12T21:14:16.166Z - info: Execution took 52 ms, user function completed successfully
+2018-04-12T21:24:18.678Z - info: User function triggered, starting execution
+2018-04-12T21:24:18.732Z - info: Execution took 1080 ms, finished with status: 'crash'
+2018-04-12T21:24:35.783Z - info: User function triggered, starting execution
+2018-04-12T21:24:35.850Z - info: IncomingMessage {
+  _readableState: 
+   ReadableState {
+     objectMode: false,
+     highWaterMark: 16384,
+     buffer: BufferList { head: null, tail: null, length: 0 },
+     length: 0,
+     pipes: null,
+     pipesCount: 0,
+     flowing: null,
+     ended: false,
+     endEmitted: false,
+     reading: false,
+     sync: true,
+     needReadable: false,
+     emittedReadable: false,
+     readableListening: false,
+     resumeScheduled: false,
+     defaultEncoding: 'utf8',
+     ranOut: false,
+     awaitDrain: 0,
+     readingMore: true,
+     decoder: null,
+     encoding: null },
+  readable: true,
+  domain: null,
+  _events: {},
+  _eventsCount: 0,
+  _maxListeners: undefined,
+  socket: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 1197,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  connection: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 1197,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  httpVersionMajor: 1,
+  httpVersionMinor: 1,
+  httpVersion: '1.1',
+  complete: false,
+  headers: { connection: 'close', host: 'localhost:5000' },
+  rawHeaders: [ 'connection', 'close', 'host', 'localhost:5000' ],
+  trailers: {},
+  rawTrailers: [],
+  upgrade: false,
+  url: '/',
+  method: 'GET',
+  statusCode: null,
+  statusMessage: null,
+  client: 
+   Socket {
+     connecting: false,
+     _hadError: false,
+     _handle: 
+      TCP {
+        bytesRead: 59,
+        _externalStream: {},
+        fd: 13,
+        reading: true,
+        owner: [Circular],
+        onread: [Function: onread],
+        onconnection: null,
+        writeQueueSize: 0,
+        _consumed: true },
+     _parent: null,
+     _host: null,
+     _readableState: 
+      ReadableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        buffer: [Object],
+        length: 0,
+        pipes: null,
+        pipesCount: 0,
+        flowing: true,
+        ended: false,
+        endEmitted: false,
+        reading: true,
+        sync: false,
+        needReadable: true,
+        emittedReadable: false,
+        readableListening: false,
+        resumeScheduled: false,
+        defaultEncoding: 'utf8',
+        ranOut: false,
+        awaitDrain: 0,
+        readingMore: false,
+        decoder: null,
+        encoding: null },
+     readable: true,
+     domain: null,
+     _events: 
+      { end: [Object],
+        finish: [Function: onSocketFinish],
+        _socketEnd: [Function: onSocketEnd],
+        drain: [Object],
+        timeout: [Function: bound socketOnTimeout],
+        data: [Function: bound socketOnData],
+        error: [Function: bound socketOnError],
+        close: [Object],
+        resume: [Function: onSocketResume],
+        pause: [Function: onSocketPause] },
+     _eventsCount: 10,
+     _maxListeners: undefined,
+     _writableState: 
+      WritableState {
+        objectMode: false,
+        highWaterMark: 16384,
+        needDrain: false,
+        ending: false,
+        ended: false,
+        finished: false,
+        decodeStrings: false,
+        defaultEncoding: 'utf8',
+        length: 0,
+        writing: false,
+        corked: 0,
+        sync: true,
+        bufferProcessing: false,
+        onwrite: [Function: bound onwrite],
+        writecb: null,
+        writelen: 0,
+        bufferedRequest: null,
+        lastBufferedRequest: null,
+        pendingcb: 0,
+        prefinished: false,
+        errorEmitted: false,
+        bufferedRequestCount: 0,
+        corkedRequestsFree: [Object] },
+     writable: true,
+     allowHalfOpen: true,
+     destroyed: false,
+     _bytesDispatched: 0,
+     _sockname: null,
+     _pendingData: null,
+     _pendingEncoding: '',
+     server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _server: 
+      Server {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 2,
+        _maxListeners: undefined,
+        _connections: 1,
+        _handle: [Object],
+        _usingSlaves: false,
+        _slaves: [],
+        _unref: false,
+        allowHalfOpen: true,
+        pauseOnConnect: false,
+        httpAllowHalfOpen: false,
+        timeout: 120000,
+        _pendingResponseData: 0,
+        maxHeadersCount: null,
+        _connectionKey: '4:127.0.0.1:0' },
+     _idleTimeout: 120000,
+     _idleNext: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idlePrev: 
+      TimersList {
+        _idleNext: [Circular],
+        _idlePrev: [Circular],
+        _timer: [Object],
+        _unrefed: true,
+        msecs: 120000,
+        nextTick: false },
+     _idleStart: 1197,
+     parser: 
+      HTTPParser {
+        '0': [Function: parserOnHeaders],
+        '1': [Function: parserOnHeadersComplete],
+        '2': [Function: parserOnBody],
+        '3': [Function: parserOnMessageComplete],
+        '4': [Function: bound onParserExecute],
+        _headers: [],
+        _url: '',
+        _consumed: true,
+        socket: [Circular],
+        incoming: [Circular],
+        outgoing: null,
+        maxHeaderPairs: 2000,
+        onIncoming: [Function: bound parserOnIncoming] },
+     on: [Function: socketOnWrap],
+     _paused: false,
+     read: [Function],
+     _consuming: true,
+     _httpMessage: 
+      ServerResponse {
+        domain: null,
+        _events: [Object],
+        _eventsCount: 1,
+        _maxListeners: undefined,
+        output: [],
+        outputEncodings: [],
+        outputCallbacks: [],
+        outputSize: 0,
+        writable: true,
+        _last: false,
+        upgrading: false,
+        chunkedEncoding: false,
+        shouldKeepAlive: false,
+        useChunkedEncodingByDefault: true,
+        sendDate: true,
+        _removedHeader: {},
+        _contentLength: null,
+        _hasBody: true,
+        _trailer: '',
+        finished: false,
+        _headerSent: false,
+        socket: [Circular],
+        connection: [Circular],
+        _header: null,
+        _headers: [Object],
+        _headerNames: [Object],
+        _onPendingData: [Function: bound updateOutgoingData],
+        _sent100: false,
+        _expect_continue: false,
+        req: [Circular],
+        locals: {} } },
+  _consuming: false,
+  _dumped: false,
+  next: [Function: next],
+  baseUrl: '',
+  originalUrl: '/',
+  _parsedUrl: 
+   Url {
+     protocol: null,
+     slashes: null,
+     auth: null,
+     host: null,
+     port: null,
+     hostname: null,
+     hash: null,
+     search: null,
+     query: null,
+     pathname: '/',
+     path: '/',
+     href: '/',
+     _raw: '/' },
+  params: {},
+  query: {},
+  res: 
+   ServerResponse {
+     domain: null,
+     _events: { finish: [Object] },
+     _eventsCount: 1,
+     _maxListeners: undefined,
+     output: [],
+     outputEncodings: [],
+     outputCallbacks: [],
+     outputSize: 0,
+     writable: true,
+     _last: false,
+     upgrading: false,
+     chunkedEncoding: false,
+     shouldKeepAlive: false,
+     useChunkedEncodingByDefault: true,
+     sendDate: true,
+     _removedHeader: {},
+     _contentLength: null,
+     _hasBody: true,
+     _trailer: '',
+     finished: false,
+     _headerSent: false,
+     socket: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 1197,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     connection: 
+      Socket {
+        connecting: false,
+        _hadError: false,
+        _handle: [Object],
+        _parent: null,
+        _host: null,
+        _readableState: [Object],
+        readable: true,
+        domain: null,
+        _events: [Object],
+        _eventsCount: 10,
+        _maxListeners: undefined,
+        _writableState: [Object],
+        writable: true,
+        allowHalfOpen: true,
+        destroyed: false,
+        _bytesDispatched: 0,
+        _sockname: null,
+        _pendingData: null,
+        _pendingEncoding: '',
+        server: [Object],
+        _server: [Object],
+        _idleTimeout: 120000,
+        _idleNext: [Object],
+        _idlePrev: [Object],
+        _idleStart: 1197,
+        parser: [Object],
+        on: [Function: socketOnWrap],
+        _paused: false,
+        read: [Function],
+        _consuming: true,
+        _httpMessage: [Circular] },
+     _header: null,
+     _headers: 
+      { 'x-powered-by': 'Express',
+        'cache-control': 'no-cache, no-store, must-revalidate',
+        pragma: 'no-cache',
+        expires: '0',
+        vary: 'Origin' },
+     _headerNames: 
+      { 'x-powered-by': 'X-Powered-By',
+        'cache-control': 'Cache-Control',
+        pragma: 'Pragma',
+        expires: 'Expires',
+        vary: 'Vary' },
+     _onPendingData: [Function: bound updateOutgoingData],
+     _sent100: false,
+     _expect_continue: false,
+     req: [Circular],
+     locals: {} },
+  body: {} }
+2018-04-12T21:24:35.897Z - info: Execution took 1358 ms, finished with status: 'crash'
+2018-04-12T21:28:54.144Z - info: User function triggered, starting execution
+2018-04-12T21:28:54.175Z - info: Function crashed
+2018-04-12T21:28:54.183Z - info: TypeError: First argument must be a string or Buffer
+    at ServerResponse.end (_http_outgoing.js:605:11)
+    at exports.register.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:117:9)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+2018-04-12T21:28:54.195Z - info: Execution took 55 ms, user function completed successfully
+2018-04-12T21:29:22.160Z - info: User function triggered, starting execution
+2018-04-12T21:29:22.217Z - info: Execution took 57 ms, user function completed successfully
+2018-04-12T21:32:39.222Z - info: User function triggered, starting execution
+2018-04-12T21:32:39.269Z - info: Execution took 49 ms, user function completed successfully
+2018-04-12T21:32:55.172Z - info: User function triggered, starting execution
+2018-04-12T21:32:55.297Z - info: Promise { <pending> }
+2018-04-12T21:32:55.313Z - info: Execution took 144 ms, user function completed successfully
+2018-04-12T21:33:20.134Z - info: User function triggered, starting execution
+2018-04-12T21:33:20.233Z - info: Promise { <pending> }
+2018-04-12T21:33:20.249Z - info: Execution took 1137 ms, finished with status: 'crash'
+2018-04-12T21:33:37.778Z - info: User function triggered, starting execution
+2018-04-12T21:33:37.888Z - info: Promise { <pending> }
+2018-04-12T21:33:37.909Z - info: Execution took 132 ms, user function completed successfully
+2018-04-12T21:42:45.028Z - info: User function triggered, starting execution
+2018-04-12T21:42:45.076Z - info: Execution took 1070 ms, finished with status: 'crash'
+2018-04-12T21:43:23.590Z - info: User function triggered, starting execution
+2018-04-12T21:43:23.640Z - info: Execution took 1072 ms, finished with status: 'crash'
+2018-04-12T21:44:38.185Z - info: User function triggered, starting execution
+2018-04-12T21:44:38.232Z - info: Execution took 1069 ms, finished with status: 'crash'
+2018-04-12T21:45:12.445Z - info: User function triggered, starting execution
+2018-04-12T21:45:12.492Z - info: Execution took 1071 ms, finished with status: 'crash'
+2018-04-12T21:45:45.556Z - info: User function triggered, starting execution
+2018-04-12T21:45:45.609Z - info: Execution took 1076 ms, finished with status: 'crash'
+2018-04-12T21:47:06.228Z - info: User function triggered, starting execution
+2018-04-12T21:47:06.329Z - info: Promise { <pending> }
+2018-04-12T21:47:06.349Z - info: Execution took 1150 ms, finished with status: 'crash'
+2018-04-12T21:50:09.109Z - info: User function triggered, starting execution
+2018-04-12T21:50:09.155Z - info: Execution took 1069 ms, finished with status: 'crash'
+2018-04-12T21:50:33.907Z - info: User function triggered, starting execution
+2018-04-12T21:50:33.969Z - info: Execution took 64 ms, user function completed successfully
+2018-04-12T21:52:18.033Z - info: User function triggered, starting execution
+2018-04-12T21:52:18.086Z - info: Execution took 54 ms, user function completed successfully
+2018-04-12T22:01:08.197Z - info: Worker for register closed due to file changes.
+2018-04-12T22:01:08.203Z - info: Worker for redirect closed due to file changes.
+2018-04-12T22:01:08.204Z - info: Worker for pay closed due to file changes.
+2018-04-12T22:01:08.208Z - info: Worker for t closed due to file changes.
+2018-04-12T22:01:15.994Z - info: User function triggered, starting execution
+2018-04-12T22:01:15.996Z - info: Function crashed
+2018-04-12T22:01:16.001Z - info: ReferenceError: options is not defined
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:108:13)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T22:01:16.023Z - info: Execution took 26 ms, user function completed successfully
+2018-04-12T22:01:27.747Z - info: User function triggered, starting execution
+2018-04-12T22:01:27.791Z - info: Execution took 1070 ms, finished with status: 'crash'
+2018-04-12T22:02:18.235Z - info: User function triggered, starting execution
+2018-04-12T22:02:18.263Z - info: Function crashed
+2018-04-12T22:02:18.268Z - info: TypeError: Converting circular structure to JSON
+    at JSON.stringify (<anonymous>)
+    at stringify (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/response.js:260:14)
+    at ServerResponse.send (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/response.js:158:21)
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:119:9)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+2018-04-12T22:02:18.292Z - info: Execution took 58 ms, user function completed successfully
+2018-04-12T22:02:59.167Z - info: User function triggered, starting execution
+2018-04-12T22:02:59.169Z - info: Function crashed
+2018-04-12T22:02:59.172Z - info: TypeError: dest.on is not a function
+    at ServerResponse.Stream.pipe (internal/streams/legacy.js:30:8)
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:119:9)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+2018-04-12T22:02:59.191Z - info: Execution took 27 ms, user function completed successfully
+2018-04-12T22:03:09.984Z - info: User function triggered, starting execution
+2018-04-12T22:03:10.026Z - info: Execution took 1066 ms, finished with status: 'crash'
+2018-04-12T22:04:40.441Z - info: User function triggered, starting execution
+2018-04-12T22:04:40.470Z - info: Function crashed
+2018-04-12T22:04:40.473Z - info: ReferenceError: writeStream is not defined
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:118:33)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T22:04:40.495Z - info: Execution took 51 ms, user function completed successfully
+2018-04-12T22:04:40.499Z - info: Worker for t closed due to file changes.
+2018-04-12T22:10:56.012Z - info: User function triggered, starting execution
+2018-04-12T22:10:56.044Z - info: Function crashed
+2018-04-12T22:10:56.046Z - info: TypeError: First argument must be a string or Buffer
+    at ClientRequest.write (_http_outgoing.js:502:11)
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:122:13)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+2018-04-12T22:10:56.067Z - info: Execution took 53 ms, user function completed successfully
+2018-04-12T22:11:36.798Z - info: User function triggered, starting execution
+2018-04-12T22:11:36.814Z - info: Function crashed
+2018-04-12T22:11:36.817Z - info: TypeError: First argument must be a string or Buffer
+    at ClientRequest.write (_http_outgoing.js:502:11)
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:122:13)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+2018-04-12T22:11:36.834Z - info: Execution took 50 ms, user function completed successfully
+2018-04-12T22:11:59.349Z - info: User function triggered, starting execution
+2018-04-12T22:11:59.395Z - info: Execution took 47 ms, user function completed successfully
+2018-04-12T22:21:44.853Z - info: User function triggered, starting execution
+2018-04-12T22:21:44.901Z - info: Execution took 1290 ms, finished with status: 'crash'
+2018-04-12T22:21:54.506Z - info: User function triggered, starting execution
+2018-04-12T22:21:54.555Z - info: Execution took 1076 ms, finished with status: 'crash'
+2018-04-12T22:22:21.401Z - info: User function triggered, starting execution
+2018-04-12T22:22:21.447Z - info: Execution took 1286 ms, finished with status: 'crash'
+2018-04-12T22:22:31.365Z - info: User function triggered, starting execution
+2018-04-12T22:22:31.410Z - info: Execution took 1074 ms, finished with status: 'crash'
+2018-04-12T22:22:46.203Z - info: User function triggered, starting execution
+2018-04-12T22:22:46.262Z - info: Execution took 62 ms, user function completed successfully
+2018-04-12T22:23:10.774Z - info: User function triggered, starting execution
+2018-04-12T22:23:10.823Z - info: Execution took 1072 ms, finished with status: 'crash'
+2018-04-12T22:36:20.732Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T22:36:57.174Z - info: Worker for pay closed due to file changes.
+2018-04-12T22:36:57.179Z - info: Worker for register closed due to file changes.
+2018-04-12T22:36:57.327Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T22:36:57.335Z - error:  code=500, status=INTERNAL, message=Function worker killed by signal: SIGTERM, errors=[Function worker killed by signal: SIGTERM]
+2018-04-12T22:38:18.425Z - info: Worker for redirect closed due to file changes.
+2018-04-12T22:38:18.446Z - info: Worker for pay closed due to file changes.
+2018-04-12T22:38:25.095Z - info: User function triggered, starting execution
+2018-04-12T22:38:25.122Z - error: Unhandled rejection RequestError: Error: Invalid URI "stage.wepayapi.com/v2/account/find"
+    at new RequestError (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request-promise-core/lib/errors.js:14:15)
+    at Request.plumbing.callback (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request-promise-core/lib/plumbing.js:87:29)
+    at Request.RP$callback [as _callback] (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request-promise-core/lib/plumbing.js:46:31)
+    at self.callback (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request/request.js:186:22)
+    at emitOne (events.js:96:13)
+    at Request.emit (events.js:191:7)
+    at Request.init (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request/request.js:274:17)
+    at Request.RP$initInterceptor [as init] (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request-promise-core/configure/request2.js:45:29)
+    at new Request (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request/request.js:128:8)
+    at request (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/request/index.js:53:10)
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:109:12)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+2018-04-12T22:38:25.135Z - info: Execution took 1684 ms, finished with status: 'crash'
+2018-04-12T22:38:25.157Z - error: Function worker killed by signal: SIGTERM
+2018-04-12T22:38:46.068Z - info: User function triggered, starting execution
+2018-04-12T22:38:46.133Z - info: Execution took 1694 ms, finished with status: 'crash'
+2018-04-12T22:40:10.984Z - info: User function triggered, starting execution
+2018-04-12T22:40:11.046Z - info: Execution took 1700 ms, finished with status: 'crash'
+2018-04-12T22:40:35.516Z - info: User function triggered, starting execution
+2018-04-12T22:40:35.554Z - info: Execution took 31 ms, user function completed successfully
+2018-04-12T22:40:35.588Z - info: Worker for t closed due to file changes.
+2018-04-12T22:45:57.027Z - info: User function triggered, starting execution
+2018-04-12T22:45:57.085Z - info: Execution took 1682 ms, finished with status: 'crash'
+2018-04-12T22:49:55.172Z - info: User function triggered, starting execution
+2018-04-12T22:49:55.186Z - info: Execution took 1657 ms, finished with status: 'crash'
+2018-04-12T22:50:21.239Z - info: User function triggered, starting execution
+2018-04-12T22:50:21.252Z - info: Execution took 1649 ms, finished with status: 'crash'
+2018-04-12T22:51:36.233Z - info: User function triggered, starting execution
+2018-04-12T22:51:36.249Z - info: Execution took 1668 ms, finished with status: 'crash'
+2018-04-12T22:53:03.510Z - info: User function triggered, starting execution
+2018-04-12T22:53:03.525Z - info: Execution took 1642 ms, finished with status: 'crash'
+2018-04-12T22:56:21.808Z - info: User function triggered, starting execution
+2018-04-12T22:56:21.821Z - info: Execution took 1654 ms, finished with status: 'crash'
+2018-04-12T22:56:57.094Z - info: User function triggered, starting execution
+2018-04-12T22:56:57.109Z - info: Execution took 1691 ms, finished with status: 'crash'
+2018-04-12T22:59:46.065Z - info: User function triggered, starting execution
+2018-04-12T22:59:46.088Z - info: Execution took 1680 ms, finished with status: 'crash'
+2018-04-12T23:00:04.870Z - info: User function triggered, starting execution
+2018-04-12T23:00:04.887Z - info: Execution took 19 ms, user function completed successfully
+2018-04-12T23:00:21.325Z - info: User function triggered, starting execution
+2018-04-12T23:00:21.326Z - info: Function crashed
+2018-04-12T23:00:21.331Z - info: TypeError: Promise resolver undefined is not a function
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:111:14)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at textParser (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/body-parser/lib/types/text.js:69:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T23:00:21.351Z - info: Execution took 24 ms, user function completed successfully
+2018-04-12T23:00:21.353Z - info: Worker for t closed due to file changes.
+2018-04-12T23:01:02.423Z - info: User function triggered, starting execution
+2018-04-12T23:01:02.445Z - info: Execution took 24 ms, user function completed successfully
+2018-04-12T23:01:02.450Z - error: (node:12970) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): ReferenceError: alert is not defined
+2018-04-12T23:01:02.450Z - error: (node:12970) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-12T23:01:02.476Z - error: Function worker killed by signal: SIGTERM
+2018-04-12T23:01:19.984Z - info: User function triggered, starting execution
+2018-04-12T23:01:19.987Z - info: [Function: y]
+2018-04-12T23:01:20.004Z - info: Execution took 22 ms, user function completed successfully
+2018-04-12T23:01:41.576Z - info: User function triggered, starting execution
+2018-04-12T23:01:41.581Z - info: [Function: y]
+2018-04-12T23:01:41.598Z - info: Execution took 23 ms, user function completed successfully
+2018-04-12T23:02:08.011Z - info: User function triggered, starting execution
+2018-04-12T23:02:08.016Z - info: [Function: y]
+2018-04-12T23:02:08.034Z - info: Execution took 28 ms, user function completed successfully
+2018-04-12T23:02:32.835Z - info: User function triggered, starting execution
+2018-04-12T23:02:32.864Z - info: Execution took 23 ms, user function completed successfully
+Worker for t closed due to file changes.
+2018-04-12T23:03:22.318Z - info: User function triggered, starting execution
+2018-04-12T23:03:22.332Z - info: Execution took 1656 ms, finished with status: 'crash'
+2018-04-12T23:07:44.424Z - info: User function triggered, starting execution
+2018-04-12T23:07:44.428Z - info: Function crashed
+2018-04-12T23:07:44.428Z - info: ReferenceError: http is not defined
+    at exports.t.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:111:5)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at urlencodedParser (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/body-parser/lib/types/urlencoded.js:91:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at textParser (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/body-parser/lib/types/text.js:69:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-12T23:07:44.452Z - info: Execution took 28 ms, user function completed successfully
+2018-04-12T23:07:52.670Z - info: User function triggered, starting execution
+2018-04-12T23:07:52.712Z - info: Execution took 1686 ms, finished with status: 'crash'
+2018-04-12T23:08:06.016Z - info: User function triggered, starting execution
+2018-04-12T23:08:06.058Z - info: Execution took 1680 ms, finished with status: 'crash'
+2018-04-13T16:39:03.159Z - info: Worker for register closed due to file changes.
+2018-04-13T16:39:30.590Z - info: User function triggered, starting execution
+2018-04-13T16:39:30.640Z - info: Execution took 1090 ms, finished with status: 'crash'
+2018-04-13T16:39:38.657Z - info: User function triggered, starting execution
+2018-04-13T16:39:38.707Z - info: Execution took 1292 ms, finished with status: 'crash'
+2018-04-13T16:40:05.337Z - info: User function triggered, starting execution
+2018-04-13T16:40:05.396Z - info: Execution took 1282 ms, finished with status: 'crash'
+2018-04-13T16:40:12.437Z - info: User function triggered, starting execution
+2018-04-13T16:40:12.495Z - info: Execution took 1120 ms, finished with status: 'crash'
+2018-04-13T16:40:32.999Z - info: Worker for register closed due to file changes.
+2018-04-13T16:40:33.006Z - info: Worker for pay closed due to file changes.
+2018-04-13T16:40:45.294Z - info: User function triggered, starting execution
+2018-04-13T16:40:45.342Z - info: Execution took 1085 ms, finished with status: 'crash'
+2018-04-13T16:41:36.011Z - info: User function triggered, starting execution
+2018-04-13T16:41:36.061Z - info: Execution took 1083 ms, finished with status: 'crash'
+2018-04-13T16:46:18.379Z - info: User function triggered, starting execution
+2018-04-13T16:46:18.429Z - info: Execution took 1083 ms, finished with status: 'crash'
+2018-04-13T16:46:38.026Z - info: User function triggered, starting execution
+2018-04-13T16:46:38.074Z - info: Execution took 1285 ms, finished with status: 'crash'
+2018-04-13T16:50:23.553Z - info: User function triggered, starting execution
+2018-04-13T16:50:23.562Z - info: in pay function
+2018-04-13T16:50:23.603Z - info: Execution took 1303 ms, finished with status: 'crash'
+2018-04-13T16:51:12.470Z - info: User function triggered, starting execution
+2018-04-13T16:51:12.475Z - info: in pay function
+2018-04-13T16:51:12.517Z - info: Execution took 1073 ms, finished with status: 'crash'
+2018-04-13T16:53:46.197Z - info: Worker for pay closed due to file changes.
+2018-04-13T16:53:46.204Z - info: Worker for register closed due to file changes.
+2018-04-13T16:54:04.245Z - info: User function triggered, starting execution
+2018-04-13T16:54:04.246Z - info: in pay function
+2018-04-13T16:54:04.249Z - info: undefined undefined undefined
+2018-04-13T16:54:04.297Z - info: Execution took 1298 ms, finished with status: 'crash'
+2018-04-13T16:56:32.789Z - info: User function triggered, starting execution
+2018-04-13T16:56:32.795Z - info: in pay function
+undefined undefined undefined
+2018-04-13T16:56:32.841Z - info: Execution took 1078 ms, finished with status: 'crash'
+2018-04-13T16:56:54.251Z - info: User function triggered, starting execution
+2018-04-13T16:56:54.252Z - info: in pay function
+2018-04-13T16:56:54.253Z - info: 1397632302 10 1
+2018-04-13T16:56:54.298Z - info: Execution took 1335 ms, finished with status: 'crash'
+2018-04-13T17:07:01.232Z - info: User function triggered, starting execution
+2018-04-13T17:07:01.234Z - info: 1397632302 10 1
+2018-04-13T17:07:01.282Z - info: Execution took 1113 ms, finished with status: 'crash'
+2018-04-13T17:07:17.484Z - info: User function triggered, starting execution
+2018-04-13T17:07:17.488Z - info: in pay function
+1397632302 10 1
+2018-04-13T17:07:17.537Z - info: Execution took 1120 ms, finished with status: 'crash'
+2018-04-13T17:09:27.870Z - info: User function triggered, starting execution
+2018-04-13T17:09:27.872Z - info: in pay function
+1397632302 10 1
+2018-04-13T17:09:27.917Z - info: Execution took 1109 ms, finished with status: 'crash'
+2018-04-13T17:19:45.604Z - info: User function triggered, starting execution
+2018-04-13T17:19:45.605Z - info: in pay function
+1397632302 10 1
+2018-04-13T17:19:45.649Z - info: Execution took 1318 ms, finished with status: 'crash'
+2018-04-13T17:22:36.768Z - info: User function triggered, starting execution
+2018-04-13T17:22:36.770Z - info: in pay function
+1397632302 10 1
+2018-04-13T17:22:36.813Z - info: Execution took 1105 ms, finished with status: 'crash'
+2018-04-13T17:54:00.979Z - info: User function triggered, starting execution
+2018-04-13T17:54:00.983Z - info: in pay function
+1397632302 10 1
+2018-04-13T17:54:01.037Z - info: Execution took 1326 ms, finished with status: 'crash'
+2018-04-13T17:56:33.152Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:86
+exports.asynctest = funtions.https.onRequest((req, res) => {
+                    ^
+
+ReferenceError: funtions is not defined
+    at Object.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:86:21)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:76:28)
+    at emitTwo (events.js:106:13)
+2018-04-13T17:56:33.181Z - error: Function worker crashed with exit code: 1
+2018-04-13T17:56:59.653Z - info: User function triggered, starting execution
+2018-04-13T17:56:59.659Z - info: in pay function
+1397632302 10 1
+2018-04-13T17:56:59.707Z - info: Execution took 1313 ms, finished with status: 'crash'
+2018-04-13T18:01:11.847Z - info: Worker for register closed due to file changes.
+2018-04-13T18:01:11.855Z - info: Worker for pay closed due to file changes.
+2018-04-13T18:01:11.858Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T18:01:25.977Z - info: User function triggered, starting execution
+2018-04-13T18:01:25.978Z - info: in pay function
+1397632302 10 1
+2018-04-13T18:01:26.026Z - info: Execution took 1346 ms, finished with status: 'crash'
+2018-04-13T18:10:14.321Z - info: User function triggered, starting execution
+2018-04-13T18:10:14.324Z - info: in pay function
+1397632302 10 1
+2018-04-13T18:10:14.368Z - info: Execution took 1333 ms, finished with status: 'crash'
+2018-04-13T18:27:33.277Z - info: Worker for pay closed due to file changes.
+2018-04-13T18:27:33.288Z - info: Worker for register closed due to file changes.
+2018-04-13T18:27:44.682Z - info: User function triggered, starting execution
+2018-04-13T18:27:44.687Z - info: undefined undefined undefined
+2018-04-13T18:27:44.740Z - info: Execution took 1302 ms, finished with status: 'crash'
+2018-04-13T18:28:18.295Z - info: User function triggered, starting execution
+2018-04-13T18:28:18.297Z - info: asynctest
+2018-04-13T18:28:18.315Z - info: Execution took 22 ms, user function completed successfully
+2018-04-13T18:28:18.325Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T18:32:33.497Z - info: User function triggered, starting execution
+2018-04-13T18:32:33.501Z - info: undefined undefined undefined
+2018-04-13T18:32:33.550Z - info: Execution took 1084 ms, finished with status: 'crash'
+2018-04-13T18:32:56.978Z - info: User function triggered, starting execution
+undefined undefined undefined
+2018-04-13T18:32:57.029Z - info: Execution took 1291 ms, finished with status: 'crash'
+2018-04-13T18:33:16.864Z - info: User function triggered, starting execution
+2018-04-13T18:33:16.869Z - info: undefined undefined undefined
+2018-04-13T18:33:16.919Z - info: Execution took 1084 ms, finished with status: 'crash'
+2018-04-13T18:33:19.795Z - info: User function triggered, starting execution
+2018-04-13T18:33:19.799Z - info: asynctest test test test
+2018-04-13T18:33:19.816Z - info: Execution took 25 ms, user function completed successfully
+2018-04-13T18:33:44.924Z - info: User function triggered, starting execution
+2018-04-13T18:33:44.929Z - info: undefined undefined undefined
+2018-04-13T18:33:44.979Z - info: Execution took 1081 ms, finished with status: 'crash'
+2018-04-13T18:33:51.466Z - info: User function triggered, starting execution
+2018-04-13T18:33:51.469Z - info: in register function
+2018-04-13T18:33:51.521Z - info: Execution took 1082 ms, finished with status: 'crash'
+2018-04-13T18:42:13.837Z - info: User function triggered, starting execution
+2018-04-13T18:42:13.843Z - info: undefined undefined undefined
+url in promiseCall:  /checkout/create
+2018-04-13T18:42:13.893Z - info: Execution took 1301 ms, finished with status: 'crash'
+2018-04-13T18:43:49.941Z - info: User function triggered, starting execution
+2018-04-13T18:43:49.946Z - info: undefined undefined undefined
+url in promiseCall:  /checkout/create
+2018-04-13T18:43:49.990Z - info: Execution took 1293 ms, finished with status: 'crash'
+2018-04-13T18:44:00.048Z - info: User function triggered, starting execution
+2018-04-13T18:44:00.051Z - info: undefined undefined undefined
+2018-04-13T18:44:00.052Z - info: url in promiseCall:  /checkout/create
+2018-04-13T18:44:00.112Z - info: Execution took 1322 ms, finished with status: 'crash'
+2018-04-13T18:45:02.307Z - info: User function triggered, starting execution
+2018-04-13T18:45:02.311Z - info: undefined undefined undefined
+2018-04-13T18:45:02.312Z - info: url in promiseCall:  /checkout/create
+2018-04-13T18:45:02.365Z - info: Execution took 1284 ms, finished with status: 'crash'
+2018-04-13T18:45:46.274Z - info: User function triggered, starting execution
+2018-04-13T18:45:46.278Z - info: undefined undefined undefined
+2018-04-13T18:45:46.292Z - info: url in promiseCall:  /checkout/create
+2018-04-13T18:45:46.327Z - info: Execution took 1283 ms, finished with status: 'crash'
+2018-04-13T18:48:35.916Z - info: User function triggered, starting execution
+2018-04-13T18:48:35.920Z - info: undefined undefined undefined
+2018-04-13T18:48:35.921Z - info: url in promiseCall:  /checkout/create
+2018-04-13T18:48:35.973Z - info: Execution took 1309 ms, finished with status: 'crash'
+2018-04-13T18:48:44.763Z - info: User function triggered, starting execution
+2018-04-13T18:48:44.769Z - info: undefined undefined undefined
+2018-04-13T18:48:44.770Z - info: url in promiseCall:  /checkout/create
+2018-04-13T18:48:44.825Z - info: Execution took 1315 ms, finished with status: 'crash'
+2018-04-13T18:49:30.122Z - info: User function triggered, starting execution
+2018-04-13T18:49:30.130Z - info: undefined undefined undefined
+2018-04-13T18:49:30.190Z - info: Execution took 1293 ms, finished with status: 'crash'
+2018-04-13T18:49:38.229Z - info: User function triggered, starting execution
+2018-04-13T18:49:38.231Z - info: in register function
+2018-04-13T18:49:38.282Z - info: Execution took 1076 ms, finished with status: 'crash'
+2018-04-13T18:51:25.404Z - info: User function triggered, starting execution
+2018-04-13T18:51:25.407Z - info: in register function
+2018-04-13T18:51:25.466Z - info: Execution took 1289 ms, finished with status: 'crash'
+2018-04-13T18:51:32.181Z - info: User function triggered, starting execution
+2018-04-13T18:51:32.187Z - info: undefined undefined undefined
+2018-04-13T18:51:32.231Z - info: Execution took 1074 ms, finished with status: 'crash'
+2018-04-13T18:51:52.150Z - info: User function triggered, starting execution
+2018-04-13T18:51:52.153Z - info: 1397632302 50 5
+2018-04-13T18:51:52.211Z - info: Execution took 1287 ms, finished with status: 'crash'
+2018-04-13T19:11:17.419Z - info: Worker for register closed due to file changes.
+2018-04-13T19:11:17.426Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:11:17.428Z - info: Worker for pay closed due to file changes.
+2018-04-13T19:11:23.729Z - info: User function triggered, starting execution
+2018-04-13T19:11:23.731Z - info: 1397632302 50 5
+2018-04-13T19:11:23.783Z - info: Execution took 1299 ms, finished with status: 'crash'
+2018-04-13T19:11:29.481Z - info: User function triggered, starting execution
+2018-04-13T19:11:29.482Z - info: asynctest test test test
+2018-04-13T19:11:29.522Z - info: Execution took 36 ms, user function completed successfully
+Worker for asynctest closed due to file changes.
+2018-04-13T19:12:12.701Z - info: User function triggered, starting execution
+2018-04-13T19:12:12.703Z - info: asynctest test test test
+2018-04-13T19:12:12.719Z - info: Execution took 1244 ms, finished with status: 'crash'
+2018-04-13T19:12:47.409Z - info: User function triggered, starting execution
+2018-04-13T19:12:47.424Z - info: asynctest test test test
+2018-04-13T19:12:47.428Z - error: (node:9478) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+(node:9478) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:12:47.435Z - info: Execution took 1255 ms, finished with status: 'crash'
+2018-04-13T19:12:47.460Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:12:56.195Z - info: User function triggered, starting execution
+2018-04-13T19:12:56.199Z - info: asynctest test test test
+2018-04-13T19:12:56.209Z - error: (node:9492) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+(node:9492) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:12:56.220Z - info: Execution took 1050 ms, finished with status: 'crash'
+2018-04-13T19:12:56.240Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:13:11.383Z - info: User function triggered, starting execution
+2018-04-13T19:13:11.386Z - info: asynctest test test test
+2018-04-13T19:13:11.391Z - error: (node:9505) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+2018-04-13T19:13:11.393Z - error: (node:9505) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:13:11.407Z - info: Execution took 1261 ms, finished with status: 'crash'
+2018-04-13T19:13:11.433Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:13:21.815Z - info: User function triggered, starting execution
+2018-04-13T19:13:21.816Z - info: asynctest test test test
+2018-04-13T19:13:21.849Z - info: Execution took 18 ms, user function completed successfully
+Worker for asynctest closed due to file changes.
+2018-04-13T19:13:42.143Z - info: User function triggered, starting execution
+2018-04-13T19:13:42.149Z - info: asynctest test test test
+2018-04-13T19:13:42.159Z - error: (node:9550) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+(node:9550) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:13:42.210Z - info: Execution took 1295 ms, finished with status: 'crash'
+2018-04-13T19:13:42.245Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:14:24.297Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:89
+    new Promise((resolve, reject) => setTimeout(resolve, 50).then(() => { res.end("asynctest finished"); }).error(e -  > console.log("some problem")));
+                                                                                                                       ^
+SyntaxError: Unexpected token >
+    at createScript (vm.js:53:10)
+    at Object.runInThisContext (vm.js:95:10)
+    at Module._compile (module.js:543:28)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:76:28)
+2018-04-13T19:14:24.319Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:14:44.412Z - info: User function triggered, starting execution
+2018-04-13T19:14:44.420Z - info: asynctest test test test
+2018-04-13T19:14:44.430Z - error: (node:9642) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+(node:9642) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:14:44.440Z - info: Execution took 1261 ms, finished with status: 'crash'
+2018-04-13T19:14:44.459Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:14:58.575Z - info: User function triggered, starting execution
+2018-04-13T19:14:58.581Z - info: asynctest test test test
+2018-04-13T19:14:58.585Z - error: (node:9660) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+(node:9660) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:14:58.598Z - info: Execution took 1247 ms, finished with status: 'crash'
+2018-04-13T19:14:58.617Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:15:24.632Z - info: User function triggered, starting execution
+2018-04-13T19:15:24.636Z - info: asynctest test test test
+2018-04-13T19:15:24.644Z - error: (node:9677) UnhandledPromiseRejectionWarning: Unhandled promise rejection (rejection id: 1): TypeError: setTimeout(...).then is not a function
+2018-04-13T19:15:24.645Z - error: (node:9677) DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+2018-04-13T19:15:24.654Z - info: Execution took 1260 ms, finished with status: 'crash'
+2018-04-13T19:15:24.678Z - error: Function worker killed by signal: SIGTERM
+2018-04-13T19:15:42.629Z - info: User function triggered, starting execution
+2018-04-13T19:15:42.631Z - info: asynctest test test test
+2018-04-13T19:15:42.636Z - info: Function crashed
+2018-04-13T19:15:42.640Z - info: TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:89:124)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:15:42.670Z - info: Execution took 39 ms, user function completed successfully
+2018-04-13T19:16:18.014Z - info: User function triggered, starting execution
+2018-04-13T19:16:18.015Z - info: asynctest test test test
+2018-04-13T19:16:18.019Z - info: Function crashed
+2018-04-13T19:16:18.022Z - info: TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:89:129)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:16:18.046Z - info: Execution took 35 ms, user function completed successfully
+2018-04-13T19:16:18.055Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:16:46.308Z - info: User function triggered, starting execution
+2018-04-13T19:16:46.321Z - info: asynctest test test test
+Function crashed
+TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:89:132)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:16:46.340Z - info: Execution took 34 ms, user function completed successfully
+2018-04-13T19:18:16.289Z - info: User function triggered, starting execution
+2018-04-13T19:18:16.290Z - info: asynctest test test test
+2018-04-13T19:18:16.295Z - info: Function crashed
+2018-04-13T19:18:16.303Z - info: TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:91:10)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:18:16.316Z - info: Execution took 26 ms, user function completed successfully
+2018-04-13T19:18:16.322Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:18:26.013Z - info: User function triggered, starting execution
+2018-04-13T19:18:26.026Z - info: asynctest
+Function crashed
+TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:91:10)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:18:26.055Z - info: Execution took 34 ms, user function completed successfully
+Worker for asynctest closed due to file changes.
+2018-04-13T19:18:51.691Z - info: User function triggered, starting execution
+2018-04-13T19:18:51.693Z - info: asynctest
+2018-04-13T19:18:51.696Z - info: Function crashed
+2018-04-13T19:18:51.699Z - info: TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:91:10)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:18:51.730Z - info: Execution took 38 ms, user function completed successfully
+2018-04-13T19:19:10.656Z - info: User function triggered, starting execution
+2018-04-13T19:19:10.658Z - info: asynctest
+2018-04-13T19:19:10.663Z - info: Function crashed
+2018-04-13T19:19:10.666Z - info: TypeError: (intermediate value).then(...).error is not a function
+    at exports.asynctest.functions.https.onRequest (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:91:10)
+    at cloudFunction (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/firebase-functions/lib/providers/https.js:37:41)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:142:11)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:317:13)
+    at /home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:335:12)
+    at next (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/index.js:275:10)
+    at app.use (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:114:7)
+    at Layer.handle [as handle_request] (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/express/lib/router/layer.js:95:5)
+2018-04-13T19:19:10.695Z - info: Execution took 34 ms, user function completed successfully
+2018-04-13T19:19:10.709Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:19:29.918Z - info: User function triggered, starting execution
+2018-04-13T19:19:29.924Z - info: asynctest
+2018-04-13T19:19:29.935Z - info: Execution took 1241 ms, finished with status: 'crash'
+2018-04-13T19:20:31.445Z - info: User function triggered, starting execution
+2018-04-13T19:20:31.453Z - info: asynctest
+2018-04-13T19:20:31.462Z - info: Execution took 1241 ms, finished with status: 'crash'
+2018-04-13T19:25:31.264Z - info: User function triggered, starting execution
+2018-04-13T19:25:31.271Z - info: asynctest
+2018-04-13T19:25:31.291Z - info: Execution took 1065 ms, finished with status: 'crash'
+2018-04-13T19:25:35.738Z - info: User function triggered, starting execution
+2018-04-13T19:25:35.743Z - info: 1397632302 50 5
+2018-04-13T19:25:35.788Z - info: Execution took 1077 ms, finished with status: 'crash'
+2018-04-13T19:25:39.115Z - info: User function triggered, starting execution
+1397632302 50 5
+2018-04-13T19:25:39.162Z - info: Execution took 78 ms, finished with status: 'crash'
+2018-04-13T19:25:39.863Z - info: User function triggered, starting execution
+2018-04-13T19:25:39.866Z - info: 1397632302 50 5
+2018-04-13T19:25:39.914Z - info: Execution took 1306 ms, finished with status: 'crash'
+2018-04-13T19:25:41.962Z - info: User function triggered, starting execution
+2018-04-13T19:25:41.981Z - info: 1397632302 50 5
+2018-04-13T19:25:42.071Z - info: Execution took 146 ms, finished with status: 'crash'
+2018-04-13T19:25:42.083Z - info: Execution took 1653 ms, finished with status: 'crash'
+2018-04-13T19:25:42.846Z - info: User function triggered, starting execution
+2018-04-13T19:25:42.865Z - info: 1397632302 50 5
+2018-04-13T19:25:43.129Z - info: Execution took 2458 ms, finished with status: 'crash'
+2018-04-13T19:25:43.171Z - info: Execution took 270 ms, finished with status: 'crash'
+2018-04-13T19:25:43.958Z - info: User function triggered, starting execution
+2018-04-13T19:25:43.961Z - info: 1397632302 50 5
+2018-04-13T19:25:44.160Z - info: User function triggered, starting execution
+2018-04-13T19:25:44.174Z - info: 1397632302 50 5
+2018-04-13T19:25:44.232Z - info: Execution took 3401 ms, finished with status: 'crash'
+2018-04-13T19:25:44.988Z - info: User function triggered, starting execution
+2018-04-13T19:25:45.031Z - info: Execution took 3500 ms, finished with status: 'crash'
+2018-04-13T19:25:45.425Z - info: User function triggered, starting execution
+2018-04-13T19:25:45.433Z - info: 1397632302 50 5
+2018-04-13T19:25:45.770Z - info: User function triggered, starting execution
+2018-04-13T19:25:45.785Z - info: Execution took 3621 ms, finished with status: 'crash'
+2018-04-13T19:25:45.994Z - info: User function triggered, starting execution
+2018-04-13T19:25:45.998Z - info: 1397632302 50 5
+2018-04-13T19:25:46.016Z - info: Execution took 4307 ms, finished with status: 'crash'
+2018-04-13T19:25:46.085Z - error: (node:11049) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit
+2018-04-13T19:25:46.377Z - info: User function triggered, starting execution
+2018-04-13T19:25:46.395Z - info: Execution took 4085 ms, finished with status: 'crash'
+2018-04-13T19:25:46.598Z - info: User function triggered, starting execution
+2018-04-13T19:25:46.625Z - info: User function triggered, starting execution
+2018-04-13T19:25:46.651Z - info: Execution took 4122 ms, finished with status: 'crash'
+2018-04-13T19:25:46.689Z - error: (node:11061) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit
+2018-04-13T19:25:46.692Z - info: 1397632302 50 5
+2018-04-13T19:25:46.907Z - info: User function triggered, starting execution
+2018-04-13T19:25:46.934Z - info: Worker for pay closed due to file changes.
+2018-04-13T19:25:46.953Z - info: Worker for pay closed due to file changes.
+2018-04-13T19:25:46.953Z - info: Worker for pay closed due to file changes.
+2018-04-13T19:25:46.955Z - info: 1397632302 50 5
+2018-04-13T19:25:47.011Z - info: Execution took 3564 ms, finished with status: 'crash'
+2018-04-13T19:25:47.021Z - info: Execution took 3945 ms, finished with status: 'crash'
+2018-04-13T19:25:47.026Z - info: Execution took 3732 ms, finished with status: 'crash'
+2018-04-13T19:25:47.346Z - info: User function triggered, starting execution
+2018-04-13T19:25:47.359Z - info: Execution took 2885 ms, finished with status: 'crash'
+2018-04-13T19:26:04.135Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89
+                throw new Error(e.message);
+                ^
+
+Error: getaddrinfo EAI_AGAIN stage.wepayapi.com:443
+    at ClientRequest.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89:23)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at TLSSocket.socketErrorListener (_http_client.js:358:9)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at connectErrorNT (net.js:1028:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T19:26:04.151Z - info: Execution took 23062 ms, finished with status: 'crash'
+2018-04-13T19:26:04.184Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:26:04.191Z - error: (node:11106) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit
+2018-04-13T19:26:05.644Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89
+                throw new Error(e.message);
+                ^
+
+Error: getaddrinfo EAI_AGAIN stage.wepayapi.com:443
+    at ClientRequest.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89:23)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at TLSSocket.socketErrorListener (_http_client.js:358:9)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at connectErrorNT (net.js:1028:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T19:26:05.652Z - error: (node:11130) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 close listeners added. Use emitter.setMaxListeners() to increase limit
+2018-04-13T19:26:05.660Z - info: Execution took 24315 ms, finished with status: 'crash'
+2018-04-13T19:26:05.686Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:26:06.775Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89
+                throw new Error(e.message);
+                ^
+
+Error: getaddrinfo EAI_AGAIN stage.wepayapi.com:443
+    at ClientRequest.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89:23)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at TLSSocket.socketErrorListener (_http_client.js:358:9)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at connectErrorNT (net.js:1028:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T19:26:06.789Z - info: Execution took 24094 ms, finished with status: 'crash'
+2018-04-13T19:26:06.828Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:26:06.993Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89
+                throw new Error(e.message);
+                ^
+
+Error: getaddrinfo EAI_AGAIN stage.wepayapi.com:443
+    at ClientRequest.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/node_modules/wepay/lib/wepay.js:89:23)
+    at emitOne (events.js:96:13)
+    at ClientRequest.emit (events.js:191:7)
+    at TLSSocket.socketErrorListener (_http_client.js:358:9)
+    at emitOne (events.js:96:13)
+    at TLSSocket.emit (events.js:191:7)
+    at connectErrorNT (net.js:1028:8)
+    at _combinedTickCallback (internal/process/next_tick.js:80:11)
+    at process._tickCallback (internal/process/next_tick.js:104:9)
+2018-04-13T19:26:07.003Z - info: Execution took 23403 ms, finished with status: 'crash'
+2018-04-13T19:26:07.027Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:26:26.056Z - info: User function triggered, starting execution
+2018-04-13T19:26:26.062Z - info: asynctest
+2018-04-13T19:26:26.075Z - info: Execution took 1048 ms, finished with status: 'crash'
+2018-04-13T19:26:29.342Z - info: User function triggered, starting execution
+2018-04-13T19:26:29.353Z - info: asynctest
+2018-04-13T19:26:29.417Z - info: Execution took 132 ms, finished with status: 'crash'
+2018-04-13T19:26:29.419Z - info: Execution took 1487 ms, finished with status: 'crash'
+2018-04-13T19:26:30.060Z - info: User function triggered, starting execution
+2018-04-13T19:26:30.069Z - info: asynctest
+2018-04-13T19:26:30.106Z - info: Execution took 1980 ms, finished with status: 'crash'
+2018-04-13T19:26:30.873Z - info: User function triggered, starting execution
+2018-04-13T19:26:30.876Z - info: asynctest
+2018-04-13T19:26:30.919Z - info: Execution took 2582 ms, finished with status: 'crash'
+2018-04-13T19:26:31.266Z - info: User function triggered, starting execution
+2018-04-13T19:26:31.269Z - info: asynctest
+2018-04-13T19:26:31.671Z - info: User function triggered, starting execution
+2018-04-13T19:26:31.695Z - info: Execution took 2552 ms, finished with status: 'crash'
+2018-04-13T19:26:31.744Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:26:31.753Z - info: Execution took 2831 ms, finished with status: 'crash'
+2018-04-13T19:26:31.770Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:26:31.807Z - info: Execution took 542 ms, user function completed successfully
+2018-04-13T19:26:31.810Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:26:32.201Z - info: User function triggered, starting execution
+2018-04-13T19:26:32.203Z - info: asynctest
+2018-04-13T19:26:32.219Z - info: Execution took 2462 ms, finished with status: 'crash'
+2018-04-13T19:27:15.403Z - info: User function triggered, starting execution
+2018-04-13T19:27:15.405Z - info: asynctest
+2018-04-13T19:27:15.425Z - info: Execution took 1264 ms, finished with status: 'crash'
+2018-04-13T19:28:40.205Z - info: User function triggered, starting execution
+2018-04-13T19:28:40.206Z - info: asynctest
+2018-04-13T19:28:40.222Z - info: Execution took 1040 ms, finished with status: 'crash'
+2018-04-13T19:31:09.962Z - info: User function triggered, starting execution
+2018-04-13T19:31:09.965Z - info: asynctest
+2018-04-13T19:31:09.979Z - info: Execution took 1244 ms, finished with status: 'crash'
+2018-04-13T19:31:14.026Z - info: User function triggered, starting execution
+2018-04-13T19:31:14.028Z - info: asynctest
+2018-04-13T19:31:14.044Z - info: Execution took 1248 ms, finished with status: 'crash'
+2018-04-13T19:31:14.714Z - info: User function triggered, starting execution
+2018-04-13T19:31:14.719Z - info: asynctest
+2018-04-13T19:31:14.732Z - info: Execution took 1281 ms, finished with status: 'crash'
+2018-04-13T19:31:35.032Z - info: Worker for register closed due to file changes.
+2018-04-13T19:31:35.089Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:32:13.570Z - info: User function triggered, starting execution
+2018-04-13T19:32:13.574Z - info: asynctest
+2018-04-13T19:32:13.588Z - info: Execution took 1262 ms, finished with status: 'crash'
+2018-04-13T19:33:06.515Z - info: User function triggered, starting execution
+2018-04-13T19:33:06.518Z - info: asynctest
+2018-04-13T19:33:06.531Z - info: Execution took 1244 ms, finished with status: 'crash'
+2018-04-13T19:33:28.263Z - info: User function triggered, starting execution
+2018-04-13T19:33:28.274Z - info: asynctest
+2018-04-13T19:33:28.292Z - info: Execution took 1255 ms, finished with status: 'crash'
+2018-04-13T19:33:48.210Z - info: User function triggered, starting execution
+2018-04-13T19:33:48.217Z - info: asynctest
+2018-04-13T19:33:48.237Z - info: Execution took 1259 ms, finished with status: 'crash'
+2018-04-13T19:36:29.714Z - info: User function triggered, starting execution
+2018-04-13T19:36:29.732Z - info: Execution took 1243 ms, finished with status: 'crash'
+2018-04-13T19:36:42.263Z - info: User function triggered, starting execution
+2018-04-13T19:36:42.283Z - info: Execution took 1257 ms, finished with status: 'crash'
+2018-04-13T19:36:50.610Z - info: User function triggered, starting execution
+2018-04-13T19:36:50.628Z - info: Execution took 1245 ms, finished with status: 'crash'
+2018-04-13T19:37:08.395Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:90
+return new Promise();
+       ^
+
+TypeError: Promise resolver undefined is not a function
+    at Object.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:90:8)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:76:28)
+    at emitTwo (events.js:106:13)
+2018-04-13T19:37:08.424Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:37:33.807Z - info: [Function: y]
+2018-04-13T19:37:34.052Z - info: User function triggered, starting execution
+2018-04-13T19:37:34.068Z - info: Execution took 1239 ms, finished with status: 'crash'
+2018-04-13T19:37:47.133Z - info: User function triggered, starting execution
+2018-04-13T19:37:47.151Z - info: Execution took 1249 ms, finished with status: 'crash'
+2018-04-13T19:37:57.772Z - info: User function triggered, starting execution
+2018-04-13T19:37:57.792Z - info: Execution took 1247 ms, finished with status: 'crash'
+2018-04-13T19:38:07.925Z - error: /home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:90
+res.send("derp");
+^
+
+ReferenceError: res is not defined
+    at Object.<anonymous> (/home/cjohnson/Downloads/projects/pridepocket/functions/lib/index.js:90:1)
+    at Module._compile (module.js:571:32)
+    at Object.Module._extensions..js (module.js:580:10)
+    at Module.load (module.js:488:32)
+    at tryModuleLoad (module.js:447:12)
+    at Function.Module._load (module.js:439:3)
+    at Module.require (module.js:498:17)
+    at require (internal/module.js:20:19)
+    at process.on (/home/cjohnson/.npm-packages/lib/node_modules/firebase-tools/node_modules/@google-cloud/functions-emulator/src/supervisor/worker.js:76:28)
+    at emitTwo (events.js:106:13)
+2018-04-13T19:38:07.954Z - error: Function worker crashed with exit code: 1
+2018-04-13T19:38:36.620Z - info: User function triggered, starting execution
+2018-04-13T19:38:36.662Z - info: Execution took 31 ms, user function completed successfully
+Worker for asynctest closed due to file changes.
+2018-04-13T19:38:57.299Z - info: User function triggered, starting execution
+2018-04-13T19:38:57.319Z - info: Execution took 1244 ms, finished with status: 'crash'
+2018-04-13T19:40:45.031Z - info: User function triggered, starting execution
+2018-04-13T19:40:45.049Z - info: Execution took 1241 ms, finished with status: 'crash'
+2018-04-13T19:57:20.304Z - info: Worker for pay closed due to file changes.
+2018-04-13T19:57:20.312Z - info: Worker for asynctest closed due to file changes.
+2018-04-13T19:57:20.313Z - info: Worker for register closed due to file changes.
+2018-04-13T19:57:27.717Z - info: User function triggered, starting execution
+2018-04-13T19:57:27.720Z - info: 1397632302 50 5
+2018-04-13T19:57:27.774Z - info: Execution took 1307 ms, finished with status: 'crash'
+2018-04-13T21:01:09.657Z - info: User function triggered, starting execution
+2018-04-13T21:01:09.660Z - info: 1397632302 50 5
+2018-04-13T21:01:09.717Z - info: Execution took 1708 ms, finished with status: 'crash'

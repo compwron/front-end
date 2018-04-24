@@ -16,13 +16,13 @@
                   </div>
                   <div class="row">
                     <div class="col-lg-12">
-                       <p class="txt-small font-14">Already have an account? <a href="#" class="string-link">Login Now</a></p>
+                       <p class="txt-small font-14">Already have an account? <a routerLink="/login" class="string-link">Login Now</a></p>
                     </div>
                   </div>
                   <form #newUser="ngForm" (ngSubmit)="onSignUp(newUser)"class="mr-5">
                     <div class="form-group row" [class.has-danger]="pickedName.errors">
                       <div class="col-lg-12 ">
-                        <input type="text" class="form-control" placeholder="Full name" [(ngModel)]="name" minlength="6" maxlength="36" name="name" #pickedName="ngModel">
+                        <input type="text" class="form-control" placeholder="Full name" [(ngModel)]="displayName" minlength="6" maxlength="36" name="displayName" #pickedName="ngModel">
                       </div>
                       <div class="form-control-feedback" *ngIf="pickedName.errors">
                           must enter name.</div>

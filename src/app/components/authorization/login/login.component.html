@@ -18,10 +18,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-12">
-                      <p class="txt-small font-12 text-center">Don’t have an account? <a href="#" class="string-link">Join Now</a></p>
+                      <p class="txt-small font-12 text-center">Don’t have an account? <a routerLink="/signup" class="string-link">Join Now</a></p>
                     </div>
                   </div>
-                  <form #currentUser="ngForm" (ngSubmit)="onLogin(currentUser)">
+                  <form #currentUser="ngForm" (ngSubmit)="emailLogin(currentUser)">
                     <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12">
                         <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" minlength="6" maxlength="36" name="email" #pickedEmail="ngModel">
@@ -44,17 +44,25 @@
                         <button type="submit" class="btn btn-block btn-warning btn-primary p-2 h-100 font-20" [disabled]="!currentUser.form.valid">Log In</button>
                       </div>
                     </div>
+                    <div class="row mt-2">
+                      <div class="col-md-12 text-center">
+                        <a href="#" class="string-link">Forgot password?</a>
+                      </div>
+                    </div>
                     <div>
                         <hr class="hr-text">
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <a href="#fakelink" class="btn btn-facebook btn-block mb-2 h-100 font-18 "><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
+                        <a class="btn btn-facebook btn-block mb-2 h-100 font-18" (click)="facebook()" href="#fakelink" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
                       </div>
                     </div>
-                    <div class="row mt-2">
-                      <div class="col-md-12 text-center">
-                        <a href="#" class="string-link">Forgot password?</a>
+                    <div>
+                        <hr class="hr-text">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <a (click)="google()" class="btn btn-google btn-block mb-2 h-100 font-18 "><i class="icofont icofont-social-google mr-2"></i>Login with Google</a>
                       </div>
                     </div>
                   </form>
