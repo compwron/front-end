@@ -31,7 +31,7 @@ export class LoginService {
 
 	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
 
-	handleCallback (observable): void {
+	handleCallback (observable: Observable<any>): void {
 		// inject a spinner service on the constructor and trigger it here
 		
 		observable.subscribe(user => {
@@ -67,6 +67,9 @@ export class LoginService {
 	handleEmailSignin () {
 		firebase.auth().onAuthStateChanged(user => {
 			if (user) {
+				
+				console.log(user)
+				
 				this.user = user
 				// get the user's profile from the firestore and save it in pridepocketUser
 				db.collection("users").doc(user.uid).get()
@@ -80,7 +83,8 @@ export class LoginService {
 							if (this.displayName) displayName = this.displayName
 							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
 								.then(() => {
-									this.pridepocketUser = { uid, displayName, phoneNumber, email }
+									// this.pridepocketUser = { uid, displayName, phoneNumber, email }
+									this.user = { uid, displayName, phoneNumber, email }
 									console.log("created a new user", this.pridepocketUser)
 								})
 								.catch(e => console.log("error while creating a new user in the database", e))

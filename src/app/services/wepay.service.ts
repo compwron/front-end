@@ -41,12 +41,12 @@ export class WepayService {
 		private router: Router
 	) { }
 
-	// redirect: string = "http://localhost:4200/redirect"
-	redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
+	redirect: string = "http://localhost:4200/redirect"
+	// redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
 
 	registerLink: string = `https://stage.wepay.com/v2/oauth2/authorize?client_id=53075&redirect_uri=${this.redirect}&scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money`
 	tokenLink: string = "https://stage.wepayapi.com/v2/oauth2/token"
-	// tokenLink: string = "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token"
+
 	checkoutUri: string
 	registered: boolean
 	previous: string = "/"
@@ -57,55 +57,41 @@ export class WepayService {
 		})
 	}
 
-	watch (callback): void {
-		// set a listener on the user's db representation
-		let unsubscribe = db.collection("users").doc(this.loginService.user.uid).onSnapshot(doc => {
-			unsubscribe()
-			let { wepay, uid, displayName } = this.loginService.user
-			this.register({ displayName, uid, access_token: wepay.access_token })
-			callback()
-		})
-	}
+	// watch (callback): void {
+	// 	// set a listener on the user's db representation
+	// 	let unsubscribe = db.collection("users").doc(this.loginService.user.uid).onSnapshot(doc => {
+	// 		unsubscribe()
+	// 		let { wepay, uid, displayName } = this.loginService.user
+	// 		this.register({ displayName, uid, access_token: wepay.access_token })
+	// 		callback()
+	// 	})
+	// }
 
 
-	/*
-		// this.saveAccessToken(response)
-		this.http.post<AccessToken>(this.tokenLink, { client_id, client_secret, code, redirect_uri: this.redirect }, this.options)
-			.subscribe(
-				response => console.log(response),
-				e => console.log("error getting access token", e)
-			)
-	*/
 	getAccessToken (code): void {
-		let access_token
+		let url = "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token"
 		
-		return this.getToken(code)
-			// .subscribe(
-			// 	r => console.log(r),
-			// 	e => console.log("error getting access token", e),
-			// 	() => console.log("completed: ")
-			// )
+		this.http.post(url, { code, redirect_uri: this.redirect }, this.options)
+			.subscribe(
+				r => {
+					this.saveAccessToken(r)
+					console.log(r)
+				},
+				e => console.log("error getting access token", e),
+				() => console.log("completed: ")
+			)
 	}
 
 	// '{"client_id": "53075", "client_secret": "3abef328ac", "code": "cbdfa48abd5ccd403b4a7078e893704b663ff4170c549d4907", "redirect_uri": "http://localhost:4200/redirect"}'
-
-	getToken (code): Observable {
-		let l = this.tokenLink + `?client_id=${client_id}&client_secret=${client_secret}&redirect_uri=${this.redirect}&code=${code}`
-
-		return fetch(l)
-			.then(r => console.log(r))
-			.catch(e => console.log(e))
-
-		// return this.http.get(l)
-	}
 
 	saveAccessToken(wepay) {
 		let user = Object.assign({}, this.loginService.user)
 		user.wepay = wepay
 		
-		let r = db.collection("users").doc(this.loginService.user.uid).set(this.loginService.user, { merge: true })
-
-		r.then(r => this.router.navigateByUrl(this.previous))
+		console.log(this.loginService.user)
+		
+		db.collection("users").doc(this.loginService.user.uid).set(this.loginService.user, { merge: true })
+			.then(r => this.router.navigateByUrl(this.previous))
 	}
 
 

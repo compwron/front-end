@@ -17,10 +17,7 @@
         <a class="font-14 pr-4 login-link" routerLink="/login" >Log In </a>
     	<button routerLink="/signup" class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
       </form>
-      <div class="form-inline my-2 my-lg-0 mr-sm-2" >
-      	<button class="font-14 pr-4 login-link" *ngIf="loggedIn()" routerLink="/login" (click)="signOut()" >Log Out</button>
-      </div>
-      <form class="form-inline my-2 my-lg-0 mr-sm-2" hidden="true">
+      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="loggedIn()">
         <button class="btn btn-default btn my-2 my-sm-0 font-14">Add Campaign</button>
         <div class="nav-item dropdown pl-2 nav-drop">
           <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -33,7 +30,7 @@
         </div>
         <div class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sarah Peters
+            {{ loginService.user.email }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">My Campaigns</a>
@@ -41,7 +38,7 @@
             <a class="dropdown-item" href="#">Payment Settings</a>
             <a class="dropdown-item" href="#">Notifiction</a>
             <a class="dropdown-item" href="#">Donation History</a>
-            <a class="dropdown-item" href="#">Log Out</a>
+            <a class="dropdown-item" href="#" routerLink="/login" (click)="signOut()">Log Out</a>
           </div>
         </div>
       </form>

@@ -67,18 +67,18 @@ app.post('/pay', (req, res) => {
 });
 app.post('/get_token', (req, res) => {
     // export const get_token = functions.https.onRequest((req, res) => {
-    const { code } = req.body;
-    console.log("in access_token function");
+    const { code, redirect_uri } = req.body;
+    console.log("in access_token function", code, redirect_uri);
     const data = {
         client_id: wepay_settings.client_id,
         client_secret: wepay_settings.client_secret,
         code,
-        redirect_uri: "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token"
+        redirect_uri
     };
     return promiseCall('/oauth2/token', data)
         .then(r => {
         console.log(r);
-        res.end({ status: "success" });
+        res.json(r);
     })
         .then(e => console.log("error while calling oauth2/token route: ", e));
 });
@@ -87,14 +87,14 @@ app.post('/redirect', (req, res) => {
     const { access_token, code, user_id } = req.body;
     console.log(access_token, code, user_id);
 });
-app.post('/code', (req, res) => {
-    const { code } = req.body;
-});
+// app.post('/code', (req, res) => {
+// 	const { code } = req.body
+// })
 app.get('/get_code', (req, res) => {
     // I need to get the userId off this call and save the state to the DB
     //	so that I can find the user again when the access_token returns
-    let { state, user } = req.body;
-    let params = {
+    const { state, user } = req.body;
+    const params = {
         client_id: wepay_settings.client_id,
         redirect_uri: "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token",
         scope: "scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money",
