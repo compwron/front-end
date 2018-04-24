@@ -16,7 +16,7 @@ import { AppComponent } from './app.component'
 
 import { CampaignsComponent } from './components/pub-camps/campaigns/campaigns.component'
 
-// import { CampaignBriefComponent } from './campaign-brief/campaign-brief.component'
+
 import { IndivCampComponent } from './components/pub-camps/indiv-camp/indiv-camp.component'
 import { MycampaignsComponent } from './components/my-camps/mycampaigns/mycampaigns.component'
 import { MyindivcampComponent } from './components/my-camps/myindivcamp/myindivcamp.component'
@@ -37,12 +37,12 @@ import { AuthorWidgetComponent } from './components/author-widget/author-widget.
 import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component'
 import { CategoryComponent } from './components/category/category.component'
 import { MyProfileComponent } from './components/my-profile/my-profile.component'
-import { CampaignBriefComponent } from './campaign-brief/campaign-brief.component'
-import { CampaignDetailComponent } from './campaign-detail/campaign-detail.component'
+import { CampaignBriefComponent } from './components/pub-camps/campaign-brief/campaign-brief.component'
+
 
 import { WepayRegisterComponent } from './components/wepay-register/wepay-register.component'
 
-import { CampaignService } from './campaign.service'
+import { CampaignService } from './services/campaign.service'
 import { CampaignOneService } from './services/campaign-one.service'
 import { LoginService } from './services/login.service';
 import { WepayService } from './services/wepay.service';
@@ -100,7 +100,6 @@ const appRoutes: Routes = [
     MyProfileComponent,
     PaymentDeetsComponent,
     CampaignBriefComponent,
-    CampaignDetailComponent,
     WepayRegisterComponent,
     AgoPipe,
   ],

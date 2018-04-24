@@ -4,12 +4,12 @@ import { Observable } from 'rxjs/Observable'
 import { map } from 'rxjs/operators'
 import { fromPromise } from 'rxjs/observable/fromPromise'
 
-import { Campaign } from './objects/Campaign'
+import { Campaign } from '../objects/Campaign'
 
 // import { User } from '../objects/campaign'
 // import { Article } from '../objects/campaign'
 
-import { db, firebase } from './utilities/utilities'
+import { db, firebase } from '../utilities/utilities'
 
 @Injectable()
 export class CampaignService {

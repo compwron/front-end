@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core'
 
-import { Campaign } from '../objects/Campaign'
+import { Campaign } from '../../../objects/Campaign'
 
 // import { Campaign } from '../objects/Campaign'
 
