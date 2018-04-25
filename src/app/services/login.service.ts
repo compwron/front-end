@@ -24,15 +24,17 @@ export class LoginService {
 		})
 	}
 
+	static pridepocketUser //: User
+
 	authKey: string
 	// user //: User
 	displayName: string
 	previous: string = "/"
-	pridepocketUser //: User
 	currentUser
 	
 	extractUser = map((response: firebase.auth.UserCredential) => response.user)
 	
+	getUser () { return firebase.auth().currentUser}
 	loggedIn (): boolean { return !!firebase.auth().currentUser }
 
 	setPrevious (previous): void { this.previous = previous }

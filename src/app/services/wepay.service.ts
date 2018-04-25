@@ -88,10 +88,14 @@ export class WepayService {
 		let user = Object.assign({}, this.loginService.pridepocketUser)
 		user.wepay = wepay
 		
+		console.log(this.loginService.getUser())
 		console.log(this.loginService.pridepocketUser)
 		
-		db.collection("users").doc(this.loginService.pridepocketUser.uid).set(this.loginService.pridepocketUser, { merge: true })
-			.then(r => this.router.navigateByUrl(this.previous))
+		db.collection("users").doc(this.loginService.getUser().uid).set(user, { merge: true })
+			.then(r => {
+				window.close()
+				this.router.navigateByUrl(this.previous)
+			})
 	}
 
 
