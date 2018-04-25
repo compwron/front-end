@@ -12,6 +12,8 @@ export class PaymentDeetsComponent implements OnInit {
 	funds:string;
 	transfer:string;
 
+	// need to fix the loginService so that it has a copy of the user DB representation that I can access
+
 	registering: boolean = false
 	wepayLink = this.wepay.registerLink
 	

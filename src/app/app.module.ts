@@ -55,20 +55,21 @@ const appRoutes: Routes = [
   {path:'sg/buttons', component:ButtonsComponent},
   {path:'sg/forms', component:FormsComponent},
   {path:'campaigns', component:CampaignsComponent},
-  {path:'campaigns/:id', component:IndivCampComponent},// pretty sure this needs to be nested
-  {path:'mycampaigns', component:MycampaignsComponent},
-  {path:'mycampaigns/:id', component:MyindivcampComponent},//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/edit', component:MycampeditComponent},//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/add', component:MycampaddComponent},//pretty sure this needs to be nested
+  {path:'campaigns/:id', component:IndivCampComponent},										// pretty sure this needs to be nested
   {path:'signup', component:SignupComponent},
   {path:'login', component:LoginComponent},
+  {path:'redirect', component:WepayRegisterComponent},
   {path:'resources', component:ResourcesComponent},
   {path:'resources/:id', component:ArticleComponent},
   {path:'faq', component:FaqComponent},
   {path:'feature-widget', component:FeatureWidgetComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
-  {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
-  {path:'redirect', component:WepayRegisterComponent}
+  // only logged-in users can access the routes below
+  {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
+  {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
+  {path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]},	//pretty sure this needs to be nested
+  {path:'mycampaigns/:id/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
+  {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]}
 ]
 
 @NgModule({

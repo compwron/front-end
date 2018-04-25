@@ -24,6 +24,7 @@ export class LoginService {
 		})
 	}
 
+	// FIXME; this does nothing useful right now
 	pridepocketUser //: User
 
 	authKey: string
