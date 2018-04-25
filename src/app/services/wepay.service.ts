@@ -57,26 +57,29 @@ export class WepayService {
 		})
 	}
 
-	// watch (callback): void {
-	// 	// set a listener on the user's db representation
-	// 	let unsubscribe = db.collection("users").doc(this.loginService.user.uid).onSnapshot(doc => {
-	// 		unsubscribe()
-	// 		let { wepay, uid, displayName } = this.loginService.user
-	// 		this.register({ displayName, uid, access_token: wepay.access_token })
-	// 		callback()
-	// 	})
-	// }
+	watch (): void {
+		// set a listener on the user's db representation
+		let unsubscribe = db.collection("users").doc(this.loginService.getUser().uid).onSnapshot(doc => {
+			if (doc.data().wepay.access_token) {
+				unsubscribe()
 
+				let { uid, displayName } = this.loginService.getUser()
+				displayName = displayName ? displayName : "anonymous"
+				db.collection("user").doc(uid).get()
+					.then(user => {
+						let { access_token } = doc.data()
+						this.register({ displayName, uid, access_token: doc.data.access_token })
+					})
+			}
+		})
+	}
 
 	getAccessToken (code): void {
 		let url = "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token"
 		
 		this.http.post(url, { code, redirect_uri: this.redirect }, this.options)
 			.subscribe(
-				r => {
-					this.saveAccessToken(r)
-					console.log(r)
-				},
+				r => this.saveAccessToken(r),
 				e => console.log("error getting access token", e),
 				() => console.log("completed: ")
 			)
@@ -85,29 +88,33 @@ export class WepayService {
 	// '{"client_id": "53075", "client_secret": "3abef328ac", "code": "cbdfa48abd5ccd403b4a7078e893704b663ff4170c549d4907", "redirect_uri": "http://localhost:4200/redirect"}'
 
 	saveAccessToken(wepay) {
-		let user = Object.assign({}, this.loginService.pridepocketUser)
-		user.wepay = wepay
-		
-		console.log(this.loginService.getUser())
-		console.log(this.loginService.pridepocketUser)
-		
-		db.collection("users").doc(this.loginService.getUser().uid).set(user, { merge: true })
+		let { uid, displayName } = this.loginService.getUser()
+	
+		db.collection("users").doc(uid).get()
 			.then(r => {
-				window.close()
-				this.router.navigateByUrl(this.previous)
+				let user = r.data()
+				user.wepay = wepay
+
+				db.collection("users").doc(uid).set(user, { merge: true })
+					.then(r => {
+						this.watch()
+						// this.router.navigateByUrl(this.previous)
+					})
 			})
 	}
 
 
-	register ({ displayName, uid, access_token }): void {
-		// hit the register endpoint with the right credentials
-
-		let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/register", { displayName, uid, access_token }, this.options)
-			// .pipe(catchError())
+	register (data): void {
+		let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/register", data, this.options)
 			.subscribe(
 				response => {
-					// let { account_id, name, description, owner_user_id } = response
-					db.collection("users").doc(uid).set({ wepay: response }, { merge: true }) // { account_id, name, description, owner_user_id }
+					console.log("registered as a merchant")
+					
+					console.log(data)
+					
+					db.collection("users").doc(data.uid).set({ wepay_merchant: response }, { merge: true }) // { account_id, name, description, owner_user_id }
+						.then(() => window.close())
+						.catch(e => console.log("error registering user as a merchant on wepay: ", e))
 				},
 				e => { console.log("error posting to register endpoint: ", e) }
 			)
