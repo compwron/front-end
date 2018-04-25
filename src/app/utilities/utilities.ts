@@ -12,6 +12,22 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
+/*
+With this change, timestamps stored in Cloud Firestore will be read back as
+Firebase Timestamp objects instead of as system Date objects. So you will also
+need to update code expecting a Date to instead expect a Timestamp. For example:
+
+  // Old:
+  const date = snapshot.get('created_at');
+  // New:
+  const timestamp = snapshot.get('created_at');
+  const date = timestamp.toDate();
+*/
+
+
 export const db = firebase.firestore()
+const settings = { timestampsInSnapshots: true};
+db.settings(settings);
+
 
 export { firebase }

@@ -15,13 +15,21 @@ import { firebase, db } from '../utilities/utilities'
 export class LoginService {
 	constructor(
 		private router: Router
-	) { }
+	) {
+		firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				this.currentUser = user
+				this.router.navigateByUrl(this.previous)
+			}
+		})
+	}
 
 	authKey: string
-	user //: User
+	// user //: User
 	displayName: string
 	previous: string = "/"
 	pridepocketUser //: User
+	currentUser
 	
 	extractUser = map((response: firebase.auth.UserCredential) => response.user)
 	
@@ -35,7 +43,7 @@ export class LoginService {
 		// inject a spinner service on the constructor and trigger it here
 		
 		observable.subscribe(user => {
-			this.user = user
+			// this.user = user
 			// get the user's profile from the firestore and save it in pridepocketUser
 			db.collection("users").doc(user.uid).get()
 				.then(response => {
@@ -67,24 +75,30 @@ export class LoginService {
 	handleEmailSignin () {
 		firebase.auth().onAuthStateChanged(user => {
 			if (user) {
-				
-				console.log(user)
-				
-				this.user = user
+				// this.user = user
 				// get the user's profile from the firestore and save it in pridepocketUser
 				db.collection("users").doc(user.uid).get()
 					.then(response => {
+						
+						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
 						if (response.exists) {
 							this.pridepocketUser = response.data()
 							console.log("got an existing user from the database")
 						}
+						
+						// if the user does not exist in the database, then create a new user with the authentication data returned from firebase
 						else {
 							let { uid, displayName, phoneNumber, email } = user
+							
+							// set the displayName variable if it exists; this is used for displaying the user's name in the navigation bar
+							//  this is redundant and probably going away
 							if (this.displayName) displayName = this.displayName
 							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
 								.then(() => {
-									// this.pridepocketUser = { uid, displayName, phoneNumber, email }
-									this.user = { uid, displayName, phoneNumber, email }
+									
+									// if the database set returns, then populate this.pridepocketUser with the firebase auth info
+									this.pridepocketUser = { uid, displayName, phoneNumber, email }
+									// this.user = { uid, displayName, phoneNumber, email }
 									console.log("created a new user", this.pridepocketUser)
 								})
 								.catch(e => console.log("error while creating a new user in the database", e))

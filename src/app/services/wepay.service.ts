@@ -85,12 +85,12 @@ export class WepayService {
 	// '{"client_id": "53075", "client_secret": "3abef328ac", "code": "cbdfa48abd5ccd403b4a7078e893704b663ff4170c549d4907", "redirect_uri": "http://localhost:4200/redirect"}'
 
 	saveAccessToken(wepay) {
-		let user = Object.assign({}, this.loginService.user)
+		let user = Object.assign({}, this.loginService.pridepocketUser)
 		user.wepay = wepay
 		
-		console.log(this.loginService.user)
+		console.log(this.loginService.pridepocketUser)
 		
-		db.collection("users").doc(this.loginService.user.uid).set(this.loginService.user, { merge: true })
+		db.collection("users").doc(this.loginService.pridepocketUser.uid).set(this.loginService.pridepocketUser, { merge: true })
 			.then(r => this.router.navigateByUrl(this.previous))
 	}
 
@@ -122,7 +122,7 @@ export class WepayService {
 					let batch = db.batch()
 					
 					let campaign = db.collection("campaigns").doc(campaignDetails.id)
-					let donator = db.collection("users").doc(this.loginService.user.uid)
+					let donator = db.collection("users").doc(this.loginService.pridepocketUser.uid)
 					let host = db.collection("users").doc(campaignDetails.owner)
 					
 					batch.set(donator, { domations: { [response.checkout_id]: response } }, { merge: true })

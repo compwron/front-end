@@ -48,6 +48,7 @@ import { LoginService } from './services/login.service';
 import { WepayService } from './services/wepay.service';
 import { AgoPipe } from './filters/ago.pipe';
 
+import { AuthGuard } from './auth.guard';
 
 
 const appRoutes: Routes = [
@@ -66,7 +67,7 @@ const appRoutes: Routes = [
   {path:'faq', component:FaqComponent},
   {path:'feature-widget', component:FeatureWidgetComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
-  {path:'account', component:MyProfileComponent},
+  {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
   {path:'redirect', component:WepayRegisterComponent}
 ]
 
@@ -113,7 +114,8 @@ const appRoutes: Routes = [
 	CampaignService,
 	CampaignOneService,
 	LoginService,
-	WepayService
+	WepayService,
+	AuthGuard
   ],
   bootstrap: [AppComponent]
 })

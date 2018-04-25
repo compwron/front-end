@@ -22,7 +22,17 @@ export class CampaignService {
 			if (!snapshot.empty) {
 				let campaigns = []
 				snapshot.forEach(c => {
-					campaigns.push(Object.assign({}, c.data(), { id: c.id }))
+					let campaign = c.data()
+					campaigns.push(Object.assign(
+						{},
+						campaign,
+						//	the Timestamp.toDate() is because of a firebase change; I need a date object to work with the Angular pipe
+						{
+							id: c.id,
+							_updated: campaign._updated.toDate(),
+							begin: campaign.begin ? campaign.begin.toDate() : null,
+							end: campaign.end ? campaign.end.toDate() : null
+					}))
 				})
 				return campaigns
 			}
