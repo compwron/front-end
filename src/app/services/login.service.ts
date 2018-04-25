@@ -24,7 +24,7 @@ export class LoginService {
 		})
 	}
 
-	static pridepocketUser //: User
+	pridepocketUser //: User
 
 	authKey: string
 	// user //: User

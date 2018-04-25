@@ -20,3 +20,23 @@ and then saves the credentials/access_token in the DB
 
 when the user clicks on the auth link, it also sets up a watcher on their account in the DB
 when the watcher catches the DB insert, the client gets the access_token and uses it to make the account/create call, which sets them up to use the service
+
+
+
+Todo
+Hooking up all the dead links
+Schemas for database stuff
+Laura put some of this in slack...
+Profile pictures:
+Need to hook up storage so that you can upload thumbnails
+
+
+When I log in with a user, it saves that user’s login, so that the next time the user comes to the site, firebase retrieves their info; that info is not stored in this.pridepocketUser on the loginService, so the nav.html errors when it tries to display loginService.pridepocketUser.email
+
+https://firebase.google.com/docs/auth/web/manage-users
+This is for changing the user’s displayName/email/password on firebase auth; which we will have to do if the user changes their displayName in the app
+
+when you press the login button on the nav bar, it automatically redirects you to the login page, even if you are logged into firebase.
+	the nav bar does not automatically switch to showing you as logged in if you are logged in though; you have to press the login button
+	need to either fix the 'not showing logged in' problem or have the link to /login be conditional;
+		so that the nav bar changes to 'logged in' if you are logged in, and does not send you to the /login page

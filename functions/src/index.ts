@@ -139,10 +139,12 @@ app.post('/register', (req, res) => {
 // export const register = functions.https.onRequest((req, res) => {
 	const { displayName, uid, access_token } = req.body
 	
-	console.log("in register function")
+	console.log(access_token)
 	
 	const app_access_token = wp.get_access_token()
 	wp.set_access_token(access_token)
+	
+	console.log(wp.get_access_token)
 	
 	const data = {
 	  "name": displayName,

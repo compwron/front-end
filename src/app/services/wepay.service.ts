@@ -3,16 +3,12 @@ import { HttpClient } from '@angular/common/http'
 import { HttpHeaders } from '@angular/common/http'
 import { HttpEvent } from '@angular/common/http'
 
-
 import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router'
 import { LoginService } from './login.service'
 import { HttpParams } from '@angular/common/http'
-// import { WEPAY as wepay } from 'wepay'
-import { db, firebase } from '../utilities/utilities'
 
-// const wp = new wepay(wepay_settings)
-// wp.use_staging()
+import { db, firebase } from '../utilities/utilities'
 
 const client_id = 53075
 const client_secret = '3abef328ac'
@@ -22,10 +18,6 @@ class WepayPayment {
 	checkout_uri: string
 }
 
-/*
-"client_id": "53075", "client_secret": "3abef328ac", "code": "9ddb956d67c61b241077224a8bc91b841ddeb66294f1460709", "redirect_uri": "http://localhost:4200/redirect"
-
-*/
 
 // interface AccessToken {
 // 	user_id: string
@@ -67,8 +59,8 @@ export class WepayService {
 				displayName = displayName ? displayName : "anonymous"
 				db.collection("user").doc(uid).get()
 					.then(user => {
-						let { access_token } = doc.data()
-						this.register({ displayName, uid, access_token: doc.data.access_token })
+						let { access_token } = doc.data().wepay
+						this.register({ displayName, uid, access_token })
 					})
 			}
 		})
@@ -81,11 +73,9 @@ export class WepayService {
 			.subscribe(
 				r => this.saveAccessToken(r),
 				e => console.log("error getting access token", e),
-				() => console.log("completed: ")
+				() => console.log("access_token request completed")
 			)
 	}
-
-	// '{"client_id": "53075", "client_secret": "3abef328ac", "code": "cbdfa48abd5ccd403b4a7078e893704b663ff4170c549d4907", "redirect_uri": "http://localhost:4200/redirect"}'
 
 	saveAccessToken(wepay) {
 		let { uid, displayName } = this.loginService.getUser()
@@ -103,16 +93,11 @@ export class WepayService {
 			})
 	}
 
-
 	register (data): void {
 		let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/register", data, this.options)
 			.subscribe(
 				response => {
-					console.log("registered as a merchant")
-					
-					console.log(data)
-					
-					db.collection("users").doc(data.uid).set({ wepay_merchant: response }, { merge: true }) // { account_id, name, description, owner_user_id }
+					db.collection("users").doc(data.uid).set({ wepay_merchant: response })
 						.then(() => window.close())
 						.catch(e => console.log("error registering user as a merchant on wepay: ", e))
 				},
@@ -125,7 +110,6 @@ export class WepayService {
 		payment = Object.assign({}, payment, { type: "donation", currency: "USD" })
 		
 		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
-		// let response = {} // pay
 		let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/pay", payment, { headers: new HttpHeaders({ "content-type": "application/json" }) })
 			.subscribe((response: WepayPayment) => {
 					// let { checkout_id, short_description, currency, amount, checkout_uri } = response
