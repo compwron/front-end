@@ -16,13 +16,15 @@ export class LoginComponent implements OnInit {
 	email:string
 	password:string
 	
-	onLogin(form: NgForm) {
-		console.log(form.value)
-	}
+	// onLogin(form: NgForm) {
+	// 	console.log(form.value)
+	// }
 	
 	facebook (): void {
 		console.log("tried to login with facebook")
-		this.loginService.facebook()
+		if (!this.loginService.loggedIn()) this.loginService.facebook()
+		else console.log("you're already logged in")
+		
 	}
 	google (): void {
 		// console.log("tried to login with google")
@@ -33,7 +35,8 @@ export class LoginComponent implements OnInit {
 	emailLogin (form: NgForm): void {
 		let { email, password } = form.value
 		console.log("tried to login with uin/pw")
-		this.loginService.email(email, password)
+		if (!this.loginService.loggedIn()) this.loginService.email(email, password)
+		else console.log("you're already logged in")
 	}
 	
 	ngOnInit() {

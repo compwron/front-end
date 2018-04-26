@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
 
-import { Router } from '@angular/router';
-
-// import { fromEvent } from 'rxjs/observable/fromEvent'
 import { fromPromise } from 'rxjs/observable/fromPromise'
 import { Observable } from 'rxjs/Observable'
 import { map } from 'rxjs/operators'
+import { pipe } from 'rxjs/util/pipe'
+
 
 import { User } from '../objects/User'
 
@@ -15,32 +15,38 @@ import { firebase, db } from '../utilities/utilities'
 export class LoginService {
 	constructor(
 		private router: Router
-	) {
-		firebase.auth().onAuthStateChanged(user => {
-			if (user) {
-				this.currentUser = user
-				this.router.navigateByUrl(this.previous)
-			}
-		})
-	}
+	) { }
 
 	// FIXME; this does nothing useful right now
 	pridepocketUser //: User
 
 	authKey: string
-	// user //: User
 	displayName: string
 	previous: string = "/"
 	currentUser
 	
 	extractUser = map((response: firebase.auth.UserCredential) => response.user)
 	
-	getUser () { return firebase.auth().currentUser}
+	initialize (f): Observable<any> {
+		const g = pipe(
+			user => {
+				return fromPromise(db.collection("users").doc(user.uid).get()
+					.then(pridepocketUser => {
+						this.pridepocketUser = pridepocketUser.data()
+						return pridepocketUser.data()
+					}))
+			},
+			o => o.subscribe(f)
+		)
+		
+		firebase.auth().onAuthStateChanged((user) => if (user) g(user))
+	}
+	
+	getUser () { return firebase.auth().currentUser }
+	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
 	loggedIn (): boolean { return !!firebase.auth().currentUser }
 
 	setPrevious (previous): void { this.previous = previous }
-
-	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
 
 	handleCallback (observable: Observable<any>): void {
 		// inject a spinner service on the constructor and trigger it here
@@ -78,10 +84,11 @@ export class LoginService {
 	handleEmailSignin () {
 		firebase.auth().onAuthStateChanged(user => {
 			if (user) {
-				// this.user = user
 				// get the user's profile from the firestore and save it in pridepocketUser
 				db.collection("users").doc(user.uid).get()
 					.then(response => {
+						console.log("response.exists: ", response.exists)
+						console.log("response.data(): ", response.data())
 						
 						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
 						if (response.exists) {
@@ -141,15 +148,13 @@ export class LoginService {
 	emailSignup (email, password, displayName): void {
 		this.displayName = displayName
 		firebase.auth().createUserWithEmailAndPassword(email, password)
-		// const o = firebase.auth().onAuthStateChanged
 		this.handleEmailSignin()
 	}
 	
 	signOut (): void {
-		firebase.auth().signOut().then(function() {
+		firebase.auth().signOut().then(() => {
+			this.pridepocketUser = undefined
 			console.log("successful signout")
-		}).catch(function(error) {
-			console.log("an error occurred while signing out", error)
-		});
+		}).catch(error => console.log("an error occurred while signing out", error))
 	}
 }

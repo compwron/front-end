@@ -13,11 +13,11 @@
           <a class="nav-link" routerLink="/resources" >Community Resources</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!loggedIn()" >
+      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!email" >
         <a class="font-14 pr-4 login-link" routerLink="/login" >Log In </a>
     	<button routerLink="/signup" class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
       </form>
-      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="loggedIn()">
+      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!!email">
         <button class="btn btn-default btn my-2 my-sm-0 font-14">Add Campaign</button>
         <div class="nav-item dropdown pl-2 nav-drop">
           <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -29,8 +29,8 @@
           </div>
         </div>
         <div class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{ loginService.currentUser.email }}
+          <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="loggedIn()">
+            {{ email }}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="#">My Campaigns</a>

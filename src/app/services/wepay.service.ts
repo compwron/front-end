@@ -53,6 +53,8 @@ export class WepayService {
 	saveAccessToken(wepay: AccessToken): void {
 		let { uid, displayName } = this.loginService.getUser()
 	
+		console.log("this.loginService.getPPUser()", this.loginService.getPPUser())
+	
 		db.collection("users").doc(uid).get()
 			.then((r: firebase.firestore.DocumentSnapshot) => {
 				let user = r.data()
@@ -93,6 +95,8 @@ export class WepayService {
 	}
 
 	pay (payment, campaignDetails): void {
+		console.log("this.loginService.pridepocketUser", this.loginService.pridepocketUser)
+		
 		db.collection("users").doc(this.loginService.getUser().uid).get()
 			.then((r: firebase.firestore.DocumentSnapshot) => {
 				payment = Object.assign({}, payment, campaignDetails, { access_token: r.data().wepay.access_token })
