@@ -18,7 +18,6 @@ export class NavComponent implements OnInit {
 	ngOnInit () {
 		const f = user => {
 			this.email = this.loginService.pridepocketUser.email
-			console.log(this.email)
 			this.refresh.detectChanges()
 		}
 		

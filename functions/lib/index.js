@@ -29,16 +29,20 @@ const promiseCall = (url, data) => {
     const p = new Promise((resolve, reject) => wp.call(url, data, resolve));
     return p;
 };
-// export const pay = functions.https.onRequest((req, res) => {
+// payment = Object.assign({}, payment, campaignDetails, { access_token: r.wepay.access_token })
 app.post('/pay', (req, res) => {
-    let { account_id, amount, fee } = req.body;
-    // THIS IS FOR TESTING ONLY
-    if (!account_id) {
-        account_id = "1397632302";
-        amount = "50";
-        fee = "5";
-    }
-    console.log(account_id, amount, fee);
+    let { amount, ppamount, access_token } = req.body;
+    let { account_id } = req.body.campaignDetails;
+    // switch wp.setAccessToken to user-provided access token
+    const app_access_token = wp.get_access_token();
+    wp.set_access_token(access_token);
+    // // THIS IS FOR TESTING ONLY
+    // if (!account_id) {
+    // 	account_id = "1397632302"
+    // 	amount = "50"
+    // 	fee = "5"
+    // }
+    console.log(account_id, amount, ppamount);
     const data = {
         account_id,
         amount,
@@ -51,22 +55,22 @@ app.post('/pay', (req, res) => {
         },
         "delivery_type": "donation",
         "fee": {
-            "app_fee": fee,
+            "app_fee": ppamount,
             "fee_payer": "payer"
         },
-        // I don't know if I need this; see what's on the response first
-        // "callback_uri": "http://www.example.com",
         "auto_release": true //,
     };
     return promiseCall('/checkout/create', data)
-        .then(r => res.send(r));
+        .then(r => {
+        wp.set_access_token(app_access_token);
+        res.send(r);
+    });
     // when a user hits this link, it should create a transaction on their account representation (?)
     // I want to return the link that the user clicks to complete the transaction
     // the user completes the transaction on the wepay site, and gets a generic success page there,
     // then comes back to pridepocket; maybe their profile page which shows a list of their latest donations
 });
 app.post('/get_token', (req, res) => {
-    // export const get_token = functions.https.onRequest((req, res) => {
     const { code, redirect_uri } = req.body;
     console.log("in access_token function", code, redirect_uri);
     const data = {
@@ -82,33 +86,13 @@ app.post('/get_token', (req, res) => {
     })
         .then(e => console.log("error while calling oauth2/token route: ", e));
 });
-app.post('/redirect', (req, res) => {
-    // export const redirect = functions.https.onRequest((req, res) => {
-    const { access_token, code, user_id } = req.body;
-    console.log(access_token, code, user_id);
-});
-// app.post('/code', (req, res) => {
-// 	const { code } = req.body
-// })
-app.get('/get_code', (req, res) => {
-    // I need to get the userId off this call and save the state to the DB
-    //	so that I can find the user again when the access_token returns
-    const { state, user } = req.body;
-    const params = {
-        client_id: wepay_settings.client_id,
-        redirect_uri: "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token",
-        scope: "scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money",
-        state
-    };
-    return promiseCall('/oauth2/authorize', params)
-        .then(r => res.send(r));
-});
 app.post('/register', (req, res) => {
     // export const register = functions.https.onRequest((req, res) => {
     const { displayName, uid, access_token } = req.body;
-    console.log("in register function");
+    // console.log(access_token)
     const app_access_token = wp.get_access_token();
     wp.set_access_token(access_token);
+    // console.log(wp.get_access_token)
     const data = {
         "name": displayName,
         "description": "pridepocket donation account",
@@ -126,6 +110,24 @@ app.post('/register', (req, res) => {
         .catch(e => console.log("something went wrong calling account/create", e));
 });
 exports.wepay = functions.https.onRequest(app);
+// app.post('/redirect', (req, res) => {
+// // export const redirect = functions.https.onRequest((req, res) => {
+// 	const { access_token, code, user_id } = req.body
+// 	console.log(access_token, code, user_id)
+// })
+// app.get('/get_code', (req, res) => {
+// 	// I need to get the userId off this call and save the state to the DB
+// 	//	so that I can find the user again when the access_token returns
+// 	const { state, user } = req.body
+// 	const params = {
+// 		client_id: wepay_settings.client_id,
+// 		redirect_uri: "https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/get_token",
+// 		scope: "scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money",
+// 		state
+// 	}
+// 	return promiseCall('/oauth2/authorize', params)
+// 		.then(r => res.send(r))
+// })
 // create returns the following relevant information:
 /*
 {

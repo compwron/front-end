@@ -44,8 +44,9 @@ const promiseCall = (url, data) => {
 
 // payment = Object.assign({}, payment, campaignDetails, { access_token: r.wepay.access_token })
 app.post('/pay', (req, res) => {
-	let { account_id, amount, fee, access_token } = req.body
-
+	const { amount, ppamount, access_token } = req.body
+	const { account_id } = req.body.campaignDetails
+	
 	// switch wp.setAccessToken to user-provided access token
 	const app_access_token = wp.get_access_token()
 	wp.set_access_token(access_token)
@@ -57,7 +58,7 @@ app.post('/pay', (req, res) => {
 	// 	fee = "5"
 	// }
 	
-	console.log(account_id, amount, fee)
+	console.log(account_id, amount, ppamount)
 	
 	const data = {
 		account_id,
@@ -71,7 +72,7 @@ app.post('/pay', (req, res) => {
 		},
 		"delivery_type": "donation",
 		"fee": {
-		    "app_fee": fee,
+		    "app_fee": ppamount,
 		    "fee_payer": "payer"
 		},
 		"auto_release": true //,

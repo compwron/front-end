@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { WepayService } from '../../services/wepay.service'
+
 import { Campaign } from '../../objects/Campaign'
 
 @Component({
@@ -19,10 +21,13 @@ export class PaymentWidgetComponent implements OnInit {
 	private:boolean
 	
 	onDonate(form: NgForm) {
-		console.log(form.value)
+		// console.log(form.value)
+		this.wepay.pay(form.value, this.campaign)
 	}
 	
-	constructor() { }
+	constructor(
+		private wepay: WepayService
+	) { }
 	
 	ngOnInit() {
 	}

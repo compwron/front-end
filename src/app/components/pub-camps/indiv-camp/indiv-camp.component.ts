@@ -21,8 +21,10 @@ export class IndivCampComponent implements OnInit {
 	ngOnInit() { this.getCampaign() }
 
 	objectkeys = Object.keys
+	
 	getCampaign (): void {
 		const id = this.route.snapshot.paramMap.get('id')
 		this.campaignOneService.get(id)
-			.subscribe(campaign => this.campaign = campaign) }
+			.subscribe(campaign => this.campaign = campaign)
+	}
 }

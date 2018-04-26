@@ -35,7 +35,16 @@ https://firebase.google.com/docs/auth/web/manage-users
 * This is for changing the user’s displayName/email/password on firebase auth; which we will have to do if the user changes their displayName in the app
 
 
+** individual campaign timestamps **
+
+fixed the campaigns service to use firestore timestamps correctly; need to do the same for indivdual campaigns
+
 **loginService bugs**
+
+THIS IS MOSTLY RESOLVED
+	still want loginService.pridepocketUser working on the wepay.service; check the constructor for a note on this
+	
+
 When I log in with a user, it saves that user’s login, so that the next time the user comes to the site,
 	firebase retrieves their info; that info is not stored in this.pridepocketUser on the loginService,
 	so the nav.html errors when it tries to display loginService.pridepocketUser.email

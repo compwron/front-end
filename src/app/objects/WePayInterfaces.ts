@@ -1,10 +1,10 @@
 // these interfaces are used exclusively for WePay calls/returns
 
 export interface AccessToken {
-	user_id: string
-	access_token: string
-	token_type: string
-	expires_in: string
+	"user_id": string
+	"access_token": string
+	"token_type": string
+	"expires_in": string
 }
 
 export interface WePayMerchant {
@@ -27,6 +27,8 @@ export interface WePayRegistration {
 }
 
 export interface WePayPayment {
-	checkout_id: string
-	checkout_uri: string
+	"checkout_id": string
+	"checkout_uri": string
+	"error"?: string
+	"error_code"?: number
 }

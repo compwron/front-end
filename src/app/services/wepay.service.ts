@@ -20,7 +20,9 @@ export class WepayService {
 		private http: HttpClient,
 		private loginService: LoginService,
 		private router: Router
-	) { }
+	) {
+		// should I try the same initialize function that I use in the nav's ngInit function?
+	}
 
 	redirect: string = "http://localhost:4200/redirect"
 	// redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
@@ -53,7 +55,7 @@ export class WepayService {
 	saveAccessToken(wepay: AccessToken): void {
 		let { uid, displayName } = this.loginService.getUser()
 	
-		console.log("this.loginService.getPPUser()", this.loginService.getPPUser())
+		console.log("this.loginService.getPPUser()", this.loginService.pridepocketUser)
 	
 		db.collection("users").doc(uid).get()
 			.then((r: firebase.firestore.DocumentSnapshot) => {
@@ -95,37 +97,48 @@ export class WepayService {
 	}
 
 	pay (payment, campaignDetails): void {
-		console.log("this.loginService.pridepocketUser", this.loginService.pridepocketUser)
-		
-		db.collection("users").doc(this.loginService.getUser().uid).get()
-			.then((r: firebase.firestore.DocumentSnapshot) => {
-				payment = Object.assign({}, payment, campaignDetails, { access_token: r.data().wepay.access_token })
+		// db.collection("users").doc(this.loginService.getUser().uid).get()
+		// 	.then((r: firebase.firestore.DocumentSnapshot) => {
 
-				// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
-				let responseObservable = this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/pay", payment, this.options)
-					.subscribe((response: WePayPayment) => {
-							// let { checkout_id, short_description, currency, amount, checkout_uri } = response
+		payment = Object.assign({}, payment, { campaignDetails }, { access_token: this.loginService.pridepocketUser.wepay.access_token })
+
+		console.log("payment before posting: ", payment)
+
+
+
+		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
+		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
+			.subscribe(
+				(response: WePayPayment) => {
 					
-							let batch = db.batch()
-							
-							let campaign = db.collection("campaigns").doc(campaignDetails.id)
-							let donator = db.collection("users").doc(this.loginService.pridepocketUser.uid)
-							let host = db.collection("users").doc(campaignDetails.owner)
+					console.log(response)
+					if (!response.error_code) {
+						let batch = db.batch()
+						
+						let campaign = db.collection("campaigns").doc(campaignDetails.id)
+						let donator = db.collection("users").doc(this.loginService.pridepocketUser.uid)
+						let host = db.collection("users").doc(campaignDetails.owner)
+	
+						batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
+						batch.set(campaign, { payments: { [response.checkout_id]: response } }, { merge: true })
+						batch.set(host, { received: { [campaignDetails.id]: response } }, { merge: true })
+	
+						batch.commit()
+							.then(() => {
+								// I also need to set the new campaign total figure
+									// this will be an observer that gets fed a stream of price updates/totals?
+								this.checkoutUri = response.checkout_uri
+							})
+					}
+					else console.log("error making donation: ", response.error)
+				},
+				e => console.log("error getting response from pay endpoint", e),
+				() => console.log("pay functions in wepay.service complete")
+			)
 
-							batch.set(donator, { domations: { [response.checkout_id]: response } }, { merge: true })
-							batch.set(campaign, { payments: { [response.checkout_id]: response } }, { merge: true })
-							batch.set(host, { [campaignDetails.id]: response }, { merge: true }) // { checkout_id, short_description, currency, amount }
 
-							batch.commit()
-								.then(() => {
-									// I also need to set the new campaign total figure
-										// this will be an observer that gets fed a stream of price updates/totals?
-									this.checkoutUri = response.checkout_uri
-								})
-						},
-						e => { console.log("error getting response from pay endpoint", e) }
-					)
-			})
+
+			// })
 	}
 }
 

@@ -17,19 +17,17 @@ export class LoginService {
 		private router: Router
 	) { }
 
-	// FIXME; this does nothing useful right now
 	pridepocketUser //: User
 
 	authKey: string
 	displayName: string
 	previous: string = "/"
-	currentUser
 	
 	extractUser = map((response: firebase.auth.UserCredential) => response.user)
 	
-	initialize (f): Observable<any> {
+	initialize (f): void {
 		const g = pipe(
-			user => {
+			(user: User) => {
 				return fromPromise(db.collection("users").doc(user.uid).get()
 					.then(pridepocketUser => {
 						this.pridepocketUser = pridepocketUser.data()
@@ -39,7 +37,10 @@ export class LoginService {
 			o => o.subscribe(f)
 		)
 		
-		firebase.auth().onAuthStateChanged((user) => if (user) g(user))
+		firebase.auth().onAuthStateChanged((user: firebase.User) => {
+			let u: User = user
+			if (!!user.uid) { g(u) }
+		})
 	}
 	
 	getUser () { return firebase.auth().currentUser }
@@ -87,13 +88,10 @@ export class LoginService {
 				// get the user's profile from the firestore and save it in pridepocketUser
 				db.collection("users").doc(user.uid).get()
 					.then(response => {
-						console.log("response.exists: ", response.exists)
-						console.log("response.data(): ", response.data())
-						
 						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
 						if (response.exists) {
 							this.pridepocketUser = response.data()
-							console.log("got an existing user from the database")
+							// console.log("got an existing user from the database")
 						}
 						
 						// if the user does not exist in the database, then create a new user with the authentication data returned from firebase
@@ -154,7 +152,6 @@ export class LoginService {
 	signOut (): void {
 		firebase.auth().signOut().then(() => {
 			this.pridepocketUser = undefined
-			console.log("successful signout")
 		}).catch(error => console.log("an error occurred while signing out", error))
 	}
 }
