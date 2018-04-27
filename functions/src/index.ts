@@ -22,7 +22,8 @@ const wepay_settings = {
 	'client_id'     : '53075',
 	'client_secret' : '3abef328ac',
 	// 'access_token'  : 'PRODUCTION_daa92de3877f13535a83209c7598e2c25c746395ade6e9782e78ed92b14336f5'
-	'access_token'  : 'STAGE_28467f7ddf1ef46e545bed9a9cb18d3103fa4e46d8a278ff461f12150093c957'
+	// 'access_token'  : 'STAGE_28467f7ddf1ef46e545bed9a9cb18d3103fa4e46d8a278ff461f12150093c957'
+	'access_token'  : 'STAGE_d6abe7dd7ef8f2e32efa27462f81a0ec31c22d2d68b5ac1ac41e5770c4cc82bf'
 }
 
 const wp = new wepay(wepay_settings)
@@ -37,10 +38,19 @@ wp.use_staging()
 // })
 
 const promiseCall = (url, data) => {
+	console.log(wp.get_access_token())
+	console.log(wepay_settings.access_token)
+	
 	const p = new Promise((resolve, reject) => wp.call(url, data, resolve))
 	return p
 }
 
+
+app.post('/checkout_status', (req, res) => {
+	const { checkout_id } = req.body
+	
+	return promiseCall('/checkout', { checkout_id }).then(r => { res.send(r) })
+})
 
 // payment = Object.assign({}, payment, campaignDetails, { access_token: r.wepay.access_token })
 app.post('/pay', (req, res) => {
@@ -75,7 +85,10 @@ app.post('/pay', (req, res) => {
 		    "app_fee": ppamount,
 		    "fee_payer": "payer"
 		},
-		"auto_release": true //,
+		"auto_release": true,
+        "hosted_checkout": {
+            "redirect_uri": "http://localhost:4200/payment_successful"
+        }
 	}
 
 	return promiseCall('/checkout/create', data)

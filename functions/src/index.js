@@ -51,11 +51,10 @@ exports.pay = functions.https.onRequest(function (req, res) {
             "app_fee": fee,
             "fee_payer": "payer"
         },
-        // I don't know if I need this; see what's on the response first
-        "callback_uri": "http://www.example.com",
         "auto_release": true //,
-        // "hosted_checkout": {
-        //     "redirect_uri": "http://www.example.com",
+        "hosted_checkout": {
+            "redirect_uri": "http://localhost:4200/payment_successful"
+        }
         //     "fallback_uri": "http://www.example.com",
         //     "shipping_fee": 2,
         //     "mode": "iframe",

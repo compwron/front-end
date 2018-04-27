@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
 import { CampaignOneService } from '../../../services/campaign-one.service'
 import { Campaign } from '../../../objects/Campaign'
@@ -24,7 +23,6 @@ export class IndivCampComponent implements OnInit {
 	
 	getCampaign (): void {
 		const id = this.route.snapshot.paramMap.get('id')
-		this.campaignOneService.get(id)
-			.subscribe(campaign => this.campaign = campaign)
+		this.campaignOneService.get(id, campaign => this.campaign = campaign)
 	}
 }

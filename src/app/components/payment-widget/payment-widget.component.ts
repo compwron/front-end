@@ -22,7 +22,8 @@ export class PaymentWidgetComponent implements OnInit {
 	
 	onDonate(form: NgForm) {
 		// console.log(form.value)
-		this.wepay.pay(form.value, this.campaign)
+		const r = this.wepay.pay(form.value, this.campaign)
+		console.log(r)
 	}
 	
 	constructor(

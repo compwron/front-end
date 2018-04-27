@@ -49,6 +49,7 @@ import { WepayService } from './services/wepay.service';
 import { AgoPipe } from './filters/ago.pipe';
 
 import { AuthGuard } from './auth.guard';
+import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component';
 
 
 const appRoutes: Routes = [
@@ -64,6 +65,7 @@ const appRoutes: Routes = [
   {path:'faq', component:FaqComponent},
   {path:'feature-widget', component:FeatureWidgetComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
+  {path:'payment_successful', component:WepayPaymentSuccessfulComponent},
   // only logged-in users can access the routes below
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
@@ -104,6 +106,7 @@ const appRoutes: Routes = [
     CampaignBriefComponent,
     WepayRegisterComponent,
     AgoPipe,
+    WepayPaymentSuccessfulComponent,
   ],
   imports: [
     BrowserModule,

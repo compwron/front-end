@@ -8,6 +8,8 @@ import { Router } from '@angular/router'
 import { LoginService } from './login.service'
 import { HttpParams } from '@angular/common/http'
 
+import { pipe } from 'rxjs/util/pipe'
+
 import { db, firebase } from '../utilities/utilities'
 import { AccessToken, WePayMerchant, WePayRegistration, WePayPayment } from '../objects/WePayInterfaces'
 
@@ -75,7 +77,7 @@ export class WepayService {
 	}
 
 	register (data: WePayRegistration): void {
-		let responseObservable = this.http.post<WePayMerchant>("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/register", data, this.options)
+		this.http.post<WePayMerchant>("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/register", data, this.options)
 			.subscribe(
 				(response: WePayMerchant) => {
 					if (!!response.error) {
@@ -96,38 +98,67 @@ export class WepayService {
 
 	}
 
+	checkoutComplete (checkout_id: string, callback): void {
+		return this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/checkout_status", { checkout_id }, this.options)
+			.subscribe(
+				pipe(
+					r => this.saveCompletedTransaction(r, this.loginService),
+					(r) => r.then(s => callback() )
+				),
+				e => console.log("error getting checkout information from WePay", e),
+				() => console.log("successfully completed getting checkout information from WePay")
+			)
+	}
+
+	saveCompletedTransaction (response: WePayPayment, loginService): string {
+		if (!!response.error_code) {
+			console.log("error getting checkout information after successful payment", response.error_code)
+		}
+		else {
+			return db.collection("pending").doc(response.checkout_id.toString()).get()
+				.then((snapshot: firebase.firestore.DocumentSnapshot) => {
+					const campaignDetails = snapshot.data()
+					
+					let batch = db.batch()
+
+					let campaign = db.collection("campaigns").doc(campaignDetails.id)
+					let donator = db.collection("users").doc(loginService.pridepocketUser.uid)
+					let host = db.collection("users").doc(campaignDetails.owner)
+
+					campaignDetails.current = Object.values(campaignDetails.payments || {}).reduce((c, payment) => payment.amount + c, 0) + response.amount
+
+					batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
+					batch.set(campaign, { current: campaignDetails.current, payments: { [response.checkout_id]: response } }, { merge: true })
+					batch.set(host, { received: { [campaignDetails.id]: response } }, { merge: true })
+
+					return batch.commit()
+						.then(() => {
+							return db.collection("pending").doc(response.checkout_id.toString()).delete()
+								.then(r => {
+									console.log(`deleted transaction ${response.checkout_id.toString()} from pending collection because it completed successfully`)
+									return "success"
+								})
+								.catch(e => console.log(`error deleting transaction ${response.checkout_id.toString()} from pending: `, e))
+						})
+						.catch(e => console.log("batch commit failed: ", e))
+				})
+				.catch(e => console.log(`cannot get pending transaction with this id: ${response.checkout_id.toString()}`, e))
+		}
+	}
+
 	pay (payment, campaignDetails): void {
-		// db.collection("users").doc(this.loginService.getUser().uid).get()
-		// 	.then((r: firebase.firestore.DocumentSnapshot) => {
-
 		payment = Object.assign({}, payment, { campaignDetails }, { access_token: this.loginService.pridepocketUser.wepay.access_token })
-
-		console.log("payment before posting: ", payment)
-
-
 
 		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
 		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
 			.subscribe(
 				(response: WePayPayment) => {
-					
-					console.log(response)
+					console.log(response.hosted_checkout.checkout_uri)
 					if (!response.error_code) {
-						let batch = db.batch()
-						
-						let campaign = db.collection("campaigns").doc(campaignDetails.id)
-						let donator = db.collection("users").doc(this.loginService.pridepocketUser.uid)
-						let host = db.collection("users").doc(campaignDetails.owner)
-	
-						batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
-						batch.set(campaign, { payments: { [response.checkout_id]: response } }, { merge: true })
-						batch.set(host, { received: { [campaignDetails.id]: response } }, { merge: true })
-	
-						batch.commit()
+						return db.collection("pending").doc(response.checkout_id.toString()).set(campaignDetails)
 							.then(() => {
-								// I also need to set the new campaign total figure
-									// this will be an observer that gets fed a stream of price updates/totals?
-								this.checkoutUri = response.checkout_uri
+								window.open(response.hosted_checkout.checkout_uri, '_blank')
+								return response.hosted_checkout.checkout_uri
 							})
 					}
 					else console.log("error making donation: ", response.error)
@@ -135,12 +166,36 @@ export class WepayService {
 				e => console.log("error getting response from pay endpoint", e),
 				() => console.log("pay functions in wepay.service complete")
 			)
-
-
-
-			// })
 	}
 }
+
+
+						// let batch = db.batch()
+						
+						// let campaign = db.collection("campaigns").doc(campaignDetails.id)
+						// let donator = db.collection("users").doc(this.loginService.pridepocketUser.uid)
+						// let host = db.collection("users").doc(campaignDetails.owner)
+
+						// // this isn't really the place to be accumulating; it should happen on the server function that fires when WePay handles a checkout
+						
+						// 	// campaignDetails.current = Object.values(campaignDetails.payments).reduce((c, payment) => {
+						// 	// 	console.log("c", c)
+						// 	// 	console.log("payment.amount", payment.amount)
+						// 	// 	return payment.amount + c
+						// 	// }, 0) + response.amount
+		
+						// 	// console.log(campaignDetails.current)
+	
+						// batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
+						// batch.set(campaign, { current: campaignDetails.current, payments: { [response.checkout_id]: response } }, { merge: true })
+						// batch.set(host, { received: { [campaignDetails.id]: response } }, { merge: true })
+	
+						// batch.commit()
+						// 	.then(() => {
+						// 		// I also need to set the new campaign total figure
+						// 			// this will be an observer that gets fed a stream of price updates/totals?
+						// 		this.checkoutUri = response.checkout_uri
+						// 	})
 
 
 

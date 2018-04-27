@@ -56,3 +56,6 @@ when you press the login button on the nav bar, it automatically redirects you t
 		
 I think that the bug where the wepay.service can't find a pridepocketUser on redirect and the above 'nav bar bug' are the same bug;
 	hit the database to get the pridepocket user whenever the page loads
+	
+** the message you put on your donation can have no spaces **
+this is not the expected behavior; you aren't going to post a 40 character word....

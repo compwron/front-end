@@ -31,4 +31,14 @@ export interface WePayPayment {
 	"checkout_uri": string
 	"error"?: string
 	"error_code"?: number
+	"amount": number
+	"hosted_checkout": HostedCheckout
+}
+
+interface HostedCheckout {
+	"checkout_uri": string
+	"mode": string
+	"redirect_uri": string
+	"shipping_fee": number
+	"require_shipping": boolean
 }
