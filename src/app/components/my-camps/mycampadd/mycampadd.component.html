@@ -125,7 +125,7 @@
                   <div class="row mt-2" [class.has-danger]="pickedMessage.errors">
                     <div class="col-md-12">
                         <div class="form-group">
-                          <textarea class="form-control" pattern="[a-zA-Z0-9 ]+" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your friends and family how they can help" [(ngModel)]="welMessage" ngModel name="message" minlength="36" maxlength="1000" #pickedMessage="ngModel"></textarea>
+                          <textarea class="form-control" pattern="[a-zA-Z0-9 ]+" id="exampleFormControlTextarea1" rows="3" placeholder="Tell your friends and family how they can help" [(ngModel)]="welMessage" ngModel name="message" maxlength="1000" minlength="36" #pickedMessage="ngModel"></textarea>
                         </div>
                     </div>
                     <div class="form-control-feedback" *ngIf="pickedMessage.errors">
@@ -181,7 +181,7 @@
                   </div>
                   <div class="row mt-2" [class.has-danger]="pickedThanks.errors">
                     <div class="col-md-12">
-                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Thank everyone for their help." minlength="5" maxlength="1000" pattern="[a-zA-Z0-9 ]+" ngModel [(ngModel)]="thankYou" name="thankYou" #pickedThanks="ngModel"></textarea>
+                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Thank everyone for their help." maxlength="1000" minlength="5" pattern="[a-zA-Z0-9 ]+" ngModel [(ngModel)]="thankYou" name="thankYou" #pickedThanks="ngModel"></textarea>
                     </div>
                     <div class="form-control-feedback" *ngIf="pickedThanks.errors && pickedThanks.dirty">
                     Only alphabric letters and 1000 letter limit</div>

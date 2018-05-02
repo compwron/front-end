@@ -1,17 +1,17 @@
 
 export class Campaign {
-	id: string
-	banner: string
-	name: string
-	type: string
-	description: string
-	begin: Date
-	end: Date
-	current: number
-	goal: number
-	_updated: Date
-	privacy: boolean
-	affiliate_links: object
-	shared: object
-	published: boolean
+	id:string;
+	campName:string;
+	campType:string;
+  goal:number;
+  noDate:boolean;
+  date:string;
+  welMessage:string;
+  item1:string;
+  item2:string;
+  item3:string;
+  thankYou:string;
+  fEmail:string;
+  eMessage:string;
+  socialShare:boolean;
 }

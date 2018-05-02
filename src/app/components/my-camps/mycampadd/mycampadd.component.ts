@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+// import { Campaign } from '../objects/Campaign'
+import { AddcampaignService } from '../../../services/addcampaign.service'
+
 @Component({
   selector: 'app-mycampadd',
   templateUrl: './mycampadd.component.html',
@@ -21,10 +24,14 @@ export class MycampaddComponent implements OnInit {
   eMessage:string;
   socialShare:boolean;
 
+  constructor(
+      private addcampservice: AddcampaignService
+    ) { }
+
   onAddCamp(form: NgForm) {
     console.log(form.value)
+    this.addcampservice.makeCampaign(form.value)
   }
-  constructor() { }
 
   ngOnInit() {
   }
