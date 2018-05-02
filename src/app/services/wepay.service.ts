@@ -99,10 +99,10 @@ export class WepayService {
 	}
 
 	checkoutComplete (checkout_id: string, callback): void {
-		return this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/checkout_status", { checkout_id }, this.options)
+		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/checkout_status", { checkout_id }, this.options)
 			.subscribe(
 				pipe(
-					r => this.saveCompletedTransaction(r, this.loginService),
+					(r: WePayPayment) => this.saveCompletedTransaction(r, this.loginService),
 					(r) => r.then(s => callback() )
 				),
 				e => console.log("error getting checkout information from WePay", e),
@@ -110,7 +110,7 @@ export class WepayService {
 			)
 	}
 
-	saveCompletedTransaction (response: WePayPayment, loginService): string {
+	saveCompletedTransaction (response: WePayPayment, loginService): Promise<string | void> {
 		if (!!response.error_code) {
 			console.log("error getting checkout information after successful payment", response.error_code)
 		}
