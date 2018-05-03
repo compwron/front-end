@@ -1,49 +1,55 @@
-
-                <div class="row">
-                <div class="col-lg-7">
-                <div class="row pb-2">
-                  <div class="col-sm-9 checkbox">
-                    <p>Send email updates every time a contribution is made to campaigns that I am hosting</p>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="pg-switch">
-                      <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="row pb-2">
-                  <div class="col-sm-9">
-                    <p>Send email updates every time a comment is posted to campaigns that I am hosting</p>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="pg-switch">
-                      <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-sm-9">
-                    <p>
-                    I would like to receive suggested <a href="#" class="string-link">Pride Pocket articles</a> and recommended companies, organizations, or partners to help you achieve your campaign goals</p>
-                  </div>
-                  <div class="col-sm-3">
-                    <div class="pg-switch">
-                      <label class="switch">
-                          <input type="checkbox">
-                          <span class="slider round"></span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3">
-              </div>
-            </div>
+<div class="row">
+	<div class="col-lg-7">
+		<div class="row pb-2">
+			<div class="col-sm-9 checkbox">
+				<p>Send email updates every time a contribution is made to campaigns that I am hosting</p>
+			</div>
+			<div class="col-sm-3">
+				<div class="pg-switch">
+					<label class="switch">
+						<input type="checkbox" [checked]="contributions" (change)="contributionsChange(!contributions)" >
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		    
+		<hr>
+		
+		<div class="row pb-2">
+			<div class="col-sm-9">
+				<p>Send email updates every time a comment is posted to campaigns that I am hosting</p>
+			</div>
+			<div class="col-sm-3">
+				<div class="pg-switch">
+					<label class="switch">
+						<input type="checkbox" [checked]="comments" (change)="commentsChange(!comments)" >
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		
+		<hr>
+		
+		<div class="row">
+			<div class="col-sm-9">
+				<p>
+					I would like to receive suggested <a href="#" class="string-link">Pride Pocket articles</a>
+					and recommended companies, organizations, or partners to help you achieve your campaign goals
+				</p>
+			</div>
+			<div class="col-sm-3">
+				<div class="pg-switch">
+					<label class="switch">
+						<input type="checkbox" [checked]="articles" (change)="articlesChange(!articles)">
+						<span class="slider round"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class="col-lg-3"></div>
+</div>
