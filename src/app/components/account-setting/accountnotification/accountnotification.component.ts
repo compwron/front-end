@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '../../../services/user.service'
 
+import { UserUpdateObject } from '../../../objects/UserInterfaces'
+
+
 @Component({
   selector: 'app-accountnotification',
   templateUrl: './accountnotification.component.html',
@@ -42,7 +45,7 @@ export class AccountnotificationComponent implements OnInit {
 		this.update("contributions", b)
 	}
 
-	update (name, value) {
+	update (name: string, value: boolean) {
 		this.user.modifyUser({ notification_details: { [name]: value } })
 			.subscribe(
 				() => console.log("updating notification preference: ", name, value),

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { UserService } from '../../../services/user.service'
+import { UserUpdateObject } from '../../../objects/UserInterfaces'
 
 @Component({
   selector: 'app-accountbasic',
@@ -18,7 +19,7 @@ export class AccountbasicComponent implements OnInit {
 		console.log(form.value)
 		const { displayName, email, password } = form.value
 
-		let userUpdateObject = {}
+		let userUpdateObject: UserUpdateObject = {}
 		if (displayName) userUpdateObject.displayName = displayName
 		if (email) userUpdateObject.email = email
 		if (password) userUpdateObject.password = password

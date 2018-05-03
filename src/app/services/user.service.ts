@@ -15,7 +15,8 @@ import { pipe } from 'rxjs/util/pipe'
 
 import { db, firebase } from '../utilities/utilities'
 
-import { User, UserUpdateObject, Donation } from '../objects/UserInterfaces'
+import { User, UserUpdateObject } from '../objects/UserInterfaces'
+import { Donation } from '../objects/Donation'
 
 @Injectable()
 export class UserService {
@@ -30,6 +31,6 @@ export class UserService {
 		return fromPromise(db.collection("users").doc(this.user.uid).set(update, { merge: true }))
 		
 	}
-	getDonations (): Observable<Donation[]> { return from(Object.values(this.user.donations)) }
-	deactivate (): Observable<void> { return fromPromise(db.collection("users").doc(this.user.uid).set({ active}, { merge: "true" })) }
+	getDonations (): Observable<Donation> { return from(Object.values(this.user.donations)) }
+	deactivate (): Observable<void> { return fromPromise(db.collection("users").doc(this.user.uid).set({ active: false }, { merge: true })) }
 }

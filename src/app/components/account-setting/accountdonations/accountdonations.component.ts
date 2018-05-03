@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core'
 
 import { UserService } from '../../../services/user.service'
 
-import { Donation } from '../../../objects/UserInterfaces'
+import { Donation } from '../../../objects/Donation'
 
 @Component({
 	selector: 'app-accountdonations',
@@ -21,12 +21,14 @@ export class AccountdonationsComponent implements OnInit {
 		this.getDonations()
 	}
 	
-
-	
 	getDonations () {
 		this.user.getDonations()
 			.subscribe(
-				(donation: Donation): void => { this.donations.push(donation) },
+				(donation: Donation): void => {
+					console.log(donation)
+					this.donations.push(donation)
+					
+				},
 				(e): void => console.log("error getting donations off user", e),
 				(): void => console.log("completed getting donations off user")
 			)
