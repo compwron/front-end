@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
+import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
-import { FormsModule } from '@angular/forms'
 
 // Layout
 import {FooterComponent} from "./layout/footer.component"
@@ -12,44 +12,48 @@ import {NavComponent} from "./layout/nav.component"
 import { ButtonsComponent } from './sg/buttons/buttons.component'
 import { FormsComponent } from './sg/forms/forms.component'
 
-import { AppComponent } from './app.component'
-import { CampaignsComponent } from './components/pub-camps/campaigns/campaigns.component'
 
-
-import { IndivCampComponent } from './components/pub-camps/indiv-camp/indiv-camp.component'
-import { MycampaignsComponent } from './components/my-camps/mycampaigns/mycampaigns.component'
-import { MyindivcampComponent } from './components/my-camps/myindivcamp/myindivcamp.component'
-import { MycampeditComponent } from './components/my-camps/mycampedit/mycampedit.component'
-import { MycampaddComponent } from './components/my-camps/mycampadd/mycampadd.component'
+// main components
 import { AccountbasicComponent } from './components/account-setting/accountbasic/accountbasic.component'
 import { AccountnotificationComponent } from './components/account-setting/accountnotification/accountnotification.component'
 import { AccountdonationsComponent } from './components/account-setting/accountdonations/accountdonations.component'
-import { PaymentDeetsComponent } from './components/account-setting/payment-deets/payment-deets.component'
-import { SignupComponent } from './components/authorization/signup/signup.component'
-import { LoginComponent } from './components/authorization/login/login.component'
-import { ResourcesComponent } from './components/community-resources/resources/resources.component'
-import { ArticleComponent } from './components/community-resources/article/article.component'
-import { FaqComponent } from './components/faq/faq/faq.component'
+import { AppComponent } from './app.component'
 import { AppcontentsComponent } from './table-of-contents/appcontents/appcontents.component'
-import { FeatureWidgetComponent } from './components/feature-widget/feature-widget.component'
+import { ArticleComponent } from './components/community-resources/article/article.component'
 import { AuthorWidgetComponent } from './components/author-widget/author-widget.component'
-import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component'
-import { CategoryComponent } from './components/category/category.component'
-import { MyProfileComponent } from './components/my-profile/my-profile.component'
 import { CampaignBriefComponent } from './components/pub-camps/campaign-brief/campaign-brief.component'
-
-
+import { CampaignsComponent } from './components/pub-camps/campaigns/campaigns.component'
+import { CategoryComponent } from './components/category/category.component'
+import { FaqComponent } from './components/faq/faq/faq.component'
+import { FeatureWidgetComponent } from './components/feature-widget/feature-widget.component'
+import { IndivCampComponent } from './components/pub-camps/indiv-camp/indiv-camp.component'
+import { LoginComponent } from './components/authorization/login/login.component'
+import { MycampaddComponent } from './components/my-camps/mycampadd/mycampadd.component'
+import { MycampaignsComponent } from './components/my-camps/mycampaigns/mycampaigns.component'
+import { MycampeditComponent } from './components/my-camps/mycampedit/mycampedit.component'
+import { MyindivcampComponent } from './components/my-camps/myindivcamp/myindivcamp.component'
+import { MyProfileComponent } from './components/my-profile/my-profile.component'
+import { PaymentDeetsComponent } from './components/account-setting/payment-deets/payment-deets.component'
+import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component'
+import { ResourcesComponent } from './components/community-resources/resources/resources.component'
+import { SignupComponent } from './components/authorization/signup/signup.component'
+import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component';
 import { WepayRegisterComponent } from './components/wepay-register/wepay-register.component'
 
+
+// services
 import { CampaignService } from './services/campaign.service'
 import { CampaignOneService } from './services/campaign-one.service'
 import { LoginService } from './services/login.service'
-import { WepayService } from './services/wepay.service'
 import { UserService } from './services/user.service'
+import { WepayService } from './services/wepay.service'
+
+// pipes
 import { AgoPipe } from './filters/ago.pipe'
 
+// guards
 import { AuthGuard } from './auth.guard';
-import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component';
+
 
 
 const appRoutes: Routes = [

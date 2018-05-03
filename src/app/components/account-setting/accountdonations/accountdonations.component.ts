@@ -24,11 +24,7 @@ export class AccountdonationsComponent implements OnInit {
 	getDonations () {
 		this.user.getDonations()
 			.subscribe(
-				(donation: Donation): void => {
-					console.log(donation)
-					this.donations.push(donation)
-					
-				},
+				(donation: Donation): void => this.donations.push(donation),
 				(e): void => console.log("error getting donations off user", e),
 				(): void => console.log("completed getting donations off user")
 			)
