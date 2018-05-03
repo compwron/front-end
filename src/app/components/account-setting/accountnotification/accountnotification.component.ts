@@ -18,9 +18,9 @@ export class AccountnotificationComponent implements OnInit {
 
 	ngOnInit() {
 		if (this.user.user.notification_details) {
-			this.articles = this.user.user.notification_details.email_suggested_articles
-			this.comments = this.user.user.notification_details.email_on_comment_posted
-			this.contributions = this.user.user.notification_details.email_on_contribution_receipt
+			this.articles = this.user.user.notification_details.articles
+			this.comments = this.user.user.notification_details.comments
+			this.contributions = this.user.user.notification_details.contributions
 		}
 	}
 	
