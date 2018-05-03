@@ -22,7 +22,7 @@ export interface NotificationDetails {
 }
 
 export interface UserUpdateObject {
-	uid: string
+	uid?: string
 	displayName?: string
 	email?: string
 	phoneNumber?: string

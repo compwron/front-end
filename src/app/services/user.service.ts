@@ -25,7 +25,11 @@ export class UserService {
 	
 	user: User = this.login.pridepocketUser
 	
-	modifyUser (update: UserUpdateObject): Observable<void> { return fromPromise(db.collection("users").doc(update.uid).set(update, { merge: true })) }
-	
+	modifyUser (update: UserUpdateObject): Observable<void> {
+		console.log(update)
+		return fromPromise(db.collection("users").doc(this.user.uid).set(update, { merge: true }))
+		
+	}
 	getDonations (): Observable<Donation[]> { return from(Object.values(this.user.donations)) }
+	deactivate (): Observable<void> { return fromPromise(db.collection("users").doc(this.user.uid).set({ active}, { merge: "true" })) }
 }
