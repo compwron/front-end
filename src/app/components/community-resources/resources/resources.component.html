@@ -17,17 +17,13 @@
                         </div>
                     </div>
                 </div>
+				
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="card  mx-2 my-2">
-                            <img src="http://via.placeholder.com/330x140" />
-                            <div class="card-block">
-                                <p class="text-muted font-10">September 15, 2017</p>
-                                <h5 class="card-title font-weight-bold">Card title</h5>
-                                <p class="card-text">Example info</p>
-                            </div>
-                        </div>
+                	<!-- BEGINNING OF RESOURCE CARD MAKER -->
+                    <div class="col-md-6" *ngFor="let resource of resources" >
+						<app-resource-card [resource]="resource"></app-resource-card>
                     </div>
+                    <!-- END OF RESOURCE CARD MAKER -->
                     <div class="col-md-6">
                         <div class="card mx-2 my-2">
                             <img src="http://via.placeholder.com/330x140" />

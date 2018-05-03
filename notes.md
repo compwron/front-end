@@ -1,3 +1,7 @@
+<!--inotify watches-->
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+
+
 <!--beta launch requirements-->
 https://docs.google.com/document/d/14GSrIhek8VjVhXejC4mHVUTZq6YB9tMkr45gP8hDlp0/edit
 
@@ -19,7 +23,13 @@ Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 - "total funds raised" and "funds transferred to bank" on payment details
 - change 'setup WePay' to something like 'unlink wepay account' if the user has a wepay account already
 - add campaign details to notifications, or at least campaign IDs; still haven't decided how to handle this
-
+- how do you get app categories?
+	* do they live on resources?
+	* when you get resources for teh resources page, do you only get a limited number?
+	* do you try to have lots of categories represented?
+	* do you pull down a paginated list of articles within a category when a user selects it?
+	* just show articles that fall within the top-10 most common categories on the resources page, but show all the categories
+- the featured group is just a set of articles that are in the 'featured' collection, which gets added to and deleted from with a special page?
 
 
 

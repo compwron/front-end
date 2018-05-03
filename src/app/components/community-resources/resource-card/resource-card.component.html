@@ -1,0 +1,8 @@
+<div routerLink="/resources/{{ resource.id }}" class="card mx-2 my-2">
+	<img [src]="resource.banner" alt="resource banner image" />
+	<div class="card-block">
+		<p class="text-muted font-10">{{ resource.created | date }}</p>
+		<h5 class="card-title font-weight-bold">{{ resource.title }}</h5>
+		<p class="card-text">{{ resource.teaser }}</p>
+	</div>
+</div>

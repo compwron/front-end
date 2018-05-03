@@ -45,6 +45,7 @@ import { WepayRegisterComponent } from './components/wepay-register/wepay-regist
 import { CampaignService } from './services/campaign.service'
 import { CampaignOneService } from './services/campaign-one.service'
 import { LoginService } from './services/login.service'
+import { ResourcesService } from './services/resources.service'
 import { UserService } from './services/user.service'
 import { WepayService } from './services/wepay.service'
 
@@ -53,29 +54,32 @@ import { AgoPipe } from './filters/ago.pipe'
 
 // guards
 import { AuthGuard } from './auth.guard';
+import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component';
 
 
 
 const appRoutes: Routes = [
   {path:'sg/buttons', component:ButtonsComponent},
   {path:'sg/forms', component:FormsComponent},
+  
   {path:'campaigns', component:CampaignsComponent},
   {path:'campaigns/:id', component:IndivCampComponent},										// pretty sure this needs to be nested
-  {path:'signup', component:SignupComponent},
+  {path:'faq', component:FaqComponent},
+  {path:'feature-widget', component:FeatureWidgetComponent},
   {path:'login', component:LoginComponent},
+  {path:'payment_successful', component:WepayPaymentSuccessfulComponent},
   {path:'redirect', component:WepayRegisterComponent},
   {path:'resources', component:ResourcesComponent},
   {path:'resources/:id', component:ArticleComponent},
-  {path:'faq', component:FaqComponent},
-  {path:'feature-widget', component:FeatureWidgetComponent},
+  {path:'signup', component:SignupComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
-  {path:'payment_successful', component:WepayPaymentSuccessfulComponent},
+  
   // only logged-in users can access the routes below
+  {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
   {path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]},	//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
-  {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]}
+  {path:'mycampaigns/:id/add', component:MycampaddComponent, canActivate:[AuthGuard]}		//pretty sure this needs to be nested
 ]
 
 @NgModule({
@@ -110,7 +114,8 @@ const appRoutes: Routes = [
     CampaignBriefComponent,
     WepayRegisterComponent,
     AgoPipe,
-    WepayPaymentSuccessfulComponent
+    WepayPaymentSuccessfulComponent,
+    ResourceCardComponent
   ],
   imports: [
     BrowserModule,
@@ -122,8 +127,9 @@ const appRoutes: Routes = [
 	CampaignService,
 	CampaignOneService,
 	LoginService,
-	WepayService,
+	ResourcesService,
 	UserService,
+	WepayService,
 	AuthGuard
   ],
   bootstrap: [AppComponent]

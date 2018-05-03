@@ -20,7 +20,11 @@ export class CampaignsComponent implements OnInit {
 
 	getCampaigns (): void {
 		this.campaignService.getCampaigns()
-			.subscribe(campaigns => { this.campaigns = campaigns })
+			.subscribe(
+				campaigns => { this.campaigns = campaigns },
+				e => console.log("error getting campaigns from DB: ", e),
+				() => console.log("finished getting campaigns from DB")
+			)
 	}
 
 }

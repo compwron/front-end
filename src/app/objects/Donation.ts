@@ -1,5 +1,3 @@
-
-
 export interface Donation {
 	account_id: number
 	amount: number
