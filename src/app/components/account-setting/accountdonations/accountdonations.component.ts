@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core'
+
+import { UserService } from '../../../services/user.service'
+
+import { Donation } from '../../../objects/UserInterfaces'
 
 @Component({
-  selector: 'app-accountdonations',
-  templateUrl: './accountdonations.component.html',
-  styleUrls: ['./accountdonations.component.scss']
+	selector: 'app-accountdonations',
+	templateUrl: './accountdonations.component.html',
+	styleUrls: ['./accountdonations.component.scss']
 })
 export class AccountdonationsComponent implements OnInit {
 
-  constructor() { }
+	donations: Donation[] = []
 
-  ngOnInit() {
-  }
+	constructor(
+		private user: UserService
+	) { }
+
+	ngOnInit() {
+		this.getDonations()
+	}
+	
+
+	
+	getDonations () {
+		this.user.getDonations()
+			.subscribe(
+				(donation: Donation): void => { this.donations.push(donation) },
+				(e): void => console.log("error getting donations off user", e),
+				(): void => console.log("completed getting donations off user")
+			)
+	}
 
 }

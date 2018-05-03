@@ -57,7 +57,7 @@ export class WepayService {
 	saveAccessToken(wepay: AccessToken): void {
 		let { uid, displayName } = this.loginService.getUser()
 	
-		console.log("this.loginService.getPPUser()", this.loginService.pridepocketUser)
+		// console.log("this.loginService.getPPUser()", this.loginService.pridepocketUser)
 	
 		db.collection("users").doc(uid).get()
 			.then((r: firebase.firestore.DocumentSnapshot) => {

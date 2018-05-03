@@ -13,7 +13,6 @@ import { ButtonsComponent } from './sg/buttons/buttons.component'
 import { FormsComponent } from './sg/forms/forms.component'
 
 import { AppComponent } from './app.component'
-
 import { CampaignsComponent } from './components/pub-camps/campaigns/campaigns.component'
 
 
@@ -44,9 +43,10 @@ import { WepayRegisterComponent } from './components/wepay-register/wepay-regist
 
 import { CampaignService } from './services/campaign.service'
 import { CampaignOneService } from './services/campaign-one.service'
-import { LoginService } from './services/login.service';
-import { WepayService } from './services/wepay.service';
-import { AgoPipe } from './filters/ago.pipe';
+import { LoginService } from './services/login.service'
+import { WepayService } from './services/wepay.service'
+import { UserService } from './services/user.service'
+import { AgoPipe } from './filters/ago.pipe'
 
 import { AuthGuard } from './auth.guard';
 import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component';
@@ -106,7 +106,7 @@ const appRoutes: Routes = [
     CampaignBriefComponent,
     WepayRegisterComponent,
     AgoPipe,
-    WepayPaymentSuccessfulComponent,
+    WepayPaymentSuccessfulComponent
   ],
   imports: [
     BrowserModule,
@@ -119,6 +119,7 @@ const appRoutes: Routes = [
 	CampaignOneService,
 	LoginService,
 	WepayService,
+	UserService,
 	AuthGuard
   ],
   bootstrap: [AppComponent]
