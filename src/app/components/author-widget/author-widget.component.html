@@ -9,10 +9,10 @@
         </div>
         <div class="row mb-2">
           <div class="col-md-3">
-            <img src="http://via.placeholder.com/70x70" class="rounded-circle" />
+            <img [src]="author.profile_pic" class="rounded-circle" />
           </div>
           <div class="col-md-9">
-            <p class="pl-3">Maecenas sed diam</p>
+            <p class="pl-3">{{ author.displayName }}</p>
             <a href="#" class="string-link pl-3">View All Article</a>
           </div>
         </div>
@@ -25,7 +25,8 @@
           <div class="mb-2">
             <h4 class="ml-3 twilight">Categories</h4>
             <div class="ml-3">
-              <a class="btn btn-inverse btn-sm mb-2" style="box-shadow: none" href="#" role="button">General</a>
+              <a class="btn btn-inverse btn-sm mb-2" style="box-shadow: none" href="#" role="button" *ngFor="let category of categories" >{{ category }}</a>
+              
               <a class="btn btn-inverse btn-sm mb-2" style="box-shadow: none" href="#" role="button">Love</a>
               <a class="btn btn-inverse btn-sm mb-2" style="box-shadow: none" href="#" role="button">Legal</a>
               <a class="btn btn-inverse btn-sm mb-2" style="box-shadow: none" href="#" role="button">Idenity</a>

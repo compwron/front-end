@@ -55,6 +55,7 @@ import { AgoPipe } from './filters/ago.pipe'
 // guards
 import { AuthGuard } from './auth.guard';
 import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component';
+import { ResourceService } from './services/resource.service';
 
 
 
@@ -130,7 +131,8 @@ const appRoutes: Routes = [
 	ResourcesService,
 	UserService,
 	WepayService,
-	AuthGuard
+	AuthGuard,
+	ResourceService
   ],
   bootstrap: [AppComponent]
 })

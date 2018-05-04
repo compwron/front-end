@@ -1,7 +1,7 @@
 <!--Page-Heading-Start-->
 <div style="background-color:  #5e55a4; color: white; padding:16px;">
   <div class="container">
-    <h2 class="banner-txt">LGBTQ+ Youth</h2>
+    <h2 class="banner-txt">{{ categories[0] }}</h2>
   </div>
 </div>
 <!--Page-Heading-End-->
@@ -12,22 +12,24 @@
       <div class="col-lg-8">
         <div class="card">
           <!--Image-Start-->
-          <img class="card-img-top" src="http://via.placeholder.com/712x240" />
+          <img class="card-img-top" [src]="resource.banner_large" />
           <!--Image-End-->
           <div class="card-body gunmetal">
             <div class="row">
               <div class="col-md-12">
-                <a class="btn btn-primary btn-sm" style="box-shadow: none" href="#" role="button">LGBTQ+ Youth</a>
+                <a class="btn btn-primary btn-sm" style="box-shadow: none" href="#" role="button">{{ categories[0] }}</a>
               </div>
             </div>
 
             <div class="row">
               <div class="col-lg-12">
-                <h1>Suicide Rates for LGBTQ+ Youth</h1>
+                <h1>{{ resource.title }}</h1>
                 <p class="pb-2 font-13">
-                  <span class="sushigray">Published on October 27, 2017, by</span> <a href="#" class="string-link">Marlena Penninella</a>
+                  <span class="sushigray">Published on {{ resource.created | date }}, by</span> <a href="#" class="string-link">{{ resource.author.displayName }}</a>
                 </p>
                 <hr>
+                
+                <div>{{ resource.content }}</div>
                 <p class="pt-4 font-15">America is what a lot of people would consider a progressive country, but does it really have the best interests for LGBTQ+ youth? A good portion of LGBTQ+   youth will face some kind of mental disorder: most commonly depression, which can lead  to self harming and even suicide. Is there a reason why LGBTQ+ youth are so depressed,   and is there anything parents and schools can do to help them?</p>
 
                 <p class="font-15">According to the Trevor Project1, suicide for youth is,“the 2nd leading cause of   death,” and “1 out of 6  students nationwide (grades 9-12) seriously considered   suicide in the past year.” These statistics alone are a problem that schools and  society need to start taking more seriously.</p>
@@ -86,7 +88,7 @@
         </div>
       </div>
       <div class="col-lg-4">
-        <app-author-widget></app-author-widget>
+        <app-author-widget [author]="resource.author" [categories]="categories" ></app-author-widget>
       </div>
     </div>
 
@@ -103,12 +105,7 @@
         <div class="col-sm-12">
           <div class="card-group">
             <div class="card mr-4">
-              <img class="card-img-top" src="http://via.placeholder.com/330x140" alt="Card image cap">
-              <div class="card-block">
-                <p class="card-text"><small class="text-muted">September 15, 2017</small></p>
-                <h4 class="card-title">LGBTQ+ YOUTH</h4>
-                <p class="card-text">Do you need help right now?  Resources for LGBTQ + Individuals</p>
-              </div>
+              <app-resource-card [resource]="resource"></app-resource-card>
             </div>
             <div class="card mr-4">
               <img class="card-img-top" src="http://via.placeholder.com/330x140" alt="Card image cap">

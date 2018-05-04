@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core'
+
+import { Author } from '../../objects/Resource'
 
 @Component({
   selector: 'app-author-widget',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./author-widget.component.scss']
 })
 export class AuthorWidgetComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+	@Input() author: Author
+	@Input() categories: Array<string>
+	
+	constructor() { }
+	
+	ngOnInit() {
+	}
 
 }

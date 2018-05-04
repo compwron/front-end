@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+
+import { ResourceService } from '../../../services/resource.service'
+import { Resource } from '../../../objects/Resource'
+
+import { firebase } from '../../../utilities/utilities'
 
 @Component({
   selector: 'app-article',
@@ -6,10 +12,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
+	resource: Resource = { author: {}, categories: {} }
+	categories: Array<string> = []
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+	constructor(
+		private resourceService: ResourceService,
+		private route: ActivatedRoute
+	) { }
+	
+	ngOnInit() {
+		this.getResource()
+	}
+	
+	getResource (): void {
+		const id = this.route.snapshot.paramMap.get('id')
+		this.resourceService.get(id)
+			.subscribe(
+				(doc: firebase.firestore.DocumentSnapshot): void => {
+					this.resource = <Resource>Object.assign({}, doc.data(), { id: doc.id })
+					this.categories = Object.keys(this.resource.categories)
+				},
+				(e): void => console.log("error in resource subscriber", e),
+				() => console.log("resourceService get completed")
+			)
+	}
 
 }

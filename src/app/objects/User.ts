@@ -8,4 +8,5 @@ export class User {
 	phoneNumber: string
 	wepay?: AccessToken
 	wepay_merchant?: WePayMerchant
+	profile_pic?: string
 }
