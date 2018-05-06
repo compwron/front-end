@@ -56,6 +56,7 @@ import { AgoPipe } from './filters/ago.pipe'
 import { AuthGuard } from './auth.guard';
 import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component';
 import { ResourceService } from './services/resource.service';
+import { CampaignCreatorService } from './services/campaign-creator.service';
 
 
 
@@ -78,9 +79,9 @@ const appRoutes: Routes = [
   // only logged-in users can access the routes below
   {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
+  {path:'mycampaigns/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
   {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]},	//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/add', component:MycampaddComponent, canActivate:[AuthGuard]}		//pretty sure this needs to be nested
+  {path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
 ]
 
 @NgModule({
@@ -132,7 +133,8 @@ const appRoutes: Routes = [
 	UserService,
 	WepayService,
 	AuthGuard,
-	ResourceService
+	ResourceService,
+	CampaignCreatorService
   ],
   bootstrap: [AppComponent]
 })

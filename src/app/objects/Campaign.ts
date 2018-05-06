@@ -1,8 +1,11 @@
+import { Payment, PaymentList } from './Payment'
 
-export class Campaign {
-	id: string
+export interface Campaign {
+	id?: string
 	banner: string
+	thumbnail: string
 	name: string
+	owner: Owner
 	type: string
 	description: string
 	begin: Date
@@ -10,8 +13,26 @@ export class Campaign {
 	current: number
 	goal: number
 	_updated: Date
-	privacy: boolean
-	affiliate_links: object
+	privacy: string
+	affiliate_links: string[] //	AffiliateLinks
 	shared: object
 	published: boolean
+	thanks: string
+	family_email: string
+	email_message: string
+	payments: PaymentList
+}
+
+// export interface AffiliateLinks {
+// 	(key: string): string
+// }
+
+export interface Owner {
+	uid: string
+	displayName: string
+	profile_pic: string
+}
+
+export interface Shared {
+	(key: string): number
 }
