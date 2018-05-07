@@ -2,7 +2,9 @@
 	<div class="container my-5">
 		<section>
 			<div class="row my-4">
+				
 				<div class="col-lg-1"></div>
+				
 				<div class="col-lg-12">
 					<div class="card">
 						<div class="card-body">
@@ -13,216 +15,244 @@
 											<h2>Add a Campaign</h2>
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-md-12">
-											<label>
-												<b>
-													Details
-												</b>
-											</label>
-										</div>
-									</div>
-									<form [formGroup]="createdForm" (ngSubmit)="onAddCamp(addCamp)">
-										<div class="row" [class.has-danger]="pickedCampName.errors">
-											<div class="col-md-12">
-												<input
-													type="text"
-													required pattern="[a-zA-Z0-9 ]+"
-													class="form-control"
-													placeholder="Campaign Name"
-													[(ngModel)]="name"
-													name="name"
-													#pickedCampName="ngModel"
-													maxlength="36"
-													minlength="12"
-													ngModel
-												>
-												<div class="form-control-feedback" *ngIf="!pickedCampName.valid && pickedCampName.errors">
-													Sorry, must be longer than 12 and shorter 36 characters.
-												</div>
-											</div>
-										</div>
-										<div class="row mt-2" [class.has-danger]="pickCampType.errors">
-											<div class="col-md-12">
-												<div class="input-group mb-3">
-													<select
-														class="custom-select"
-														id="inputGroupSelect02"
-														ngModel
-														style="width: 100%;"
-														[(ngModel)]="type"
-														name="type"
-														#pickCampType="ngModel"
-														required
-													>
-														<option>Campaign Type</option>
-														<option value="Medical">Medical</option>
-														<option value="Legal">Legal</option>
-														<option value="Family">Family</option>
-														<option value="Weddings">Weddings</option>
-														<option value="Emergency">Emergency</option>
-														<option value="Celebrations">Celebrations</option>
-														<option value="Events">Events</option>
-													</select>
-													<div class="form-control-feedback" *ngIf="pickCampType.errors">
-														Sorry, must select a type.
-													</div>
-												</div>
-											</div>
-										</div>
-										<hr>
+									<form [formGroup]="createdForm" (ngSubmit)="createCampaign()">
 										<div class="row">
 											<div class="col-md-12">
-												<label>
-													<b>
-														Campaign Goal
-													</b>
-												</label>
-											</div>
-										</div>
-										<div class="row" [class.has-danger]="pickedGoal.errors">
-											<div class="col-md-12">
-												<div class="input-group mb-3">
-													<input
-														type="text"
-														pattern="[0-9]+"
-														class="form-control"
-														placeholder="$ 0"
-														aria-label="Amount"
-														aria-describedby="basic-addon2"
-														[(ngModel)]="goal"
-														ngModel
-														name="goal"
-														#pickedGoal="ngModel"
-													>
-													<div class="input-group-addon">
-														<span class="input-group-text" id="basic-addon2">
-															USD
-														</span>
-													</div>
+												<div class="form-group" >
+													<label class="center-block" style="width:100%" >Campaign Name:
+														<input
+															id="name"
+															class="form-control"
+															formControlName=name
+														>
+														<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="name.errors.required">
+																Your campaign must have a name
+															</div>
+															<div class="form-control-feedback" *ngIf="name.errors.minlength">
+																Your campaign name must be longer than 12 characetrs
+															</div>
+															<div class="form-control-feedback" *ngIf="name.errors.maxlength">
+																Your campaign name must be shorter than 36 characetrs
+															</div>
+															<div class="form-control-feedback" *ngIf="name.errors.pattern">
+																Your campaign name can only have the letters A-Z and the numbers 0-9 in it; no special characters
+															</div>
+														</div>
+													</label>
 												</div>
 											</div>
-											<div class="form-control-feedback" *ngIf="pickedGoal.errors">
-												Sorry, only numbers.
+										</div>
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="form-group" >
+													<label class="center-block" style="width:100%" >Campaign Type:
+														<select
+															class="form-control"
+															style="height:inherit"
+															id="type"
+															formControlName="type"
+														>
+															<option value="Medical">Medical</option>
+															<option value="Legal">Legal</option>
+															<option value="Family">Family</option>
+															<option value="Weddings">Weddings</option>
+															<option value="Emergency">Emergency</option>
+															<option value="Celebrations">Celebrations</option>
+															<option value="Events">Events</option>
+														</select>
+														<div *ngIf="type.invalid && (type.dirty || type.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="type.errors.required" >
+																You must select a campaign type
+															</div>
+														</div>
+													</label>
+												</div>
+											</div>
+										</div>
+										
+										<hr>
+										
+										<div class="row">
+											<div class="col-md-12">
+												<label><b>Campaign Goal:</b>
+													<div class="input-group mb-3">
+														<div class="input-group-addon">
+															<span class="input-group-text" id="basic-addon2" >$</span>
+														</div>
+														<input
+															type="number"
+															class="form-control"
+															placeholder="0"
+															formControlName="goal"
+															id="goal"
+														>
+														<div class="input-group-addon">
+															<span class="input-group-text" id="basic-addon2">
+																USD
+															</span>
+														</div>
+													</div>
+													<div *ngIf="goal.invalid && (goal.dirty || goal.touched)" class="has-danger" >
+														<div class="form-control-feedback" *ngIf="goal.errors.required">
+															You must set a goal of at least a dollar!
+														</div>
+													</div>
+												</label>
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-12">
 												<p class="text-muted">
-													The gifters who provide funds will be responsible for a 2.9% WePay Fee + $0.30 for the transaction..
+													Important note: gifters who provide funds will be responsible for a 2.9% WePay Fee + $0.30 for the transaction!!
 												</p>
 											</div>
 										</div>
+										
 										<hr>
+										
 										<div class="row">
-											<div class="col-md-8">
-												<label>
-													<b>
-														Campaign End Date
-													</b>
-												</label>
-											</div>
-											<div class="col-md-4">
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">
+											<div class="col-md-12">
+												<label style="width:100%" ><b>Campaign End Date:</b>
+													<div class="input-group mb-3">
 														<div class="input-group-text">
 															<input
 																type="checkbox"
 																aria-label="Checkbox for following text input"
-																[(ngModel)]="noDate"
+																formControlName="noDate"
 																name="noDate"
-																#pickedNoDate="ngModel"
 															>
 														</div>
+														<p class="text-muted pl-3">
+															Don't End Campaign
+														</p>
 													</div>
-													<p class="text-muted pl-3">
-														Don't End Campaign
-													</p>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<div class="input-group" [class.has-danger]="pickedDate.errors">
-													<input
-														class="w-100 p-2"
-														id="meeting"
-														type="date"
-														value="2011-01-13"
-														[(ngModel)]="end"
-														name="end"
-														#pickedDate="ngModel"
-													/>
-													<div class="input-group-addon">
-														<span class="input-group-text">
+													<div class="input-group">
+														<input
+															class="form-control"
+															style="flex-direction:row; align-items:center"
+															id="end"
+															type="date"
+															formControlName="end"
+														>
+														<div class="input-group-addon">
 															<i class="icofont icofont-ui-calendar"></i>
-														</span>
+														</div>
 													</div>
-													<div class="form-control-feedback" *ngIf="pickedDate.errors">
-														Sorry, only numbers.
+													<div *ngIf="end.invalid && (end.dirty || end.touched)" class="has-danger" >
+														<div class="form-control-feedback" *ngIf="end.errors.required">
+															If you don't wish for your campaign to run forever, you must pick a date to end it on
+														</div>
 													</div>
-												</div>
-											</div>
-										</div>
-										<hr>
-										<div class="row">
-										<div class="col-md-12">
-											<label>
-												<b>
-													Campaign Banner
-												</b>
-											</label>
-										</div>
-										</div>
-										<div class="row">
-											<div class="col-lg-12 ">
-												<img class="ban-img" src="http://via.placeholder.com/600x150" />
-											</div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-sm-7 switch-txt">
-												<p class="text-muted">
-													Recommended size is 600px by 220px with a resolution of 72DPI
-												</p>
-											</div>
-											<div class="col-md-3 col-switch">
-												<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
-													Choose File
-												</button>
-											</div>
-										</div>
-										<hr>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label>
-													<b>
-														Description
-													</b>
 												</label>
 											</div>
 										</div>
-										<div class="row mt-2" [class.has-danger]="pickedMessage.errors">
+										
+										<hr>
+										
+										<div class="row">
 											<div class="col-md-12">
-												<div class="form-group">
-													<textarea
-														class="form-control"
-														pattern="[a-zA-Z0-9 ]+"
-														id="exampleFormControlTextarea1"
-														rows="3"
-														placeholder="Tell your friends and family how they can help"
-														[(ngModel)]="description"
-														ngModel
-														name="description"
-														minlength="36"
-														maxlength="1000"
-														#pickedMessage="ngModel"
-													></textarea>
-												</div>
-											</div>
-											<div class="form-control-feedback" *ngIf="pickedMessage.errors">
-												Must be at least 36 characters
+												<label><b>Campaign Banner:</b>
+													<img class="ban-img" src="http://via.placeholder.com/600x150" />
+													<div class="row mt-2">
+														<div class="col-sm-9 switch-txt">
+															<p class="text-muted">
+																Recommended size is 600px by 220px with a resolution of 72DPI
+															</p>
+														</div>
+														<div class="col-md-3 col-switch">
+															<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
+																Choose File
+															</button>
+														</div>
+													</div>
+												</label>
 											</div>
 										</div>
+
+										<hr>
+										
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<label style="width:100%" ><b>Description</b>
+													<div class="form-group">
+														<textarea
+															class="form-control"
+															rows="3"
+															placeholder="Tell your friends and family how they can help"
+															id="description"
+															formControlName="description"
+														></textarea>
+													</div>
+													<div *ngIf="description.invalid && (description.dirty || description.touched)" class="has-danger" >
+														<div class="form-control-feedback" *ngIf="description.errors.minlength">
+															Must be at least 36 characters
+														</div>
+														<div class="form-control-feedback" *ngIf="description.errors.maxlength">
+															Cannot be more than 1024 characters
+														</div>
+														<div class="form-control-feedback" *ngIf="description.errors.pattern">
+															The description may only contain letters A-Z and numbers 0-9
+														</div>
+													</div>
+												</label>
+											</div>
+										</div>
+
+
+
+
+
+
+
+
+
+										<div class="row mt-4">
+											<div class="col-md-12">
+												<button
+													type="submit"
+													(click)="createdForm.active(true)"
+													class="btn font-17 btn-default btn-lg btn-block"
+													[disabled]="!createdForm.valid"
+												>
+												  	Launch Campaign
+											  	</button>
+											</div>
+										</div>
+										<div class="row mt-4">
+											<div class="col-md-12">
+												<button
+													type="submit"
+													(click)="createdForm.active(false)"
+													class="btn font-17 btn-default btn-lg btn-block"
+													[disabled]="!createdForm.valid"
+												>
+												  	Save for Later
+											  	</button>
+										  	</div>
+										</div>
+									</form>
+								</div>
+								<div>{{ createdForm.value | json }}</div>
+								<div class="col-lg-3"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</section>
+
+
+<!--
+
+
+
+
+
+
+
 										<hr>
 										<div class="row mt-2">
 											<div class="col-md-12">
@@ -413,34 +443,5 @@
 												</button>
 											</div>
 										</div>
-										<div class="row mt-4">
-											<div class="col-md-12">
-												<button
-													type="submit"
-													class="btn font-17 btn-default btn-lg btn-block"
-													[disabled]="!addCamp.form.valid"
-												>
-												  	Launch Campaign
-											  	</button>
-											</div>
-										</div>
-										<div class="row mt-4">
-											<div class="col-md-4"></div>
-											<div class="col-md-4">
-												<a href="#" class="string-link" style="padding-left:28%;">
-													Save For Later
-												</a>
-											</div>
-											<div class="col-md-4"></div>
-										</div>
-									</form>
-								</div>
-								<div class="col-lg-3"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
-</section>
+										
+-->

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core'
-import { NgForm, FormArray, FormBuilder, FormGroup } from '@angular/forms'
+import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 
 import { CampaignCreatorService } from '../../../services/campaign-creator.service'
 import { Campaign } from '../../../objects/Campaign'
@@ -27,23 +27,22 @@ export class MycampaddComponent implements OnInit {
 
 	createForm () {
 		this.createdForm = this.fb.group({
-			name: "",
-			type: "",
-			goal: 0,
+			name: this.fb.control("", [Validators.required, Validators.minLength(12), Validators.maxLength(36), Validators.pattern("[a-zA-Z0-9 ]+")]),
+			type: this.fb.control("", [Validators.required]),
+			goal: this.fb.control(null, [Validators.required, Validators.min(1)]),
 			noDate: false,
-			end: 0,
-			description: "",
+			end: this.fb.control(null, [Validators.required]),
+			description: this.fb.control("", [Validators.pattern("[a-zA-Z0-9 ]+"), Validators.minLength(36), Validators.maxLength(1024)]),
 			affiliate_links: this.fb.array([]),
 			thankYou: "",
 			fEmail: "",
 			eMessage: "",
-			shared: false
+			shared: false,
+			active: false
 		})
-		
-		console.log(this.createdForm)
 	}
 	
-	onAddCamp(form: NgForm) {
+	createCampaign() {
 		console.log(this.createdForm.value)
 		
 		const campaign = this.prepareSaveCampaign()
@@ -58,12 +57,20 @@ export class MycampaddComponent implements OnInit {
 	prepareSaveCampaign (): Campaign { return this.createdForm.value as Campaign }
 	
 	setAffiliate_links (): void {
-		const affiliate_links = this.campaign.affiliate_links ? this.fb.array(this.campaign.affiliate_links) : this.fb.array([])
+		const affiliate_links = (this.campaign && this.campaign.affiliate_links) ? this.fb.array(this.campaign.affiliate_links) : this.fb.array([])
 		this.createdForm.setControl('affiliate_links', affiliate_links)
 	}
-	get affiliate_links (): FormArray {
-		return this.createdForm.get('affiliate_links') as FormArray
-	}
+	
+	set active (b: boolean) { this.createdForm.setValue("active", b) }
+	
+	get affiliate_links (): FormArray { return this.createdForm.get('affiliate_links') as FormArray }
+
+	get name (): FormControl { return this.createdForm.get("name") as FormControl }
+	get type (): FormControl { return this.createdForm.get("type") as FormControl }
+	get goal (): FormControl { return this.createdForm.get("goal") as FormControl }
+	get end (): FormControl { return this.createdForm.get("end") as FormControl }
+	get description (): FormControl { return this.createdForm.get("description") as FormControl }
+	
 	
 	addAffiliate (): void { this.campaign.affiliate_links.push("") }
 

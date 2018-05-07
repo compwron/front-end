@@ -12,7 +12,7 @@ import { firebase } from '../../../utilities/utilities'
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-	resource: Resource = { author: {}, categories: {} }
+	resource: Resource = { author: { displayName: "", uid: "", profile_pic: "" }, categories: [], banner: "", banner_large: "", title: "", teaser: "" }
 	categories: Array<string> = []
 
 	constructor(
