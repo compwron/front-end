@@ -65,7 +65,7 @@ export class MycampaddComponent implements OnInit {
 		this.createdForm.setControl('affiliate_links', affiliate_links)
 	}
 	
-	set active (b: boolean) { this.createdForm.setControl("active", this.fb.control(b)) }
+	set active (b) { this.createdForm.setControl("active", this.fb.control(b)) }
 	
 	
 	addAffiliateLink (): void { this.affiliate_links.push(this.fb.control("")) }

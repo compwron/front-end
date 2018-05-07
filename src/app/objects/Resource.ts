@@ -7,6 +7,8 @@ export interface Resource {
 	teaser: string
 	author: Author
 	categories: string[]
+	content?: string
+	id?: string
 }
 
 export interface Author {
