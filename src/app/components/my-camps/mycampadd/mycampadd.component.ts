@@ -17,6 +17,9 @@ export class MycampaddComponent implements OnInit {
 	) {
 		this.createForm()
 		this.setAffiliate_links()
+		this.addAffiliateLink()
+		this.addAffiliateLink()
+		this.addAffiliateLink()
 	}
 	
 	ngOnInit() {
@@ -30,19 +33,20 @@ export class MycampaddComponent implements OnInit {
 			name: this.fb.control("", [Validators.required, Validators.minLength(12), Validators.maxLength(36), Validators.pattern("[a-zA-Z0-9 ]+")]),
 			type: this.fb.control("", [Validators.required]),
 			goal: this.fb.control(null, [Validators.required, Validators.min(1)]),
-			noDate: false,
+			noDate: this.fb.control(false),
 			end: this.fb.control(null, [Validators.required]),
 			description: this.fb.control("", [Validators.pattern("[a-zA-Z0-9 ]+"), Validators.minLength(36), Validators.maxLength(1024)]),
 			affiliate_links: this.fb.array([]),
-			thankYou: "",
-			fEmail: "",
-			eMessage: "",
-			shared: false,
+			thankYou: this.fb.control("", [Validators.minLength(5), Validators.maxLength(1024), Validators.pattern("[a-zA-Z0-9 ]+")]),
+			fEmail: this.fb.control("", [Validators.pattern(/[\w|\d]+@[\w|\d]+\.\w+/i)]),
+			eMessage: this.fb.control("", [Validators.pattern("[a-zA-Z0-9 ]+"), Validators.maxLength(1024), Validators.minLength(12)]),
+			shared: this.fb.control(false),
+			privacy: this.fb.control(""),
 			active: this.fb.control(false)
 		})
 	}
 	
-	createCampaign() {
+	createCampaign () {
 		console.log(this.createdForm.value)
 		
 		const campaign = this.prepareSaveCampaign()
@@ -63,16 +67,20 @@ export class MycampaddComponent implements OnInit {
 	
 	set active (b: boolean) { this.createdForm.setControl("active", this.fb.control(b)) }
 	
-	get affiliate_links (): FormArray { return this.createdForm.get('affiliate_links') as FormArray }
+	
+	addAffiliateLink (): void { this.affiliate_links.push(this.fb.control("")) }
 
+	get affiliate_links (): FormArray { return this.createdForm.get('affiliate_links') as FormArray }
+	
 	get name (): FormControl { return this.createdForm.get("name") as FormControl }
 	get type (): FormControl { return this.createdForm.get("type") as FormControl }
 	get goal (): FormControl { return this.createdForm.get("goal") as FormControl }
 	get end (): FormControl { return this.createdForm.get("end") as FormControl }
 	get description (): FormControl { return this.createdForm.get("description") as FormControl }
-	
-	
-	addAffiliate (): void { this.campaign.affiliate_links.push("") }
+	get thankYou (): FormControl { return this.createdForm.get("thankYou") as FormControl }
+	get fEmail (): FormControl { return this.createdForm.get("fEmail") as FormControl }
+	get eMessage (): FormControl { return this.createdForm.get("eMessage") as FormControl }
+	get privacy (): FromControl { return this.createdForm.get("privacy") as FormControl }
 
 }
 

@@ -30,7 +30,8 @@ Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 	* do you pull down a paginated list of articles within a category when a user selects it?
 	* just show articles that fall within the top-10 most common categories on the resources page, but show all the categories
 - the featured group is just a set of articles that are in the 'featured' collection, which gets added to and deleted from with a special page?
-
+- login: firebase has to get login info on every page refresh; because the auth script redirects you before you successfully login, you cannot navigate by pasting a link
+	* make auth wait until it receives an auth response
 
 
 **auth flow**

@@ -10,16 +10,21 @@
 						<div class="card-body">
 							<div class="container row">
 								<div class="col-lg-9">
+
 									<div class="row">
 										<div class="col-md-12">
 											<h2>Add a Campaign</h2>
 										</div>
 									</div>
+
+
+
+									<!--	NAME		-->
 									<form [formGroup]="createdForm" (ngSubmit)="createCampaign()">
 										<div class="row">
 											<div class="col-md-12">
 												<div class="form-group" >
-													<label class="center-block" style="width:100%" >Campaign Name:
+													<label class="center-block" style="width:100%" ><b>Campaign Name</b>
 														<input
 															id="name"
 															class="form-control"
@@ -43,10 +48,14 @@
 												</div>
 											</div>
 										</div>
+
+
+
+										<!--	TYPE		-->
 										<div class="row mt-2">
 											<div class="col-md-12">
 												<div class="form-group" >
-													<label class="center-block" style="width:100%" >Campaign Type:
+													<label class="center-block" style="width:100%" ><b>Campaign Type</b>
 														<select
 															class="form-control"
 															style="height:inherit"
@@ -70,12 +79,18 @@
 												</div>
 											</div>
 										</div>
-										
+
+
+
+
 										<hr>
-										
+
+
+
+										<!--	GOAL		-->
 										<div class="row">
 											<div class="col-md-12">
-												<label><b>Campaign Goal:</b>
+												<label><b>Campaign Goal</b>
 													<div class="input-group mb-3">
 														<div class="input-group-addon">
 															<span class="input-group-text" id="basic-addon2" >$</span>
@@ -108,12 +123,18 @@
 												</p>
 											</div>
 										</div>
-										
+
+
+
+
 										<hr>
-										
+
+
+
+										<!--	END		-->
 										<div class="row">
 											<div class="col-md-12">
-												<label style="width:100%" ><b>Campaign End Date:</b>
+												<label style="width:100%" ><b>Campaign End Date</b>
 													<div class="input-group mb-3">
 														<div class="input-group-text">
 															<input
@@ -147,12 +168,18 @@
 												</label>
 											</div>
 										</div>
-										
+
+
+
+
 										<hr>
-										
+
+
+
+										<!--	BANNER		-->
 										<div class="row">
 											<div class="col-md-12">
-												<label><b>Campaign Banner:</b>
+												<label><b>Campaign Banner</b>
 													<img class="ban-img" src="http://via.placeholder.com/600x150" />
 													<div class="row mt-2">
 														<div class="col-sm-9 switch-txt">
@@ -170,8 +197,14 @@
 											</div>
 										</div>
 
+
+
+
 										<hr>
-										
+
+
+
+										<!--	DESCRIPTION		-->
 										<div class="row mt-2">
 											<div class="col-md-12">
 												<label style="width:100%" ><b>Description</b>
@@ -202,11 +235,207 @@
 
 
 
+										<hr>
+
+
+
+										<!--	AFFILIATE_LINKS		-->
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<label><b>Campaign Wishlist (optional)</b>
+													<div class="row mt-2">
+														<div class="col-md-12">
+															<p class="text-muted">
+																Sometimes people will prefer to buy a gift rather than gift money.
+																Let them know what else they can gift to you. Pro tip: paste a link to the item on Amazon!
+															</p>
+														</div>
+													</div>
+													<div formArrayName="affiliate_links" class="row mt-2" >
+														<div *ngFor="let affiliate_link of affiliate_links.controls; let i=index" class="col-md-12" >
+															<input
+																type="url"
+																class="form-control"
+																placeholder="Item {{ i + 1 }}"
+																[formControlName]="i"
+																id="affiliate_link"
+															>
+															<div *ngIf="affiliate_link.invalid && (affiliate_link.dirty || affiliate_link.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="affiliate_link.errors.pattern">
+																	 This URL is improperly formatted
+																 </div>
+															</div>
+														</div>
+													</div>
+													<button (click)="addAffiliateLink()" type="button">I have more links</button>
+												</label>
+											</div>
+										</div>
 
 
 
 
+										<hr>
 
+
+
+										<!--	THANK YOU MESSAGE		-->
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<label><b>Thank You Message</b>
+													<div class="row mt-2">
+														<div class="col-md-12">
+															<p class="text-muted">
+																Once someone has contributed to your campaign they will receive this thank you message.
+															<p>
+														</div>
+													</div>
+													<div class="row mt-2" >
+														<div class="col-md-12">
+															<textarea
+																class="form-control"
+																rows="3"
+																placeholder="Thank everyone for their help."
+																formControlName="thankYou"
+																id="thankYou"
+															></textarea>
+														</div>
+														<div *ngIf="thankYou.invalid && (thankYou.dirty || thankYou.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="thankYou.errors.minlength">
+																Your thank you message must be at least 5 characters long
+															</div>
+															<div class="form-control-feedback" *ngIf="thankYou.errors.maxlength">
+																Your thank you message can be no longer than 1024 characters
+															</div>
+															<div class="form-control-feedback" *ngIf="thankYou.errors.pattern">
+																You may only use the letters A-Z and numbers 0-9 in your thank you message
+															</div>
+														</div>
+													</div>
+												</label>
+											</div>
+										</div>
+
+
+
+
+										<hr>
+
+
+
+										<!--	INVITE FAMILY AND FRIENDS TO CONTRIBUTE		-->
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<div class="border bg-light text-dark">
+													<label style="width:100%" ><b>Invite Friends & Family to Contribute</b>
+														<div class="form-group" >
+															<input
+																type="email"
+																class="form-control"
+																placeholder="Email"
+																id="fEmail"
+																formControlName="fEmail"
+															>
+														</div>
+														<div *ngIf="fEmail.invalid && (fEmail.dirty || fEmail.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="fEmail.errors.pattern">
+																This is not a valid email address
+															</div>
+														</div>
+
+
+
+														<div class="form-group" >
+															<textarea
+																class="form-control"
+																id="eMessage"
+																rows="3"
+																placeholder="Let everyone know about your campaign and how they can help!"
+																formControlName="eMessage"
+															></textarea>
+														</div>
+														<div *ngIf="eMessage.invalid && (eMessage.dirty || eMessage.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="eMessage.errors.pattern">
+																You may only use the letters A-Z and numbers 0-9 in your thank you email
+															</div>
+															<div class="form-control-feedback" *ngIf="eMessage.errors.minlength">
+																Your thank you email must be at least 12 characters long
+															</div>
+															<div class="form-control-feedback" *ngIf="eMessage.errors.maxlength">
+																Your thank you email can be no longer than 1024 characters
+															</div>
+														</div>
+													</label>
+												</div>
+											</div>
+										</div>
+
+
+
+
+										<hr>
+
+
+
+										<!--	SOCIAL SHARING		-->
+										<div class="row mt-2">
+											<div class="col-sm-10 switch-txt">
+												<label><p>Display social sharing icons on campaign page</p>
+													<div class="col-sm-2 col-switch">
+														<div class="pg-switch">
+															<label class="switch">
+																<input
+																	type="checkbox"
+																	formControlName="shared"
+																	id="shared"
+																>
+																<span class="slider round"></span>
+															</label>
+														</div>
+													</div>
+												</label>
+											</div>
+										</div>
+
+
+
+										<hr>
+
+
+
+										<!--	PRIVACY		-->
+										<div class="row mt-2">
+											<div class="col-md-12">
+												<label><b>Privacy Message</b>
+													<div class="col-md-12">
+														<p>
+															We understand that privacy is of utmost important to our community.
+															Therefore, we have implemented three options for security ranging from public campaigns to private.
+														</p>
+													</div>
+
+													<div class="col-sm-4 radio-col">
+														<input type="radio" formControlName="privacy" value="public">
+														Totally Public
+													</div>
+
+													<div class="col-sm-4 radio-col">
+														<input type="radio" formControlName="privacy" value="link">
+														Link Required
+													</div>
+
+													<div class="col-sm-4 radio-col">
+														<input type="radio" formControlName="privacy" value="private">
+														Totally Private
+													</div>
+
+												</label>
+											</div>
+										</div>
+
+
+
+										<!--	SUBMIT BUTTONS		-->
 										<div class="row mt-4">
 											<div class="col-md-12">
 												<button
@@ -225,7 +454,6 @@
 													type="submit"
 													(click)="createdForm.active(false)"
 													class="btn font-17 btn-default btn-lg btn-block"
-													[disabled]="!createdForm.valid"
 												>
 												  	Save for Later
 											  	</button>
@@ -233,7 +461,10 @@
 										</div>
 									</form>
 								</div>
-								<div>{{ createdForm.value | json }}</div>
+								
+								
+								<!--		this is for testing purposes; it displays the form values in realtime as they change		-->
+								<!--		<div>{{ createdForm.value | json }}</div>		-->
 								<div class="col-lg-3"></div>
 							</div>
 						</div>
@@ -243,205 +474,3 @@
 		</section>
 	</div>
 </section>
-
-
-<!--
-
-
-
-
-
-
-
-										<hr>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label>
-													<b>
-														Campaign Wishlist (optional)
-													</b>
-												</label>
-											</div>
-										  </div>
-										  <div class="row mt-2">
-											<div class="col-md-12">
-												<p class="text-muted">
-													Sometimes people will prefer to buy a gift rather than gift money.
-													Let them know what else they can gift to you. Pro tip: paste a link to the item on Amazon!
-												</p>
-											</div>
-										</div>
-										<div class="row mt-2" [class.has-danger]="pickedItem1.errors">
-											<div class="col-md-12">
-												<input
-													pattern="^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?"
-													type="url"
-													class="form-control"
-													placeholder="Item 1"
-													[(ngModel)]="item1"
-													name="item1"
-													ngModel
-													#pickedItem1="ngModel"
-												>
-											</div>
-											<div class="form-control-feedback" *ngIf="pickedItem1.errors">
-												 Should be an url
-											 </div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
-													+ Another Item
-												</button>
-											</div>
-										  </div>
-										<hr>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label>
-													<b>
-														Thank You Message
-													</b>
-												</label>
-											</div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<p class="text-muted">
-													Once someone has contributed to your campaign they will receive this thank you message.
-												<p>
-											</div>
-										</div>
-										<div class="row mt-2" [class.has-danger]="pickedThanks.errors">
-											<div class="col-md-12">
-												<textarea
-													class="form-control"
-													id="exampleFormControlTextarea1"
-													rows="3"
-													placeholder="Thank everyone for their help."
-													minlength="5"
-													maxlength="1000"
-													pattern="[a-zA-Z0-9 ]+"
-													ngModel [(ngModel)]="thankYou"
-													name="thankYou"
-													#pickedThanks="ngModel"
-												></textarea>
-											</div>
-											<div class="form-control-feedback" *ngIf="pickedThanks.errors && pickedThanks.dirty">
-												Only alphabric letters and 1000 letter limit
-											</div>
-										</div>
-										<hr>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<div class="border bg-light text-dark">
-													<label>
-														<b>
-															Invite Friends & Family to Contribue
-														</b>
-													</label>
-													<div class="form-group" [class.has-danger]="pickedFEmail.errors">
-														<input
-															type="email"
-															class="form-control"
-															placeholder="Email"
-															[(ngModel)]="fEmail"
-															ngModel
-															name="fEmail"
-															#pickedFEmail="ngModel"
-														>
-													</div>
-													<div class="form-control-feedback" *ngIf="pickedItem2.errors">
-														Needs to be a valid email
-													</div>
-													<div class="form-group" [class.has-danger]="pickedEMessage.errors">
-														<textarea
-															class="form-control"
-															id="exampleFormControlTextarea1"
-															rows="3"
-															placeholder="Let everyone know about your campaign and how they can help!"
-															[(ngModel)]="eMessage"
-															maxlength="1000"
-															minlength="12"
-															ngModel
-															pattern="[a-zA-Z0-9 ]+"
-															name="eMessage"
-															#pickedEMessage="ngModel"
-														></textarea>
-													</div>
-													<div class="form-control-feedback" *ngIf="pickedItem2.errors">
-														must be longer than 12 characters
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-sm-10 switch-txt">
-												<p>
-													Display social sharing icons on campaign page
-												</p>
-											</div>
-											<div class="col-sm-2 col-switch">
-												<div class="pg-switch">
-													<label class="switch">
-														<input
-															type="checkbox"
-															[(ngModel)]="socialShare"
-															name="socialShare"
-															#pickedCheck="ngModel"
-														>
-														<span class="slider round"></span>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-md-12">
-											  <label><b>Privacy Message</b></label>
-											</div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<p>
-													We understand that privacy is of utmost important to our community.
-													Therefore, we have implemented three options for security ranging from public campaigns to private.
-												</p>
-											</div>
-										</div>
-										<div class="row mt-2">
-											<div class="col-sm-4 radio-col">
-												<button
-													type="button"
-													class="radio btn btn-primary btn-outline-primary btn-round active"
-													data-toggle="button"
-													aria-pressed="false"
-													autocomplete="off"
-												>
-													Totally Public
-												</button>
-											</div>
-											<div class="col-sm-4 radio-col">
-												<button
-													type="button"
-													class="radio btn btn-primary btn-outline-primary btn-round"
-													data-toggle="button"
-													aria-pressed="false"
-													autocomplete="off"
-												>
-													Link Required
-												</button>
-											</div>
-											<div class="col-sm-4 radio-col">
-												<button
-													type="button"
-													class="radio btn btn-primary btn-outline-primary btn-round"
-													data-toggle="button"
-													aria-pressed="false"
-													autocomplete="off"
-												>
-													Totally Private
-												</button>
-											</div>
-										</div>
-										
--->
