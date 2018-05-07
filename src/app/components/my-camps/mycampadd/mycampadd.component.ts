@@ -80,7 +80,7 @@ export class MycampaddComponent implements OnInit {
 	get thankYou (): FormControl { return this.createdForm.get("thankYou") as FormControl }
 	get fEmail (): FormControl { return this.createdForm.get("fEmail") as FormControl }
 	get eMessage (): FormControl { return this.createdForm.get("eMessage") as FormControl }
-	get privacy (): FromControl { return this.createdForm.get("privacy") as FormControl }
+	get privacy (): FormControl { return this.createdForm.get("privacy") as FormControl }
 
 }
 
