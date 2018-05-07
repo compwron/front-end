@@ -38,7 +38,7 @@ export class MycampaddComponent implements OnInit {
 			fEmail: "",
 			eMessage: "",
 			shared: false,
-			active: false
+			active: this.fb.control(false)
 		})
 	}
 	
@@ -61,7 +61,7 @@ export class MycampaddComponent implements OnInit {
 		this.createdForm.setControl('affiliate_links', affiliate_links)
 	}
 	
-	set active (b: boolean) { this.createdForm.setValue("active", b) }
+	set active (b: boolean) { this.createdForm.setControl("active", this.fb.control(b)) }
 	
 	get affiliate_links (): FormArray { return this.createdForm.get('affiliate_links') as FormArray }
 

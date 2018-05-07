@@ -29,7 +29,7 @@ export class ArticleComponent implements OnInit {
 		this.resourceService.get(id)
 			.subscribe(
 				(doc: firebase.firestore.DocumentSnapshot): void => {
-					this.resource = <Resource>Object.assign({}, doc.data(), { id: doc.id })
+					this.resource = <Resource>Object.assign({}, this.resource, doc.data(), { id: doc.id })
 					this.categories = Object.keys(this.resource.categories)
 				},
 				(e): void => console.log("error in resource subscriber", e),
