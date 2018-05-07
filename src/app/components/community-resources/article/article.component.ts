@@ -12,7 +12,7 @@ import { firebase } from '../../../utilities/utilities'
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit {
-	resource: Resource = { author: {}, categories: {} }
+	resource: Resource = { author: { displayName: "", uid: "", profile_pic: "" }, categories: [], banner: "", banner_large: "", title: "", teaser: "" }
 	categories: Array<string> = []
 
 	constructor(
@@ -29,7 +29,7 @@ export class ArticleComponent implements OnInit {
 		this.resourceService.get(id)
 			.subscribe(
 				(doc: firebase.firestore.DocumentSnapshot): void => {
-					this.resource = <Resource>Object.assign({}, doc.data(), { id: doc.id })
+					this.resource = <Resource>Object.assign({}, this.resource, doc.data(), { id: doc.id })
 					this.categories = Object.keys(this.resource.categories)
 				},
 				(e): void => console.log("error in resource subscriber", e),

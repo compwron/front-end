@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
+import { ReactiveFormsModule } from '@angular/forms'
 
 // Layout
 import {FooterComponent} from "./layout/footer.component"
@@ -123,7 +124,8 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule
   ],
   providers: [
 	CampaignService,

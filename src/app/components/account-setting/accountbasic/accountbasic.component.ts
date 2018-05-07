@@ -10,10 +10,11 @@ import { UserUpdateObject } from '../../../objects/UserInterfaces'
   styleUrls: ['./accountbasic.component.scss']
 })
 export class AccountbasicComponent implements OnInit {
-	name:string;
-	email:string;
-	password:string;
-	password2:string;
+	name: string
+	email: string
+	password: string
+	password2: string
+	displayName: string
 	
 	onSubmit(form: NgForm){
 		console.log(form.value)

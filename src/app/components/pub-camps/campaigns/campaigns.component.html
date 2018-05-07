@@ -168,9 +168,9 @@
         <div class="card-deck">
           <div class="row">
             <!--Single-Camp-Start-->
-            <div class="col-md-4 mt-4" >
-            	<app-campaign-brief *ngFor="let campaign of campaigns" [campaign]="campaign"></app-campaign-brief>
-        	</div>
+            
+            <div class="col-md-4 mt-4" *ngFor="let campaign of campaigns" ><app-campaign-brief [campaign]="campaign"></app-campaign-brief></div>
+        	
             <!--Single-Camp-End-->
             <!--Single-Camp-Start-->
             <div class="col-md-4 mt-4">
