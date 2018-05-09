@@ -23,5 +23,4 @@ export class WepayPaymentSuccessfulComponent implements OnInit {
 		this.checkout_id = checkout_id
 		this.wepay.checkoutComplete(this.checkout_id, () => window.close())
 	}
-
 }

@@ -38,8 +38,8 @@ wp.use_staging()
 // })
 
 const promiseCall = (url, data) => {
-	console.log(wp.get_access_token())
-	console.log(wepay_settings.access_token)
+	// console.log(wp.get_access_token())
+	// console.log(wepay_settings.access_token)
 	
 	const p = new Promise((resolve, reject) => wp.call(url, data, resolve))
 	return p
@@ -68,7 +68,7 @@ app.post('/pay', (req, res) => {
 	// 	fee = "5"
 	// }
 	
-	console.log(account_id, amount, ppamount)
+	// console.log(account_id, amount, ppamount)
 	
 	const data = {
 		account_id,
@@ -107,7 +107,7 @@ app.post('/pay', (req, res) => {
 app.post('/get_token', (req, res) => {
 	const { code, redirect_uri } = req.body
 	
-	console.log("in access_token function", code, redirect_uri)
+	// console.log("in access_token function", code, redirect_uri)
 	
 	const data = {
 		client_id: wepay_settings.client_id,

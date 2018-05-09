@@ -15,7 +15,20 @@ import { firebase, db } from '../utilities/utilities'
 export class LoginService {
 	constructor(
 		private router: Router
-	) { }
+	) {
+		this.test_initialize()
+			.subscribe(
+				(user: firebase.User) => {
+					// console.log("in test_initialize observer", user.uid)
+					
+					if (!user) {
+						this.router.navigateByUrl('/login')
+					}
+				},
+				e => console.log("error initializing auth", e),
+				() => console.log("auth successfully initialized")
+			)
+	}
 
 	pridepocketUser //: User
 
@@ -24,6 +37,11 @@ export class LoginService {
 	previous: string = "/"
 	
 	extractUser = map((response: firebase.auth.UserCredential) => response.user)
+
+	test_initialize () {
+		// console.log("test_initialize function")
+		return new Observable(observer => firebase.auth().onAuthStateChanged(observer))
+	}
 	
 	initialize (f): void {
 		const g = pipe(

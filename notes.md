@@ -17,10 +17,19 @@ https://firebase.googleblog.com/2018/01/streamline-typescript-development-cloud-
 Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 
 
+
+**features**
+- db backups: encrypt and compress and store in bucket
+- bug bounty
+	* https://hackerone.com/security
+
+
+
 **incomplete**
 - profile picture uploader
 - 'add anotehr person' for 'Who are you saving for' form on 'accountbasic' component
 - "total funds raised" and "funds transferred to bank" on payment details
+	* looking for a total amount over the lifetime of the account
 - change 'setup WePay' to something like 'unlink wepay account' if the user has a wepay account already
 - add campaign details to notifications, or at least campaign IDs; still haven't decided how to handle this
 - how do you get app categories?

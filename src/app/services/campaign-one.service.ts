@@ -15,7 +15,11 @@ export class CampaignOneService {
 	get (id, callback): void {
 		db.collection("campaigns").doc(id).onSnapshot((doc: firebase.firestore.DocumentSnapshot) => {
 			const c = doc.data()
-			const campaign = Object.assign({}, c, { id: doc.id, _updated: c._updated.toDate(), begin: c.begin ? c.begin.toDate() : null, end: c.end ? c.end.toDate() : null })
+			const campaign = Object.assign({}, c, {
+				id: doc.id,
+				_updated: c._updated.toDate(),
+				begin: c.begin ? c.begin.toDate() : null,
+				end: c.end ? c.end.toDate() : null })
 			callback(campaign)
 		})
 	}

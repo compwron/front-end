@@ -13,6 +13,7 @@ export class AuthGuard implements CanActivate {
 		private router: Router
 	) {}
 
+	// this is part of the login problem; the user will hit this before firebase has initialized; need to get it to wait for initialization or something
 	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 		if (!this.login.loggedIn()) {
 			this.router.navigateByUrl('/login')

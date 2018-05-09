@@ -103,7 +103,7 @@ export class WepayService {
 			.subscribe(
 				pipe(
 					(r: WePayPayment) => this.saveCompletedTransaction(r, this.loginService),
-					(r) => r.then(s => callback() )
+					(r) => r.then(s => callback(s) )
 				),
 				e => console.log("error getting checkout information from WePay", e),
 				() => console.log("successfully completed getting checkout information from WePay")
@@ -115,11 +115,19 @@ export class WepayService {
 			console.log("error getting checkout information after successful payment", response.error_code)
 		}
 		else {
+			console.log(response.checkout_id.toString())
+			console.log(typeof response.checkout_id.toString())
+			console.log(response.checkout_id)
+			console.log(typeof response.checkout_id)
+			
 			return db.collection("pending").doc(response.checkout_id.toString()).get()
 				.then((snapshot: firebase.firestore.DocumentSnapshot) => {
 					const campaignDetails = snapshot.data()
 					
 					let batch = db.batch()
+
+					// console.log(campaignDetails)
+					// console.log(loginService)
 
 					let campaign = db.collection("campaigns").doc(campaignDetails.id)
 					let donator = db.collection("users").doc(loginService.pridepocketUser.uid)
@@ -153,7 +161,7 @@ export class WepayService {
 		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
 			.subscribe(
 				(response: WePayPayment) => {
-					console.log(response.hosted_checkout.checkout_uri)
+					// console.log(response)
 					if (!response.error_code) {
 						return db.collection("pending").doc(response.checkout_id.toString()).set(campaignDetails)
 							.then(() => {
