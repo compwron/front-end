@@ -23,10 +23,10 @@ export class WepayService {
 		private loginService: LoginService,
 		private router: Router
 	) {
-		// should I try the same initialize function that I use in the nav's ngInit function?
+		// should I try the same initialize function that I use in the nav's ngInit function?)
 	}
 
-	redirect: string = "http://localhost:4200/redirect"
+	redirect: string = window.location.origin + "/redirect"
 	// redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
 
 	registerLink: string = `https://stage.wepay.com/v2/oauth2/authorize?client_id=53075&redirect_uri=${this.redirect}&scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money`
