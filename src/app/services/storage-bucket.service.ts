@@ -7,11 +7,6 @@ import { firebase } from '../utilities/utilities'
 
 const storage = firebase.storage()
 
-interface Uploading {
-	(key: string): number
-}
-
-
 const initialize = uploadTask => {
 	return new Observable(observer => {
 		uploadTask.on("state_changed", {
@@ -23,7 +18,7 @@ const initialize = uploadTask => {
 }
 
 const progress = response => new Observable(observer => response.subscribe(
-		snapshot => { console.log((snapshot.bytesTransferred / snapshot.totalBytes) * 100) },
+		snapshot => observer.next((snapshot.bytesTransferred / snapshot.totalBytes) * 100),
 		e => observer.error(e),
 		() => {
 			observer.next()
@@ -33,9 +28,15 @@ const progress = response => new Observable(observer => response.subscribe(
 )
 
 const extractUrl = ref => response => { return new Observable(observer => response.subscribe(
-	() => fromPromise(ref.getDownloadURL()).subscribe(url => observer.next(url)),
+	status => observer.next(status),
 	e => console.log("error in extractUrl", e),
-	() => console.log("extractUrl complete")
+	() => {
+		fromPromise(ref.getDownloadURL()).subscribe(
+			url => observer.next({ url, fullPath: ref.fullPath })
+			e => observer.error(e),
+			() => observer.complete()
+		)
+	}
 ))}
 
 @Injectable()
@@ -46,10 +47,7 @@ export class StorageBucketService {
 	constructor() { }
 
 	store (file: File, type: string): Observable<any> {
-		const ref = storage.ref()
-		const fileRef = ref.child(`/${type}/${file.name}`)
-		// this.uploading[ref.name] = { progress: 0, uploadTask: null }
-
+		const fileRef = storage.ref().child(`/${type}/${file.name}`)
 		const uploadTask = fileRef.put(file)
 
 		return initialize(uploadTask).pipe(
@@ -57,8 +55,6 @@ export class StorageBucketService {
 			extractUrl(fileRef)
 		)
 	}
-
-	getProgress (name: string): number {
-		if (this.uploading[name]) return
-	}
+	
+	delete (path) { return fromPromise(storage.ref(path).delete()) }
 }

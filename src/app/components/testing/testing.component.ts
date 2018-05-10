@@ -9,6 +9,8 @@ import { StorageBucketService } from '../../services/storage-bucket.service'
 })
 export class TestingComponent implements OnInit {
 
+	uploadStatus = 0
+
 	constructor(
 		private storage: StorageBucketService
 	) { }
@@ -21,9 +23,16 @@ export class TestingComponent implements OnInit {
 		
 		this.storage.store(file, 'test')
 			.subscribe(
-				(url: string): void => { console.log("should be a URL: ", url) },
+				(url: any): void => {
+					if (+url) this.uploadStatus = url
+					else if (typeof url === "object") console.log("url object", url)
+					else console.log("url is not a string or number: ", typeof url, url)
+				},
 				(e): void => { console.log("error", e) },
-				(): void => { console.log("complete") }
+				(): void => {
+					console.log("complete")
+					this.uploadStatus = 0
+				}
 			)
 	}
 
