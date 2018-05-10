@@ -49,6 +49,7 @@ import { LoginService } from './services/login.service'
 import { ResourcesService } from './services/resources.service'
 import { UserService } from './services/user.service'
 import { WepayService } from './services/wepay.service'
+import { StorageBucketService } from './services/storage-bucket.service'
 
 // pipes
 import { AgoPipe } from './filters/ago.pipe'
@@ -58,6 +59,7 @@ import { AuthGuard } from './auth.guard';
 import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component';
 import { ResourceService } from './services/resource.service';
 import { CampaignCreatorService } from './services/campaign-creator.service';
+import { TestingComponent } from './components/testing/testing.component';
 
 
 
@@ -76,6 +78,9 @@ const appRoutes: Routes = [
   {path:'resources/:id', component:ArticleComponent},
   {path:'signup', component:SignupComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
+  
+  
+  {path:'testing', component:TestingComponent},
   
   // only logged-in users can access the routes below
   {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
@@ -118,7 +123,8 @@ const appRoutes: Routes = [
     WepayRegisterComponent,
     AgoPipe,
     WepayPaymentSuccessfulComponent,
-    ResourceCardComponent
+    ResourceCardComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,
@@ -136,7 +142,8 @@ const appRoutes: Routes = [
 	WepayService,
 	AuthGuard,
 	ResourceService,
-	CampaignCreatorService
+	CampaignCreatorService,
+	StorageBucketService
   ],
   bootstrap: [AppComponent]
 })

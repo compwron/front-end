@@ -20,16 +20,22 @@ Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 
 **features**
 - db backups: encrypt and compress and store in bucket
+	* https://www.npmjs.com/package/firestore-backup-restore
 - bug bounty
 	* https://hackerone.com/security
-
+- email notifications to users of key things
+	* https://github.com/firebase/functions-samples/blob/master/email-confirmation/functions/index.js
+	* send notifications to websites/devices with Firebase Cloud Messenging too
+		- https://firebase.google.com/docs/functions/firestore-events
+- image storage; make the service to put stuff in storage and integrate it with the different components that need to store images
 
 
 **incomplete**
 - profile picture uploader
 - 'add anotehr person' for 'Who are you saving for' form on 'accountbasic' component
 - "total funds raised" and "funds transferred to bank" on payment details
-	* looking for a total amount over the lifetime of the account
+	* looking for a total amount over the lifetime of the account; not a FORM
+	* do this per campaign for now
 - change 'setup WePay' to something like 'unlink wepay account' if the user has a wepay account already
 - add campaign details to notifications, or at least campaign IDs; still haven't decided how to handle this
 - how do you get app categories?
