@@ -10,7 +10,6 @@ import { Campaign } from '../../../objects/Campaign'
   styleUrls: ['./mycampadd.component.scss']
 })
 export class MycampaddComponent implements OnInit {
-	
 	constructor(
 		private fb: FormBuilder,
 		private create: CampaignCreatorService
@@ -27,6 +26,9 @@ export class MycampaddComponent implements OnInit {
 	
 	createdForm: FormGroup
 	campaign
+	url: string
+	fullPath: string
+	src: string = "http://via.placeholder.com/600x150"
 
 	createForm () {
 		this.createdForm = this.fb.group({
@@ -42,20 +44,31 @@ export class MycampaddComponent implements OnInit {
 			eMessage: this.fb.control("", [Validators.pattern(/[a-zA-Z0-9 ]+/), Validators.maxLength(1024), Validators.minLength(12)]),
 			shared: this.fb.control(false),
 			privacy: this.fb.control(""),
+			banner: this.fb.group({
+				url: this.fb.control(""),
+				path: this.fb.control("")
+			}),
 			active: this.fb.control(false)
 		})
 	}
 	
 	createCampaign () {
-		// console.log(this.createdForm.value)
-		
 		const campaign = this.prepareSaveCampaign()
+		
 		this.create.create(campaign)
 			.subscribe(
-				() => this.createdForm.reset(),
+				() => {
+					this.createdForm.reset()
+					// should route to somewhere else
+				},
 				e => console.log("error creating campaign", e),
 				() => console.log("completed creating campaign")
 			)
+	}
+	
+	saveBanner ({ url, fullPath }): void {
+		this.banner.setValue({ url, path: fullPath })
+		this.src = url
 	}
 	
 	prepareSaveCampaign (): Campaign { return this.createdForm.value as Campaign }
@@ -64,13 +77,17 @@ export class MycampaddComponent implements OnInit {
 		const affiliate_links = (this.campaign && this.campaign.affiliate_links) ? this.fb.array(this.campaign.affiliate_links) : this.fb.array([])
 		this.createdForm.setControl('affiliate_links', affiliate_links)
 	}
-	
-	set active (b) { this.createdForm.setControl("active", this.fb.control(b)) }
-	
+
+	activate (b: boolean): void {
+		this.createdForm.setValue({ active: b })
+		// should call this.createCampaign() from here and get rid of the submit on the form
+	}
+
 	
 	addAffiliateLink (): void { this.affiliate_links.push(this.fb.control("")) }
 
 	get affiliate_links (): FormArray { return this.createdForm.get('affiliate_links') as FormArray }
+	get banner (): FormGroup { return this.createdForm.get("banner") as FormGroup }
 	
 	get name (): FormControl { return this.createdForm.get("name") as FormControl }
 	get type (): FormControl { return this.createdForm.get("type") as FormControl }
@@ -82,5 +99,8 @@ export class MycampaddComponent implements OnInit {
 	get fEmail (): FormControl { return this.createdForm.get("fEmail") as FormControl }
 	get eMessage (): FormControl { return this.createdForm.get("eMessage") as FormControl }
 	get privacy (): FormControl { return this.createdForm.get("privacy") as FormControl }
+
+	// get url (): FormControl { return this.banner.get("url") as FormControl }
+	// get path (): FormControl { return this.banner.get("path") as FormControl }
 
 }

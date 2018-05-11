@@ -1,0 +1,8 @@
+<div style="width: 100%; height 100%; display: flex">
+	<div (drop)="drop($event)" (dragover)="dragover($event)" style="flex: 10" >
+		<ng-content></ng-content>
+		<div style="flex: 1; display: flex; flex-direction: row;" *ngIf="uploadStatus > 0">
+			<div>Upload Status: </div><div>{{ uploadStatus }}% complete</div>
+		</div>
+	</div>
+</div>

@@ -3,7 +3,7 @@ import { Payment, PaymentList } from './Payment'
 export interface Campaign {
 	account_id?: string
 	id?: string
-	banner: string
+	banner: Banner
 	thumbnail: string
 	name: string
 	owner: Owner
@@ -27,6 +27,11 @@ export interface Campaign {
 // export interface AffiliateLinks {
 // 	(key: string): string
 // }
+
+interface Banner {
+	url: string
+	path: string
+}
 
 export interface Owner {
 	uid: string

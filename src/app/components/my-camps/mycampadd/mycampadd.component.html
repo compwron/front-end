@@ -180,24 +180,28 @@
 										<div class="row">
 											<div class="col-md-12">
 												<label><b>Campaign Banner</b>
-													<img class="ban-img" src="http://via.placeholder.com/600x150" />
-													<div class="row mt-2">
-														<div class="col-sm-9 switch-txt">
-															<p class="text-muted">
-																Recommended size is 600px by 220px with a resolution of 72DPI
-															</p>
+													<app-storage-uploader-dropzone storeType="banner" (urlReturned)="saveBanner($event)">
+														<img class="ban-img" [src]="src" />
+														<div class="row mt-2">
+															<div class="col-sm-9 switch-txt">
+																<p class="text-muted">
+																	Recommended size is 600px by 220px with a resolution of 72DPI
+																</p>
+															</div>
 														</div>
-														<div class="col-md-3 col-switch">
-															<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
-																Choose File
-															</button>
-														</div>
-													</div>
+													</app-storage-uploader-dropzone>
 												</label>
 											</div>
 										</div>
 
+														<!--
+														<div class="col-md-3 col-switch">
 
+															<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
+																Choose File
+															</button>
+														</div>
+														-->
 
 
 										<hr>
@@ -440,7 +444,7 @@
 											<div class="col-md-12">
 												<button
 													type="submit"
-													(click)="active(true)"
+													(click)="activate(true)"
 													class="btn font-17 btn-default btn-lg btn-block"
 													[disabled]="!createdForm.valid"
 												>
@@ -452,7 +456,7 @@
 											<div class="col-md-12">
 												<button
 													type="submit"
-													(click)="active(false)"
+													(click)="activate(false)"
 													class="btn font-17 btn-default btn-lg btn-block"
 												>
 												  	Save for Later
@@ -464,7 +468,7 @@
 								
 								
 								<!--		this is for testing purposes; it displays the form values in realtime as they change		-->
-								<!--		<div>{{ createdForm.value | json }}</div>		-->
+								<div>{{ createdForm.value | json }}</div>
 								<div class="col-lg-3"></div>
 							</div>
 						</div>

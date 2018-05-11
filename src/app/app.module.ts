@@ -60,6 +60,7 @@ import { ResourceCardComponent } from './components/community-resources/resource
 import { ResourceService } from './services/resource.service';
 import { CampaignCreatorService } from './services/campaign-creator.service';
 import { TestingComponent } from './components/testing/testing.component';
+import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component';
 
 
 
@@ -124,7 +125,8 @@ const appRoutes: Routes = [
     AgoPipe,
     WepayPaymentSuccessfulComponent,
     ResourceCardComponent,
-    TestingComponent
+    TestingComponent,
+    StorageUploaderDropzoneComponent
   ],
   imports: [
     BrowserModule,

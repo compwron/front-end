@@ -1,11 +1,15 @@
-<div>
-	<form style="width:100%; height:100%;">
-		<input type="file" (change)="onFileChange($event)" >
-	</form>
-	<div (drop)="drop($event)" (dragover)="dragover($event)" style="padding: 5em; fontSize: 300%;">
+<div style="width: 100%; height 100%; display: flex">
+	<app-storage-uploader-dropzone [storeType]="type" >
+		<div style="padding: 5em;">THIS TEXT SHOULD DISPLAY INSIDE THE DROPZONE</div>
+	</app-storage-uploader-dropzone>
+</div>
+
+
+<!--
+	<div (drop)="drop($event)" (dragover)="dragover($event)" style="flex: 10" >
 		Drag and drop a file in here
 	</div>
-	<div style="display: flex; flex-direction: row;">
+	<div style="flex: 1; display: flex; flex-direction: row;" *ngIf="uploadStatus > 0">
 		<div>Upload Status: </div><div>{{ uploadStatus }}</div>
 	</div>
-</div>
+-->
