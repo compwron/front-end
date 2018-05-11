@@ -32,7 +32,7 @@ const extractUrl = ref => response => { return new Observable(observer => respon
 	e => console.log("error in extractUrl", e),
 	() => {
 		fromPromise(ref.getDownloadURL()).subscribe(
-			url => observer.next({ url, fullPath: ref.fullPath })
+			url => observer.next({ url, fullPath: ref.fullPath }),
 			e => observer.error(e),
 			() => observer.complete()
 		)
