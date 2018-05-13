@@ -13,14 +13,42 @@ export class AuthGuard implements CanActivate {
 		private router: Router
 	) {}
 
-	// this is part of the login problem; the user will hit this before firebase has initialized; need to get it to wait for initialization or something
+
 	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-		if (!this.login.loggedIn()) {
+		if (this.login.loading) {
+			// canActivate takes an Observable<boolean> as one of its return values; if firebase has not initialized yet, return an observable
+			return new Observable(observer => {
+				this.login.wait()
+					.subscribe(
+						b => {
+							if (b) { observer.next(true) }
+							else {
+								this.router.navigateByUrl('/login')
+								observer.next(false)
+							}
+						},
+						e => {
+							this.router.navigateByUrl('/login')
+							observer.error(e)
+						},
+						() => observer.complete()
+					)
+			})
+		}
+		
+		// firebase is initialized, user is not logged in, redirect to the /login route
+		else if (!this.login.loggedIn()) {
+			console.log("login happened before this load; user is not logged in: ", this.login.loggedIn())
 			this.router.navigateByUrl('/login')
 			return false
 		}
-			
-		return true
+		
+		// firebase is initialized, user is logged in, grant them access
+		else {
+			console.log("login happened before this load; user is logged in: ", this.login.loggedIn())
+			return true
+		}
+
 	}
 	
 	

@@ -88,7 +88,8 @@ const appRoutes: Routes = [
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
   {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
+  //{path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
+  {path:'mycampaigns/:id/edit', component:MycampaddComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
 ]
 
 @NgModule({

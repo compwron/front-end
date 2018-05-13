@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core'
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 
+import { ActivatedRoute } from '@angular/router'
+
 import { CampaignCreatorService } from '../../../services/campaign-creator.service'
+import { CampaignOneService } from '../../../services/campaign-one.service'
 import { Campaign } from '../../../objects/Campaign'
 
 @Component({
@@ -12,7 +15,9 @@ import { Campaign } from '../../../objects/Campaign'
 export class MycampaddComponent implements OnInit {
 	constructor(
 		private fb: FormBuilder,
-		private create: CampaignCreatorService
+		private create: CampaignCreatorService,
+		private campaignGet: CampaignOneService,
+		private route: ActivatedRoute
 	) {
 		this.createForm()
 		this.setAffiliate_links()
@@ -22,6 +27,20 @@ export class MycampaddComponent implements OnInit {
 	}
 	
 	ngOnInit() {
+		const id = this.route.snapshot.paramMap.get('id')
+		// if the URL has 'edit' and an id in it, it's an edit request
+		if (id) {
+			// get the campaign from the DB
+			this.campaignGet.get(id)
+				.subscribe(
+					campaign => this.campaign = campaign,
+					e => console.log("error getting campaign snapshot: ", e),
+					() => console.log("finished getting campaign snapshot")
+				)
+
+			// enter the data from the campaign in the form
+			this.hydrateForm()
+		}
 	}
 	
 	createdForm: FormGroup
@@ -50,6 +69,10 @@ export class MycampaddComponent implements OnInit {
 			}),
 			active: this.fb.control(false)
 		})
+	}
+
+	hydrateForm () {
+		console.log("hydrating form with this.campaign", this.campaign)
 	}
 	
 	createCampaign () {

@@ -12,15 +12,23 @@ import { db, firebase } from '../utilities/utilities'
 export class CampaignOneService {
 	constructor() { }
 	
-	get (id, callback): void {
-		db.collection("campaigns").doc(id).onSnapshot((doc: firebase.firestore.DocumentSnapshot) => {
-			const c = doc.data()
-			const campaign = Object.assign({}, c, {
-				id: doc.id,
-				_updated: c._updated.toDate(),
-				begin: c.begin ? c.begin.toDate() : null,
-				end: c.end ? c.end.toDate() : null })
-			callback(campaign)
+	get (id): Observable<Campaign> {
+		return new Observable(observer => {
+			db.collection("campaigns").doc(id).onSnapshot({
+				next: (doc: firebase.firestore.DocumentSnapshot) => {
+					const c = doc.data()
+					// eslint-disable-next-line
+					const campaign: Campaign = <Campaign>Object.assign({}, c, {
+						id: doc.id,
+						_updated: c._updated.toDate(),
+						begin: c.begin ? c.begin.toDate() : null,
+						end: c.end ? c.end.toDate() : null })
+
+					observer.next(campaign)
+				},
+				error: e => observer.error(e),
+				complete: () => observer.complete()
+			})
 		})
 	}
 }

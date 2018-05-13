@@ -9,8 +9,6 @@ import { StorageBucketService } from '../../services/storage-bucket.service'
 })
 export class StorageUploaderDropzoneComponent implements OnInit {
 	@Input() storeType: string
-	// @Input() ret: Function
-
 	@Output() urlReturned = new EventEmitter<any>()
 
 	uploadStatus: number = 0

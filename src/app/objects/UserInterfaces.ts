@@ -12,7 +12,7 @@ export interface User {
 	wepay_merchant?: WePayMerchant
 	saving_for?: string[]
 	active?: boolean
-	profile_pic?: string
+	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
 	donations: Array<Donation>
 }
@@ -33,6 +33,11 @@ export interface UserUpdateObject {
 	wepay_merchant?: WePayMerchant
 	saving_for?: string[]
 	active?: boolean
-	profile_pic?: string
+	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
+}
+
+export interface ProfilePic {
+	url: string
+	path: string
 }

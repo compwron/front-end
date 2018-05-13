@@ -4,7 +4,7 @@ import { Router } from '@angular/router'
 import { fromPromise } from 'rxjs/observable/fromPromise'
 import { Observable } from 'rxjs/Observable'
 import { map } from 'rxjs/operators'
-import { pipe } from 'rxjs/util/pipe'
+// import { pipe } from 'rxjs/util/pipe'
 
 
 import { User } from '../objects/User'
@@ -15,14 +15,46 @@ import { firebase, db } from '../utilities/utilities'
 export class LoginService {
 	constructor(
 		private router: Router
-	) {
-		this.test_initialize()
+	) { this.processFirebaseAuth() }
+
+	pridepocketUser: User
+	pendingUser: Observable<User>
+	loading: boolean = true
+	authKey: string
+	displayName: string
+	previous: string = "/"
+	initializer: Observable<any>
+
+	extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
+
+	wait (): Observable<boolean> {
+		return new Observable(observer => {
+			this.initializer
+				.subscribe(
+					(user: firebase.User) => user ? observer.next(true) : observer.next(false),
+					e => observer.error(e),
+					() => observer.complete()
+				)
+		})
+
+	}
+
+	initialize () { return new Observable(observer => firebase.auth().onAuthStateChanged(observer)) }
+
+	processFirebaseAuth () {
+		this.initializer = this.initialize()
+
+		this.initializer
 			.subscribe(
 				(user: firebase.User) => {
-					// console.log("in test_initialize observer", user.uid)
-					
-					if (!user) {
-						this.router.navigateByUrl('/login')
+					this.loading = false
+					if (!user) { this.router.navigateByUrl('/login') }
+					else {
+						this.getUser(user.uid).subscribe(
+							r => this.pridepocketUser = r.data(),
+							e => console.log("error getting pridepocketUser from firestore DB: ", e),
+							() => console.log("completed getting user from firestore DB")
+						)
 					}
 				},
 				e => console.log("error initializing auth", e),
@@ -30,44 +62,17 @@ export class LoginService {
 			)
 	}
 
-	pridepocketUser //: User
-
-	authKey: string
-	displayName: string
-	previous: string = "/"
-	
-	extractUser = map((response: firebase.auth.UserCredential) => response.user)
-
-	test_initialize () {
-		// console.log("test_initialize function")
-		return new Observable(observer => firebase.auth().onAuthStateChanged(observer))
+	getUser (uid): Observable<firebase.firestore.DocumentSnapshot> {
+		this.pendingUser = fromPromise(db.collection("users").doc(uid).get())
+		return this.pendingUser
 	}
-	
-	initialize (f): void {
-		const g = pipe(
-			(user: User) => {
-				return fromPromise(db.collection("users").doc(user.uid).get()
-					.then(pridepocketUser => {
-						this.pridepocketUser = pridepocketUser.data()
-						return pridepocketUser.data()
-					}))
-			},
-			o => o.subscribe(f)
-		)
-		
-		firebase.auth().onAuthStateChanged((user: firebase.User) => {
-			let u: User = user
-			if (!!user.uid) { g(u) }
-		})
-	}
-	
-	getUser () { return firebase.auth().currentUser }
+
 	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
 	loggedIn (): boolean { return !!firebase.auth().currentUser }
 
 	setPrevious (previous): void { this.previous = previous }
 
-	handleCallback (observable: Observable<any>): void {
+	handleCallback (observable: Observable<User>): void {
 		// inject a spinner service on the constructor and trigger it here
 		
 		observable.subscribe(user => {
@@ -76,7 +81,7 @@ export class LoginService {
 			db.collection("users").doc(user.uid).get()
 				.then(response => {
 					if (response.exists) {
-						this.pridepocketUser = response.data()
+						this.pridepocketUser = <User>response.data()
 						console.log("got an existing user from the database")
 					}
 					else {
@@ -108,7 +113,7 @@ export class LoginService {
 					.then(response => {
 						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
 						if (response.exists) {
-							this.pridepocketUser = response.data()
+							this.pridepocketUser = <User>response.data()
 							// console.log("got an existing user from the database")
 						}
 						

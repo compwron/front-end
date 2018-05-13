@@ -23,6 +23,11 @@ export class IndivCampComponent implements OnInit {
 	
 	getCampaign (): void {
 		const id = this.route.snapshot.paramMap.get('id')
-		this.campaignOneService.get(id, campaign => this.campaign = campaign)
+		this.campaignOneService.get(id)
+			.subscribe(
+				campaign => this.campaign = campaign,
+				e => console.log("error getting campaign snapshot: ", e),
+				() => console.log("finished getting campaign snapshot")
+			)
 	}
 }

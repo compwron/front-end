@@ -15,6 +15,9 @@ export class AccountbasicComponent implements OnInit {
 	password: string
 	password2: string
 	displayName: string
+	profile_pic_url: string
+	profile_pic_path: string
+	src: string = "http://via.placeholder.com/70x70"
 	
 	onSubmit(form: NgForm){
 		console.log(form.value)
@@ -24,6 +27,8 @@ export class AccountbasicComponent implements OnInit {
 		if (displayName) userUpdateObject.displayName = displayName
 		if (email) userUpdateObject.email = email
 		if (password) userUpdateObject.password = password
+		
+		userUpdateObject.profile_pic = { url: this.profile_pic_url, path: this.profile_pic_path }
 
 		this.user.modifyUser(userUpdateObject)
 			.subscribe(
@@ -39,6 +44,14 @@ export class AccountbasicComponent implements OnInit {
 	) { }
 	
 	ngOnInit() {
+		this.src = this.user.user.profile_pic.url
+	}
+	
+	saveProfilePic ({ url, fullPath }): void {
+		this.profile_pic_url = url
+		this.profile_pic_path = fullPath
+
+		this.src = url
 	}
 	
 	deactivate () {

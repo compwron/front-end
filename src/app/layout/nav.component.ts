@@ -9,28 +9,38 @@ import { ChangeDetectorRef } from '@angular/core'
 })
 export class NavComponent implements OnInit {
 	constructor (
-		private loginService: LoginService,
+		private login: LoginService,
 		private refresh: ChangeDetectorRef
 	) {}
 
 	email: string
 	
 	ngOnInit () {
-		const f = user => {
-			this.email = this.loginService.pridepocketUser.email
-			this.refresh.detectChanges()
+		console.log("nav bar init running")
+		if (this.login.loading) {
+			this.login.wait()
+				.subscribe(
+					b => {
+						this.login.pendingUser
+							.subscribe(
+								user => {
+									this.email = user.data().email
+									this.refresh.detectChanges()
+								},
+								e => console.log("error getting user from login service", e)
+							)
+					},
+					e => console.log("error in this.login.wait", e)
+				)
 		}
-		
-		this.loginService.initialize(f)
+		else {
+			this.email = this.login.pridepocketUser.email
+		}
 	}
 	
-	testLogin (): void {
-		console.log("pridepocketUser (should not be null if logged in): ", this.loginService.pridepocketUser)
-	}
-	
-	loggedIn (): boolean { return this.loginService.loggedIn() }
+	loggedIn (): boolean { return this.login.loggedIn() }
 	signOut (): void {
 		this.email = null
-		this.loginService.signOut()
+		this.login.signOut()
 	}
 }

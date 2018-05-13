@@ -1,70 +1,146 @@
 <div class="row">
-  <div class="col-lg-6">
-   <form #basicInfo="ngForm" (ngSubmit)="onSubmit(basicInfo)" class="mr-5">
-    <div class="form-group row" [class.has-danger]="pickedName.errors">
-      <div class="col-md-12">
-        <label><b>Who are you saving for?</b></label>
-        <input type="text" pattern="[a-zA-Z0-9 ]+" minlength="6" maxlength="36" class="form-control" placeholder="Full Name" [(ngModel)]="displayName" name="displayName" #pickedName="ngModel">
-      </div>
-      <div class="form-control-feedback" *ngIf="pickedName.errors">
-          must enter name.</div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <button type="button" class="btn btn-info mb-2 float-right" style="background-color: #e9ecf4; border: #e9ecf4;  color: #424958;">+ Another Person</button>
-      </div>
-    </div>
-    <div class="form-group row" [class.has-danger]="pickedEmail.errors">
-      <div class="col-md-12 ">
-        <label><b>Update Email</b></label>
-        <input type="email" class="form-control" placeholder="Update Email" [(ngModel)]="email" name="email" #pickedEmail="ngModel">
-      </div>
-      <div class="form-control-feedback" *ngIf="pickedEmail.errors">
-          Enter valid email</div>
-    </div>
-    <div class="form-group row">
-      <div class="col-md-12 ">
-        <label><b>Update Password</b></label>
-        <div  [class.has-danger]="pickedPassword.errors">
-          <input type="password" class="form-control" placeholder="Update Password" [(ngModel)]="password" ngModel name="password" #pickedPassword="ngModel" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password" minlegth="8" maxlength="36">
-          <div class="form-control-feedback" *ngIf="pickedPassword.errors">
-          Enter valid password</div>
-        </div>
-        <div [class.has-danger]="pickedPassword2.errors">
-          <input type="password" class="form-control mt-2" placeholder="Confirm Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password" minlegth="8" maxlength="36" ngModel  [(ngModel)]="password2" name="password2" #pickedPassword2="ngModel">
-        </div>
-        <div class="form-control-feedback" *ngIf="pickedPassword2.errors">
-          Enter valid password</div>
-      </div>
-    </div>
-    <button type="submit" class="h-100 btn btn-lg btn-block btn-primary" [disabled]="!basicInfo.form.valid">Submit</button>
-  </form>
-</div>
-<div class="col-lg-6">
-    <div class="row pt-4">
-      <div class="col-md-12">
-        <label><b>Profile Picture</b></label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <img src="http://via.placeholder.com/70x70" />
-      </div>
-      <div class="col-md-10">
-        <p class="text-muted">Recommended size is 150px by 150px with a resolution of 72DPI</p>
-        <button class="btn btn-info" style="background-color: #e9ecf4; border: #e9ecf4;  color: #424958;"type="submit">Choose File</button>
-      </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12 mt-4">
-          <label><b>Deactivate My Account</b></label>
-        </div>
-     </div>
-     <div class="row">
-        <div class="col-md-12">
-          <button  class="btn btn-danger btn-outline-danger"><i class="icofont icofont-warning"></i>Deactivate</button>
-        </div>
-    </div>
-</div>
+	<form #basicInfo="ngForm" (ngSubmit)="onSubmit(basicInfo)" class="row" >
+
+		<div class="col-lg-6">
+			
+			<div [class.has-danger]="pickedName.errors">
+				<div class="col-md-12">
+					<label><b>Who are you saving for?</b></label>
+					<input
+						type="text"
+						pattern="[a-zA-Z0-9 ]+"
+						minlength="6"
+						maxlength="36"
+						class="form-control"
+						placeholder="Full Name"
+						[(ngModel)]="displayName"
+						name="displayName"
+						#pickedName="ngModel"
+					>
+				</div>
+				<div class="form-control-feedback" *ngIf="pickedName.errors">
+					must enter name.
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">
+					<button
+						type="button"
+						class="btn btn-info mb-2 float-right"
+						style="background-color: #e9ecf4;
+						border: #e9ecf4;
+						color: #424958;"
+					>
+						+ Another Person
+					</button>
+				</div>
+			</div>
+
+			<div class="form-group row" [class.has-danger]="pickedEmail.errors">
+				<div class="col-md-12 ">
+					<label><b>Update Email</b></label>
+					<input
+						type="email"
+						class="form-control"
+						placeholder="Update Email"
+						[(ngModel)]="email"
+						name="email"
+						#pickedEmail="ngModel"
+					>
+				</div>
+				<div class="form-control-feedback" *ngIf="pickedEmail.errors">
+					Enter valid email
+				</div>
+			</div>
+
+			<div class="col-md-12 ">
+
+				<label><b>Update Password</b></label>
+				<div  [class.has-danger]="pickedPassword.errors">
+					<input
+						type="password"
+						class="form-control"
+						placeholder="Update Password"
+						[(ngModel)]="password"
+						ngModel
+						name="password"
+						#pickedPassword="ngModel"
+						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+						minlegth="8"
+						maxlength="36"
+					>
+					<div class="form-control-feedback" *ngIf="pickedPassword.errors">
+						Enter valid password
+					</div>
+				</div>
+
+				<div [class.has-danger]="pickedPassword2.errors">
+					<input
+						type="password"
+						class="form-control mt-2"
+						placeholder="Confirm Password"
+						pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+						minlegth="8"
+						maxlength="36"
+						ngModel
+						[(ngModel)]="password2"
+						name="password2"
+						#pickedPassword2="ngModel"
+					>
+				</div>
+				
+				<div class="form-control-feedback" *ngIf="pickedPassword2.errors">
+					Enter valid password
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="col-lg-6">
+			
+			<div class="row pt-4">
+				<div class="col-md-12">
+					<label><b>Profile Picture</b></label>
+				</div>
+			</div>
+			
+			<div class="row">
+				<app-storage-uploader-dropzone storeType="banner" (urlReturned)="saveProfilePic($event)">
+					<div class="col-md-2">
+						<img [src]="src" />
+					</div>
+				</app-storage-uploader-dropzone>
+				<div class="col-md-10">
+					<p class="text-muted">Recommended size is 150px by 150px with a resolution of 72DPI</p>
+					<button
+						class="btn btn-info"
+						style="background-color: #e9ecf4; border: #e9ecf4; color: #424958;"
+						type="submit"
+					>
+						Choose File
+					</button>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12 mt-4">
+					<label><b>Deactivate My Account</b></label>
+				</div>
+			</div>
+	
+			<div class="row">
+				<div class="col-md-12">
+					<button  class="btn btn-danger btn-outline-danger"><i class="icofont icofont-warning"></i>Deactivate</button>
+				</div>
+			</div>
+		</div>
+		
+		<div style="width:20em; height:4em" >
+			<button type="submit" class="h-100 btn btn-lg btn-block btn-primary" [disabled]="!basicInfo.form.valid">Submit</button>
+		</div>
+
+	</form>
 </div>
 
