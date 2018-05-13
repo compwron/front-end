@@ -16,29 +16,29 @@ export class NavComponent implements OnInit {
 	email: string
 	
 	ngOnInit () {
-		console.log("nav bar init running")
-		if (this.login.loading) {
-			this.login.wait()
-				.subscribe(
-					b => {
-						this.login.pendingUser
-							.subscribe(
-								user => {
-									this.email = user.data().email
-									this.refresh.detectChanges()
-								},
-								e => console.log("error getting user from login service", e)
-							)
-					},
-					e => console.log("error in this.login.wait", e)
-				)
-		}
-		else {
-			this.email = this.login.pridepocketUser.email
-		}
+		if (this.login.loading) { this.waitForLogin() }
+		else { this.email = this.login.pridepocketUser.email }
+	}
+	
+	waitForLogin () {
+		this.login.wait().subscribe(
+			b => if (b) this.login.pendingUser.subscribe(this.setEmail()),
+			e => console.log("error in this.login.wait", e)
+		)
+	}
+	
+	setEmail () {
+		return ({
+			next: user => {
+				this.email = user.data().email
+				this.refresh.detectChanges()
+			},
+			error: e => console.log("error getting user from login service", e)
+		})
 	}
 	
 	loggedIn (): boolean { return this.login.loggedIn() }
+	
 	signOut (): void {
 		this.email = null
 		this.login.signOut()

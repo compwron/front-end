@@ -30,6 +30,7 @@ export class MycampaddComponent implements OnInit {
 		const id = this.route.snapshot.paramMap.get('id')
 		// if the URL has 'edit' and an id in it, it's an edit request
 		if (id) {
+			this.action = "Edit"
 			// get the campaign from the DB
 			this.campaignGet.get(id)
 				.subscribe(
@@ -48,6 +49,7 @@ export class MycampaddComponent implements OnInit {
 	url: string
 	fullPath: string
 	src: string = "http://via.placeholder.com/600x150"
+	action: string = "Add"
 
 	createForm () {
 		this.createdForm = this.fb.group({

@@ -67,7 +67,6 @@ export class LoginService {
 		return this.pendingUser
 	}
 
-	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
 	loggedIn (): boolean { return !!firebase.auth().currentUser }
 
 	setPrevious (previous): void { this.previous = previous }
