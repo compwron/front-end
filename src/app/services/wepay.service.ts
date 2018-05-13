@@ -55,7 +55,7 @@ export class WepayService {
 	}
 
 	saveAccessToken(wepay: AccessToken): void {
-		let { uid, displayName } = this.loginService.getUser()
+		let { uid, displayName } = this.loginService.pridepocketUser
 	
 		// console.log("this.loginService.getPPUser()", this.loginService.pridepocketUser)
 	

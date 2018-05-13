@@ -1,7 +1,7 @@
 import { Payment, PaymentList } from './Payment'
 
 export interface Campaign {
-	account_id?: string
+	account_id?: number
 	id?: string
 	banner: Banner
 	thumbnail: string

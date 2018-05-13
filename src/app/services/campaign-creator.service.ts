@@ -22,7 +22,7 @@ export class CampaignCreatorService {
 		campaign.end = new Date(campaign.end)
 		if (campaign.active) campaign.begin = new Date(campaign.begin)
 		campaign._updated = new Date()
-		campaign.owner = this.loginService.pridepocketUser.uid
+		campaign.owner = Object.assign({}, campaign.owner, { uid: this.loginService.pridepocketUser.uid })
 		
 		campaign.account_id = this.loginService.pridepocketUser.wepay_merchant.account_id
 		
@@ -32,8 +32,10 @@ export class CampaignCreatorService {
 	}
 	
 	edit (campaign: Campaign): Observable<void> {
-		campaign.end = new Date(campaign.end)
-		if (campaign.active) campaign.begin = new Date(campaign.begin)
+		console.log("campaign in campaign edit: ", campaign)
+		
+		// campaign.end = new Date(campaign.end)
+		// if (campaign.active) campaign.begin = new Date(campaign.begin)
 		campaign._updated = new Date()
 		
 		return fromPromise(db.collection("campaigns").doc(campaign.id).set(campaign, { merge: true }))

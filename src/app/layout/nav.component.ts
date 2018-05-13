@@ -22,7 +22,7 @@ export class NavComponent implements OnInit {
 	
 	waitForLogin () {
 		this.login.wait().subscribe(
-			b => if (b) this.login.pendingUser.subscribe(this.setEmail()),
+			b => { if (b) this.login.pendingUser.subscribe(this.setEmail()) },
 			e => console.log("error in this.login.wait", e)
 		)
 	}

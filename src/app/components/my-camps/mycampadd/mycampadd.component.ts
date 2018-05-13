@@ -28,26 +28,26 @@ export class MycampaddComponent implements OnInit {
 	
 	ngOnInit() {
 		const id = this.route.snapshot.paramMap.get('id')
+		
 		// if the URL has 'edit' and an id in it, it's an edit request
 		if (id) {
 			this.action = "Edit"
 			// get the campaign from the DB
 			this.campaignGet.get(id)
 				.subscribe(
-					campaign => this.campaign = campaign,
+					campaign => {
+						this.campaign = campaign
+						// enter the data from the campaign in the form
+						this.hydrateForm()
+					},
 					e => console.log("error getting campaign snapshot: ", e),
 					() => console.log("finished getting campaign snapshot")
 				)
-
-			// enter the data from the campaign in the form
-			this.hydrateForm()
 		}
 	}
 	
 	createdForm: FormGroup
 	campaign
-	url: string
-	fullPath: string
 	src: string = "http://via.placeholder.com/600x150"
 	action: string = "Add"
 
@@ -74,13 +74,46 @@ export class MycampaddComponent implements OnInit {
 	}
 
 	hydrateForm () {
-		console.log("hydrating form with this.campaign", this.campaign)
+		const { active, affiliate_links, banner, begin, description, eMessage, end, fEmail, goal, id, name, noDate, owner, privacy, shared, thankYou, type } = this.campaign
+		
+		this.src = this.campaign.banner.url
+		this.createdForm.setValue({
+			active,
+			description,
+			eMessage,
+			end,
+			fEmail,
+			goal,
+			name,
+			noDate,
+			privacy,
+			shared,
+			thankYou,
+			type,
+			affiliate_links,
+			banner
+		})
+		
+		// this.banner.setValue({ url: banner.url, path: banner.path })
+		// this.affiliate_links.setValue()
+		
 	}
 	
 	createCampaign () {
 		const campaign = this.prepareSaveCampaign()
 		
-		this.create.create(campaign)
+		let f
+		
+		if (this.campaign.id) {
+			const { id } = this.campaign
+			Object.assign(campaign, { id })
+			f = this.create.edit
+		}
+		else {
+			f = this.create.create
+		}
+		
+		f(campaign)
 			.subscribe(
 				() => {
 					this.createdForm.reset()
@@ -96,7 +129,9 @@ export class MycampaddComponent implements OnInit {
 		this.src = url
 	}
 	
-	prepareSaveCampaign (): Campaign { return this.createdForm.value as Campaign }
+	prepareSaveCampaign (): Campaign {
+		return this.createdForm.value as Campaign
+	}
 	
 	setAffiliate_links (): void {
 		const affiliate_links = (this.campaign && this.campaign.affiliate_links) ? this.fb.array(this.campaign.affiliate_links) : this.fb.array([])

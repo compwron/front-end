@@ -18,7 +18,7 @@ export class LoginService {
 	) { this.processFirebaseAuth() }
 
 	pridepocketUser: User
-	pendingUser: Observable<User>
+	pendingUser: Observable<firebase.firestore.DocumentSnapshot>
 	loading: boolean = true
 	authKey: string
 	displayName: string
@@ -51,9 +51,8 @@ export class LoginService {
 					if (!user) { this.router.navigateByUrl('/login') }
 					else {
 						this.getUser(user.uid).subscribe(
-							r => this.pridepocketUser = r.data(),
+							r => this.pridepocketUser = <User>r.data(),
 							e => console.log("error getting pridepocketUser from firestore DB: ", e),
-							() => console.log("completed getting user from firestore DB")
 						)
 					}
 				},
@@ -61,6 +60,8 @@ export class LoginService {
 				() => console.log("auth successfully initialized")
 			)
 	}
+							// () => console.log("completed getting user from firestore DB")
+	
 
 	getUser (uid): Observable<firebase.firestore.DocumentSnapshot> {
 		this.pendingUser = fromPromise(db.collection("users").doc(uid).get())
