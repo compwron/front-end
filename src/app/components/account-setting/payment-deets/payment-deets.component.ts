@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+import { LoginService } from '../../../services/login.service'
 import { WepayService } from '../../../services/wepay.service'
 
 @Component({
@@ -18,7 +19,8 @@ export class PaymentDeetsComponent implements OnInit {
 	wepayLink = this.wepay.registerLink
 	
 	constructor(
-		private wepay: WepayService
+		private wepay: WepayService,
+		private login: LoginService
 	) { }
 	
 	setupWepay (): void {
@@ -30,6 +32,8 @@ export class PaymentDeetsComponent implements OnInit {
 	onSubmit(form: NgForm) {
 		console.log(form.value)
 	}
+	
+	get user () { return this.login.pridepocketUser }
 	
 	ngOnInit() {
 	}

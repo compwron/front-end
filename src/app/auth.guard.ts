@@ -38,16 +38,12 @@ export class AuthGuard implements CanActivate {
 		
 		// firebase is initialized, user is not logged in, redirect to the /login route
 		else if (!this.login.loggedIn()) {
-			console.log("login happened before this load; user is not logged in: ", this.login.loggedIn())
 			this.router.navigateByUrl('/login')
 			return false
 		}
 		
 		// firebase is initialized, user is logged in, grant them access
-		else {
-			console.log("login happened before this load; user is logged in: ", this.login.loggedIn())
-			return true
-		}
+		else { return true }
 
 	}
 	

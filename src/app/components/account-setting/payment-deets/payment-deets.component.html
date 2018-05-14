@@ -23,7 +23,7 @@
 			</div>
 		</form>
 	</div>
-	<div class="col-lg-3">
+	<div class="col-lg-3" *ngIf="!user.wepay_merchant" >
 	  <div class="recieve-funds pr-5">
 	    <p class="font-18" style="color:#424958;">Receive Funds</p>
 	    <p class="font-14">Please set up your WePay acount to start receiving funds. Funds will be disbursed to you every 15 days. When your fundraiser ends, any remaining funds will be sent to you within 15 business days.</p>
