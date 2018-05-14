@@ -38,7 +38,7 @@ import { PaymentDeetsComponent } from './components/account-setting/payment-deet
 import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component'
 import { ResourcesComponent } from './components/community-resources/resources/resources.component'
 import { SignupComponent } from './components/authorization/signup/signup.component'
-import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component';
+import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component'
 import { WepayRegisterComponent } from './components/wepay-register/wepay-register.component'
 
 
@@ -53,14 +53,17 @@ import { StorageBucketService } from './services/storage-bucket.service'
 
 // pipes
 import { AgoPipe } from './filters/ago.pipe'
+import { FlexibleListPipe } from './filters/flexible-list.pipe'
 
 // guards
-import { AuthGuard } from './auth.guard';
-import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component';
-import { ResourceService } from './services/resource.service';
-import { CampaignCreatorService } from './services/campaign-creator.service';
-import { TestingComponent } from './components/testing/testing.component';
-import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component';
+import { AuthGuard } from './auth.guard'
+import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component'
+import { ResourceService } from './services/resource.service'
+import { CampaignCreatorService } from './services/campaign-creator.service'
+import { TestingComponent } from './components/testing/testing.component'
+import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component'
+import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component'
+
 
 
 
@@ -127,7 +130,9 @@ const appRoutes: Routes = [
     WepayPaymentSuccessfulComponent,
     ResourceCardComponent,
     TestingComponent,
-    StorageUploaderDropzoneComponent
+    StorageUploaderDropzoneComponent,
+    MycampBriefComponent,
+    FlexibleListPipe
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,8 @@ import { map } from 'rxjs/operators'
 // import { pipe } from 'rxjs/util/pipe'
 
 
-import { User } from '../objects/User'
+import { User } from '../objects/UserInterfaces' // , UserUpdateObject
+// import { User } from '../objects/User'
 
 import { firebase, db } from '../utilities/utilities'
 
@@ -72,36 +73,39 @@ export class LoginService {
 
 	setPrevious (previous): void { this.previous = previous }
 
-	handleCallback (observable: Observable<User>): void {
+	handleCallback (observable: Observable<firebase.User>): void {
 		// inject a spinner service on the constructor and trigger it here
 		
-		observable.subscribe(user => {
-			// this.user = user
-			// get the user's profile from the firestore and save it in pridepocketUser
-			db.collection("users").doc(user.uid).get()
-				.then(response => {
-					if (response.exists) {
-						this.pridepocketUser = <User>response.data()
-						console.log("got an existing user from the database")
-					}
-					else {
-						let { uid, displayName, phoneNumber, email } = user
-						if (this.displayName) displayName = this.displayName
-						db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
-							.then(() => {
-								this.pridepocketUser = { uid, displayName, phoneNumber, email }
-								console.log("created a new user", this.pridepocketUser)
-							})
-							.catch(e => console.log("error while creating a new user in the database", e))
-					}
-				})
-				.catch(e => console.log("error while fetching a user from the database", e))
-
-			// kill the spinner
-			
-			// route to the page the user started at?
-			this.router.navigateByUrl(this.previous)
-		})
+		observable.subscribe(
+			user => {
+				// const user = userCredential.user
+				// get the user's profile from firestore and save it in pridepocketUser
+				db.collection("users").doc(user.uid).get()
+					.then(response => {
+						if (response.exists) {
+							this.pridepocketUser = <User>response.data()
+							console.log("got an existing user from the database")
+						}
+						else {
+							let { uid, displayName, phoneNumber, email } = user
+							if (this.displayName) displayName = this.displayName
+							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
+								.then(() => {
+									this.pridepocketUser = { uid, displayName, phoneNumber, email }
+									console.log("created a new user", this.pridepocketUser)
+								})
+								.catch(e => console.log("error while creating a new user in the database", e))
+						}
+					})
+					.catch(e => console.log("error while fetching a user from the database", e))
+	
+				// kill the spinner
+				
+				// route to the page the user started at?
+				this.router.navigateByUrl(this.previous)
+			},
+			e => console.log("error handling facebook or google signin")
+		)
 	}
 
 	// handleEmailSignin (onAuthStateChanged) {
@@ -147,7 +151,7 @@ export class LoginService {
 
 	facebook (): void {
 		const provider = new firebase.auth.FacebookAuthProvider()
-		const o = fromPromise(firebase.auth().signInWithPopup(provider))
+		const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth().signInWithPopup(provider))
 		
 		this.handleCallback(this.extractUser(o))
 
@@ -155,7 +159,7 @@ export class LoginService {
 	
 	google (): void {
 		const provider = new firebase.auth.GoogleAuthProvider()
-		const o = fromPromise(firebase.auth().signInWithPopup(provider))
+		const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth().signInWithPopup(provider))
 		
 		this.handleCallback(this.extractUser(o))
 	}

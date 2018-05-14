@@ -14,14 +14,12 @@ export class CampaignsComponent implements OnInit {
 	
 	campaigns: Campaign[]
 	
-	ngOnInit() {
-		this.getCampaigns()
-	}
+	ngOnInit() { this.getCampaigns() }
 
 	getCampaigns (): void {
 		this.campaignService.getCampaigns()
 			.subscribe(
-				campaigns => { this.campaigns = campaigns },
+				campaigns => {this.campaigns = campaigns },
 				e => console.log("error getting campaigns from DB: ", e),
 				() => console.log("finished getting campaigns from DB")
 			)

@@ -14,8 +14,17 @@ export interface User {
 	active?: boolean
 	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
-	donations: Array<Donation>
+	donations?: Array<Donation>
 }
+
+	// uid?: string
+	// displayName?: string
+	// email?: string
+	// phoneNumber?: string
+	// wepay?: AccessToken
+	// wepay_merchant?: WePayMerchant
+	// profile_pic?: string
+	// donations?: PaymentList
 
 export interface NotificationDetails {
 	contributions?: boolean

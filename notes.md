@@ -17,6 +17,12 @@ https://firebase.googleblog.com/2018/01/streamline-typescript-development-cloud-
 Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 
 
+filters: Function[]
+
+*ngFor="for campaign in (campaigns | flexl: filters)"
+
+
+
 
 **features**
 - db backups: encrypt and compress and store in bucket
