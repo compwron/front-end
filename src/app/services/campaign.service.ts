@@ -16,6 +16,8 @@ export class CampaignService {
 	constructor() { }
 
 	getCampaigns(): Observable<Campaign[]> {
+		console.log("getting campaigns")
+		
 		const dbObjects = fromPromise(db.collection("campaigns").get())
 
 		const extractCampaigns = map((snapshot: firebase.firestore.QuerySnapshot) => {

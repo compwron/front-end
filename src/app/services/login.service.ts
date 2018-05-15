@@ -48,11 +48,14 @@ export class LoginService {
 		this.initializer
 			.subscribe(
 				(user: firebase.User) => {
-					this.loading = false
 					if (!user) { this.router.navigateByUrl('/login') }
 					else {
 						this.getUser(user.uid).subscribe(
-							r => this.pridepocketUser = <User>r.data(),
+							r => {
+								this.pridepocketUser = <User>r.data()
+								this.loading = false
+								console.log("setting pridepocketUser")
+							},
 							e => console.log("error getting pridepocketUser from firestore DB: ", e),
 						)
 					}

@@ -13,7 +13,7 @@ export class NavComponent implements OnInit {
 		private refresh: ChangeDetectorRef
 	) {}
 
-	email: string
+	email: string = null
 	
 	ngOnInit () {
 		if (this.login.loading) { this.waitForLogin() }
@@ -30,7 +30,8 @@ export class NavComponent implements OnInit {
 	setEmail () {
 		return ({
 			next: user => {
-				this.email = user.data().email
+				// this.email = user.data().email
+				this.email = this.login.pridepocketUser.email
 				this.refresh.detectChanges()
 			},
 			error: e => console.log("error getting user from login service", e)

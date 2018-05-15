@@ -17,9 +17,16 @@ https://firebase.googleblog.com/2018/01/streamline-typescript-development-cloud-
 Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 
 
-filters: Function[]
+**buglist**
+- something in the navbar dropdown menus prevents a full page refresh/component mount and so links to dynamic pages are not working right
+	* removed form tags
+	* links work outside the former form tags
+	* addcampaign link works even though it's inside a former form tag, while links to dyanmic content do not
+	* dropdown navigation works when it's positioned outside of this div:
+			<div class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!!email">
+	* there is no call ever initiated to the database in the mycampaigns component
+	*
 
-*ngFor="for campaign in (campaigns | flexl: filters)"
 
 
 

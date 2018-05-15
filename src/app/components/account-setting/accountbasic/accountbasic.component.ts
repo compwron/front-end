@@ -44,7 +44,7 @@ export class AccountbasicComponent implements OnInit {
 	) { }
 	
 	ngOnInit() {
-		this.src = this.user.user.profile_pic.url
+		this.src = this.user.user.profile_pic.url ? this.user.user.profile_pic.url : "http://via.placeholder.com/70x70"
 	}
 	
 	saveProfilePic ({ url, fullPath }): void {

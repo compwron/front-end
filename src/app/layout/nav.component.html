@@ -1,47 +1,79 @@
 <nav style="background-color: #413a74;" class="sticky-top navbar navbar-collapse navbar-toggleable-md navbar-light bg-faded ">
-  <div class="container">
-  	<a routerLink="tableofcontents" ><img src="./assets/images/logo.png" style="width:150px"/></a>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/campaigns" >Campaigns <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/faq" >FAQs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/resources" >Community Resources</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!email" >
-        <a class="font-14 pr-4 login-link" routerLink="/login" >Log In </a>
-    	<button routerLink="/signup" class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
-      </form>
-      <form class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!!email">
-        <button class="btn btn-default btn my-2 my-sm-0 font-14"><a [routerLink]="['/mycampaigns/add']" >Add Campaign</a></button>
-        <div class="nav-item dropdown pl-2 nav-drop">
-          <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="icofont icofont-bell-alt"></i>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Alert</a>
-            <a class="dropdown-item" href="#">Alert</a>
-          </div>
-        </div>
-        <div class="nav-item dropdown ">
-          <a class="nav-link dropdown-toggle nav-drop" href="http://example.com" id="navbarDropdownMenuLink"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" *ngIf="loggedIn()">
-            {{ email }}
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">My Campaigns</a>
-            <a class="dropdown-item" href="#">Account Settings</a>
-            <a class="dropdown-item" href="#">Payment Settings</a>
-            <a class="dropdown-item" href="#">Notifiction</a>
-            <a class="dropdown-item" href="#">Donation History</a>
-            <a class="dropdown-item" href="#" routerLink="/login" (click)="signOut()">Log Out</a>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+
+	<div class="container">
+
+		<a routerLink="tableofcontents" ><img src="./assets/images/logo.png" style="width:150px"/></a>
+
+		<div class="collapse navbar-collapse" id="navbarNav">
+
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<a class="nav-link" routerLink="/campaigns" >
+						Campaigns
+						<span class="sr-only">
+							(current)
+						</span>
+					</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/faq" >FAQs</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" routerLink="/resources" >Community Resources</a>
+				</li>
+			</ul>
+	
+			<div class="form-inline my-2 my-lg-0 mr-sm-2" [hidden]="email" >
+				<a class="font-14 pr-4 login-link" routerLink="/login" >Log In </a>
+				<button routerLink="/signup" class="btn btn-default  px-4 my-2 my-sm-0 font-14">Join Now</button>
+			</div>
+
+			<div class="form-inline my-2 my-lg-0 mr-sm-2" [hidden]="!email">
+
+				<button class="btn btn-default btn my-2 my-sm-0 font-14">
+					<a routerLink="/mycampaigns/add" >Add Campaign</a>
+				</button>
+				
+				<div class="nav-item dropdown pl-2 nav-drop">
+					<a
+						class="nav-link dropdown-toggle nav-drop"
+						href="http://example.com"
+						id="navbarDropdownMenuLink"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+					>
+						<i class="icofont icofont-bell-alt"></i>
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Alert</a>
+						<a class="dropdown-item" href="#">Alert</a>
+					</div>
+				</div>
+				
+				<div class="nav-item dropdown ">
+					<a
+						class="nav-link dropdown-toggle nav-drop"
+						href="http://example.com"
+						id="navbarDropdownMenuLink"
+						data-toggle="dropdown"
+						aria-haspopup="true"
+						aria-expanded="false"
+						*ngIf="loggedIn()"
+					>
+						{{ email }}
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" routerLink="/mycampaigns">My Campaigns</a>
+						<a class="dropdown-item" routerLink="/account">Account Settings</a>
+						<!--<a class="dropdown-item" href="#">Payment Settings</a>-->
+						<!--<a class="dropdown-item" href="#">Notifiction</a>-->
+						<!--<a class="dropdown-item" href="#">Donation History</a>-->
+						<a class="dropdown-item" href="#" routerLink="/login" (click)="signOut()">Log Out</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
 </nav>

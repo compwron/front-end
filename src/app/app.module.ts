@@ -71,6 +71,7 @@ const appRoutes: Routes = [
   {path:'sg/buttons', component:ButtonsComponent},
   {path:'sg/forms', component:FormsComponent},
   
+  {path:'', component:CampaignsComponent},
   {path:'campaigns', component:CampaignsComponent},
   {path:'campaigns/:id', component:IndivCampComponent},										// pretty sure this needs to be nested
   {path:'faq', component:FaqComponent},
