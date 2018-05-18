@@ -76,6 +76,11 @@ export class MycampaddComponent implements OnInit {
 	hydrateForm () {
 		const { active, affiliate_links, banner, begin, description, eMessage, end, fEmail, goal, id, name, noDate, owner, privacy, shared, thankYou, type } = this.campaign
 		
+		if (affiliate_links.length < 3) {
+			const pushme = 3 - affiliate_links.length
+			for (let i = 0; i < pushme; i++) { affiliate_links.push("") }
+		}
+		
 		this.src = this.campaign.banner.url
 		this.createdForm.setValue({
 			active,
@@ -91,7 +96,8 @@ export class MycampaddComponent implements OnInit {
 			thankYou,
 			type,
 			affiliate_links,
-			banner
+			banner,
+			noDate
 		})
 		
 		// this.banner.setValue({ url: banner.url, path: banner.path })

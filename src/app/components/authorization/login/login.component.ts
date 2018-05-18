@@ -12,9 +12,13 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private loginService: LoginService
 	) { }
+
+	ngOnInit() {
+	}
 	
 	email:string
 	password:string
+	ptype: boolean = true
 	
 	// onLogin(form: NgForm) {
 	// 	console.log(form.value)
@@ -39,7 +43,7 @@ export class LoginComponent implements OnInit {
 		else console.log("you're already logged in")
 	}
 	
-	ngOnInit() {
-	}
+	passwordType () { return this.ptype ? "password" : "text" }
+	togglePasswordVisible () { this.ptype = !this.ptype }
 	
 }

@@ -72,7 +72,7 @@
               <div class="col-md-12">
                 <div class="px-2">
                   <div class="input-group mb-2" [class.has-danger]="pickedName.errors">
-                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" minlength="2" maxlength="36" patter="[a-zA-Z]+" #pickedName="ngModel">
+                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" minlength="2" maxlength="36" pattern="[a-zA-Z]+" #pickedName="ngModel">
                   </div>
                   <div class="form-control-feedback" *ngIf="pickedName.errors">
                           must enter name.</div>
@@ -82,9 +82,10 @@
                   <div class="form-control-feedback" *ngIf="pickedEmail.errors">
                           must enter email.</div>
                   <div class="form-group" [class.has-danger]="pickedMessage.errors">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Post your support." ngModel [(ngModel)]="message" name="message" #pickedMessage="ngModel" maxlength="1000" pattern="[a-zA-Z]+"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Post your support." ngModel [(ngModel)]="message" name="message" #pickedMessage="ngModel" maxlength="1000" ></textarea>
                     <div class="form-control-feedback" *ngIf="pickedMessage.errors">
-                          36 letter limit.</div>
+                          You did something wrong.... I don't know what, but something.
+                      </div>
                   </div>
                   <div class="form-check ml-4">
                     <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [(ngModel)]="private" name="private" #pickedPrivate="ngModel">

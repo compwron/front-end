@@ -31,8 +31,8 @@
                     </div>
                     <div class="form-group row" [class.has-danger]="pickedPassword.errors">
                       <div class="input-group col-md-12">
-                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password"  class="form-control" id="password" minlegth="8" maxlength="36" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
-                        <div class="input-group-addon p-3">
+                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [type]="passwordType()" class="form-control" id="password" minlegth="8" maxlength="36" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
+                        <div class="input-group-addon p-3" (click)="togglePasswordVisible()" >
                             <i class="icofont icofont-eye"></i>
                         </div>
                       </div>

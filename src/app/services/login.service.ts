@@ -175,8 +175,21 @@ export class LoginService {
 	
 	emailSignup (email, password, displayName): void {
 		this.displayName = displayName
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-		this.handleEmailSignin()
+		const a = fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
+		
+		return new Observable(observer => {
+			a.subscribe(
+				() => {
+					this.handleEmailSignin()
+					observer.next("creating user")
+				},
+				e => observer.error(e),
+				() => {
+					console.log("user created")
+					observer.complete()
+				}
+			)
+		})
 	}
 	
 	signOut (): void {
