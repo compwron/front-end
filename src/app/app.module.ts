@@ -62,7 +62,8 @@ import { ResourceService } from './services/resource.service'
 import { CampaignCreatorService } from './services/campaign-creator.service'
 import { TestingComponent } from './components/testing/testing.component'
 import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component'
-import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component'
+import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component';
+import { LandingComponent } from './components/landing/landing.component'
 
 
 
@@ -71,7 +72,7 @@ const appRoutes: Routes = [
   {path:'sg/buttons', component:ButtonsComponent},
   {path:'sg/forms', component:FormsComponent},
   
-  {path:'', component:CampaignsComponent},
+  //{path:'', component:CampaignsComponent},
   {path:'campaigns', component:CampaignsComponent},
   {path:'campaigns/:id', component:IndivCampComponent},										// pretty sure this needs to be nested
   {path:'faq', component:FaqComponent},
@@ -88,6 +89,7 @@ const appRoutes: Routes = [
   {path:'testing', component:TestingComponent},
   
   // only logged-in users can access the routes below
+  {path:'', component:LandingComponent, canActivate:[AuthGuard]},
   {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
@@ -133,7 +135,8 @@ const appRoutes: Routes = [
     TestingComponent,
     StorageUploaderDropzoneComponent,
     MycampBriefComponent,
-    FlexibleListPipe
+    FlexibleListPipe,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,9 @@ export class AccountbasicComponent implements OnInit {
 		if (email) userUpdateObject.email = email
 		if (password) userUpdateObject.password = password
 		
+		if (this.profile_pic_url && this.profile_pic_path) userUpdateObject.new = false
+		else userUpdateObject.new = true
+		
 		userUpdateObject.profile_pic = { url: this.profile_pic_url, path: this.profile_pic_path }
 
 		this.user.modifyUser(userUpdateObject)

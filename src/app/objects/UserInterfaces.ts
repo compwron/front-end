@@ -15,6 +15,7 @@ export interface User {
 	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
 	donations?: Array<Donation>
+	new?: boolean
 }
 
 	// uid?: string
@@ -44,6 +45,7 @@ export interface UserUpdateObject {
 	active?: boolean
 	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
+	new?: boolean
 }
 
 export interface ProfilePic {

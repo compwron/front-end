@@ -19,6 +19,7 @@ export class PaymentWidgetComponent implements OnInit {
 	name:string
 	message:string
 	private:boolean
+	percent: number = 0
 	
 	onDonate(form: NgForm) { const r = this.wepay.pay(form.value, this.campaign) }
 	
@@ -27,6 +28,15 @@ export class PaymentWidgetComponent implements OnInit {
 	) { }
 	
 	ngOnInit() {
+		this.percent = Math.floor(this.campaign.current/this.campaign.goal*100)
+		this.percent = this.percent > 100 ? 100 : this.percent
+		
+		this.percentStyle = {
+			height: "100%",
+			width: this.percent,
+			'background-color': "green",
+			'border-radius': "100px"
+		}
 	}
 
 }

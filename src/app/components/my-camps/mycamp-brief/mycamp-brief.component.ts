@@ -11,10 +11,23 @@ export class MycampBriefComponent implements OnInit {
 	@Input() campaign: Campaign
 	
 	src: string = "http://via.placeholder.com/141x141"
+	percent: number = 0
 	
 	constructor() { }
 	
-	ngOnInit() { this.src = this.campaign.banner.url }
+	ngOnInit() {
+		this.src = this.campaign.banner.url
+
+		this.percent = Math.floor(this.campaign.current/this.campaign.goal*100)
+		this.percent = this.percent > 100 ? 100 : this.percent
+		
+		this.percentStyle = {
+			height: "100%",
+			width: this.percent,
+			'background-color': "green",
+			'border-radius': "100px"
+		}
+	}
 
 	activate () {
 		console.log("put this campaign into active mode")

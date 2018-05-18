@@ -92,7 +92,7 @@ export class LoginService {
 						else {
 							let { uid, displayName, phoneNumber, email } = user
 							if (this.displayName) displayName = this.displayName
-							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
+							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email, new: true })
 								.then(() => {
 									this.pridepocketUser = { uid, displayName, phoneNumber, email }
 									console.log("created a new user", this.pridepocketUser)
@@ -131,7 +131,7 @@ export class LoginService {
 							// set the displayName variable if it exists; this is used for displaying the user's name in the navigation bar
 							//  this is redundant and probably going away
 							if (this.displayName) displayName = this.displayName
-							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
+							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email, new: true })
 								.then(() => {
 									
 									// if the database set returns, then populate this.pridepocketUser with the firebase auth info
