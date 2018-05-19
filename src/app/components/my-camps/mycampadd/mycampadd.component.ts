@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 
 import { ActivatedRoute } from '@angular/router'
+import { ChangeDetectorRef } from '@angular/core'
 
 import { CampaignCreatorService } from '../../../services/campaign-creator.service'
 import { CampaignOneService } from '../../../services/campaign-one.service'
@@ -17,9 +18,11 @@ export class MycampaddComponent implements OnInit {
 		private fb: FormBuilder,
 		private create: CampaignCreatorService,
 		private campaignGet: CampaignOneService,
-		private route: ActivatedRoute
+		private route: ActivatedRoute,
+		private refresh: ChangeDetectorRef
 	) {
 		this.createForm()
+		
 		this.setAffiliate_links()
 		this.addAffiliateLink()
 		this.addAffiliateLink()
@@ -39,6 +42,8 @@ export class MycampaddComponent implements OnInit {
 						this.campaign = campaign
 						// enter the data from the campaign in the form
 						this.hydrateForm()
+						this.refresh.detectChanges()
+						
 					},
 					e => console.log("error getting campaign snapshot: ", e),
 					() => console.log("finished getting campaign snapshot")
@@ -69,7 +74,14 @@ export class MycampaddComponent implements OnInit {
 				url: this.fb.control(""),
 				path: this.fb.control("")
 			}),
-			active: this.fb.control(false)
+			active: this.fb.control(false),
+			// id: this.fb.control(""),
+			// _updated: this.fb.control(""),
+			// account_id: this.fb.control(""),
+			// begin: this.fb.control(""),
+			// current: this.fb.control(""),
+			// owner: this.fb.control(""),
+			// payments: this.fb.group({})
 		})
 	}
 
@@ -82,6 +94,7 @@ export class MycampaddComponent implements OnInit {
 		}
 		
 		this.src = this.campaign.banner.url
+		// this.createdForm.setValue(this.campaign)
 		this.createdForm.setValue({
 			active,
 			description,
@@ -96,8 +109,7 @@ export class MycampaddComponent implements OnInit {
 			thankYou,
 			type,
 			affiliate_links,
-			banner,
-			noDate
+			banner
 		})
 		
 		// this.banner.setValue({ url: banner.url, path: banner.path })

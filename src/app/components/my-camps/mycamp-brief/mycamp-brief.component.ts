@@ -12,6 +12,12 @@ export class MycampBriefComponent implements OnInit {
 	
 	src: string = "http://via.placeholder.com/141x141"
 	percent: number = 0
+	percentStyle: {
+		height: string
+		width: string
+		'background-color': string
+		'border-radius': string
+	}
 	
 	constructor() { }
 	
@@ -23,7 +29,7 @@ export class MycampBriefComponent implements OnInit {
 		
 		this.percentStyle = {
 			height: "100%",
-			width: this.percent,
+			width: `${this.percent}%`,
 			'background-color': "green",
 			'border-radius': "100px"
 		}

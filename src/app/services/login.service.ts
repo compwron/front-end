@@ -173,7 +173,7 @@ export class LoginService {
 		this.handleEmailSignin()
 	}
 	
-	emailSignup (email, password, displayName): void {
+	emailSignup (email, password, displayName): Observable<any> {
 		this.displayName = displayName
 		const a = fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
 		

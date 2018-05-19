@@ -62,13 +62,13 @@
 															id="type"
 															formControlName="type"
 														>
-															<option value="Medical">Medical</option>
-															<option value="Legal">Legal</option>
-															<option value="Family">Family</option>
-															<option value="Weddings">Weddings</option>
-															<option value="Emergency">Emergency</option>
-															<option value="Celebrations">Celebrations</option>
-															<option value="Events">Events</option>
+															<option value="medical">Medical</option>
+															<option value="legal">Legal</option>
+															<option value="family planning">Family Planning</option>
+															<option value="weddings">Weddings</option>
+															<option value="emergency">Emergency</option>
+															<option value="celebrations">Celebrations</option>
+															<option value="events">Events</option>
 														</select>
 														<div *ngIf="type.invalid && (type.dirty || type.touched)" class="has-danger" >
 															<div class="form-control-feedback" *ngIf="type.errors.required" >
@@ -437,8 +437,6 @@
 											</div>
 										</div>
 
-
-
 										<!--	SUBMIT BUTTONS		-->
 										<div class="row mt-4">
 											<div class="col-md-12">
@@ -468,7 +466,7 @@
 								
 								
 								<!--		this is for testing purposes; it displays the form values in realtime as they change		-->
-								<!--<div>{{ createdForm.value | json }}</div>-->
+								<div>{{ createdForm.value | json }}</div>
 								<div class="col-lg-3"></div>
 							</div>
 						</div>

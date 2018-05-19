@@ -14,6 +14,12 @@ export class CampaignBriefComponent implements OnInit {
 	objectkeys = Object.keys
 	
 	percent: number = 0
+	percentStyle: {
+		height: string
+		width: string
+		'background-color': string
+		'border-radius': string
+	}
 	
 	constructor() { }
 	
@@ -23,7 +29,7 @@ export class CampaignBriefComponent implements OnInit {
 		
 		this.percentStyle = {
 			height: "100%",
-			width: this.percent,
+			width: `${this.percent}%`,
 			'background-color': "green",
 			'border-radius': "100px"
 		}

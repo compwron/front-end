@@ -20,7 +20,7 @@ export class LandingComponent implements OnInit {
 	checkUserStatus () {
 		this.login.wait()
 			.subscribe(
-				user => this.login.pendingUser.subscribe(this.redirect())
+				user => this.login.pendingUser.subscribe(this.redirect()),
 				e => console.log("error logging in/getting user"),
 				() => console.log("checkUserStatus subscription to login.wait completed")
 			)
