@@ -21,6 +21,8 @@ export class AuthGuard implements CanActivate {
 		//	the observable causes massive problems with my routes
 
 		return new Observable(observer => {
+
+
 			if (this.login.loading) {
 				console.log("auth is loading; setting interval")
 				const unsubscribe = setInterval(() => {
@@ -31,6 +33,8 @@ export class AuthGuard implements CanActivate {
 				}, 1000)
 			}
 			else { observer.next(this.login.loggedIn()) }
+
+
 			// this.login.statusUpdater().pipe(first())
 			// 	.subscribe(
 			// 		s => {

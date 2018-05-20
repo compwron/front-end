@@ -11,10 +11,10 @@ import { UserUpdateObject } from '../../../objects/UserInterfaces'
 })
 export class AccountbasicComponent implements OnInit {
 	name: string
-	email: string
+	email: string = this.user.user.email
 	password: string
 	password2: string
-	displayName: string
+	displayName: string = this.user.user.displayName
 	profile_pic_url: string
 	profile_pic_path: string
 	src: string = "http://via.placeholder.com/70x70"
@@ -49,6 +49,8 @@ export class AccountbasicComponent implements OnInit {
 	ngOnInit() {
 		// this is broken right now because it tries to get a user before the user exists on the UserService component
 		this.src = this.user.user && this.user.user.profile_pic ? this.user.user.profile_pic.url : "http://via.placeholder.com/70x70"
+		// this.displayName = this.user.user.displayName
+		// this.email = this.user.user.email
 	}
 	
 	saveProfilePic ({ url, fullPath }): void {

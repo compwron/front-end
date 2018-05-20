@@ -3,12 +3,16 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login.service'
 import { Router } from '@angular/router'
 
+import { User } from '../../objects/UserInterfaces'
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
+	
+	user
 	
 	constructor(
 		private login: LoginService,
@@ -22,35 +26,12 @@ export class LandingComponent implements OnInit {
 	
 	checkUserStatus () {
 		console.log("in checkUserStatus")
-		this.login.wait()
+		this.login.statusUpdater()
 			.subscribe(
-				user => {
-					console.log("pendingUser: ", this.login.pendingUser)
-					this.login.pendingUser.subscribe(this.redirect())
-				},
-				e => console.log("error logging in/getting user"),
-				() => console.log("checkUserStatus subscription to login.wait completed")
+				user => this.user = user,
+				e => console.log("error logging in/getting user", e),
+				() => { this.user.new ? this.router.navigateByUrl('/account') : this.router.navigateByUrl('/mycampaigns') }
 			)
-	}
-	
-	redirect () {
-		return ({
-			next: user => {
-				const u = user.data()
-				if (u.new) {
-					console.log("user is new:", u)
-					console.log("user is new:", this.login.pridepocketUser)
-					this.router.navigateByUrl('/account')
-				}
-				else {
-					console.log("user is new:", u)
-					console.log("user is new:", this.login.pridepocketUser)
-					this.router.navigateByUrl('/mycampaigns')
-				}
-			},
-			error: e => console.log("error redirecting", e)
-		})
-		
 	}
 
 }

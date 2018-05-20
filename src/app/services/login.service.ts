@@ -21,7 +21,7 @@ export class LoginService {
 	loading: boolean
 	displayName: string
 	previous: string = "/"
-	
+	status
 	
 	constructor(
 		private router: Router
