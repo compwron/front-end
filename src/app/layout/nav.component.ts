@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service'
 import { ChangeDetectorRef } from '@angular/core'
 
+import { first } from 'rxjs/operators'
 
 @Component({
   selector: 'nav-pp',
@@ -21,17 +22,18 @@ export class NavComponent implements OnInit {
 	}
 	
 	waitForLogin () {
-		this.login.wait().subscribe(
-			b => { if (b) this.login.pendingUser.subscribe(this.setEmail()) },
-			e => console.log("error in this.login.wait", e)
-		)
+		this.login.statusUpdater().pipe(first()).subscribe(this.setEmail())
+
+		// this.login.wait().subscribe(
+		// 	b => { if (b) this.login.pendingUser.subscribe(this.setEmail()) },
+		// 	e => console.log("error in this.login.wait", e)
+		// )
 	}
 	
 	setEmail () {
 		return ({
 			next: user => {
-				// this.email = user.data().email
-				this.email = this.login.pridepocketUser.email
+				this.email = user.email
 				this.refresh.detectChanges()
 			},
 			error: e => console.log("error getting user from login service", e)

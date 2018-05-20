@@ -1,3 +1,26 @@
+
+
+
+
+
+
+
+!!!!!!!!!!
+reactive form/formsmodule form do not properly attach
+	if a user has to go through a guard that returns an observable
+	to get to the form's URL on page reload;
+		if the user navigates from within the app, things work fine
+nothing loads/binds correctly when you refresh a page that's behind the auth guard
+	I don't know if campaigns will even load correctly
+!!!!!!!!!!
+
+
+
+
+
+
+
+
 <!--inotify watches-->
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 

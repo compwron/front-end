@@ -47,7 +47,8 @@ export class AccountbasicComponent implements OnInit {
 	) { }
 	
 	ngOnInit() {
-		this.src = this.user.user.profile_pic.url ? this.user.user.profile_pic.url : "http://via.placeholder.com/70x70"
+		// this is broken right now because it tries to get a user before the user exists on the UserService component
+		this.src = this.user.user && this.user.user.profile_pic ? this.user.user.profile_pic.url : "http://via.placeholder.com/70x70"
 	}
 	
 	saveProfilePic ({ url, fullPath }): void {

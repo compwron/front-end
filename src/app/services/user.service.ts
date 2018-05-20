@@ -24,13 +24,17 @@ export class UserService {
 		private login: LoginService
 	) { }
 	
-	user: User = this.login.pridepocketUser
+	user: User
 	
 	modifyUser (update: UserUpdateObject): Observable<void> {
+		this.user = this.login.pridepocketUser
 		console.log(update)
 		return fromPromise(db.collection("users").doc(this.user.uid).set(update, { merge: true }))
 		
 	}
-	getDonations (): Observable<Donation> { return from(Object.values(this.user.donations)) }
+	getDonations (): Observable<Donation> {
+		this.user = this.login.pridepocketUser
+		return from(Object.values(this.user.donations || {}))
+	}
 	deactivate (): Observable<void> { return fromPromise(db.collection("users").doc(this.user.uid).set({ active: false }, { merge: true })) }
 }

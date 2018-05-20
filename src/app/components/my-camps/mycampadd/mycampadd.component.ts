@@ -20,16 +20,26 @@ export class MycampaddComponent implements OnInit {
 		private campaignGet: CampaignOneService,
 		private route: ActivatedRoute,
 		private refresh: ChangeDetectorRef
-	) {
-		this.createForm()
-		
+	) { }
+
+	ngOnChanges() {
+		console.log("ngOnChanges")
+	}
+	
+	ngDoChanges() {
+		console.log("ngDoChanges")
+	}
+	
+	ngOnInit() {
+		const b = this.createForm()
+	
+		console.log(b)
+	
 		this.setAffiliate_links()
 		this.addAffiliateLink()
 		this.addAffiliateLink()
 		this.addAffiliateLink()
-	}
-	
-	ngOnInit() {
+		
 		const id = this.route.snapshot.paramMap.get('id')
 		
 		// if the URL has 'edit' and an id in it, it's an edit request
@@ -83,6 +93,8 @@ export class MycampaddComponent implements OnInit {
 			// owner: this.fb.control(""),
 			// payments: this.fb.group({})
 		})
+		
+		return true
 	}
 
 	hydrateForm () {

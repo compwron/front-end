@@ -6,6 +6,8 @@ import { Router } from '@angular/router'
 import { LoginService } from './services/login.service'
 
 
+import { first } from 'rxjs/operators'
+
 @Injectable()
 export class AuthGuard implements CanActivate {
 	constructor (
@@ -14,36 +16,31 @@ export class AuthGuard implements CanActivate {
 	) {}
 
 
-	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-		if (this.login.loading) {
-			// canActivate takes an Observable<boolean> as one of its return values; if firebase has not initialized yet, return an observable
-			return new Observable(observer => {
-				this.login.wait()
-					.subscribe(
-						b => {
-							if (b) { observer.next(true) }
-							else {
-								this.router.navigateByUrl('/login')
-								observer.next(false)
-							}
-						},
-						e => {
-							this.router.navigateByUrl('/login')
-							observer.error(e)
-						},
-						() => observer.complete()
-					)
-			})
-		}
-		
-		// firebase is initialized, user is not logged in, redirect to the /login route
-		else if (!this.login.loggedIn()) {
-			this.router.navigateByUrl('/login')
-			return false
-		}
-		
-		// firebase is initialized, user is logged in, grant them access
-		else { return true }
+	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+		// canActivate takes an Observable<boolean> as one of its return values; if firebase has not initialized yet, return an observable
+		//	the observable causes massive problems with my routes
+
+		return new Observable(observer => {
+			if (this.login.loading) {
+				console.log("auth is loading; setting interval")
+				const unsubscribe = setInterval(() => {
+					if (!this.login.loading) {
+						clearInterval(unsubscribe)
+						observer.next(this.login.loggedIn())
+					}
+				}, 1000)
+			}
+			else { observer.next(this.login.loggedIn()) }
+			// this.login.statusUpdater().pipe(first())
+			// 	.subscribe(
+			// 		s => {
+			// 			console.log("auth guard user from statusUpdater: ", s)
+			// 			!!s ? observer.next(true) : observer.next(false)
+			// 		}
+			// 	)
+
+			
+		})
 
 	}
 	

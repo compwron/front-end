@@ -30,8 +30,8 @@
 
 			<div class="form-inline my-2 my-lg-0 mr-sm-2" [hidden]="!email">
 
-				<button class="btn btn-default btn my-2 my-sm-0 font-14">
-					<a routerLink="/mycampaigns/add" >Add Campaign</a>
+				<button [routerLink]="['/mycampaigns/add']" class="btn btn-default btn my-2 my-sm-0 font-14">
+					<a>Add Campaign</a>
 				</button>
 				
 				<div class="nav-item dropdown pl-2 nav-drop">

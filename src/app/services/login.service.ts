@@ -3,7 +3,9 @@ import { Router } from '@angular/router'
 
 import { fromPromise } from 'rxjs/observable/fromPromise'
 import { Observable } from 'rxjs/Observable'
-import { map } from 'rxjs/operators'
+import { tap, map } from 'rxjs/operators'
+
+
 // import { pipe } from 'rxjs/util/pipe'
 
 
@@ -14,67 +16,86 @@ import { firebase, db } from '../utilities/utilities'
 
 @Injectable()
 export class LoginService {
-	constructor(
-		private router: Router
-	) { this.processFirebaseAuth() }
 
 	pridepocketUser: User
-	pendingUser: Observable<firebase.firestore.DocumentSnapshot>
-	loading: boolean = true
-	authKey: string
+	loading: boolean
 	displayName: string
 	previous: string = "/"
-	initializer: Observable<any>
+	
+	
+	constructor(
+		private router: Router
+	) {
+		this.loading = true
+		
+		this.statusUpdater()
+			.subscribe(
+				v => { this.status = v },
+				e => console.log("error in login constructor: ", e),
+				() => {
+					console.log("status updater completed; setting loading to false")
+					this.loading = false
+				}
+			)
+	}
 
 	extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
 
-	wait (): Observable<boolean> {
+	extractUid (response: Observable<any>): Observable<any> {
 		return new Observable(observer => {
-			this.initializer
-				.subscribe(
-					(user: firebase.User) => user ? observer.next(true) : observer.next(false),
-					e => observer.error(e),
-					() => observer.complete()
-				)
+			response.subscribe(
+				user => {
+					if (!user) { this.router.navigateByUrl('/login') }
+					else {
+						observer.next(user.uid)
+					}
+				},
+				e => {
+					console.log("error extracting uid from firebase auth: ", e)
+					observer.error(e)
+				}
+			)
 		})
+	}
 
+	getDBUser (response: Observable<any>): Observable<any> {
+		return new Observable(observer => {
+			response.subscribe(
+				uid => {
+					fromPromise(db.collection("users").doc(uid).get())
+						.subscribe(
+							u => observer.next(u.data()),
+							e => observer.error(e),
+							() => observer.complete()
+						)
+				},
+				e => observer.error(e)
+			)
+		})
 	}
 
 	initialize () { return new Observable(observer => firebase.auth().onAuthStateChanged(observer)) }
 
-	processFirebaseAuth () {
-		this.initializer = this.initialize()
-
-		this.initializer
-			.subscribe(
-				(user: firebase.User) => {
-					if (!user) { this.router.navigateByUrl('/login') }
-					else {
-						this.getUser(user.uid).subscribe(
-							r => {
-								this.pridepocketUser = <User>r.data()
-								this.loading = false
-								console.log("setting pridepocketUser")
-							},
-							e => console.log("error getting pridepocketUser from firestore DB: ", e),
-						)
-					}
-				},
-				e => console.log("error initializing auth", e),
-				() => console.log("auth successfully initialized")
+	statusUpdater () {
+		return new Observable(observer => {
+			this.initialize().pipe(
+				tap((o) => observer.next(o)),
+				this.extractUid,
+				tap((o) => observer.next(o)),
+				this.getDBUser,
+				tap((o) => this.pridepocketUser = o)
 			)
+				.subscribe(
+					u => observer.next(u),
+					e => observer.error(e),
+					() => observer.complete()
+				)
+		})
 	}
-							// () => console.log("completed getting user from firestore DB")
-	
 
-	getUser (uid): Observable<firebase.firestore.DocumentSnapshot> {
-		this.pendingUser = fromPromise(db.collection("users").doc(uid).get())
-		return this.pendingUser
-	}
+	loggedIn (): boolean { return !!this.pridepocketUser }
 
-	loggedIn (): boolean { return !!firebase.auth().currentUser }
-
-	setPrevious (previous): void { this.previous = previous }
+	// setPrevious (previous): void { this.previous = previous }
 
 	handleCallback (observable: Observable<firebase.User>): void {
 		// inject a spinner service on the constructor and trigger it here

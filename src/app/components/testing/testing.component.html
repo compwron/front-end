@@ -1,15 +1,41 @@
-<div style="width: 100%; height 100%; display: flex">
-	<app-storage-uploader-dropzone [storeType]="type" >
-		<div style="padding: 5em;">THIS TEXT SHOULD DISPLAY INSIDE THE DROPZONE</div>
-	</app-storage-uploader-dropzone>
+<div>
+									<form [formGroup]="createdForm" (ngSubmit)="createCampaign()">
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group" >
+														<label class="center-block" style="width:100%" ><b>Campaign Name</b>
+															<input
+																id="name"
+																class="form-control"
+																formControlName="name"
+															>
+															<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="name.errors.required">
+																	Your campaign must have a name
+																</div>
+																<div class="form-control-feedback" *ngIf="name.errors.minlength">
+																	Your campaign name must be longer than 12 characetrs
+																</div>
+																<div class="form-control-feedback" *ngIf="name.errors.maxlength">
+																	Your campaign name must be shorter than 36 characetrs
+																</div>
+																<div class="form-control-feedback" *ngIf="name.errors.pattern">
+																	Your campaign name can only have the letters A-Z and the numbers 0-9 in it; no special characters
+																</div>
+															</div>
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</form>
+									
+									<input type="text" class="form-control" [(ngModel)]="derp" id="derp" >
+									
+									<div (click)="pokeDerp()">Poke</div>
+									
+									<div>form: </div>
+									<div>{{ createdForm.value | json }}</div>
+									<div><div>Derp: </div><div>{{ derp }}</div></div>
 </div>
-
-
-<!--
-	<div (drop)="drop($event)" (dragover)="dragover($event)" style="flex: 10" >
-		Drag and drop a file in here
-	</div>
-	<div style="flex: 1; display: flex; flex-direction: row;" *ngIf="uploadStatus > 0">
-		<div>Upload Status: </div><div>{{ uploadStatus }}</div>
-	</div>
--->

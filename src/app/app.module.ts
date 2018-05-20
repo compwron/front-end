@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { ReactiveFormsModule } from '@angular/forms'
+import { Router, RouterModule, Routes } from '@angular/router'
 
 // Layout
 import {FooterComponent} from "./layout/footer.component"
@@ -63,7 +62,8 @@ import { CampaignCreatorService } from './services/campaign-creator.service'
 import { TestingComponent } from './components/testing/testing.component'
 import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component'
 import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component';
-import { LandingComponent } from './components/landing/landing.component'
+import { LandingComponent } from './components/landing/landing.component';
+import { LoadingComponent } from './components/loading/loading.component'
 
 
 
@@ -84,11 +84,12 @@ const appRoutes: Routes = [
   {path:'resources/:id', component:ArticleComponent},
   {path:'signup', component:SignupComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
+  {path:'loading', component:LoadingComponent},
   
   
-  {path:'testing', component:TestingComponent},
   
   // only logged-in users can access the routes below
+  {path:'testing', component:TestingComponent, canActivate:[AuthGuard]},
   {path:'', component:LandingComponent, canActivate:[AuthGuard]},
   {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
@@ -136,14 +137,15 @@ const appRoutes: Routes = [
     StorageUploaderDropzoneComponent,
     MycampBriefComponent,
     FlexibleListPipe,
-    LandingComponent
+    LandingComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
 	CampaignService,
@@ -159,4 +161,12 @@ const appRoutes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+	// constructor (
+	// 	private router: Router
+	// ) {
+	// 	console.log('Routes: ', JSON.stringify(router.config, undefined, 2))
+	// }
+	
+
+}

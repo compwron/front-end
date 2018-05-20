@@ -15,12 +15,19 @@ export class LandingComponent implements OnInit {
 		private router: Router
 	) { }
 	
-	ngOnInit() { this.checkUserStatus() }
+	ngOnInit() {
+		console.log("in landing page")
+		this.checkUserStatus()
+	}
 	
 	checkUserStatus () {
+		console.log("in checkUserStatus")
 		this.login.wait()
 			.subscribe(
-				user => this.login.pendingUser.subscribe(this.redirect()),
+				user => {
+					console.log("pendingUser: ", this.login.pendingUser)
+					this.login.pendingUser.subscribe(this.redirect())
+				},
 				e => console.log("error logging in/getting user"),
 				() => console.log("checkUserStatus subscription to login.wait completed")
 			)
