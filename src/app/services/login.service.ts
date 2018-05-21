@@ -48,6 +48,7 @@ export class LoginService {
 					if (!user) { this.router.navigateByUrl('/login') }
 					else {
 						observer.next(user.uid)
+						observer.complete()
 					}
 				},
 				e => {

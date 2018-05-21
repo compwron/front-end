@@ -19,10 +19,7 @@ export class AuthGuard implements CanActivate {
 	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
 		// canActivate takes an Observable<boolean> as one of its return values; if firebase has not initialized yet, return an observable
 		//	the observable causes massive problems with my routes
-
 		return new Observable(observer => {
-
-
 			if (this.login.loading) {
 				console.log("auth is loading; setting interval")
 				const unsubscribe = setInterval(() => {
@@ -34,19 +31,21 @@ export class AuthGuard implements CanActivate {
 			}
 			else { observer.next(this.login.loggedIn()) }
 
-
-			// this.login.statusUpdater().pipe(first())
-			// 	.subscribe(
-			// 		s => {
-			// 			console.log("auth guard user from statusUpdater: ", s)
-			// 			!!s ? observer.next(true) : observer.next(false)
-			// 		}
-			// 	)
-
-			
 		})
 
 	}
 	
 	
 }
+
+
+
+			// this.login.statusUpdater().pipe(first())
+			// 	.subscribe(
+			// 		s => { observer.next(!!s) },
+			// 		e => console.log("error in auth guard", e),
+			// 		() => console.log("auth guard completed")
+					
+			// 	)
+
+			
