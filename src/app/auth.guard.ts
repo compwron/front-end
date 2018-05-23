@@ -18,7 +18,7 @@ export class AuthGuard implements CanActivate {
 
 	canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
 		// canActivate takes an Observable<boolean> as one of its return values; if firebase has not initialized yet, return an observable
-		//	the observable causes massive problems with my routes
+			// this setup works but there is some problem using the auth statusUpdater() functions that I cannot figure out
 		return new Observable(observer => {
 			if (this.login.loading) {
 				console.log("auth is loading; setting interval")

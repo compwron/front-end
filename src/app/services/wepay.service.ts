@@ -150,7 +150,7 @@ export class WepayService {
 	}
 
 	pay (payment, campaignDetails): void {
-		payment = Object.assign({}, payment, { campaignDetails }, { access_token: this.loginService.pridepocketUser.wepay.access_token })
+		payment = Object.assign({}, payment, { campaignDetails }) // , { access_token: this.loginService.pridepocketUser.wepay.access_token }
 
 		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
 		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)

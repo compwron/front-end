@@ -14,6 +14,46 @@ import { User } from '../objects/UserInterfaces' // , UserUpdateObject
 
 import { firebase, db } from '../utilities/utilities'
 
+
+
+
+const extractUid = (response: Observable<any>): Observable<any> => {
+	return new Observable(observer => {
+		response.subscribe(
+			user => {
+				observer.next(user)
+				observer.complete()
+			},
+			e => {
+				console.log("error extracting uid from firebase auth: ", e)
+				observer.error(e)
+			}
+		)
+	})
+}
+
+const getDBUser = (response: Observable<any>): Observable<any> => {
+	return new Observable(observer => {
+		response.subscribe(
+			user => {
+				if (user) fromPromise(db.collection("users").doc(user.uid).get())
+					.subscribe(
+						u => observer.next(u.data()),
+						e => observer.error(e),
+						() => observer.complete()
+					)
+				else {
+					observer.next()
+					observer.complete()
+				}
+			},
+			e => observer.error(e)
+		)
+	})
+}
+
+
+
 @Injectable()
 export class LoginService {
 
@@ -41,49 +81,15 @@ export class LoginService {
 
 	extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
 
-	extractUid (response: Observable<any>): Observable<any> {
-		return new Observable(observer => {
-			response.subscribe(
-				user => {
-					if (!user) { this.router.navigateByUrl('/login') }
-					else {
-						observer.next(user.uid)
-						observer.complete()
-					}
-				},
-				e => {
-					console.log("error extracting uid from firebase auth: ", e)
-					observer.error(e)
-				}
-			)
-		})
-	}
-
-	getDBUser (response: Observable<any>): Observable<any> {
-		return new Observable(observer => {
-			response.subscribe(
-				uid => {
-					fromPromise(db.collection("users").doc(uid).get())
-						.subscribe(
-							u => observer.next(u.data()),
-							e => observer.error(e),
-							() => observer.complete()
-						)
-				},
-				e => observer.error(e)
-			)
-		})
-	}
-
 	initialize () { return new Observable(observer => firebase.auth().onAuthStateChanged(observer)) }
 
 	statusUpdater () {
 		return new Observable(observer => {
 			this.initialize().pipe(
 				tap((o) => observer.next(o)),
-				this.extractUid,
+				extractUid,
 				tap((o) => observer.next(o)),
-				this.getDBUser,
+				getDBUser,
 				tap((o) => this.pridepocketUser = o)
 			)
 				.subscribe(

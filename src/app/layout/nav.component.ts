@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service'
 import { ChangeDetectorRef } from '@angular/core'
+import { Router } from '@angular/router'
 
 import { first } from 'rxjs/operators'
 
@@ -11,7 +12,8 @@ import { first } from 'rxjs/operators'
 export class NavComponent implements OnInit {
 	constructor (
 		private login: LoginService,
-		private refresh: ChangeDetectorRef
+		private refresh: ChangeDetectorRef,
+		private router: Router
 	) {}
 
 	email: string = null
@@ -21,19 +23,14 @@ export class NavComponent implements OnInit {
 		else { this.email = this.login.pridepocketUser.email }
 	}
 	
-	waitForLogin () {
-		this.login.statusUpdater().pipe(first()).subscribe(this.setEmail())
-
-		// this.login.wait().subscribe(
-		// 	b => { if (b) this.login.pendingUser.subscribe(this.setEmail()) },
-		// 	e => console.log("error in this.login.wait", e)
-		// )
-	}
+	waitForLogin () { this.login.statusUpdater().pipe(first()).subscribe(this.setEmail()) }
 	
 	setEmail () {
 		return ({
 			next: user => {
-				this.email = user.email
+				console.log(user)
+				if (user) { this.email = user.email }
+				else { this.router.navigateByUrl('/login') }
 				this.refresh.detectChanges()
 			},
 			error: e => console.log("error getting user from login service", e)
