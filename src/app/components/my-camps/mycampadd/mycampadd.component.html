@@ -437,7 +437,43 @@
 													</label>
 												</div>
 											</div>
-	
+
+
+											<hr>
+
+
+											<div>
+												<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="name.errors.required">
+														Your campaign must have a name
+													</div>
+													<div class="form-control-feedback" *ngIf="name.errors.minlength">
+														Your campaign name must be longer than 12 characetrs
+													</div>
+													<div class="form-control-feedback" *ngIf="name.errors.maxlength">
+														Your campaign name must be shorter than 36 characetrs
+													</div>
+													<div class="form-control-feedback" *ngIf="name.errors.pattern">
+														Your campaign name can only have the letters A-Z and the numbers 0-9 in it; no special characters
+													</div>
+												</div>
+												<div *ngIf="type.invalid && (type.dirty || type.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="type.errors.required" >
+														You must select a campaign type
+													</div>
+												</div>
+												<div *ngIf="goal.invalid && (goal.dirty || goal.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="goal.errors.required">
+														You must set a goal of at least a dollar!
+													</div>
+												</div>
+												<div *ngIf="end.invalid && (end.dirty || end.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="end.errors.required">
+														If you don't wish for your campaign to run forever, you must pick a date to end it on
+													</div>
+												</div>
+											</div>
+
 											<!--	SUBMIT BUTTONS		-->
 											<div class="row mt-4">
 												<div class="col-md-12">
@@ -467,8 +503,7 @@
 								</div>
 								
 								<!--		this is for testing purposes; it displays the form values in realtime as they change		-->
-								<div>{{ createdForm.value | json }}</div>
-								
+
 								<div class="col-lg-3"></div>
 							</div>
 						</div>

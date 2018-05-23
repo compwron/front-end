@@ -28,9 +28,9 @@ export class NavComponent implements OnInit {
 	setEmail () {
 		return ({
 			next: user => {
-				console.log(user)
 				if (user) { this.email = user.email }
 				else { this.router.navigateByUrl('/login') }
+				
 				this.refresh.detectChanges()
 			},
 			error: e => console.log("error getting user from login service", e)
