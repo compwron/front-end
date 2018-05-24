@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
 			const unsubscribe = setInterval(() => {
 				if(!this.login.loading) {
 					if (this.login.pridepocketUser) this.email = this.login.pridepocketUser.email
-					else this.router.navigateByUrl('/login')
+					// else this.router.navigateByUrl('/login')
 				}
 				
 			}, 1000)
