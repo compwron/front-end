@@ -72,15 +72,15 @@
               <div class="col-md-12">
                 <div class="px-2">
                   <div class="input-group mb-2" [class.has-danger]="pickedName.errors">
-                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" minlength="2" maxlength="36" pattern="[a-zA-Z]+" #pickedName="ngModel">
+                    <input type="text" class="form-control" placeholder="Full Name" aria-label="Search for..." [(ngModel)]="name" name="name" minlength="2" maxlength="36" pattern="[a-zA-Z ]+" #pickedName="ngModel">
                   </div>
                   <div class="form-control-feedback" *ngIf="pickedName.errors">
-                          must enter name.</div>
+                          Must enter name consisting only of letters and spaces.</div>
                   <div class="input-group mb-2" [class.has-danger]="pickedEmail.errors">
                     <input type="email" class="form-control" placeholder="Email" aria-label="Search for..." ngModel [(ngModel)]="email" name="email" minlength="5" maxlength="36" #pickedEmail="ngModel">
                   </div>
                   <div class="form-control-feedback" *ngIf="pickedEmail.errors">
-                          must enter email.</div>
+                          Must enter email.</div>
                   <div class="form-group" [class.has-danger]="pickedMessage.errors">
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Post your support." ngModel [(ngModel)]="message" name="message" #pickedMessage="ngModel" maxlength="1000" ></textarea>
                     <div class="form-control-feedback" *ngIf="pickedMessage.errors">

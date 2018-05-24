@@ -28,7 +28,6 @@ const wepay_settings = {
 
 const wp = new wepay(wepay_settings)
 
-notification_callback_url = "https://pridepocket-3473b.firebaseapp.com/wepay_notification_callback"
 
 // https://developer.wepay.com/docs/articles/testing
 wp.use_staging()
@@ -38,6 +37,18 @@ wp.use_staging()
 // 	const { code, state } = req.body
 // 	console.log(code, state)
 // })
+
+const promiseCall = (url, data) => {
+	// console.log(wp.get_access_token())
+	// console.log(wepay_settings.access_token)
+	
+	const p = new Promise((resolve, reject) => wp.call(url, data, resolve))
+	return p
+}
+
+
+/*
+const notification_callback_url = "https://pridepocket-3473b.firebaseapp.com/wepay_notification_callback"
 
 interface WithdrawalNotification = {
 	"notification_id": string,
@@ -59,14 +70,6 @@ interface Payload = {
 	"withdrawal_create_date": number,
 	"withdrawal_id": number,
 	"deny_reason_message": string
-}
-
-const promiseCall = (url, data) => {
-	// console.log(wp.get_access_token())
-	// console.log(wepay_settings.access_token)
-	
-	const p = new Promise((resolve, reject) => wp.call(url, data, resolve))
-	return p
 }
 
 
@@ -92,7 +95,7 @@ app.post('/wepay_notification_callback', (req, res) => {
 			
 			console.log("docSnapshot: ", docSnapshot.empty)
 			
-			doc = docSnapshot.size == 1 ? docSnapshot.docs[0] : res.json({ status: "error", message: "query for this account_id returned more than one response???" })
+			doc = docSnapshot.size === 1 ? docSnapshot.docs[0] : res.json({ status: "error", message: "query for this account_id returned more than one response???" })
 			
 			console.log("doc", doc.id)
 			
@@ -118,6 +121,8 @@ app.post('/wepay_notification_callback', (req, res) => {
 	// 	default:
 	// }
 })
+
+*/
 
 app.post('/checkout_status', (req, res) => {
 	const { checkout_id } = req.body

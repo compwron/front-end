@@ -4,6 +4,7 @@ import { ChangeDetectorRef } from '@angular/core'
 
 import { CampaignService } from '../../../services/campaign.service'
 import { Campaign } from '../../../objects/Campaign'
+import { LoginService } from '../../../services/login.service'
 
 @Component({
   selector: 'app-mycampaigns',
@@ -17,7 +18,8 @@ export class MycampaignsComponent implements OnInit {
 
 	constructor(
 		private campaignService: CampaignService,
-		private refresh: ChangeDetectorRef
+		private refresh: ChangeDetectorRef,
+		private login: LoginService
 	) { }
 	
 	ngOnInit() { this.getCampaigns() }
@@ -42,11 +44,10 @@ export class MycampaignsComponent implements OnInit {
 	get fs () { return Object.entries(this.filters).map(([k, v]) => [k, v]) }
 	
 	getCampaigns (): void {
-		this.campaignService.getCampaigns()
+		this.campaignService.subscribeCampaigns({ field: "owner.uid", operator: "==", value: this.login.pridepocketUser.uid })
 			.subscribe(
 				campaigns => { this.campaigns = campaigns },
-				e => console.log("error getting campaigns from DB: ", e),
-				() => console.log("finished getting campaigns from DB")
+				e => console.log("error getting campaigns from DB: ", e)
 			)
 	}
 

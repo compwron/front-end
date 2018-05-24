@@ -477,7 +477,7 @@
 
 											<!--	SUBMIT BUTTONS		-->
 												
-											<div class="row mt-4">
+											<div class="row mt-4" *ngIf="action === 'Add'">
 												<div class="col-md-12">
 													<button
 														type="submit"
@@ -496,7 +496,7 @@
 														(click)="activate(false)"
 														class="btn font-17 btn-default btn-lg btn-block"
 													>
-													  	Save for Later
+													  	Save
 												  	</button>
 											  	</div>
 											</div>

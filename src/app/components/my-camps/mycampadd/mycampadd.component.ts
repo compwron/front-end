@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { FormArray, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 
 import { ActivatedRoute } from '@angular/router'
 import { ChangeDetectorRef } from '@angular/core'
@@ -19,7 +20,8 @@ export class MycampaddComponent implements OnInit {
 		private create: CampaignCreatorService,
 		private campaignGet: CampaignOneService,
 		private route: ActivatedRoute,
-		private refresh: ChangeDetectorRef
+		private refresh: ChangeDetectorRef,
+		private router: Router
 	) { }
 
 	ngOnChanges() {
@@ -132,7 +134,7 @@ export class MycampaddComponent implements OnInit {
 	createCampaign () {
 		console.log("in createCampaign")
 		
-		this.campaign = this.prepareSaveCampaign()
+		this.campaign = Object.assign({}, this.campaign, this.prepareSaveCampaign())
 		
 		console.log(this.campaign)
 		
@@ -155,7 +157,10 @@ export class MycampaddComponent implements OnInit {
 					// should route to somewhere else
 				},
 				e => console.log("error creating campaign", e),
-				() => console.log("completed creating campaign")
+				() => {
+					console.log("completed creating campaign")
+					this.router.navigateByUrl('/mycampaigns')
+				}
 			)
 	}
 	
@@ -174,8 +179,11 @@ export class MycampaddComponent implements OnInit {
 		this.createdForm.setControl('affiliate_links', affiliate_links)
 	}
 
-	activate (b: boolean): void {
-		const active = this.fb.control(b)
+	activate (b: boolean = false): void {
+		let active
+		if (b || (this.action === "Edit" && this.campaign.active) ) active = this.fb.control(true)
+		else active = this.fb.control(b)
+		
 		this.createdForm.setControl("active", active)
 		
 		// this.createdForm.setValue({ active: b })
