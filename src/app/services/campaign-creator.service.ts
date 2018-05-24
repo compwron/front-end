@@ -37,6 +37,8 @@ export class CampaignCreatorService {
 		return (campaign: Campaign): Observable<void> => {
 			console.log("campaign in campaign edit: ", campaign)
 			
+			if (typeof campaign.end === 'string') campaign.end = new Date(campaign.end)
+			
 			// campaign.end = new Date(campaign.end)
 			// if (campaign.active) campaign.begin = new Date(campaign.begin)
 			campaign._updated = new Date()

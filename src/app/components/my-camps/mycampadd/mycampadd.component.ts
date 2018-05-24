@@ -107,6 +107,10 @@ export class MycampaddComponent implements OnInit {
 			for (let i = 0; i < pushme; i++) { affiliate_links.push("") }
 		}
 		
+		end = end.toISOString()
+		
+		console.log(end)
+		
 		this.src = this.campaign.banner.url
 		// this.createdForm.setValue(this.campaign)
 		this.createdForm.setValue({
@@ -128,6 +132,9 @@ export class MycampaddComponent implements OnInit {
 		
 		// this.banner.setValue({ url: banner.url, path: banner.path })
 		// this.affiliate_links.setValue()
+		
+		console.log(this.createdForm)
+		console.log(this.end)
 		
 	}
 	

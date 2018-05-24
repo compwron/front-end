@@ -21,7 +21,6 @@ export class AuthGuard implements CanActivate {
 			// this setup works but there is some problem using the auth statusUpdater() functions that I cannot figure out
 		return new Observable(observer => {
 			if (this.login.loading) {
-				console.log("auth is loading; setting interval")
 				const unsubscribe = setInterval(() => {
 					if (!this.login.loading) {
 						clearInterval(unsubscribe)

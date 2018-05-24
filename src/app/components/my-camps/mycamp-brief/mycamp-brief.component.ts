@@ -28,10 +28,10 @@ export class MycampBriefComponent implements OnInit {
 	
 	ngOnInit() {
 		if (this.campaign.banner && this.campaign.banner.url) this.src = this.campaign.banner.url
-
 		if (this.validate(this.campaign)) this.canActivate = true
+		if (!this.campaign.current) this.campaign.current = 0
 
-		this.percent = Math.floor(this.campaign.current/this.campaign.goal*100)
+		this.percent = Math.floor((this.campaign.current/this.campaign.goal)*100)
 		this.percent = this.percent > 100 ? 100 : this.percent
 		
 		this.percentStyle = {

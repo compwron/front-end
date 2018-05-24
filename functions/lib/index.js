@@ -19,7 +19,6 @@ const wepay_settings = {
     'access_token': 'STAGE_d6abe7dd7ef8f2e32efa27462f81a0ec31c22d2d68b5ac1ac41e5770c4cc82bf'
 };
 const wp = new wepay_1.WEPAY(wepay_settings);
-const notification_callback_url = "https://pridepocket-3473b.firebaseapp.com/wepay_notification_callback";
 // https://developer.wepay.com/docs/articles/testing
 wp.use_staging();
 // wp.use_production()
@@ -34,6 +33,8 @@ const promiseCall = (url, data) => {
     return p;
 };
 /*
+const notification_callback_url = "https://pridepocket-3473b.firebaseapp.com/wepay_notification_callback"
+
 interface WithdrawalNotification = {
     "notification_id": string,
     "type": string,
