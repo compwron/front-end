@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core'
 
 import { CampaignService } from '../../../services/campaign.service'
-import { Campaign } from '../../../objects/Campaign'
 import { LoginService } from '../../../services/login.service'
+
+import { Campaign } from '../../../objects/Campaign'
+
 
 @Component({
   selector: 'app-mycampaigns',

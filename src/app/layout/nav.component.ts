@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service'
-import { ChangeDetectorRef } from '@angular/core'
 import { Router } from '@angular/router'
 
 import { first } from 'rxjs/operators'
@@ -14,7 +13,6 @@ import { User } from '../objects/UserInterfaces'
 export class NavComponent implements OnInit {
 	constructor (
 		private login: LoginService,
-		private refresh: ChangeDetectorRef,
 		private router: Router
 	) {}
 
