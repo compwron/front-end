@@ -28,6 +28,8 @@ const wepay_settings = {
 
 const wp = new wepay(wepay_settings)
 
+notification_callback_url = "https://pridepocket-3473b.firebaseapp.com/wepay_notification_callback"
+
 // https://developer.wepay.com/docs/articles/testing
 wp.use_staging()
 // wp.use_production()
@@ -37,6 +39,28 @@ wp.use_staging()
 // 	console.log(code, state)
 // })
 
+interface WithdrawalNotification = {
+	"notification_id": string,
+	"type": string,
+	"app_id": number,
+	"account_id": number,
+	"user_id": number,
+	"user_email": string,
+	"topic": string,
+	"event_time": number,
+	"sequence_number": number,
+	"payload": Payload
+}
+
+interface Payload = {
+	"account_id": number,
+	"withdrawal_date": number,
+	"deny_reason_code": string,
+	"withdrawal_create_date": number,
+	"withdrawal_id": number,
+	"deny_reason_message": string
+}
+
 const promiseCall = (url, data) => {
 	// console.log(wp.get_access_token())
 	// console.log(wepay_settings.access_token)
@@ -45,6 +69,55 @@ const promiseCall = (url, data) => {
 	return p
 }
 
+
+// https://pridepocket-3473b.firebaseapp.com/wepay_notifications_subscribe?topic=TOPIC_NAME
+app.get('/wepay_notifications_subscribe', (req, res) => {
+	// /notification_preference/create
+	return promiseCall('/notification_preference/create', { type: "ipn", topic: req.params.topic, callback_url: notification_callback_url }).then(r => res.json({ status: "success", message: JSON.stringify(r) }))
+})
+
+// https://pridepocket-3473b.firebaseapp.com/wepay_notifications_callback body: { notification } ???
+//	might also just be the notification ID that you have to use to fetch the notification
+app.post('/wepay_notification_callback', (req, res) => {
+	console.log(req.body)
+	
+	const { notification } = req.body
+	
+	console.log("notification: ", notification)
+	
+	const doc
+	
+	return db.collection("users").where("wepay_merchant.account_id", "==", notification.account_id).get()
+		.then(docSnapshot => {
+			
+			console.log("docSnapshot: ", docSnapshot.empty)
+			
+			doc = docSnapshot.size == 1 ? docSnapshot.docs[0] : res.json({ status: "error", message: "query for this account_id returned more than one response???" })
+			
+			console.log("doc", doc.id)
+			
+			return doc.set({ notifications: { [notification.notification_id]: notification } }, { merge: true })
+				.then(() => res.end("success"))
+				.catch(e) => {
+					console.log(`couldn't add notification to doc ${doc.id}: `, notification)
+					res.end("failure")
+				}
+		}
+	
+	// docSnapshot.forEach(d => doc = d)
+	
+	
+	// switch (notification.topic) {
+	// 	case "payment_bank":
+	// 	case "adjustment":
+	// 	case "payment":
+	// 	case "withdrawal":
+	// 	case "account":
+	// 	case "settlement_path":
+	// 	case "dispute":
+	// 	default:
+	// }
+})
 
 app.post('/checkout_status', (req, res) => {
 	const { checkout_id } = req.body

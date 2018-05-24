@@ -13,18 +13,18 @@ import { User } from '../../../objects/UserInterfaces'
 })
 
 // "/account" endpoint has this on it:
-const Balance = {
-	"currency": string,
-	"balance": number,
-	"incoming_pending_amount": number,
-	"outgoing_pending_amount": number,
-	"reserved_amount": number,
-	"disputed_amount": number,
-	"withdrawal_period": string,
-	"withdrawal_type": string,,
-	"withdrawal_next_time": number,
-	"withdrawal_bank_name": string
-}
+// interface Balance = {
+// 	currency: string
+// 	balance: number
+// 	incoming_pending_amount: number
+// 	outgoing_pending_amount: number
+// 	reserved_amount: number
+// 	disputed_amount: number
+// 	withdrawal_period: string
+// 	withdrawal_type: string,
+// 	withdrawal_next_time: number
+// 	withdrawal_bank_name: string
+// }
 
 export class PaymentDeetsComponent implements OnInit {
 	funds: number

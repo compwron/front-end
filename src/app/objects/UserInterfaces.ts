@@ -15,6 +15,7 @@ export interface User {
 	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
 	donations?: Array<Donation>
+	received?: Array<Donation>
 	new?: boolean
 }
 
