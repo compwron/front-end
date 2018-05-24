@@ -34,6 +34,7 @@ export class PaymentWidgetComponent implements OnInit {
 	) { }
 	
 	ngOnInit() {
+		if (!this.campaign.current) this.campaign.current = 0
 		this.percent = Math.floor(this.campaign.current/this.campaign.goal*100)
 		this.percent = this.percent > 100 ? 100 : this.percent
 		
