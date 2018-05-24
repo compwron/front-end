@@ -100,7 +100,8 @@ export class MycampaddComponent implements OnInit {
 	}
 
 	hydrateForm () {
-		const { active, affiliate_links, banner, begin, description, eMessage, end, fEmail, goal, id, name, noDate, owner, privacy, shared, thankYou, type } = this.campaign
+		const { active, affiliate_links, banner, begin, description, eMessage, fEmail, goal, id, name, noDate, owner, privacy, shared, thankYou, type } = this.campaign
+		let { end } = this.campaign
 		
 		if (affiliate_links.length < 3) {
 			const pushme = 3 - affiliate_links.length
@@ -108,6 +109,7 @@ export class MycampaddComponent implements OnInit {
 		}
 		
 		end = end.toISOString()
+		end = end.slice(0, end.indexOf("T"))
 		
 		console.log(end)
 		
