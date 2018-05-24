@@ -21,6 +21,13 @@
                       <p class="txt-small font-12 text-center">Don’t have an account? <a routerLink="/signup" class="string-link">Join Now</a></p>
                     </div>
                   </div>
+                  <div *ngIf="error" style="background-color: red; color: white; font-weight: bold; padding: 1em; margin: 0.5em; border-radius: 0.5em">
+                  	Error logging in:
+                  	<div style="padding: 0.3em">
+                      <div>Code: {{ error.code }}</div>
+                      <div>{{ error.message }}</div>
+                  	</div>
+              	  </div>
                   <form #currentUser="ngForm" (ngSubmit)="emailLogin(currentUser)">
                     <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12">

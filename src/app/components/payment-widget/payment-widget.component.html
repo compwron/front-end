@@ -3,7 +3,7 @@
         <form #paymentMod="ngForm" (ngSubmit)="onDonate(paymentMod)">
          <div class="row py-4 ">
             <div class="col-lg-12" *ngIf="campaign">
-                <h2 class="lagoon font-weight-bold">{{ campaign.current | currency }}
+                <h2 class="lagoon font-weight-bold">{{ campaign.current || 0 | currency }}
                     <small class="text-muted gunmetal font-20">of {{ campaign.goal | currency }} goal raised</small>
                 </h2>
             </div>

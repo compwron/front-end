@@ -115,6 +115,7 @@ export class LoginService {
 					.then(response => {
 						if (response.exists) {
 							this.pridepocketUser = <User>response.data()
+							this.router.navigateByUrl("/")
 							console.log("got an existing user from the database")
 						}
 						else {
@@ -124,6 +125,7 @@ export class LoginService {
 								.then(() => {
 									this.pridepocketUser = { uid, displayName, phoneNumber, email }
 									console.log("created a new user", this.pridepocketUser)
+									this.router.navigateByUrl("/")
 								})
 								.catch(e => console.log("error while creating a new user in the database", e))
 						}
@@ -133,7 +135,7 @@ export class LoginService {
 				// kill the spinner
 				
 				// route to the page the user started at?
-				this.router.navigateByUrl(this.previous)
+				// this.router.navigateByUrl(this.previous)
 			},
 			e => console.log("error handling facebook or google signin")
 		)
@@ -149,6 +151,7 @@ export class LoginService {
 						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
 						if (response.exists) {
 							this.pridepocketUser = <User>response.data()
+							this.router.navigateByUrl("/")
 							// console.log("got an existing user from the database")
 						}
 						
@@ -166,6 +169,7 @@ export class LoginService {
 									this.pridepocketUser = { uid, displayName, phoneNumber, email }
 									// this.user = { uid, displayName, phoneNumber, email }
 									console.log("created a new user", this.pridepocketUser)
+									this.router.navigateByUrl("/")
 								})
 								.catch(e => console.log("error while creating a new user in the database", e))
 						}
@@ -175,7 +179,7 @@ export class LoginService {
 				// kill the spinner
 				
 				// route to the page the user started at?
-				this.router.navigateByUrl(this.previous)
+				// this.router.navigateByUrl(this.previous)
 			}
 		})
 	}
@@ -203,20 +207,19 @@ export class LoginService {
 	
 	emailSignup (email, password, displayName): Observable<any> {
 		this.displayName = displayName
-		const a = fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
-		
 		return new Observable(observer => {
-			a.subscribe(
-				() => {
-					this.handleEmailSignin()
-					observer.next("creating user")
-				},
-				e => observer.error(e),
-				() => {
-					console.log("user created")
-					observer.complete()
-				}
-			)
+			fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
+				.subscribe(
+					() => {
+						this.handleEmailSignin()
+						observer.next("creating user")
+					},
+					e => observer.error(e),
+					() => {
+						console.log("user created")
+						observer.complete()
+					}
+				)
 		})
 	}
 	

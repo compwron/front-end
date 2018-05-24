@@ -5,6 +5,8 @@ import { Router } from '@angular/router'
 
 import { first } from 'rxjs/operators'
 
+import { User } from '../objects/UserInterfaces'
+
 @Component({
   selector: 'nav-pp',
   templateUrl: './nav.component.html'
@@ -17,24 +19,19 @@ export class NavComponent implements OnInit {
 	) {}
 
 	email: string = null
+	user: User
 	
 	ngOnInit () {
-		if (this.login.loading) { this.waitForLogin() }
-		else { this.email = this.login.pridepocketUser.email }
-	}
-	
-	waitForLogin () { this.login.statusUpdater().pipe(first()).subscribe(this.setEmail()) }
-	
-	setEmail () {
-		return ({
-			next: user => {
-				if (user) { this.email = user.email }
-				else { this.router.navigateByUrl('/login') }
+		if (this.login.loading) {
+			const unsubscribe = setInterval(() => {
+				if(!this.login.loading) {
+					if (this.login.pridepocketUser) this.email = this.login.pridepocketUser.email
+					else this.router.navigateByUrl('/login')
+				}
 				
-				this.refresh.detectChanges()
-			},
-			error: e => console.log("error getting user from login service", e)
-		})
+			}, 1000)
+		}
+		else { this.email = this.login.pridepocketUser.email }
 	}
 	
 	loggedIn (): boolean { return this.login.loggedIn() }

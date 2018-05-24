@@ -130,22 +130,27 @@ export class MycampaddComponent implements OnInit {
 	}
 	
 	createCampaign () {
-		const campaign = this.prepareSaveCampaign()
+		console.log("in createCampaign")
+		
+		this.campaign = this.prepareSaveCampaign()
+		
+		console.log(this.campaign)
 		
 		let f
 		
 		if (this.campaign.id) {
 			const { id } = this.campaign
-			Object.assign(campaign, { id })
-			f = this.create.edit
+			Object.assign(this.campaign, { id })
+			f = this.create.edit()
 		}
 		else {
-			f = this.create.create
+			f = this.create.create()
 		}
 		
-		f(campaign)
+		f(this.campaign)
 			.subscribe(
 				() => {
+					console.log("saved a campaign to the database")
 					this.createdForm.reset()
 					// should route to somewhere else
 				},
@@ -160,6 +165,7 @@ export class MycampaddComponent implements OnInit {
 	}
 	
 	prepareSaveCampaign (): Campaign {
+		console.log(this.createdForm.value)
 		return this.createdForm.value as Campaign
 	}
 	
@@ -169,7 +175,11 @@ export class MycampaddComponent implements OnInit {
 	}
 
 	activate (b: boolean): void {
-		this.createdForm.setValue({ active: b })
+		const active = this.fb.control(b)
+		this.createdForm.setControl("active", active)
+		
+		// this.createdForm.setValue({ active: b })
+		this.createCampaign()
 		// should call this.createCampaign() from here and get rid of the submit on the form
 	}
 

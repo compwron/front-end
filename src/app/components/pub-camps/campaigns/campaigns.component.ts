@@ -17,11 +17,10 @@ export class CampaignsComponent implements OnInit {
 	ngOnInit() { this.getCampaigns() }
 
 	getCampaigns (): void {
-		this.campaignService.getCampaigns()
+		this.campaignService.subscribeCampaigns({ field: "active", operator: "==", value: true })
 			.subscribe(
 				campaigns => {this.campaigns = campaigns },
-				e => console.log("error getting campaigns from DB: ", e),
-				() => console.log("finished getting campaigns from DB")
+				e => console.log("error getting campaigns from DB: ", e)
 			)
 	}
 

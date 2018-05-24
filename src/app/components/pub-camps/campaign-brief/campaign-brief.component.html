@@ -1,5 +1,5 @@
 <div routerLink="/campaigns/{{ campaign.id }}" class="card">
-	<img class="card-img-top" [src]="campaign.banner.url" alt="campaign banner image" style="width:100%; height:200px" />
+	<img class="card-img-top" [src]="campaign.banner.url || 'http://via.placeholder.com/200x150'" alt="campaign banner image" style="width:100%; height:200px" />
 	<div class="card-block camp-card">
 		<div class="row pb-2">
 			<div class="col-lg-12">
@@ -13,7 +13,7 @@
 		<p class="card-text"><small class="text-muted">Campaign runs from {{ campaign.begin | date }} to {{ campaign.end | date }}</small></p>
 		<div class="row">
 			<div class="col-md-12">
-				<h2 class="lagoon font-weight-bold">${{ campaign.current }}
+				<h2 class="lagoon font-weight-bold">${{ campaign.current || 0 }}
 					<small class="text-muted gunmetal font-20" > of ${{ campaign.goal }} goal raised</small>
 				</h2>
 			</div>
@@ -24,17 +24,17 @@
 			</div>
 		</div>
 		<p class="card-text"><small class="text-muted">Last updated {{ campaign._updated | ago }}</small></p>
-		<div class="text-muted">
-			<div>Privacy: {{ campaign.privacy }}</div>
-			<div>
-				<div>Affiliate link:</div>
-				<div *ngFor="let key of objectkeys(campaign.affiliate_links)" >{{ key }}: {{ campaign.affiliate_links[key] }}</div>
-			</div>
-			<div>
-				<div>campaign has been shared to (platform, views):</div>
-				<div *ngFor="let key of objectkeys(campaign.shared)" >{{ key }}: {{ campaign.shared[key] | json }}</div>
-			</div>
-			<div>is this campaign is published? {{ campaign.active }} </div>
-		</div>
+		<!--<div class="text-muted">-->
+		<!--	<div>Privacy: {{ campaign.privacy }}</div>-->
+		<!--	<div>-->
+		<!--		<div>Affiliate link:</div>-->
+		<!--		<div *ngFor="let key of objectkeys(campaign.affiliate_links)" >{{ key }}: {{ campaign.affiliate_links[key] }}</div>-->
+		<!--	</div>-->
+		<!--	<div>-->
+		<!--		<div>campaign has been shared to (platform, views):</div>-->
+		<!--		<div *ngFor="let key of objectkeys(campaign.shared)" >{{ key }}: {{ campaign.shared[key] | json }}</div>-->
+		<!--	</div>-->
+		<!--	<div>is this campaign is published? {{ campaign.active }} </div>-->
+		<!--</div>-->
 	</div>
 </div>

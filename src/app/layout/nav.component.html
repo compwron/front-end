@@ -59,14 +59,14 @@
 						data-toggle="dropdown"
 						aria-haspopup="true"
 						aria-expanded="false"
-						*ngIf="loggedIn()"
+						*ngIf="email"
 					>
 						{{ email }}
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 						<a class="dropdown-item" routerLink="/mycampaigns">My Campaigns</a>
 						<a class="dropdown-item" routerLink="/account">Account Settings</a>
-						<!--<a class="dropdown-item" href="#">Payment Settings</a>-->
+						<!-- class="dropdown-item" href="#">Payment Settings</a>-->
 						<!--<a class="dropdown-item" href="#">Notifiction</a>-->
 						<!--<a class="dropdown-item" href="#">Donation History</a>-->
 						<a class="dropdown-item" href="#" routerLink="/login" (click)="signOut()">Log Out</a>
