@@ -3,82 +3,142 @@ import { Router } from '@angular/router'
 
 import { fromPromise } from 'rxjs/observable/fromPromise'
 import { Observable } from 'rxjs/Observable'
-import { map } from 'rxjs/operators'
-import { pipe } from 'rxjs/util/pipe'
+import { tap, map } from 'rxjs/operators'
 
 
-import { User } from '../objects/User'
+// import { pipe } from 'rxjs/util/pipe'
+
+
+import { User } from '../objects/UserInterfaces' // , UserUpdateObject
+// import { User } from '../objects/User'
 
 import { firebase, db } from '../utilities/utilities'
 
+
+
+
+const extractUid = (response: Observable<any>): Observable<any> => {
+	return new Observable(observer => {
+		response.subscribe(
+			user => {
+				observer.next(user)
+				observer.complete()
+			},
+			e => {
+				console.log("error extracting uid from firebase auth: ", e)
+				observer.error(e)
+			}
+		)
+	})
+}
+
+const getDBUser = (response: Observable<any>): Observable<any> => {
+	return new Observable(observer => {
+		response.subscribe(
+			user => {
+				if (user) fromPromise(db.collection("users").doc(user.uid).get())
+					.subscribe(
+						u => observer.next(u.data()),
+						e => observer.error(e),
+						() => observer.complete()
+					)
+				else {
+					observer.next()
+					observer.complete()
+				}
+			},
+			e => observer.error(e)
+		)
+	})
+}
+
+
+
 @Injectable()
 export class LoginService {
-	constructor(
-		private router: Router
-	) { }
 
-	pridepocketUser //: User
-
-	authKey: string
+	pridepocketUser: User
+	loading: boolean
 	displayName: string
 	previous: string = "/"
+	status
 	
-	extractUser = map((response: firebase.auth.UserCredential) => response.user)
-	
-	initialize (f): void {
-		const g = pipe(
-			(user: User) => {
-				return fromPromise(db.collection("users").doc(user.uid).get()
-					.then(pridepocketUser => {
-						this.pridepocketUser = pridepocketUser.data()
-						return pridepocketUser.data()
-					}))
-			},
-			o => o.subscribe(f)
-		)
+	constructor(
+		private router: Router
+	) {
+		this.loading = true
 		
-		firebase.auth().onAuthStateChanged((user: firebase.User) => {
-			let u: User = user
-			if (!!user.uid) { g(u) }
+		this.statusUpdater()
+			.subscribe(
+				v => { this.status = v },
+				e => console.log("error in login constructor: ", e),
+				() => {
+					console.log("status updater completed; setting loading to false")
+					this.loading = false
+				}
+			)
+	}
+
+	extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
+
+	initialize () { return new Observable(observer => firebase.auth().onAuthStateChanged(observer)) }
+
+	statusUpdater () {
+		return new Observable(observer => {
+			this.initialize().pipe(
+				tap((o) => observer.next(o)),
+				extractUid,
+				tap((o) => observer.next(o)),
+				getDBUser,
+				tap((o) => this.pridepocketUser = o)
+			)
+				.subscribe(
+					u => observer.next(u),
+					e => observer.error(e),
+					() => observer.complete()
+				)
 		})
 	}
-	
-	getUser () { return firebase.auth().currentUser }
-	getCurrentUserId (): string { return firebase.auth().currentUser.uid }
-	loggedIn (): boolean { return !!firebase.auth().currentUser }
 
-	setPrevious (previous): void { this.previous = previous }
+	loggedIn (): boolean { return !!this.pridepocketUser }
 
-	handleCallback (observable: Observable<any>): void {
+	// setPrevious (previous): void { this.previous = previous }
+
+	handleCallback (observable: Observable<firebase.User>): void {
 		// inject a spinner service on the constructor and trigger it here
 		
-		observable.subscribe(user => {
-			// this.user = user
-			// get the user's profile from the firestore and save it in pridepocketUser
-			db.collection("users").doc(user.uid).get()
-				.then(response => {
-					if (response.exists) {
-						this.pridepocketUser = response.data()
-						console.log("got an existing user from the database")
-					}
-					else {
-						let { uid, displayName, phoneNumber, email } = user
-						if (this.displayName) displayName = this.displayName
-						db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
-							.then(() => {
-								this.pridepocketUser = { uid, displayName, phoneNumber, email }
-								console.log("created a new user", this.pridepocketUser)
-							})
-							.catch(e => console.log("error while creating a new user in the database", e))
-					}
-				})
-				.catch(e => console.log("error while fetching a user from the database", e))
-
-			// kill the spinner
-			
-			// route to the page the user started at?
-			this.router.navigateByUrl(this.previous)
-		})
+		observable.subscribe(
+			user => {
+				// const user = userCredential.user
+				// get the user's profile from firestore and save it in pridepocketUser
+				db.collection("users").doc(user.uid).get()
+					.then(response => {
+						if (response.exists) {
+							this.pridepocketUser = <User>response.data()
+							this.router.navigateByUrl("/")
+							console.log("got an existing user from the database")
+						}
+						else {
+							let { uid, displayName, phoneNumber, email } = user
+							if (this.displayName) displayName = this.displayName
+							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email, new: true })
+								.then(() => {
+									this.pridepocketUser = { uid, displayName, phoneNumber, email }
+									console.log("created a new user", this.pridepocketUser)
+									this.router.navigateByUrl("/")
+								})
+								.catch(e => console.log("error while creating a new user in the database", e))
+						}
+					})
+					.catch(e => console.log("error while fetching a user from the database", e))
+	
+				// kill the spinner
+				
+				// route to the page the user started at?
+				// this.router.navigateByUrl(this.previous)
+			},
+			e => console.log("error handling facebook or google signin")
+		)
 	}
 
 	// handleEmailSignin (onAuthStateChanged) {
@@ -90,7 +150,8 @@ export class LoginService {
 					.then(response => {
 						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
 						if (response.exists) {
-							this.pridepocketUser = response.data()
+							this.pridepocketUser = <User>response.data()
+							this.router.navigateByUrl("/")
 							// console.log("got an existing user from the database")
 						}
 						
@@ -101,13 +162,14 @@ export class LoginService {
 							// set the displayName variable if it exists; this is used for displaying the user's name in the navigation bar
 							//  this is redundant and probably going away
 							if (this.displayName) displayName = this.displayName
-							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email })
+							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email, new: true })
 								.then(() => {
 									
 									// if the database set returns, then populate this.pridepocketUser with the firebase auth info
 									this.pridepocketUser = { uid, displayName, phoneNumber, email }
 									// this.user = { uid, displayName, phoneNumber, email }
 									console.log("created a new user", this.pridepocketUser)
+									this.router.navigateByUrl("/")
 								})
 								.catch(e => console.log("error while creating a new user in the database", e))
 						}
@@ -117,14 +179,14 @@ export class LoginService {
 				// kill the spinner
 				
 				// route to the page the user started at?
-				this.router.navigateByUrl(this.previous)
+				// this.router.navigateByUrl(this.previous)
 			}
 		})
 	}
 
 	facebook (): void {
 		const provider = new firebase.auth.FacebookAuthProvider()
-		const o = fromPromise(firebase.auth().signInWithPopup(provider))
+		const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth().signInWithPopup(provider))
 		
 		this.handleCallback(this.extractUser(o))
 
@@ -132,7 +194,7 @@ export class LoginService {
 	
 	google (): void {
 		const provider = new firebase.auth.GoogleAuthProvider()
-		const o = fromPromise(firebase.auth().signInWithPopup(provider))
+		const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth().signInWithPopup(provider))
 		
 		this.handleCallback(this.extractUser(o))
 	}
@@ -143,10 +205,22 @@ export class LoginService {
 		this.handleEmailSignin()
 	}
 	
-	emailSignup (email, password, displayName): void {
+	emailSignup (email, password, displayName): Observable<any> {
 		this.displayName = displayName
-		firebase.auth().createUserWithEmailAndPassword(email, password)
-		this.handleEmailSignin()
+		return new Observable(observer => {
+			fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
+				.subscribe(
+					() => {
+						this.handleEmailSignin()
+						observer.next("creating user")
+					},
+					e => observer.error(e),
+					() => {
+						console.log("user created")
+						observer.complete()
+					}
+				)
+		})
 	}
 	
 	signOut (): void {

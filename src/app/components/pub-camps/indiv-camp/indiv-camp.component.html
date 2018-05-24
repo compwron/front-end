@@ -23,7 +23,7 @@
 
             <div class="row my-3">
               <div class="col-md-12">
-                <img class="img img-fluid" [src]="campaign.banner" />
+                <img class="img img-fluid" [src]="campaign.banner.url" />
               </div>
             </div>
 
@@ -68,7 +68,7 @@
       <!--Col-End-->
 
       <!--Col-Start-->
-      <div class="col-lg-4 pay-widg">
+      <div *ngIf="campaign" class="col-lg-4 pay-widg">
         <app-payment-widget [campaign]="campaign" ></app-payment-widget>
       </div>
       <!--Col-End-->

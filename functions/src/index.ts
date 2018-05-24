@@ -38,8 +38,8 @@ wp.use_staging()
 // })
 
 const promiseCall = (url, data) => {
-	console.log(wp.get_access_token())
-	console.log(wepay_settings.access_token)
+	// console.log(wp.get_access_token())
+	// console.log(wepay_settings.access_token)
 	
 	const p = new Promise((resolve, reject) => wp.call(url, data, resolve))
 	return p
@@ -61,13 +61,6 @@ app.post('/pay', (req, res) => {
 	const app_access_token = wp.get_access_token()
 	wp.set_access_token(access_token)
 	
-	// // THIS IS FOR TESTING ONLY
-	// if (!account_id) {
-	// 	account_id = "1397632302"
-	// 	amount = "50"
-	// 	fee = "5"
-	// }
-	
 	console.log(account_id, amount, ppamount)
 	
 	const data = {
@@ -87,14 +80,16 @@ app.post('/pay', (req, res) => {
 		},
 		"auto_release": true,
         "hosted_checkout": {
-            "redirect_uri": "http://localhost:4200/payment_successful"
+        	"redirect_uri": "https://pridepocket-3473b.firebaseapp.com/payment_successful"
+            // "redirect_uri": "http://localhost:4200/payment_successful"
         }
 	}
 
 	return promiseCall('/checkout/create', data)
 		.then(r => {
+			console.log("wepay create payment call returned: ", r)
 			wp.set_access_token(app_access_token)
-			res.send(r)
+			res.json(r)
 		})
 
 	// when a user hits this link, it should create a transaction on their account representation (?)
@@ -107,7 +102,7 @@ app.post('/pay', (req, res) => {
 app.post('/get_token', (req, res) => {
 	const { code, redirect_uri } = req.body
 	
-	console.log("in access_token function", code, redirect_uri)
+	// console.log("in access_token function", code, redirect_uri)
 	
 	const data = {
 		client_id: wepay_settings.client_id,

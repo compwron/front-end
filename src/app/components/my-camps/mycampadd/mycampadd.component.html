@@ -13,458 +13,499 @@
 
 									<div class="row">
 										<div class="col-md-12">
-											<h2>Add a Campaign</h2>
+											<h2>{{ action }} a Campaign</h2>
 										</div>
 									</div>
 
 
 
 									<!--	NAME		-->
-									<form [formGroup]="createdForm" (ngSubmit)="createCampaign()">
-										<div class="row">
-											<div class="col-md-12">
-												<div class="form-group" >
-													<label class="center-block" style="width:100%" ><b>Campaign Name</b>
-														<input
-															id="name"
-															class="form-control"
-															formControlName=name
-														>
-														<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
-															<div class="form-control-feedback" *ngIf="name.errors.required">
-																Your campaign must have a name
+									<!--(click)="activate(true)"-->
+									<form [formGroup]="createdForm">
+										<div class="form-group">
+											<div class="row">
+												<div class="col-md-12">
+													<div class="form-group" >
+														<label class="center-block" style="width:100%" ><b>Campaign Name</b>
+															<input
+																id="name"
+																class="form-control"
+																formControlName="name"
+															>
+															<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="name.errors.required">
+																	Your campaign must have a name
+																</div>
+																<div class="form-control-feedback" *ngIf="name.errors.minlength">
+																	Your campaign name must be longer than 12 characetrs
+																</div>
+																<div class="form-control-feedback" *ngIf="name.errors.maxlength">
+																	Your campaign name must be shorter than 36 characetrs
+																</div>
+																<div class="form-control-feedback" *ngIf="name.errors.pattern">
+																	Your campaign name can only have the letters A-Z and the numbers 0-9 in it; no special characters
+																</div>
 															</div>
-															<div class="form-control-feedback" *ngIf="name.errors.minlength">
-																Your campaign name must be longer than 12 characetrs
+														</label>
+													</div>
+												</div>
+											</div>
+	
+	
+	
+											<!--	TYPE		-->
+											<div class="row mt-2">
+												<div class="col-md-12">
+													<div class="form-group" >
+														<label class="center-block" style="width:100%" ><b>Campaign Type</b>
+															<select
+																class="form-control"
+																style="height:inherit"
+																id="type"
+																formControlName="type"
+															>
+																<option value="medical">Medical</option>
+																<option value="legal">Legal</option>
+																<option value="family planning">Family Planning</option>
+																<option value="weddings">Weddings</option>
+																<option value="emergency">Emergency</option>
+																<option value="celebrations">Celebrations</option>
+																<option value="events">Events</option>
+															</select>
+															<div *ngIf="type.invalid && (type.dirty || type.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="type.errors.required" >
+																	You must select a campaign type
+																</div>
 															</div>
-															<div class="form-control-feedback" *ngIf="name.errors.maxlength">
-																Your campaign name must be shorter than 36 characetrs
+														</label>
+													</div>
+												</div>
+											</div>
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	GOAL		-->
+											<div class="row">
+												<div class="col-md-12">
+													<label><b>Campaign Goal</b>
+														<div class="input-group mb-3">
+															<div class="input-group-addon">
+																<span class="input-group-text" id="basic-addon2" >$</span>
 															</div>
-															<div class="form-control-feedback" *ngIf="name.errors.pattern">
-																Your campaign name can only have the letters A-Z and the numbers 0-9 in it; no special characters
+															<input
+																type="number"
+																class="form-control"
+																placeholder="0"
+																formControlName="goal"
+																id="goal"
+															>
+															<div class="input-group-addon">
+																<span class="input-group-text" id="basic-addon2">
+																	USD
+																</span>
+															</div>
+														</div>
+														<div *ngIf="goal.invalid && (goal.dirty || goal.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="goal.errors.required">
+																You must set a goal of at least a dollar!
 															</div>
 														</div>
 													</label>
 												</div>
 											</div>
-										</div>
-
-
-
-										<!--	TYPE		-->
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<div class="form-group" >
-													<label class="center-block" style="width:100%" ><b>Campaign Type</b>
-														<select
-															class="form-control"
-															style="height:inherit"
-															id="type"
-															formControlName="type"
-														>
-															<option value="Medical">Medical</option>
-															<option value="Legal">Legal</option>
-															<option value="Family">Family</option>
-															<option value="Weddings">Weddings</option>
-															<option value="Emergency">Emergency</option>
-															<option value="Celebrations">Celebrations</option>
-															<option value="Events">Events</option>
-														</select>
-														<div *ngIf="type.invalid && (type.dirty || type.touched)" class="has-danger" >
-															<div class="form-control-feedback" *ngIf="type.errors.required" >
-																You must select a campaign type
-															</div>
-														</div>
-													</label>
+											<div class="row">
+												<div class="col-md-12">
+													<p class="text-muted">
+														Important note: gifters who provide funds will be responsible for a 2.9% WePay Fee + $0.30 for the transaction!!
+													</p>
 												</div>
 											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	GOAL		-->
-										<div class="row">
-											<div class="col-md-12">
-												<label><b>Campaign Goal</b>
-													<div class="input-group mb-3">
-														<div class="input-group-addon">
-															<span class="input-group-text" id="basic-addon2" >$</span>
-														</div>
-														<input
-															type="number"
-															class="form-control"
-															placeholder="0"
-															formControlName="goal"
-															id="goal"
-														>
-														<div class="input-group-addon">
-															<span class="input-group-text" id="basic-addon2">
-																USD
-															</span>
-														</div>
-													</div>
-													<div *ngIf="goal.invalid && (goal.dirty || goal.touched)" class="has-danger" >
-														<div class="form-control-feedback" *ngIf="goal.errors.required">
-															You must set a goal of at least a dollar!
-														</div>
-													</div>
-												</label>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-12">
-												<p class="text-muted">
-													Important note: gifters who provide funds will be responsible for a 2.9% WePay Fee + $0.30 for the transaction!!
-												</p>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	END		-->
-										<div class="row">
-											<div class="col-md-12">
-												<label style="width:100%" ><b>Campaign End Date</b>
-													<div class="input-group mb-3">
-														<div class="input-group-text">
-															<input
-																type="checkbox"
-																aria-label="Checkbox for following text input"
-																formControlName="noDate"
-																name="noDate"
-															>
-														</div>
-														<p class="text-muted pl-3">
-															Don't End Campaign
-														</p>
-													</div>
-													<div class="input-group">
-														<input
-															class="form-control"
-															style="flex-direction:row; align-items:center"
-															id="end"
-															type="date"
-															formControlName="end"
-														>
-														<div class="input-group-addon">
-															<i class="icofont icofont-ui-calendar"></i>
-														</div>
-													</div>
-													<div *ngIf="end.invalid && (end.dirty || end.touched)" class="has-danger" >
-														<div class="form-control-feedback" *ngIf="end.errors.required">
-															If you don't wish for your campaign to run forever, you must pick a date to end it on
-														</div>
-													</div>
-												</label>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	BANNER		-->
-										<div class="row">
-											<div class="col-md-12">
-												<label><b>Campaign Banner</b>
-													<img class="ban-img" src="http://via.placeholder.com/600x150" />
-													<div class="row mt-2">
-														<div class="col-sm-9 switch-txt">
-															<p class="text-muted">
-																Recommended size is 600px by 220px with a resolution of 72DPI
-															</p>
-														</div>
-														<div class="col-md-3 col-switch">
-															<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
-																Choose File
-															</button>
-														</div>
-													</div>
-												</label>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	DESCRIPTION		-->
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label style="width:100%" ><b>Description</b>
-													<div class="form-group">
-														<textarea
-															class="form-control"
-															rows="3"
-															placeholder="Tell your friends and family how they can help"
-															id="description"
-															formControlName="description"
-														></textarea>
-													</div>
-													<div *ngIf="description.invalid && (description.dirty || description.touched)" class="has-danger" >
-														<div class="form-control-feedback" *ngIf="description.errors.minlength">
-															Must be at least 36 characters
-														</div>
-														<div class="form-control-feedback" *ngIf="description.errors.maxlength">
-															Cannot be more than 1024 characters
-														</div>
-														<div class="form-control-feedback" *ngIf="description.errors.pattern">
-															The description may only contain letters A-Z and numbers 0-9
-														</div>
-													</div>
-												</label>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	AFFILIATE_LINKS		-->
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label><b>Campaign Wishlist (optional)</b>
-													<div class="row mt-2">
-														<div class="col-md-12">
-															<p class="text-muted">
-																Sometimes people will prefer to buy a gift rather than gift money.
-																Let them know what else they can gift to you. Pro tip: paste a link to the item on Amazon!
-															</p>
-														</div>
-													</div>
-													<div formArrayName="affiliate_links" class="row mt-2" >
-														<div *ngFor="let affiliate_link of affiliate_links.controls; let i=index" class="col-md-12" >
-															<input
-																type="url"
-																class="form-control"
-																placeholder="Item {{ i + 1 }}"
-																[formControlName]="i"
-																id="affiliate_link"
-															>
-															<div *ngIf="affiliate_link.invalid && (affiliate_link.dirty || affiliate_link.touched)" class="has-danger" >
-																<div class="form-control-feedback" *ngIf="affiliate_link.errors.pattern">
-																	 This URL is improperly formatted
-																 </div>
-															</div>
-														</div>
-													</div>
-													<button (click)="addAffiliateLink()" type="button">I have more links</button>
-												</label>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	THANK YOU MESSAGE		-->
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label><b>Thank You Message</b>
-													<div class="row mt-2">
-														<div class="col-md-12">
-															<p class="text-muted">
-																Once someone has contributed to your campaign they will receive this thank you message.
-															<p>
-														</div>
-													</div>
-													<div class="row mt-2" >
-														<div class="col-md-12">
-															<textarea
-																class="form-control"
-																rows="3"
-																placeholder="Thank everyone for their help."
-																formControlName="thankYou"
-																id="thankYou"
-															></textarea>
-														</div>
-														<div *ngIf="thankYou.invalid && (thankYou.dirty || thankYou.touched)" class="has-danger" >
-															<div class="form-control-feedback" *ngIf="thankYou.errors.minlength">
-																Your thank you message must be at least 5 characters long
-															</div>
-															<div class="form-control-feedback" *ngIf="thankYou.errors.maxlength">
-																Your thank you message can be no longer than 1024 characters
-															</div>
-															<div class="form-control-feedback" *ngIf="thankYou.errors.pattern">
-																You may only use the letters A-Z and numbers 0-9 in your thank you message
-															</div>
-														</div>
-													</div>
-												</label>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	INVITE FAMILY AND FRIENDS TO CONTRIBUTE		-->
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<div class="border bg-light text-dark">
-													<label style="width:100%" ><b>Invite Friends & Family to Contribute</b>
-														<div class="form-group" >
-															<input
-																type="email"
-																class="form-control"
-																placeholder="Email"
-																id="fEmail"
-																formControlName="fEmail"
-															>
-														</div>
-														<div *ngIf="fEmail.invalid && (fEmail.dirty || fEmail.touched)" class="has-danger" >
-															<div class="form-control-feedback" *ngIf="fEmail.errors.pattern">
-																This is not a valid email address
-															</div>
-														</div>
-
-
-
-														<div class="form-group" >
-															<textarea
-																class="form-control"
-																id="eMessage"
-																rows="3"
-																placeholder="Let everyone know about your campaign and how they can help!"
-																formControlName="eMessage"
-															></textarea>
-														</div>
-														<div *ngIf="eMessage.invalid && (eMessage.dirty || eMessage.touched)" class="has-danger" >
-															<div class="form-control-feedback" *ngIf="eMessage.errors.pattern">
-																You may only use the letters A-Z and numbers 0-9 in your thank you email
-															</div>
-															<div class="form-control-feedback" *ngIf="eMessage.errors.minlength">
-																Your thank you email must be at least 12 characters long
-															</div>
-															<div class="form-control-feedback" *ngIf="eMessage.errors.maxlength">
-																Your thank you email can be no longer than 1024 characters
-															</div>
-														</div>
-													</label>
-												</div>
-											</div>
-										</div>
-
-
-
-
-										<hr>
-
-
-
-										<!--	SOCIAL SHARING		-->
-										<div class="row mt-2">
-											<div class="col-sm-10 switch-txt">
-												<label><p>Display social sharing icons on campaign page</p>
-													<div class="col-sm-2 col-switch">
-														<div class="pg-switch">
-															<label class="switch">
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	END		-->
+											<div class="row">
+												<div class="col-md-12">
+													<label style="width:100%" ><b>Campaign End Date</b>
+														<div class="input-group mb-3">
+															<div class="input-group-text">
 																<input
 																	type="checkbox"
-																	formControlName="shared"
-																	id="shared"
+																	aria-label="Checkbox for following text input"
+																	formControlName="noDate"
+																	name="noDate"
 																>
-																<span class="slider round"></span>
-															</label>
+															</div>
+															<p class="text-muted pl-3">
+																Don't End Campaign
+															</p>
 														</div>
-													</div>
-												</label>
+														<div class="input-group">
+															<input
+																class="form-control"
+																style="flex-direction:row; align-items:center"
+																id="end"
+																type="date"
+																formControlName="end"
+															>
+															<div class="input-group-addon">
+																<i class="icofont icofont-ui-calendar"></i>
+															</div>
+														</div>
+														<div *ngIf="end.invalid && (end.dirty || end.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="end.errors.required">
+																If you don't wish for your campaign to run forever, you must pick a date to end it on
+															</div>
+														</div>
+													</label>
+												</div>
 											</div>
-										</div>
-
-
-
-										<hr>
-
-
-
-										<!--	PRIVACY		-->
-										<div class="row mt-2">
-											<div class="col-md-12">
-												<label><b>Privacy Message</b>
-													<div class="col-md-12">
-														<p>
-															We understand that privacy is of utmost important to our community.
-															Therefore, we have implemented three options for security ranging from public campaigns to private.
-														</p>
-													</div>
-
-													<div class="col-sm-4 radio-col">
-														<input type="radio" formControlName="privacy" value="public">
-														Totally Public
-													</div>
-
-													<div class="col-sm-4 radio-col">
-														<input type="radio" formControlName="privacy" value="link">
-														Link Required
-													</div>
-
-													<div class="col-sm-4 radio-col">
-														<input type="radio" formControlName="privacy" value="private">
-														Totally Private
-													</div>
-
-												</label>
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	BANNER		-->
+											<div class="row">
+												<div class="col-md-12">
+													<label><b>Campaign Banner</b>
+														<app-storage-uploader-dropzone storeType="banner" (urlReturned)="saveBanner($event)">
+															<img class="ban-img" [src]="src" />
+															<div class="row mt-2">
+																<div class="col-sm-9 switch-txt">
+																	<p class="text-muted">
+																		Recommended size is 600px by 220px with a resolution of 72DPI
+																	</p>
+																</div>
+															</div>
+														</app-storage-uploader-dropzone>
+													</label>
+												</div>
 											</div>
-										</div>
-
-
-
-										<!--	SUBMIT BUTTONS		-->
-										<div class="row mt-4">
-											<div class="col-md-12">
-												<button
-													type="submit"
-													(click)="active(true)"
-													class="btn font-17 btn-default btn-lg btn-block"
-													[disabled]="!createdForm.valid"
-												>
-												  	Launch Campaign
-											  	</button>
+	
+															<!--
+															<div class="col-md-3 col-switch">
+	
+																<button type="button" class="btn btn-sm btn-primary mb-4 float-right">
+																	Choose File
+																</button>
+															</div>
+															-->
+	
+	
+											<hr>
+	
+	
+	
+											<!--	DESCRIPTION		-->
+											<div class="row mt-2">
+												<div class="col-md-12">
+													<label style="width:100%" ><b>Description</b>
+														<div class="form-group">
+															<textarea
+																class="form-control"
+																rows="3"
+																placeholder="Tell your friends and family how they can help"
+																id="description"
+																formControlName="description"
+															></textarea>
+														</div>
+														<div *ngIf="description.invalid && (description.dirty || description.touched)" class="has-danger" >
+															<div class="form-control-feedback" *ngIf="description.errors.minlength">
+																Must be at least 36 characters
+															</div>
+															<div class="form-control-feedback" *ngIf="description.errors.maxlength">
+																Cannot be more than 1024 characters
+															</div>
+															<div class="form-control-feedback" *ngIf="description.errors.pattern">
+																The description may only contain letters A-Z and numbers 0-9
+															</div>
+														</div>
+													</label>
+												</div>
 											</div>
-										</div>
-										<div class="row mt-4">
-											<div class="col-md-12">
-												<button
-													type="submit"
-													(click)="active(false)"
-													class="btn font-17 btn-default btn-lg btn-block"
-												>
-												  	Save for Later
-											  	</button>
-										  	</div>
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	AFFILIATE_LINKS		-->
+											<div class="row mt-2">
+												<div class="col-md-12">
+													<label><b>Campaign Wishlist (optional)</b>
+														<div class="row mt-2">
+															<div class="col-md-12">
+																<p class="text-muted">
+																	Sometimes people will prefer to buy a gift rather than gift money.
+																	Let them know what else they can gift to you. Pro tip: paste a link to the item on Amazon!
+																</p>
+															</div>
+														</div>
+														<div formArrayName="affiliate_links" class="row mt-2" >
+															<div *ngFor="let affiliate_link of affiliate_links.controls; let i=index" class="col-md-12" >
+																<input
+																	type="url"
+																	class="form-control"
+																	placeholder="Item {{ i + 1 }}"
+																	[formControlName]="i"
+																	id="affiliate_link"
+																>
+																<div *ngIf="affiliate_link.invalid && (affiliate_link.dirty || affiliate_link.touched)" class="has-danger" >
+																	<div class="form-control-feedback" *ngIf="affiliate_link.errors.pattern">
+																		 This URL is improperly formatted
+																	 </div>
+																</div>
+															</div>
+														</div>
+														<button (click)="addAffiliateLink()" type="button">I have more links</button>
+													</label>
+												</div>
+											</div>
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	THANK YOU MESSAGE		-->
+											<div class="row mt-2">
+												<div class="col-md-12">
+													<label><b>Thank You Message</b>
+														<div class="row mt-2">
+															<div class="col-md-12">
+																<p class="text-muted">
+																	Once someone has contributed to your campaign they will receive this thank you message.
+																<p>
+															</div>
+														</div>
+														<div class="row mt-2" >
+															<div class="col-md-12">
+																<textarea
+																	class="form-control"
+																	rows="3"
+																	placeholder="Thank everyone for their help."
+																	formControlName="thankYou"
+																	id="thankYou"
+																></textarea>
+															</div>
+															<div *ngIf="thankYou.invalid && (thankYou.dirty || thankYou.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="thankYou.errors.minlength">
+																	Your thank you message must be at least 5 characters long
+																</div>
+																<div class="form-control-feedback" *ngIf="thankYou.errors.maxlength">
+																	Your thank you message can be no longer than 1024 characters
+																</div>
+																<div class="form-control-feedback" *ngIf="thankYou.errors.pattern">
+																	You may only use the letters A-Z and numbers 0-9 in your thank you message
+																</div>
+															</div>
+														</div>
+													</label>
+												</div>
+											</div>
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	INVITE FAMILY AND FRIENDS TO CONTRIBUTE		-->
+											<div class="row mt-2">
+												<div class="col-md-12">
+													<div class="border bg-light text-dark">
+														<label style="width:100%" ><b>Invite Friends & Family to Contribute</b>
+															<div class="form-group" >
+																<input
+																	type="email"
+																	class="form-control"
+																	placeholder="Email"
+																	id="fEmail"
+																	formControlName="fEmail"
+																>
+															</div>
+															<div *ngIf="fEmail.invalid && (fEmail.dirty || fEmail.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="fEmail.errors.pattern">
+																	This is not a valid email address
+																</div>
+															</div>
+	
+	
+	
+															<div class="form-group" >
+																<textarea
+																	class="form-control"
+																	id="eMessage"
+																	rows="3"
+																	placeholder="Let everyone know about your campaign and how they can help!"
+																	formControlName="eMessage"
+																></textarea>
+															</div>
+															<div *ngIf="eMessage.invalid && (eMessage.dirty || eMessage.touched)" class="has-danger" >
+																<div class="form-control-feedback" *ngIf="eMessage.errors.pattern">
+																	You may only use the letters A-Z and numbers 0-9 in your thank you email
+																</div>
+																<div class="form-control-feedback" *ngIf="eMessage.errors.minlength">
+																	Your thank you email must be at least 12 characters long
+																</div>
+																<div class="form-control-feedback" *ngIf="eMessage.errors.maxlength">
+																	Your thank you email can be no longer than 1024 characters
+																</div>
+															</div>
+														</label>
+													</div>
+												</div>
+											</div>
+	
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	SOCIAL SHARING		-->
+											<div class="row mt-2">
+												<div class="col-sm-10 switch-txt">
+													<label><p>Display social sharing icons on campaign page</p>
+														<div class="col-sm-2 col-switch">
+															<div class="pg-switch">
+																<label class="switch">
+																	<input
+																		type="checkbox"
+																		formControlName="shared"
+																		id="shared"
+																	>
+																	<span class="slider round"></span>
+																</label>
+															</div>
+														</div>
+													</label>
+												</div>
+											</div>
+	
+	
+	
+											<hr>
+	
+	
+	
+											<!--	PRIVACY		-->
+											<div class="row mt-2">
+												<div class="col-md-12">
+													<label><b>Privacy Message</b>
+														<div class="col-md-12">
+															<p>
+																We understand that privacy is of utmost important to our community.
+																Therefore, we have implemented three options for security ranging from public campaigns to private.
+															</p>
+														</div>
+	
+														<div class="col-sm-4 radio-col">
+															<input type="radio" formControlName="privacy" value="public">
+															Totally Public
+														</div>
+	
+														<div class="col-sm-4 radio-col">
+															<input type="radio" formControlName="privacy" value="link">
+															Link Required
+														</div>
+	
+														<div class="col-sm-4 radio-col">
+															<input type="radio" formControlName="privacy" value="private">
+															Totally Private
+														</div>
+	
+													</label>
+												</div>
+											</div>
+
+
+											<hr>
+
+
+											<div>
+												<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="name.errors.required">
+														Validation Error: Your campaign must have a name
+													</div>
+													<div class="form-control-feedback" *ngIf="name.errors.minlength">
+														Validation Error: Your campaign name must be longer than 12 characetrs
+													</div>
+													<div class="form-control-feedback" *ngIf="name.errors.maxlength">
+														Validation Error: Your campaign name must be shorter than 36 characetrs
+													</div>
+													<div class="form-control-feedback" *ngIf="name.errors.pattern">
+														Validation Error: Your campaign name can only have the letters A-Z and the numbers 0-9 in it; no special characters
+													</div>
+												</div>
+												<div *ngIf="type.invalid && (type.dirty || type.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="type.errors.required" >
+														Validation Error: You must select a campaign type
+													</div>
+												</div>
+												<div *ngIf="goal.invalid && (goal.dirty || goal.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="goal.errors.required">
+														Validation Error: You must set a goal of at least a dollar!
+													</div>
+												</div>
+												<div *ngIf="end.invalid && (end.dirty || end.touched)" class="has-danger" >
+													<div class="form-control-feedback" *ngIf="end.errors.required">
+														Validation Error: If you don't wish for your campaign to run forever, you must pick a date to end it on
+													</div>
+												</div>
+											</div>
+
+											<!--	SUBMIT BUTTONS		-->
+												
+											<div class="row mt-4">
+												<div class="col-md-12">
+													<button
+														type="submit"
+														class="btn font-17 btn-default btn-lg btn-block"
+														[disabled]="!createdForm.valid"
+														(click)="activate(true)"
+													>
+													  	Launch Campaign
+												  	</button>
+												</div>
+											</div>
+											<div class="row mt-4">
+												<div class="col-md-12">
+													<button
+														type="submit"
+														(click)="activate(false)"
+														class="btn font-17 btn-default btn-lg btn-block"
+													>
+													  	Save for Later
+												  	</button>
+											  	</div>
+											</div>
 										</div>
 									</form>
 								</div>
 								
-								
 								<!--		this is for testing purposes; it displays the form values in realtime as they change		-->
-								<!--		<div>{{ createdForm.value | json }}</div>		-->
+
 								<div class="col-lg-3"></div>
 							</div>
 						</div>

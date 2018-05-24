@@ -12,10 +12,20 @@ export interface User {
 	wepay_merchant?: WePayMerchant
 	saving_for?: string[]
 	active?: boolean
-	profile_pic?: string
+	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
-	donations: Array<Donation>
+	donations?: Array<Donation>
+	new?: boolean
 }
+
+	// uid?: string
+	// displayName?: string
+	// email?: string
+	// phoneNumber?: string
+	// wepay?: AccessToken
+	// wepay_merchant?: WePayMerchant
+	// profile_pic?: string
+	// donations?: PaymentList
 
 export interface NotificationDetails {
 	contributions?: boolean
@@ -33,6 +43,12 @@ export interface UserUpdateObject {
 	wepay_merchant?: WePayMerchant
 	saving_for?: string[]
 	active?: boolean
-	profile_pic?: string
+	profile_pic?: ProfilePic
 	notification_details?: NotificationDetails
+	new?: boolean
+}
+
+export interface ProfilePic {
+	url: string
+	path: string
 }

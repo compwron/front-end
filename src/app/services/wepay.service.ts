@@ -23,12 +23,13 @@ export class WepayService {
 		private loginService: LoginService,
 		private router: Router
 	) {
-		// should I try the same initialize function that I use in the nav's ngInit function?
+		// should I try the same initialize function that I use in the nav's ngInit function?)
 	}
 
-	redirect: string = "http://localhost:4200/redirect"
+	redirect: string = window.location.origin + "/redirect"
 	// redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
 
+	deactivateLink: string = '#'
 	registerLink: string = `https://stage.wepay.com/v2/oauth2/authorize?client_id=53075&redirect_uri=${this.redirect}&scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money`
 	tokenLink: string = "https://stage.wepayapi.com/v2/oauth2/token"
 
@@ -55,7 +56,7 @@ export class WepayService {
 	}
 
 	saveAccessToken(wepay: AccessToken): void {
-		let { uid, displayName } = this.loginService.getUser()
+		let { uid, displayName } = this.loginService.pridepocketUser
 	
 		// console.log("this.loginService.getPPUser()", this.loginService.pridepocketUser)
 	
@@ -103,7 +104,7 @@ export class WepayService {
 			.subscribe(
 				pipe(
 					(r: WePayPayment) => this.saveCompletedTransaction(r, this.loginService),
-					(r) => r.then(s => callback() )
+					(r) => r.then(s => callback(s) )
 				),
 				e => console.log("error getting checkout information from WePay", e),
 				() => console.log("successfully completed getting checkout information from WePay")
@@ -120,6 +121,9 @@ export class WepayService {
 					const campaignDetails = snapshot.data()
 					
 					let batch = db.batch()
+
+					// console.log(campaignDetails)
+					// console.log(loginService)
 
 					let campaign = db.collection("campaigns").doc(campaignDetails.id)
 					let donator = db.collection("users").doc(loginService.pridepocketUser.uid)
@@ -147,13 +151,13 @@ export class WepayService {
 	}
 
 	pay (payment, campaignDetails): void {
-		payment = Object.assign({}, payment, { campaignDetails }, { access_token: this.loginService.pridepocketUser.wepay.access_token })
+		payment = Object.assign({}, payment, { campaignDetails }) // , { access_token: this.loginService.pridepocketUser.wepay.access_token }
 
 		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
 		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
 			.subscribe(
 				(response: WePayPayment) => {
-					console.log(response.hosted_checkout.checkout_uri)
+					console.log(response)
 					if (!response.error_code) {
 						return db.collection("pending").doc(response.checkout_id.toString()).set(campaignDetails)
 							.then(() => {

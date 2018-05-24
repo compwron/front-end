@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser'
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
 import { NgModule } from '@angular/core'
-import { RouterModule, Routes } from '@angular/router'
-import { ReactiveFormsModule } from '@angular/forms'
+import { Router, RouterModule, Routes } from '@angular/router'
 
 // Layout
 import {FooterComponent} from "./layout/footer.component"
@@ -38,7 +37,7 @@ import { PaymentDeetsComponent } from './components/account-setting/payment-deet
 import { PaymentWidgetComponent } from './components/payment-widget/payment-widget.component'
 import { ResourcesComponent } from './components/community-resources/resources/resources.component'
 import { SignupComponent } from './components/authorization/signup/signup.component'
-import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component';
+import { WepayPaymentSuccessfulComponent } from './components/wepay-payment-successful/wepay-payment-successful.component'
 import { WepayRegisterComponent } from './components/wepay-register/wepay-register.component'
 
 
@@ -49,15 +48,22 @@ import { LoginService } from './services/login.service'
 import { ResourcesService } from './services/resources.service'
 import { UserService } from './services/user.service'
 import { WepayService } from './services/wepay.service'
+import { StorageBucketService } from './services/storage-bucket.service'
 
 // pipes
 import { AgoPipe } from './filters/ago.pipe'
+import { FlexibleListPipe } from './filters/flexible-list.pipe'
 
 // guards
-import { AuthGuard } from './auth.guard';
-import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component';
-import { ResourceService } from './services/resource.service';
-import { CampaignCreatorService } from './services/campaign-creator.service';
+import { AuthGuard } from './auth.guard'
+import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component'
+import { ResourceService } from './services/resource.service'
+import { CampaignCreatorService } from './services/campaign-creator.service'
+import { TestingComponent } from './components/testing/testing.component'
+import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component'
+import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component'
+import { LandingComponent } from './components/landing/landing.component'
+
 
 
 
@@ -65,6 +71,7 @@ const appRoutes: Routes = [
   {path:'sg/buttons', component:ButtonsComponent},
   {path:'sg/forms', component:FormsComponent},
   
+  //{path:'', component:CampaignsComponent},
   {path:'campaigns', component:CampaignsComponent},
   {path:'campaigns/:id', component:IndivCampComponent},										// pretty sure this needs to be nested
   {path:'faq', component:FaqComponent},
@@ -77,12 +84,17 @@ const appRoutes: Routes = [
   {path:'signup', component:SignupComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
   
+  
+  
   // only logged-in users can access the routes below
+  {path:'testing', component:TestingComponent, canActivate:[AuthGuard]},
+  {path:'', component:LandingComponent, canActivate:[AuthGuard]},
   {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
   {path:'mycampaigns/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
   {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
+  //{path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
+  {path:'mycampaigns/:id/edit', component:MycampaddComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
 ]
 
 @NgModule({
@@ -118,14 +130,19 @@ const appRoutes: Routes = [
     WepayRegisterComponent,
     AgoPipe,
     WepayPaymentSuccessfulComponent,
-    ResourceCardComponent
+    ResourceCardComponent,
+    TestingComponent,
+    StorageUploaderDropzoneComponent,
+    MycampBriefComponent,
+    FlexibleListPipe,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
 	CampaignService,
@@ -136,8 +153,17 @@ const appRoutes: Routes = [
 	WepayService,
 	AuthGuard,
 	ResourceService,
-	CampaignCreatorService
+	CampaignCreatorService,
+	StorageBucketService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+	// constructor (
+	// 	private router: Router
+	// ) {
+	// 	console.log('Routes: ', JSON.stringify(router.config, undefined, 2))
+	// }
+	
+
+}

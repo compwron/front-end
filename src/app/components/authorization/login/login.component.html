@@ -21,6 +21,13 @@
                       <p class="txt-small font-12 text-center">Don’t have an account? <a routerLink="/signup" class="string-link">Join Now</a></p>
                     </div>
                   </div>
+                  <div *ngIf="error" style="background-color: red; color: white; font-weight: bold; padding: 1em; margin: 0.5em; border-radius: 0.5em">
+                  	Error logging in:
+                  	<div style="padding: 0.3em">
+                      <div>Code: {{ error.code }}</div>
+                      <div>{{ error.message }}</div>
+                  	</div>
+              	  </div>
                   <form #currentUser="ngForm" (ngSubmit)="emailLogin(currentUser)">
                     <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12">
@@ -31,8 +38,8 @@
                     </div>
                     <div class="form-group row" [class.has-danger]="pickedPassword.errors">
                       <div class="input-group col-md-12">
-                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password"  class="form-control" id="password" minlegth="8" maxlength="36" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
-                        <div class="input-group-addon p-3">
+                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [type]="passwordType()" class="form-control" id="password" minlegth="8" maxlength="36" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
+                        <div class="input-group-addon p-3" (click)="togglePasswordVisible()" >
                             <i class="icofont icofont-eye"></i>
                         </div>
                       </div>

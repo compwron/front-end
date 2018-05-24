@@ -19,6 +19,7 @@
                        <p class="txt-small font-14">Already have an account? <a routerLink="/login" class="string-link">Login Now</a></p>
                     </div>
                   </div>
+                  <div *ngIf="error" style="background-color: red; color: white; font-weight: bold; padding: 1em; margin: 0.5em; border-radius: 0.5em">There was an error signing up: {{ error.code }} {{ error.message }}</div>
                   <form #newUser="ngForm" (ngSubmit)="onSignUp(newUser)"class="mr-5">
                     <div class="form-group row" [class.has-danger]="pickedName.errors">
                       <div class="col-lg-12 ">
@@ -36,8 +37,8 @@
                     </div>
                     <div class="form-group row" [class.has-danger]="pickedPassword.errors">
                       <div class="input-group col-lg-12">
-                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" type="password"  class="form-control" id="password" minlegth="8" maxlength="36" type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
-                        <div class="input-group-addon p-3">
+                        <input pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" [type]="passwordType()"  class="form-control" id="password" minlegth="8" maxlength="36" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" #pickedPassword="ngModel">
+                        <div (click)="togglePasswordVisible()" class="input-group-addon p-3">
                             <i class="icofont icofont-eye-alt"></i>
                         </div>
                       </div>

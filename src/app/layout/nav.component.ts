@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../services/login.service'
 import { ChangeDetectorRef } from '@angular/core'
+import { Router } from '@angular/router'
 
+import { first } from 'rxjs/operators'
+
+import { User } from '../objects/UserInterfaces'
 
 @Component({
   selector: 'nav-pp',
@@ -9,28 +13,31 @@ import { ChangeDetectorRef } from '@angular/core'
 })
 export class NavComponent implements OnInit {
 	constructor (
-		private loginService: LoginService,
-		private refresh: ChangeDetectorRef
+		private login: LoginService,
+		private refresh: ChangeDetectorRef,
+		private router: Router
 	) {}
 
-	email: string
+	email: string = null
+	user: User
 	
 	ngOnInit () {
-		const f = user => {
-			this.email = this.loginService.pridepocketUser.email
-			this.refresh.detectChanges()
+		if (this.login.loading) {
+			const unsubscribe = setInterval(() => {
+				if(!this.login.loading) {
+					if (this.login.pridepocketUser) this.email = this.login.pridepocketUser.email
+					else this.router.navigateByUrl('/login')
+				}
+				
+			}, 1000)
 		}
-		
-		this.loginService.initialize(f)
+		else { this.email = this.login.pridepocketUser.email }
 	}
 	
-	testLogin (): void {
-		console.log("pridepocketUser (should not be null if logged in): ", this.loginService.pridepocketUser)
-	}
+	loggedIn (): boolean { return this.login.loggedIn() }
 	
-	loggedIn (): boolean { return this.loginService.loggedIn() }
 	signOut (): void {
 		this.email = null
-		this.loginService.signOut()
+		this.login.signOut()
 	}
 }

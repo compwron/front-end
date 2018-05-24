@@ -1,3 +1,9 @@
+enable anonymous payments...
+	* trying without access token
+	* who sets the 'payments' field in the database for a user?
+		- need to check whether a payer is returned
+
+
 <!--inotify watches-->
 echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
@@ -17,10 +23,38 @@ https://firebase.googleblog.com/2018/01/streamline-typescript-development-cloud-
 Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 
 
+**buglist**
+- something in the navbar dropdown menus prevents a full page refresh/component mount and so links to dynamic pages are not working right
+	* removed form tags
+	* links work outside the former form tags
+	* addcampaign link works even though it's inside a former form tag, while links to dyanmic content do not
+	* dropdown navigation works when it's positioned outside of this div:
+			<div class="form-inline my-2 my-lg-0 mr-sm-2" *ngIf="!!email">
+	* there is no call ever initiated to the database in the mycampaigns component
+	*
+
+
+
+
+
+**features**
+- db backups: encrypt and compress and store in bucket
+	* https://www.npmjs.com/package/firestore-backup-restore
+- bug bounty
+	* https://hackerone.com/security
+- email notifications to users of key things
+	* https://github.com/firebase/functions-samples/blob/master/email-confirmation/functions/index.js
+	* send notifications to websites/devices with Firebase Cloud Messenging too
+		- https://firebase.google.com/docs/functions/firestore-events
+- image storage; make the service to put stuff in storage and integrate it with the different components that need to store images
+
+
 **incomplete**
 - profile picture uploader
 - 'add anotehr person' for 'Who are you saving for' form on 'accountbasic' component
 - "total funds raised" and "funds transferred to bank" on payment details
+	* looking for a total amount over the lifetime of the account; not a FORM
+	* do this per campaign for now
 - change 'setup WePay' to something like 'unlink wepay account' if the user has a wepay account already
 - add campaign details to notifications, or at least campaign IDs; still haven't decided how to handle this
 - how do you get app categories?

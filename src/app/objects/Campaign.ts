@@ -1,8 +1,9 @@
 import { Payment, PaymentList } from './Payment'
 
 export interface Campaign {
+	account_id?: number
 	id?: string
-	banner: string
+	banner: Banner
 	thumbnail: string
 	name: string
 	owner: Owner
@@ -16,7 +17,7 @@ export interface Campaign {
 	privacy: string
 	affiliate_links: string[] //	AffiliateLinks
 	shared: object
-	published: boolean
+	active: boolean
 	thanks: string
 	family_email: string
 	email_message: string
@@ -26,6 +27,11 @@ export interface Campaign {
 // export interface AffiliateLinks {
 // 	(key: string): string
 // }
+
+interface Banner {
+	url: string
+	path: string
+}
 
 export interface Owner {
 	uid: string
