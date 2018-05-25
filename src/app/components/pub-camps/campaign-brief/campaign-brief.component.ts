@@ -12,7 +12,7 @@ import { Campaign } from '../../../objects/Campaign'
 export class CampaignBriefComponent implements OnInit {
 	@Input() campaign: Campaign
 	objectkeys = Object.keys
-	
+	displayEnd
 	percent: number = 0
 	percentStyle: {
 		height: string
@@ -24,6 +24,11 @@ export class CampaignBriefComponent implements OnInit {
 	constructor() { }
 	
 	ngOnInit() {
+		if (this.campaign.end) this.displayEnd = this.campaign.end.toDateString()
+		else this.displayEnd = "(This campaign has no end date)"
+		
+		console.log(this.displayEnd)
+		
 		if (!this.campaign.current) this.campaign.current = 0
 		this.percent = Math.floor(this.campaign.current/this.campaign.goal*100)
 		this.percent = this.percent > 100 ? 100 : this.percent

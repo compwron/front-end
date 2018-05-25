@@ -20,6 +20,8 @@ export class MycampBriefComponent implements OnInit {
 		'border-radius': string
 	}
 	
+	displayEnd
+	
 	canActivate: boolean = false
 	
 	constructor(
@@ -27,6 +29,9 @@ export class MycampBriefComponent implements OnInit {
 	) { }
 	
 	ngOnInit() {
+		if (this.campaign.end) this.displayEnd = this.campaign.end.toDateString()
+		else this.displayEnd = "(This campaign has no end date)"
+		
 		if (this.campaign.banner && this.campaign.banner.url) this.src = this.campaign.banner.url
 		if (this.validate(this.campaign)) this.canActivate = true
 		if (!this.campaign.current) this.campaign.current = 0

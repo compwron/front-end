@@ -10,7 +10,7 @@
 		</div>
 		<h5 class="card-title twilight">{{ campaign.name }}</h5>
 		<p class="card-text">{{ campaign.description }}</p>
-		<p class="card-text"><small class="text-muted">Campaign runs from {{ campaign.begin | date }} to {{ campaign.end | date }}</small></p>
+		<p class="card-text"><small class="text-muted">Campaign runs from {{ campaign.begin | date }} to {{ displayEnd }}</small></p>
 		<div class="row">
 			<div class="col-md-12">
 				<h2 class="lagoon font-weight-bold">${{ campaign.current || 0 }}

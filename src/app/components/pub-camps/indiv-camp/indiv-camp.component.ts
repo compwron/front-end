@@ -18,6 +18,7 @@ import { first } from 'rxjs/operators'
 export class IndivCampComponent implements OnInit {
 	campaign: object
 	user: object = {}
+	displayEnd
 	
 	constructor(
 		private campaignOneService: CampaignOneService,
@@ -46,7 +47,11 @@ export class IndivCampComponent implements OnInit {
 		const id = this.route.snapshot.paramMap.get('id')
 		this.campaignOneService.get(id)
 			.subscribe(
-				campaign => this.campaign = campaign,
+				campaign => {
+					this.campaign = campaign
+					if (this.campaign.end) this.displayEnd = this.campaign.end.toDateString()
+					else this.displayEnd = "(This campaign has no end date)"
+				},
 				e => console.log("error getting campaign snapshot: ", e),
 				() => console.log("finished getting campaign snapshot")
 			)
