@@ -99,10 +99,10 @@
                   <span class="twilight font-weight-bold">Sort By</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Newest</a>
-                  <a class="dropdown-item" href="#">Popularity</a>
-                  <a class="dropdown-item" href="#">Ending Soon</a>
-                  <a class="dropdown-item" href="#">Closest to Goal</a>
+                  <a class="dropdown-item" value="newest" (click)="sort('newest')" >Newest</a>
+                  <a class="dropdown-item" value="popularity" (click)="sort('popularity')" >Popularity</a>
+                  <a class="dropdown-item" value="ending soonest" (click)="sort('ending soonest')" >Ending Soon</a>
+                  <a class="dropdown-item" value="closest to goal" (click)="sort('closest to goal')" >Closest to Goal</a>
                 </div>
               </div>
             </div>
