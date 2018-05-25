@@ -20,12 +20,12 @@ export class CampaignsComponent implements OnInit {
 		"newest": (a, b) => {
 			let ac, bc
 			
-			if (!a.end) ac = 0
-			else ac = a.end.valueOf()
-			if (!b.end) bc = 0
-			else bc = b.end.valueOf()
+			if (!a.begin) ac = 0
+			else ac = a.begin.valueOf()
+			if (!b.begin) bc = 0
+			else bc = b.begin.valueOf()
 
-			return ac - bc
+			return bc - ac
 		},
 		"popularity": (a, b) => {
 			let ac, bc
@@ -37,8 +37,9 @@ export class CampaignsComponent implements OnInit {
 			
 			console.log(ac, bc, a.name, b.name)
 			
-			return ac - bc
+			return bc - ac
 		},
+		// this filter works correctly
 		"ending soonest": (a, b) => {
 			let ac, bc
 			
@@ -47,11 +48,9 @@ export class CampaignsComponent implements OnInit {
 			if (!b.end) bc = 0
 			else bc = b.end.valueOf()
 
-			console.log(ac, bc, a.name, b.name)
-
-			return ac - bc
+			return bc - ac
 		},
-		"closest to goal": (a, b) => a.current/a.goal - b.current/b.goal
+		"closest to goal": (a, b) => b.current/b.goal - a.current/a.goal
 	}
 
 	sort (key) {
