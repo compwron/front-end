@@ -21,7 +21,7 @@ export class CampaignCreatorService {
 		return (campaign: Campaign): Observable<void> => {
 			// this converts the string dates returned by the frontend to datetime objects which firestore stores as timestamp objects...
 			campaign.end = new Date(campaign.end)
-			if (campaign.active) campaign.begin = new Date(campaign.begin)
+			if (campaign.active) campaign.begin = new Date()
 			campaign._updated = new Date()
 			campaign.owner = Object.assign({}, campaign.owner, { uid: this.loginService.pridepocketUser.uid })
 			
@@ -35,8 +35,9 @@ export class CampaignCreatorService {
 	
 	edit (): Function {
 		return (campaign: Campaign): Observable<void> => {
-			console.log("campaign in campaign edit: ", campaign)
+			// console.log("campaign in campaign edit: ", campaign)
 			
+			if (campaign.active && !campaign.begin) campaign.begin = new Date()
 			if (typeof campaign.end === 'string') campaign.end = new Date(campaign.end)
 			
 			// campaign.end = new Date(campaign.end)

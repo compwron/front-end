@@ -179,7 +179,7 @@ export class MycampaddComponent implements OnInit {
 	}
 	
 	prepareSaveCampaign (): Campaign {
-		console.log(this.createdForm.value)
+		// console.log(this.createdForm.value)
 		return this.createdForm.value as Campaign
 	}
 	
