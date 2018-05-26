@@ -104,6 +104,21 @@ export class LoginService {
 
 	// setPrevious (previous): void { this.previous = previous }
 
+	/*
+		var auth = firebase.auth();
+		var emailAddress = "user@example.com";
+		
+		auth.sendPasswordResetEmail(emailAddress).then(function() {
+		  // Email sent.
+		}).catch(function(error) {
+		  // An error happened.
+		});
+	*/
+
+	sendPasswordResetEmail () {
+		
+	}
+
 	handleCallback (observable: Observable<firebase.User>): void {
 		// inject a spinner service on the constructor and trigger it here
 		
@@ -204,6 +219,18 @@ export class LoginService {
 		// const o = firebase.auth().onAuthStateChanged
 		this.handleEmailSignin()
 	}
+	
+	//	email signup should require user to verify their email
+	//	"You can customize the email template that is used in Authentication section of the Firebase console, on the Email Templates page. See Email Templates in Firebase Help Center."
+	/*
+		var user = firebase.auth().currentUser;
+		
+		user.sendEmailVerification().then(function() {
+		  // Email sent.
+		}).catch(function(error) {
+		  // An error happened.
+		});
+	*/
 	
 	emailSignup (email, password, displayName): Observable<any> {
 		this.displayName = displayName

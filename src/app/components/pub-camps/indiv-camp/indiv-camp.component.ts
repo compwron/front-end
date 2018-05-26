@@ -16,8 +16,8 @@ import { first } from 'rxjs/operators'
   styleUrls: ['./indiv-camp.component.scss']
 })
 export class IndivCampComponent implements OnInit {
-	campaign: object
-	user: object = {}
+	campaign: Campaign
+	user: User
 	displayEnd
 	
 	constructor(

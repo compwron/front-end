@@ -2,7 +2,7 @@
   <div class="container my-4" *ngIf="campaign" >
 
 	<!--*ngIf="user.uid === campaign.owner"-->
-    <div class="row" style="display: flex; flex-direction: row; width: 100%; padding: 0 0 0 10px; align-items: center" *ngIf="user.uid === campaign.owner.uid" >
+    <div class="row" style="display: flex; flex-direction: row; width: 100%; padding: 0 0 0 10px; align-items: center" *ngIf="user && user.uid === campaign.owner.uid" >
 	  <div style="flex: 2; padding: 0 0.5em 0 0; font-weight: bold"><h3>Host View</h3></div>
 	  <div style="flex: 6">Status Bar</div>
 	  <div routerLink="/mycampaigns/{{ campaign.id }}/edit" class="btn btn-default h-100 add font-14" style="flex: 1; padding: 0 0 0 0.5em; margin: 0">Edit</div>

@@ -20,7 +20,7 @@ export class AccountbasicComponent implements OnInit {
 	src: string = "http://via.placeholder.com/70x70"
 	
 	onSubmit(form: NgForm){
-		console.log(form.value)
+		// console.log(form.value)
 		const { displayName, email, password } = form.value
 
 		let userUpdateObject: UserUpdateObject = {}

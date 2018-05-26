@@ -23,21 +23,19 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-12">
-					<button
-						type="button"
-						class="btn btn-info mb-2 float-right"
-						style="background-color: #e9ecf4;
-						border: #e9ecf4;
-						color: #424958;"
-					>
-						+ Another Person
-					</button>
-				</div>
+			<div class="col-md-12">
+				<button
+					type="button"
+					class="btn btn-info mb-2"
+					style="background-color: #e9ecf4;
+					border: #e9ecf4;
+					color: #424958;"
+				>
+					+ Another Person
+				</button>
 			</div>
 
-			<div class="form-group row" [class.has-danger]="pickedEmail.errors">
+			<div [class.has-danger]="pickedEmail.errors">
 				<div class="col-md-12 ">
 					<label><b>Update Email</b></label>
 					<input
@@ -106,21 +104,14 @@
 				</div>
 			</div>
 			
-			<div class="row">
-				<app-storage-uploader-dropzone storeType="banner" (urlReturned)="saveProfilePic($event)">
-					<div class="col-md-2">
-						<img [src]="src" style="width: 100%; height: 100%" />
-					</div>
-				</app-storage-uploader-dropzone>
-				<div class="col-md-10">
-					<p class="text-muted">Recommended size is 150px by 150px with a resolution of 72DPI</p>
-					<button
-						class="btn btn-info"
-						style="background-color: #e9ecf4; border: #e9ecf4; color: #424958;"
-						type="submit"
-					>
-						Choose File
-					</button>
+			<div class="row" style="height: 200px; display: flex">
+				<div class="col-md-10" style="flex: 1; display: flex">
+					<app-storage-uploader-dropzone style="display: flex; flex: 1" storeType="banner" (urlReturned)="saveProfilePic($event)">
+						<div style="flex: 1">
+							<p *ngIf="!src" >Recommended size is 150px by 150px with a resolution of 72DPI</p>
+							<img [src]="src" style="height: 100%" />
+						</div>
+					</app-storage-uploader-dropzone>
 				</div>
 			</div>
 			

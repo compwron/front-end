@@ -61,6 +61,8 @@ export class StorageUploaderDropzoneComponent implements OnInit {
 			}
 		}
 	}
+
+	fileSelect (e) { this.store(e.target.files[0]) }
 	
 	// dragstart (e) {
 	// 	console.log("dragstart: ", e.dataTransfer.setData)
