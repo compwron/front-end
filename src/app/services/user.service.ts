@@ -64,7 +64,7 @@ const saveToDb = (update: UserUpdateObject, uid: string) => (response: Observabl
 				e => observer.error(e),
 				() => observer.complete()
 			)
-	}
+	})
 }
 
 @Injectable()
@@ -77,7 +77,7 @@ export class UserService {
 	displayName: string = ""
 	email: string = ""
 
-	modifyUser (update: UserUpdateObject): Observable<void> {
+	modifyUser (update: UserUpdateObject): Observable<any> {
 		const profile = { displayName: update.displayName, photoURL: update.profile_pic.url }
 		const { password, email } = update
 
@@ -97,7 +97,8 @@ export class UserService {
 		if (email) pipeline.push(firebaseEmail(email))
 		pipeline.push(saveToDb(update, this.login.pridepocketUser.uid))
 
-		return from([update]).pipe(...pipeline)
+		return from([update])
+			.pipe(...pipeline)
 	}
 	
 	getDonations (): Observable<Donation> { return from(Object.values(this.login.pridepocketUser.donations || {})) }
