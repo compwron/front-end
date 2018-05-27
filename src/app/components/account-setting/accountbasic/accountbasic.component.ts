@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+// import { LoginService } from '../../../services/login.service'
 import { UserService } from '../../../services/user.service'
 import { UserUpdateObject } from '../../../objects/UserInterfaces'
+
+import { firebase } from '../../../utilities/utilities'
 
 @Component({
   selector: 'app-accountbasic',
@@ -18,10 +21,14 @@ export class AccountbasicComponent implements OnInit {
 	profile_pic_url: string
 	profile_pic_path: string
 	src: string = "http://via.placeholder.com/70x70"
+	reauth: boolean = false
+	form: object = null
+	loading: boolean
 	
-	onSubmit(form: NgForm){
-		// console.log(form.value)
-		const { displayName, email, password } = form.value
+	onSubmit(form){
+		// console.log(form)
+		
+		const { displayName, email, password } = form
 
 		let userUpdateObject: UserUpdateObject = {}
 		if (displayName) userUpdateObject.displayName = displayName
@@ -33,13 +40,50 @@ export class AccountbasicComponent implements OnInit {
 		
 		userUpdateObject.profile_pic = { url: this.profile_pic_url, path: this.profile_pic_path }
 
+		this.loading = true
+
 		this.user.modifyUser(userUpdateObject)
 			.subscribe(
 				() => console.log("modifying user preferences"),
 				e => console.log("error modifying user preferences: ", e),
-				() => console.log("finished modifying user preferences")
+				() => {
+					this.loading = false
+					console.log("finished modifying user preferences")
+				}
 			)
 
+	}
+	
+	reauthenticate (form: NgForm): void {
+		// console.log(form.value)
+		
+		
+		if (form.value.email !== this.email || form.value.password) {
+			// console.log("You must re-authenticate before changing your email or password")
+			this.reauth = true
+			this.form = form.value
+			
+			// firebase.auth().onAuthStateChanged(
+			// 	(user: firebase.User) => {
+			// 		if (user) {
+			// 			this.reauth = false
+			// 			this.onSubmit(form)
+			// 		}
+			// 	},
+			// 	e => console.log("error reauthenticating", e),
+			// 	() => console.log("reauthentication complete")
+			// )
+		}
+		else this.onSubmit(form.value)
+	}
+	
+	reauthReturned (status) {
+		if (status) {
+			this.reauth = false
+			this.onSubmit(this.form)
+			this.form = null
+		}
+		else console.log("reauth failed")
 	}
 	
 	constructor(

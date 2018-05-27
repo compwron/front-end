@@ -1,5 +1,7 @@
 <div class="row">
-	<form #basicInfo="ngForm" (ngSubmit)="onSubmit(basicInfo)" class="row" >
+	<h3 *ngIf="loading" class="col-lg-12" style="font-weight: bold" >Loading...</h3>
+	<div *ngIf="reauth"><app-login [reauth]="true" (reauthComplete)="reauthReturned($event)" ></app-login></div>
+	<form #basicInfo="ngForm" (ngSubmit)="reauthenticate(basicInfo)" class="row" >
 
 		<div class="col-lg-6">
 			

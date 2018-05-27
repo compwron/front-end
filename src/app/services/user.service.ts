@@ -17,53 +17,78 @@ interface firebaseUpdateInterface {
 	displayName: string
 }
 
-
-// fOR PASSWORD AND EMAIL CHANGES, USER MUST RE-AUTHENTICATE USING THEIR SIGN-IN METHOD OF CHOICE
-
-
 const firebasePassword = (password: string) => (response: Observable<any>): Observable<any> => {
+	console.log("firebasePassword", password)
+	
 	return new Observable(observer => {
-		fromPromise(firebase.auth().currentUser.updatePassword(password))
-			.subscribe(
-				() => observer.next(),
-				e => observer.error(e),
-				() => observer.complete()
-			)
+		response.subscribe(
+			() => console.log("subscribed to observer in pipeline"),
+			e => console.log("error in pipeline: ", e),
+			() => {
+				console.log("in firebasePassword observable")
+				fromPromise(firebase.auth().currentUser.updatePassword(password))
+					.subscribe(
+						() => {
+							console.log("password is changed")
+							observer.next()
+						},
+						e => observer.error(e),
+						() => observer.complete()
+					)
+			}
+		)
 	})
 }
 
 const firebaseEmail = (email: string) => (response: Observable<any>): Observable<any> => {
 	return new Observable(observer => {
-		fromPromise(firebase.auth().currentUser.updateEmail(email))
-			.subscribe(
-				() => observer.next(),
-				e => observer.error(e),
-				() => observer.complete()
-			)
+		response.subscribe(
+			() => console.log("subscribed to observer in pipeline"),
+			e => console.log("error in pipeline: ", e),
+			() => {
+				fromPromise(firebase.auth().currentUser.updateEmail(email))
+					.subscribe(
+						() => observer.next(),
+						e => observer.error(e),
+						() => observer.complete()
+					)
+			})
 	})
 }
 
 const firebaseProfile = (profile: { displayName: string, photoURL: string }) => (response: Observable<any>): Observable<any> => {
 	return new Observable(observer => {
-		console.log(profile)
-		
-		fromPromise(firebase.auth().currentUser.updateProfile(profile))
-			.subscribe(
-				() => observer.next(),
-				e => observer.error(e),
-				() => observer.complete()
-			)
+		response.subscribe(
+			() => console.log("subscribed to observer in pipeline"),
+			e => console.log("error in pipeline: ", e),
+			() => {
+				console.log(profile)
+				
+				fromPromise(firebase.auth().currentUser.updateProfile(profile))
+					.subscribe(
+						() => observer.next(),
+						e => observer.error(e),
+						() => observer.complete()
+					)
+			}
+		)
 	})
 }
 
 const saveToDb = (update: UserUpdateObject, uid: string) => (response: Observable<any>): Observable<any> => {
 	return new Observable(observer => {
-		fromPromise(db.collection("users").doc(uid).set(update, { merge: true }))
-			.subscribe(
-				() => observer.next(),
-				e => observer.error(e),
-				() => observer.complete()
-			)
+		response.subscribe(
+			() => console.log("subscribed to observer in pipeline"),
+			e => console.log("error in pipeline: ", e),
+			() => {
+				fromPromise(db.collection("users").doc(uid).set(update, { merge: true }))
+					.subscribe(
+						() => observer.next(),
+						e => observer.error(e),
+						() => observer.complete()
+					)
+			}
+		)
 	})
 }
 
@@ -81,12 +106,11 @@ export class UserService {
 		const profile = { displayName: update.displayName, photoURL: update.profile_pic.url }
 		const { password, email } = update
 
-		if (!update["profile_pic"].url) {
-			console.log("profile_pic is empty; deleting")
-			delete update.profile_pic
-		}
-
+		if (!update["profile_pic"].url) { delete update.profile_pic }
 		delete update.password
+
+		// console.log(update)
+		// console.log(password)
 
 		for (let v in update) { if (this.login.pridepocketUser[v] === update[v]) delete update[v] }
 

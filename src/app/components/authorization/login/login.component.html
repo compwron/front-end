@@ -28,7 +28,7 @@
                       <div>{{ error.message }}</div>
                   	</div>
               	  </div>
-                  <form #currentUser="ngForm" (ngSubmit)="emailLogin(currentUser)">
+                  <form #currentUser="ngForm" (ngSubmit)="beginAuth('email', currentUser)">
                     <div class="form-group row" [class.has-danger]="pickedEmail.errors">
                       <div class="col-md-12">
                         <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" minlength="6" maxlength="36" name="email" #pickedEmail="ngModel">
@@ -61,7 +61,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <a class="btn btn-facebook btn-block mb-2 h-100 font-18" (click)="facebook()" href="#fakelink" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
+                        <a class="btn btn-facebook btn-block mb-2 h-100 font-18" (click)="beginAuth('facebook')" href="#fakelink" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
                       </div>
                     </div>
                     <div>
@@ -69,7 +69,7 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <a (click)="google()" class="btn btn-google btn-block mb-2 h-100 font-18 "><i class="icofont icofont-social-google mr-2"></i>Login with Google</a>
+                        <a (click)="beginAuth('google')" class="btn btn-google btn-block mb-2 h-100 font-18 "><i class="icofont icofont-social-google mr-2"></i>Login with Google</a>
                       </div>
                     </div>
                   </form>

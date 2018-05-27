@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { NgForm } from '@angular/forms'
 
 import { LoginService } from '../../../services/login.service'
@@ -13,8 +13,10 @@ export class LoginComponent implements OnInit {
 		private loginService: LoginService
 	) { }
 
-	ngOnInit() {
-	}
+	ngOnInit() {}
+	
+	@Input() reauth: boolean = false
+	@Output() reauthComplete = new EventEmitter<any>()
 	
 	email:string
 	password:string
@@ -23,10 +25,6 @@ export class LoginComponent implements OnInit {
 	
 	
 	loggedIn: { code: string, message: string} = { code: "double login", message: "You are already logged in!" }
-	// onLogin(form: NgForm) {
-	// 	console.log(form.value)
-	// }
-	
 	
 	// add the error handler that spits out login error-related messages
 	
@@ -39,33 +37,61 @@ export class LoginComponent implements OnInit {
 			},
 	*/
 	
-	facebook (): void {
-		console.log("tried to login with facebook")
-		if (!this.loginService.loggedIn()) this.loginService.facebook()
+	beginAuth (provider: string, form: NgForm) { this.reauth ? this.reauthenticate(provider, form) : this.auth(provider, form) }
+	
+	auth (provider, options: NgForm = null): void {
+		if (!this.loginService.loggedIn() && !options) this.loginService.auth(provider)
+		else if (!this.loginService.loggedIn()) this.loginService.auth(provider, options.value)
 		else {
 			this.error = this.loggedIn
 			setTimeout(() => this.error = null, 10000)
+		}
+	}
+	
+	reauthenticate (provider, options: NgForm = null): void {
+		// console.log(`tried to reauth with ${provider}`, console.log(options))
+
+		const observer = {
+			next: () => console.log("reauthentication successful"),
+			error: e => {
+				this.error = e
+				setTimeout(() => this.error = null, 10000)
+				this.reauthComplete.emit(false)
+			},
+			complete: () => this.reauthComplete.emit(true)
 		}
 		
+		if (!options) this.loginService.reauth(provider).subscribe(observer)
+		else this.loginService.reauth(provider, options.value).subscribe(observer)
 	}
-	google (): void {
-		// console.log("tried to login with google")
-		if (!this.loginService.loggedIn()) this.loginService.google()
-		else {
-			this.error = this.loggedIn
-			setTimeout(() => this.error = null, 10000)
-		}
-	}
-	// emailLogin (uin, pw): void {
-	emailLogin (form: NgForm): void {
-		let { email, password } = form.value
-		console.log("tried to login with uin/pw")
-		if (!this.loginService.loggedIn()) this.loginService.email(email, password)
-		else {
-			this.error = this.loggedIn
-			setTimeout(() => this.error = null, 10000)
-		}
-	}
+	
+	// facebook (): void {
+	// 	console.log("tried to login with facebook")
+	// 	if (!this.loginService.loggedIn()) this.loginService.facebook()
+	// 	else {
+	// 		this.error = this.loggedIn
+	// 		setTimeout(() => this.error = null, 10000)
+	// 	}
+		
+	// }
+	// google (): void {
+	// 	// console.log("tried to login with google")
+	// 	if (!this.loginService.loggedIn()) this.loginService.google()
+	// 	else {
+	// 		this.error = this.loggedIn
+	// 		setTimeout(() => this.error = null, 10000)
+	// 	}
+	// }
+	// // emailLogin (uin, pw): void {
+	// emailLogin (form: NgForm): void {
+	// 	let { email, password } = form.value
+	// 	console.log("tried to login with uin/pw")
+	// 	if (!this.loginService.loggedIn()) this.loginService.email(email, password)
+	// 	else {
+	// 		this.error = this.loggedIn
+	// 		setTimeout(() => this.error = null, 10000)
+	// 	}
+	// }
 	
 	passwordType () { return this.ptype ? "password" : "text" }
 	togglePasswordVisible () { this.ptype = !this.ptype }

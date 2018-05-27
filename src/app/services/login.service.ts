@@ -75,15 +75,18 @@ export class LoginService {
 				() => {
 					console.log("status updater completed; setting loading to false")
 					this.loading = false
+					
+					console.log(firebase.auth().currentUser.providerId)
 				}
 			)
 	}
 
-	extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
+	// extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
 
 	initialize () { return new Observable(observer => firebase.auth().onAuthStateChanged(observer)) }
 
 	statusUpdater () {
+		this.loading = true
 		return new Observable(observer => {
 			this.initialize().pipe(
 				tap((o) => observer.next(o)),
@@ -95,7 +98,10 @@ export class LoginService {
 				.subscribe(
 					u => observer.next(u),
 					e => observer.error(e),
-					() => observer.complete()
+					() => {
+						this.loading = false
+						observer.complete()
+					}
 				)
 		})
 	}
@@ -124,7 +130,6 @@ export class LoginService {
 		
 		observable.subscribe(
 			user => {
-				// const user = userCredential.user
 				// get the user's profile from firestore and save it in pridepocketUser
 				db.collection("users").doc(user.uid).get()
 					.then(response => {
@@ -152,73 +157,85 @@ export class LoginService {
 				// route to the page the user started at?
 				// this.router.navigateByUrl(this.previous)
 			},
-			e => console.log("error handling facebook or google signin")
+			e => console.log("error handling signin")
 		)
 	}
 
-	// handleEmailSignin (onAuthStateChanged) {
-	handleEmailSignin () {
-		firebase.auth().onAuthStateChanged(user => {
-			if (user) {
-				// get the user's profile from the firestore and save it in pridepocketUser
-				db.collection("users").doc(user.uid).get()
-					.then(response => {
-						// if the user exists in the database, then populate this.pridepocketUser with the DB representation
-						if (response.exists) {
-							this.pridepocketUser = <User>response.data()
-							this.router.navigateByUrl("/")
-							// console.log("got an existing user from the database")
-						}
-						
-						// if the user does not exist in the database, then create a new user with the authentication data returned from firebase
-						else {
-							let { uid, displayName, phoneNumber, email } = user
-							
-							// set the displayName variable if it exists; this is used for displaying the user's name in the navigation bar
-							//  this is redundant and probably going away
-							if (this.displayName) displayName = this.displayName
-							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email, new: true })
-								.then(() => {
-									
-									// if the database set returns, then populate this.pridepocketUser with the firebase auth info
-									this.pridepocketUser = { uid, displayName, phoneNumber, email }
-									// this.user = { uid, displayName, phoneNumber, email }
-									console.log("created a new user", this.pridepocketUser)
-									this.router.navigateByUrl("/")
-								})
-								.catch(e => console.log("error while creating a new user in the database", e))
-						}
-					})
-					.catch(e => console.log("error while fetching a user from the database", e))
-	
-				// kill the spinner
-				
-				// route to the page the user started at?
-				// this.router.navigateByUrl(this.previous)
-			}
-		})
+	providerFunction = {
+		facebook: "signInWithPopup",
+		google: "signInWithPopup",
+		email: "signInWithEmailAndPassword"
 	}
 
-	facebook (): void {
-		const provider = new firebase.auth.FacebookAuthProvider()
-		const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth().signInWithPopup(provider))
-		
-		this.handleCallback(this.extractUser(o))
+	authProviders = {
+		facebook: new firebase.auth.FacebookAuthProvider(),
+		google: new firebase.auth.GoogleAuthProvider()
+	}
+	
+	reauthProviders = {
+		facebook: new firebase.auth.FacebookAuthProvider(),
+		google: new firebase.auth.GoogleAuthProvider(),
+		email: firebase.auth.EmailAuthProvider
+	}
 
+	auth (provider: string, options = null): void {
+		const f = this.providerFunction[provider]
+		let p
+
+		if (provider !== 'email') {
+			p = this.authProviders[provider]
+			this.handleCallback(fromPromise(firebase.auth()[f](p)))
+		}
+		else this.handleCallback(fromPromise(firebase.auth()[f](options.email, options.password)))
 	}
 	
-	google (): void {
-		const provider = new firebase.auth.GoogleAuthProvider()
-		const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth().signInWithPopup(provider))
+	reauth (provider: string, options = null): Observable<any> {
+		// console.log(options)
 		
-		this.handleCallback(this.extractUser(o))
+		const p = this.reauthProviders[provider]
+		if (provider === "email") { return fromPromise(
+			firebase
+				.auth().currentUser
+					.reauthenticateWithCredential(
+						p.credential(
+							options.email, options.password
+						)
+					)
+		) }
+		else return fromPromise(
+			firebase
+				.auth().currentUser
+					.reauthenticateWithPopup(p)
+		)
 	}
+
+	// facebook (f): void {
+	// 	const provider = new firebase.auth.FacebookAuthProvider()
+	// 	const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth()[f](provider))
+		
+	// 	this.handleCallback(o)
+	// }
 	
-	email (email, password): void {
-		firebase.auth().signInWithEmailAndPassword(email, password)
-		// const o = firebase.auth().onAuthStateChanged
-		this.handleEmailSignin()
-	}
+	// google (f): void {
+	// 	const provider = new firebase.auth.GoogleAuthProvider()
+		
+		
+		
+	// 	const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth()[f](provider))
+		
+		
+		
+		
+	// 	this.handleCallback(o)
+	// }
+	
+	// email (f, { email, password }): void {
+	// 	console.log(f)
+		
+	// 	const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth()[f](email, password))
+
+	// 	this.handleCallback(o)
+	// }
 	
 	//	email signup should require user to verify their email
 	//	"You can customize the email template that is used in Authentication section of the Firebase console, on the Email Templates page. See Email Templates in Firebase Help Center."
@@ -235,18 +252,19 @@ export class LoginService {
 	emailSignup (email, password, displayName): Observable<any> {
 		this.displayName = displayName
 		return new Observable(observer => {
-			fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
-				.subscribe(
-					() => {
-						this.handleEmailSignin()
-						observer.next("creating user")
-					},
-					e => observer.error(e),
-					() => {
-						console.log("user created")
-						observer.complete()
-					}
-				)
+			this.handleCallback(fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password)))
+			// fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
+			// 	.subscribe(
+			// 		() => {
+						
+			// 			observer.next("creating user")
+			// 		},
+			// 		e => observer.error(e),
+			// 		() => {
+			// 			console.log("user created")
+			// 			observer.complete()
+			// 		}
+			// 	)
 		})
 	}
 	
