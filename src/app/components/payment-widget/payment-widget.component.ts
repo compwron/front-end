@@ -18,7 +18,7 @@ export class PaymentWidgetComponent implements OnInit {
 	ppamount: number = 2
 	name:string
 	message:string
-	private:boolean
+	priv:boolean
 	percent: number = 0
 	percentStyle: {
 		height: string
@@ -27,7 +27,15 @@ export class PaymentWidgetComponent implements OnInit {
 		'border-radius': string
 	}
 	
-	onDonate(form: NgForm) { const r = this.wepay.pay(form.value, this.campaign) }
+	onDonate(form: NgForm) {
+		const r = this.wepay.pay(form.value, this.campaign)
+		this.email = null
+		this.amount = null
+		this.ppamount = null
+		this.name = null
+		this.message = null
+		this.priv = null
+	}
 	
 	constructor(
 		private wepay: WepayService

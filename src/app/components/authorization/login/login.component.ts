@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
 			},
 	*/
 	
-	beginAuth (provider: string, form: NgForm) { this.reauth ? this.reauthenticate(provider, form) : this.auth(provider, form) }
+	beginAuth (provider: string, form: NgForm = null) { this.reauth ? this.reauthenticate(provider, form) : this.auth(provider, form) }
 	
 	auth (provider, options: NgForm = null): void {
 		if (!this.loginService.loggedIn() && !options) this.loginService.auth(provider)

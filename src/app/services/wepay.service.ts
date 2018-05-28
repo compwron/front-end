@@ -100,34 +100,40 @@ export class WepayService {
 	}
 
 	checkoutComplete (checkout_id: string, callback): void {
-		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/checkout_status", { checkout_id }, this.options)
-			.subscribe(
-				pipe(
-					(r: WePayPayment) => this.saveCompletedTransaction(r, this.loginService),
-					(r) => r.then(s => callback(s) )
-				),
-				e => console.log("error getting checkout information from WePay", e),
-				() => console.log("successfully completed getting checkout information from WePay")
-			)
+		
+		console.log("checkoutComplete function", checkout_id)
+		
+		db.collection("pending").doc(checkout_id.toString()).get()
+			.then(d => {
+				const { access_token } = d.data()
+		
+				this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/checkout_status", { checkout_id, access_token }, this.options)
+					.subscribe(
+						pipe(
+							(r: WePayPayment) => this.saveCompletedTransaction(r, this.loginService),
+							(r) => r.then(s => callback(s) )
+						),
+						e => console.log("error getting checkout information from WePay", e),
+						() => console.log("successfully completed getting checkout information from WePay")
+					)
+			})
+
 	}
 
 	saveCompletedTransaction (response: WePayPayment, loginService): Promise<string | void> {
 		if (!!response.error_code) {
-			console.log("error getting checkout information after successful payment", response.error_code)
+			console.log("error getting checkout information after successful payment", response)
 		}
 		else {
 			return db.collection("pending").doc(response.checkout_id.toString()).get()
 				.then((snapshot: firebase.firestore.DocumentSnapshot) => {
 					const campaignDetails = snapshot.data()
-					
-					let batch = db.batch()
 
-					// console.log(campaignDetails)
-					// console.log(loginService)
+					let batch = db.batch()
 
 					let campaign = db.collection("campaigns").doc(campaignDetails.id)
 					let donator = db.collection("users").doc(loginService.pridepocketUser.uid)
-					let host = db.collection("users").doc(campaignDetails.owner)
+					let host = db.collection("users").doc(campaignDetails.owner.uid)
 
 					campaignDetails.current = Object.values(campaignDetails.payments || {}).reduce((c, payment) => payment.amount + c, 0) + response.amount
 
@@ -151,25 +157,31 @@ export class WepayService {
 	}
 
 	pay (payment, campaignDetails): void {
-		payment = Object.assign({}, payment, { campaignDetails }) // , { access_token: this.loginService.pridepocketUser.wepay.access_token }
-
-		// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
-		this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
-			.subscribe(
-				(response: WePayPayment) => {
-					console.log(response)
-					if (!response.error_code) {
-						return db.collection("pending").doc(response.checkout_id.toString()).set(campaignDetails)
-							.then(() => {
-								window.open(response.hosted_checkout.checkout_uri, '_blank')
-								return response.hosted_checkout.checkout_uri
-							})
-					}
-					else console.log("error making donation: ", response.error)
-				},
-				e => console.log("error getting response from pay endpoint", e),
-				() => console.log("pay functions in wepay.service complete")
-			)
+		db.collection("users").doc(campaignDetails.owner.uid).get()
+			.then(d => {
+				const o = d.data()
+						
+				payment = Object.assign({}, payment, { campaignDetails }, { access_token: o.wepay.access_token }) // this.loginService.pridepocketUser.wepay.access_token
+		
+				// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
+				this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
+					.subscribe(
+						(response: WePayPayment) => {
+							console.log(response)
+							if (!response.error_code) {
+								return db.collection("pending").doc(response.checkout_id.toString()).set(campaignDetails)
+									.then(() => {
+										window.open(response.hosted_checkout.checkout_uri, '_blank')
+										return response.hosted_checkout.checkout_uri
+									})
+							}
+							else console.log("error making donation: ", response.error)
+						},
+						e => console.log("error getting response from pay endpoint", e),
+						() => console.log("pay functions in wepay.service complete")
+					)
+				
+			})
 	}
 }
 

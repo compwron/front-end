@@ -109,8 +109,16 @@ app.post('/wepay_notification_callback', (req, res) => {
 
 */
 app.post('/checkout_status', (req, res) => {
-    const { checkout_id } = req.body;
-    return promiseCall('/checkout', { checkout_id }).then(r => { res.send(r); });
+    const { checkout_id, access_token } = req.body;
+    const app_access_token = wp.get_access_token();
+    wp.set_access_token(access_token);
+    console.log("checkout_status route");
+    console.log(checkout_id, access_token);
+    return promiseCall('/checkout', { checkout_id }).then(r => {
+        console.log("wepay /checkout returned: ", r);
+        wp.set_access_token(app_access_token);
+        res.send(r);
+    });
 });
 // payment = Object.assign({}, payment, campaignDetails, { access_token: r.wepay.access_token })
 app.post('/pay', (req, res) => {

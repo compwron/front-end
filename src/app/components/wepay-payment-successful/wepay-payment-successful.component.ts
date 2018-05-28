@@ -21,6 +21,7 @@ export class WepayPaymentSuccessfulComponent implements OnInit {
 	ngOnInit() {
 		const { checkout_id } = this.route.snapshot.queryParams
 		this.checkout_id = checkout_id
+		// () => console.log("going to close the window here")
 		this.wepay.checkoutComplete(this.checkout_id, () => window.close())
 	}
 }
