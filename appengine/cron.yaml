@@ -1,0 +1,4 @@
+cron:
+- description: Push a "tick" onto pubsub once a day
+  url: /publish/deactivate-expired
+  schedule: every 24 hours

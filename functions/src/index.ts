@@ -16,7 +16,8 @@ app.use(cors({ origin: true }));
 
 
 admin.initializeApp()
-// import { db, firebase } from '../utilities/utilities'
+
+const db = admin.firestore()
 
 const wepay_settings = {
 	'client_id'     : '53075',
@@ -46,6 +47,44 @@ const promiseCall = (url, data) => {
 	return p
 }
 
+
+// https://github.com/firebase/functions-cron
+exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPublish((event) => {
+	// console.log("Deactivate all expired campaigns")
+	// return true
+	
+	const ddd = new Date()
+
+	return db.collection("campaigns").where("end", "<", ddd).get()
+		.then(expired => {
+			// console.log("there are this many expired campaigns:", expired.size)
+			// console.log(expired.docs.map(d => d.data().name))
+			// return true
+
+			let pArray: Promise<any>[] = []
+			
+			const size = expired.size
+			const docs = expired.docs
+
+			for (let i = 0; i < size; i += 400) {
+				const docSet = docs.slice(i, i + 400)
+
+				// console.log("adding to batch")
+
+				let b = db.batch()
+				docSet.forEach(ex => b.set(ex.ref, { done: true }, { merge: true}))
+				pArray.push(b.commit())
+			}
+
+			console.log("resolving batches")
+		
+			return Promise.all(pArray)
+				.then((pa: any[]): boolean => pa.every(p => p === false))
+
+			// return b.commit().then(() => true)
+		})
+
+})
 
 /*
 const notification_callback_url = "https://pridepocket-3473b.firebaseapp.com/wepay_notification_callback"
@@ -236,6 +275,7 @@ app.post('/register', (req, res) => {
 		})
 		.catch(e => console.log("something went wrong calling account/create", e))
 })
+
 
 
 exports.wepay = functions.https.onRequest(app)
