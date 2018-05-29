@@ -28,9 +28,12 @@ export class LandingComponent implements OnInit {
 		console.log("in checkUserStatus")
 		this.login.statusUpdater()
 			.subscribe(
-				user => this.user = user,
+				user => {
+					if (!this.user) this.router.navigateByUrl('/campaigns')
+					this.user = user
+				},
 				e => console.log("error logging in/getting user", e),
-				() => { this.user.new ? this.router.navigateByUrl('/account') : this.router.navigateByUrl('/mycampaigns') }
+				() => this.user.new ? this.router.navigateByUrl('/account') : this.router.navigateByUrl('/mycampaigns')
 			)
 	}
 

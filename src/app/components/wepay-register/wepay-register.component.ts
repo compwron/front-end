@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core'
 
 import { WepayService } from '../../services/wepay.service'
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-wepay-register',

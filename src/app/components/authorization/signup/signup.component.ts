@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
 		let { displayName, email, password } = form.value
 		this.loginService.emailSignup(email, password, displayName)
 			.subscribe(
-				message => console.log(message),
+				message => console.log("signing up user with email/password", message),
 				e => {
 					this.error = e
 					setTimeout(() => this.error = null, 10000)
