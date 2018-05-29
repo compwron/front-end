@@ -273,7 +273,7 @@
 																</div>
 															</div>
 														</div>
-														<button (click)="addAffiliateLink()" type="button">I have more links</button>
+														<button (click)="addAffiliateLink()" type="button">I want to add a link</button>
 													</label>
 												</div>
 											</div>
@@ -442,8 +442,8 @@
 
 											<hr>
 
-
-											<div>
+											<div *ngIf="!createdForm.valid" >Your campaign cannot be activated until you correct the errors below, which you can do now or save your work and fix them later:</div>
+											<div style="padding: 1em">
 												<div *ngIf="name.invalid && (name.dirty || name.touched)" class="has-danger" >
 													<div class="form-control-feedback" *ngIf="name.errors.required">
 														Validation Error: Your campaign must have a name

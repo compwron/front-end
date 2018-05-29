@@ -58,7 +58,7 @@
               <div class="col-md-12">
                 <h3 class="font-weight-bold aussie-teal">Wishlist</h3>
                 <ul *ngIf="campaign.affiliate_links" >
-                  <li *ngFor="let key of objectkeys(campaign.affiliate_links)" >{{ key }}: {{ campaign.affiliate_links[key] }}</li>
+                  <li *ngFor="let key of objectkeys(campaign.affiliate_links)" >{{ key }}: <a style="color: #0275d8" target="_blank" [href]="campaign.affiliate_links[key]">{{ campaign.affiliate_links[key] }}</a> </li>
                 </ul>
               </div>
             </div>

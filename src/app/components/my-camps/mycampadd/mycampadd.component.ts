@@ -38,9 +38,11 @@ export class MycampaddComponent implements OnInit {
 		console.log(b)
 	
 		this.setAffiliate_links()
-		this.addAffiliateLink()
-		this.addAffiliateLink()
-		this.addAffiliateLink()
+		// this.addAffiliateLink()
+		// this.addAffiliateLink()
+		// this.addAffiliateLink()
+		
+		this.watchNoDate()
 		
 		const id = this.route.snapshot.paramMap.get('id')
 		
@@ -138,6 +140,13 @@ export class MycampaddComponent implements OnInit {
 		console.log(this.createdForm)
 		console.log(this.end)
 		
+	}
+	
+	watchNoDate () {
+		this.createdForm.get('noDate').valueChanges.subscribe(
+			(eternal: boolean) => eternal ? this.createdForm.get('end').disable() : this.createdForm.get('end').enable(),
+			e => console.log("error getting valueChange from 'noDate' field")
+		)
 	}
 	
 	createCampaign () {
