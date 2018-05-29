@@ -61,7 +61,7 @@ exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPubli
 			// console.log(expired.docs.map(d => d.data().name))
 			// return true
 
-			let pArray: Promise<any>[] = []
+			const pArray: Promise<any>[] = []
 			
 			const size = expired.size
 			const docs = expired.docs
@@ -71,7 +71,7 @@ exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPubli
 
 				// console.log("adding to batch")
 
-				let b = db.batch()
+				const b = db.batch()
 				docSet.forEach(ex => b.set(ex.ref, { done: true }, { merge: true}))
 				pArray.push(b.commit())
 			}

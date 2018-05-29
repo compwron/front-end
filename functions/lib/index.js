@@ -42,13 +42,13 @@ exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPubli
         // console.log("there are this many expired campaigns:", expired.size)
         // console.log(expired.docs.map(d => d.data().name))
         // return true
-        let pArray = [];
+        const pArray = [];
         const size = expired.size;
         const docs = expired.docs;
         for (let i = 0; i < size; i += 400) {
             const docSet = docs.slice(i, i + 400);
             // console.log("adding to batch")
-            let b = db.batch();
+            const b = db.batch();
             docSet.forEach(ex => b.set(ex.ref, { done: true }, { merge: true }));
             pArray.push(b.commit());
         }

@@ -22,12 +22,9 @@ export class WepayService {
 		private http: HttpClient,
 		private loginService: LoginService,
 		private router: Router
-	) {
-		// should I try the same initialize function that I use in the nav's ngInit function?)
-	}
+	) { }
 
 	redirect: string = window.location.origin + "/redirect"
-	// redirect: string = "https://pridepocket-3473b.firebaseapp.com/redirect"
 
 	deactivateLink: string = '#'
 	registerLink: string = `https://stage.wepay.com/v2/oauth2/authorize?client_id=53075&redirect_uri=${this.redirect}&scope=manage_accounts,collect_payments,view_user,preapprove_payments,send_money`
@@ -130,14 +127,15 @@ export class WepayService {
 					const campaignDetails = snapshot.data()
 
 					let batch = db.batch()
+					let donator
 
 					let campaign = db.collection("campaigns").doc(campaignDetails.id)
-					let donator = db.collection("users").doc(loginService.pridepocketUser.uid)
 					let host = db.collection("users").doc(campaignDetails.owner.uid)
+					if (loginService.loggedIn()) donator = db.collection("users").doc(loginService.pridepocketUser.uid)
 
 					campaignDetails.current = Object.values(campaignDetails.payments || {}).reduce((c, payment) => payment.amount + c, 0) + response.amount
 
-					batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
+					if (donator) batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
 					batch.set(campaign, { current: campaignDetails.current, payments: { [response.checkout_id]: response } }, { merge: true })
 					batch.set(host, { received: { [campaignDetails.id]: response } }, { merge: true })
 
@@ -161,7 +159,7 @@ export class WepayService {
 			.then(d => {
 				const o = d.data()
 						
-				payment = Object.assign({}, payment, { campaignDetails }, { access_token: o.wepay.access_token }) // this.loginService.pridepocketUser.wepay.access_token
+				payment = Object.assign({}, payment, { campaignDetails }, { access_token: o.wepay.access_token })
 		
 				// call 'pay' endpoint with payment object, which returns an object that includes a checkout link
 				this.http.post("https://us-central1-pridepocket-3473b.cloudfunctions.net/wepay/pay", payment, this.options)
@@ -184,56 +182,3 @@ export class WepayService {
 			})
 	}
 }
-
-
-						// let batch = db.batch()
-						
-						// let campaign = db.collection("campaigns").doc(campaignDetails.id)
-						// let donator = db.collection("users").doc(this.loginService.pridepocketUser.uid)
-						// let host = db.collection("users").doc(campaignDetails.owner)
-
-						// // this isn't really the place to be accumulating; it should happen on the server function that fires when WePay handles a checkout
-						
-						// 	// campaignDetails.current = Object.values(campaignDetails.payments).reduce((c, payment) => {
-						// 	// 	console.log("c", c)
-						// 	// 	console.log("payment.amount", payment.amount)
-						// 	// 	return payment.amount + c
-						// 	// }, 0) + response.amount
-		
-						// 	// console.log(campaignDetails.current)
-	
-						// batch.set(donator, { donations: { [response.checkout_id]: response } }, { merge: true })
-						// batch.set(campaign, { current: campaignDetails.current, payments: { [response.checkout_id]: response } }, { merge: true })
-						// batch.set(host, { received: { [campaignDetails.id]: response } }, { merge: true })
-	
-						// batch.commit()
-						// 	.then(() => {
-						// 		// I also need to set the new campaign total figure
-						// 			// this will be an observer that gets fed a stream of price updates/totals?
-						// 		this.checkoutUri = response.checkout_uri
-						// 	})
-
-
-
-	// set a listener on the user's db representation, which should fire when the user gets a new access_token
-	//	this function is currently redundant and can be eliminated
-	// watch (): void {
-	// 	let unsubscribe = db.collection("users").doc(this.loginService.getUser().uid).onSnapshot(doc => {
-	// 		if (doc.data().wepay.access_token) {
-	// 			unsubscribe()
-
-	// 			let { uid, displayName } = this.loginService.getUser()
-	// 			displayName = displayName ? displayName : "anonymous"
-	// 			let { access_token } = doc.data().wepay
-
-	// 			this.register({ displayName, uid, access_token })
-				
-	// 			// this is currently a redundant database call; I have uid, display name, and access_token from the subscribe doc
-	// 			// db.collection("user").doc(uid).get()
-	// 			// 	.then((user: firebase.firestore.DocumentSnapshot) => {
-	// 			// 		let { access_token } = doc.data().wepay
-	// 			// 		this.register({ displayName, uid, access_token })
-	// 			// 	})
-	// 		}
-	// 	})
-	// }
