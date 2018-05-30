@@ -1,12 +1,11 @@
-<div routerLink="/campaigns/{{ campaign.id }}" class="card">
+<div routerLink="/campaigns/{{ campaign.id }}" class="card mb-4">
 	<div class="card-body">
-		
 		<div class="row mb-4">
-			
+
 			<div class="col-lg-3">
 				<img style="width: 100%; height: 100%" [src]="src" />
 			</div>
-			
+
 			<div class="col-lg-8  profile-info ml-2">
 				<h4 class="primary font-weight-bold">{{ campaign.name }}</h4>
 				<div class="row">
@@ -21,9 +20,9 @@
 				</div>
 				<p>{{ campaign.description }}</p>
 			</div>
-			
+
 		</div>
-		
+
 		<div class="row">
 
 			<div class="col-md-12">
@@ -33,23 +32,36 @@
 				</h2>
 			</div>
 
-			<div class="col-md-5 py-3">
+			<div class="col-md-6 py-3">
 				<div class="rounded-rect-1 w-100">
 					<div [ngStyle]="percentStyle"></div>
 				</div>
 			</div>
 
 			<div class="col-md-2 py-3">
-				<p routerLink="/mycampaigns/{{ campaign.id }}/edit" class=" lagoon pl-4 font-14">Edit</p>
+				<p  class=" lagoon pl-4 font-14">{{ campaign.active ? "Stop" : "Edit" }}</p>
 			</div>
 
-			<div *ngIf="!campaign.active" class="col-md-4 py-2">
+			<div *ngIf="!campaign.active" class="col-md-4">
 				<button (click)="activate()" type="button" class="btn btn-default p-3 font-14">
 					Launch Campaign
 				</button>
 			</div>
+			<div *ngIf="campaign.active" class="col-md-4">
+				<button routerLink="/mycampaigns/{{ campaign.id }}/edit" class="btn  btn-inverse font-14">
+					Edit Campaign
+				</button>
+			</div>
 
 		</div>
-		
+		<hr>
+			<div class="row">
+				<div class="col-md-2">
+						<p style="font-size: 12px;">SHARE:</p>
+				</div>
+				<div class="col-md-2">
+						<a style="font-size:14px; color:blue;" href="#">www.google.com</a>
+				</div>
+			</div>
 	</div>
 </div>

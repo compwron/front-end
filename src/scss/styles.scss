@@ -25,6 +25,10 @@
   background-image: linear-gradient(to right, #f16c45, #f7d784 29%, #bdccad 48%, #57bedf 76%, #8e86c1);
 }
 
+.container {
+  min-width:1400px;
+}
+
 @media (min-width: 1200px){
   .container {
     max-width: 1240px;
