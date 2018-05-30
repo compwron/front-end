@@ -1,8 +1,8 @@
-<nav style="background-color: #413a74;" class="sticky-top navbar navbar-collapse navbar-toggleable-md navbar-light bg-faded ">
+<nav style="background-color: #413a74; display: flex; flex-direction: column" class="sticky-top navbar navbar-collapse navbar-toggleable-md navbar-light bg-faded ">
 
 	<div class="container">
 
-		<a routerLink="tableofcontents" ><img src="./assets/images/logo.png" style="width:150px"/></a>
+		<a routerLink="/" ><img src="./assets/images/logo.png" style="width:150px"/></a>
 
 		<div class="collapse navbar-collapse" id="navbarNav">
 
@@ -76,4 +76,12 @@
 
 		</div>
 	</div>
+	
+	<div
+		*ngIf="!!email && !confirmed && !pending"
+		style="display: flex; justify-content: center; align-items: center; flex-direction: row; margin: 0.3em; background-color: black; color: white; font-weight: bold; width: 100%; padding: 1em; border-radius: 0.5em"
+	>
+		Please confirm your email address (we sent you a link) to start creating campaigns! <div class="btn" style="pointer: cursor" (click)="resendVerificationEmail()">Send the link again please</div> (refresh this page after you verifiy your email)
+	</div>
+	<div *ngIf="pending" style="display: flex; justify-content: center; align-items: center; flex-direction: row; margin: 0.3em; background-color: black; color: white; font-weight: bold; width: 100%; padding: 1em; border-radius: 0.5em" >{{ this.pending }}</div>
 </nav>

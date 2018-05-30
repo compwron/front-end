@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core'
 import { Router } from '@angular/router'
 
 import { fromPromise } from 'rxjs/observable/fromPromise'
+import { from } from 'rxjs/observable/from'
+
 import { Observable } from 'rxjs/Observable'
 import { tap, map } from 'rxjs/operators'
 
@@ -76,12 +78,13 @@ export class LoginService {
 					console.log("status updater completed; setting loading to false")
 					this.loading = false
 					
-					console.log(firebase.auth().currentUser.providerId)
+					// console.log("email verified? ", firebase.auth().currentUser.emailVerified)
+					// console.log(firebase.auth().currentUser.providerId)
 				}
 			)
 	}
 
-	// extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
+	extractUser = map((response: firebase.auth.UserCredential) => <firebase.User>response.user)
 
 	initialize () { return new Observable(observer => firebase.auth().onAuthStateChanged(observer)) }
 
@@ -125,6 +128,15 @@ export class LoginService {
 		
 	}
 
+	// create a /confirmEmail component that waits for login then fires this function, then closes after 5 seconds
+	// confirmEmail (): void {
+	// 	console.log(firebase.auth().currentUser)
+		
+	// 	this.handleCallback(
+	// 		from([firebase.auth().currentUser])
+	// 	)
+	// }
+
 	handleCallback (observable: Observable<firebase.User>): void {
 		// inject a spinner service on the constructor and trigger it here
 		
@@ -135,8 +147,8 @@ export class LoginService {
 					.then(response => {
 						if (response.exists) {
 							this.pridepocketUser = <User>response.data()
-							this.router.navigateByUrl("/")
-							console.log("got an existing user from the database")
+							this.router.navigateByUrl("/landing")
+							console.log("this is an existing user")
 						}
 						else {
 							let { uid, displayName, phoneNumber, email } = user
@@ -144,8 +156,8 @@ export class LoginService {
 							db.collection("users").doc(uid).set({ uid, displayName, phoneNumber, email, new: true })
 								.then(() => {
 									this.pridepocketUser = { uid, displayName, phoneNumber, email }
-									console.log("created a new user", this.pridepocketUser)
-									this.router.navigateByUrl("/")
+									console.log("this is a new user") //	, this.pridepocketUser
+									this.router.navigateByUrl("/landing")
 								})
 								.catch(e => console.log("error while creating a new user in the database", e))
 						}
@@ -161,11 +173,11 @@ export class LoginService {
 		)
 	}
 
-	providerFunction = {
-		facebook: "signInWithPopup",
-		google: "signInWithPopup",
-		email: "signInWithEmailAndPassword"
-	}
+	// providerFunction = {
+	// 	facebook: "signInWithPopup",
+	// 	google: "signInWithPopup",
+	// 	email: "signInWithEmailAndPassword"
+	// }
 
 	authProviders = {
 		facebook: new firebase.auth.FacebookAuthProvider(),
@@ -179,14 +191,20 @@ export class LoginService {
 	}
 
 	auth (provider: string, options = null): void {
-		const f = this.providerFunction[provider]
+		// const f = this.providerFunction[provider]
 		let p
 
 		if (provider !== 'email') {
 			p = this.authProviders[provider]
-			this.handleCallback(fromPromise(firebase.auth()[f](p)))
+			this.handleCallback(
+				this.extractUser(
+					fromPromise(
+						firebase.auth().signInWithPopup(p)
+					)
+				)
+			)
 		}
-		else this.handleCallback(fromPromise(firebase.auth()[f](options.email, options.password)))
+		else this.handleCallback(fromPromise(firebase.auth().signInWithEmailAndPassword(options.email, options.password)))
 	}
 	
 	reauth (provider: string, options = null): Observable<any> {
@@ -208,69 +226,48 @@ export class LoginService {
 					.reauthenticateWithPopup(p)
 		)
 	}
-
-	// facebook (f): void {
-	// 	const provider = new firebase.auth.FacebookAuthProvider()
-	// 	const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth()[f](provider))
-		
-	// 	this.handleCallback(o)
-	// }
 	
-	// google (f): void {
-	// 	const provider = new firebase.auth.GoogleAuthProvider()
-		
-		
-		
-	// 	const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth()[f](provider))
-		
-		
-		
-		
-	// 	this.handleCallback(o)
-	// }
-	
-	// email (f, { email, password }): void {
-	// 	console.log(f)
-		
-	// 	const o: Observable<firebase.auth.UserCredential> = fromPromise(firebase.auth()[f](email, password))
-
-	// 	this.handleCallback(o)
-	// }
-	
-	//	email signup should require user to verify their email
-	//	"You can customize the email template that is used in Authentication section of the Firebase console, on the Email Templates page. See Email Templates in Firebase Help Center."
 	/*
-		var user = firebase.auth().currentUser;
-		
-		user.sendEmailVerification().then(function() {
-		  // Email sent.
-		}).catch(function(error) {
-		  // An error happened.
-		});
-	*/
-	
 	emailSignup (email, password, displayName): Observable<any> {
 		this.displayName = displayName
-		return new Observable(observer => {
-			this.handleCallback(fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password)))
-			// fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
-			// 	.subscribe(
-			// 		() => {
-						
-			// 			observer.next("creating user")
-			// 		},
-			// 		e => observer.error(e),
-			// 		() => {
-			// 			console.log("user created")
-			// 			observer.complete()
-			// 		}
-			// 	)
-		})
+		return new Observable(observer => { this.handleCallback(fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))) })
+	}
+	*/
+
+	sendVerification (user) {
+		return fromPromise(user.sendEmailVerification())
+	}
+
+	//	email signup should require user to verify their email
+	//	"You can customize the email template that is used in Authentication section of the Firebase console, on the Email Templates page. See Email Templates in Firebase Help Center."
+	emailSignup (email, password, displayName): Observable<any> {
+		return new Observable(observer => fromPromise(firebase.auth().createUserWithEmailAndPassword(email, password))
+			.subscribe(
+				user => {
+					// { url: "https://pridepocket-3473b.firebaseapp.com/confirm" }
+					this.sendVerification(user)
+						.subscribe(
+							() => console.log("flash a message that asks the user to confirm their email"),
+							e => {
+								observer.error(e)
+								console.log("error sending email verification", e)
+							},
+							() => {
+								console.log("email verification sent")
+								observer.next()
+								observer.complete()
+							}
+						)
+				},
+				e => observer.error(e),
+				() => console.log("created user with email/password")
+			)
+		)
 	}
 	
 	signOut (): void {
-		firebase.auth().signOut().then(() => {
-			this.pridepocketUser = undefined
-		}).catch(error => console.log("an error occurred while signing out", error))
+		firebase.auth().signOut()
+			.then(() => { this.pridepocketUser = undefined })
+			.catch(error => console.log("an error occurred while signing out", error))
 	}
 }

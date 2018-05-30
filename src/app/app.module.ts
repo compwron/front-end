@@ -56,13 +56,15 @@ import { FlexibleListPipe } from './filters/flexible-list.pipe'
 
 // guards
 import { AuthGuard } from './auth.guard'
+import { ConfirmedGuard } from './confirmed.guard'
 import { ResourceCardComponent } from './components/community-resources/resource-card/resource-card.component'
 import { ResourceService } from './services/resource.service'
 import { CampaignCreatorService } from './services/campaign-creator.service'
 import { TestingComponent } from './components/testing/testing.component'
 import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component'
 import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component'
-import { LandingComponent } from './components/landing/landing.component'
+import { LandingComponent } from './components/landing/landing.component';
+import { ConfirmComponent } from './components/confirm/confirm.component'
 
 
 
@@ -73,6 +75,7 @@ const appRoutes: Routes = [
   
   //{path:'', component:CampaignsComponent},
   {path:'campaigns', component:CampaignsComponent},
+  {path:'', redirectTo: "/campaigns", pathMatch: "full"},
   {path:'campaigns/:id', component:IndivCampComponent},										// pretty sure this needs to be nested
   {path:'faq', component:FaqComponent},
   {path:'feature-widget', component:FeatureWidgetComponent},
@@ -83,18 +86,20 @@ const appRoutes: Routes = [
   {path:'resources/:id', component:ArticleComponent},
   {path:'signup', component:SignupComponent},
   {path:'tableofcontents', component:AppcontentsComponent},
+  {path:'confirm', component:ConfirmComponent},
   
   
   
   // only logged-in users can access the routes below
-  {path:'testing', component:TestingComponent, canActivate:[AuthGuard]},
-  {path:'', component:LandingComponent, canActivate:[AuthGuard]},
+  //{path:'testing', component:TestingComponent, canActivate:[AuthGuard]},
+  
+  {path:'landing', component:LandingComponent, canActivate:[AuthGuard]},
   {path:'account', component:MyProfileComponent, canActivate:[AuthGuard]},
-  {path:'mycampaigns', component:MycampaignsComponent, canActivate:[AuthGuard]},
-  {path:'mycampaigns/add', component:MycampaddComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
-  {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[AuthGuard]},		//pretty sure this needs to be nested
+  {path:'mycampaigns', component:MycampaignsComponent, canActivate:[ConfirmedGuard]},
+  {path:'mycampaigns/add', component:MycampaddComponent, canActivate:[ConfirmedGuard]},		//pretty sure this needs to be nested
+  {path:'mycampaigns/:id', component:MyindivcampComponent, canActivate:[ConfirmedGuard]},		//pretty sure this needs to be nested
   //{path:'mycampaigns/:id/edit', component:MycampeditComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
-  {path:'mycampaigns/:id/edit', component:MycampaddComponent, canActivate:[AuthGuard]}	//pretty sure this needs to be nested
+  {path:'mycampaigns/:id/edit', component:MycampaddComponent, canActivate:[ConfirmedGuard]}	//pretty sure this needs to be nested
 ]
 
 @NgModule({
@@ -135,7 +140,8 @@ const appRoutes: Routes = [
     StorageUploaderDropzoneComponent,
     MycampBriefComponent,
     FlexibleListPipe,
-    LandingComponent
+    LandingComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -152,6 +158,7 @@ const appRoutes: Routes = [
 	UserService,
 	WepayService,
 	AuthGuard,
+	ConfirmedGuard,
 	ResourceService,
 	CampaignCreatorService,
 	StorageBucketService

@@ -18,20 +18,28 @@ export class ConfirmComponent implements OnInit {
 	message: string
 	
 	ngOnInit() {
-		this.message = "Confirming your email address..."
-		const unsubscribe = setInterval(() => {
-			if (!this.login.loading && this.login.loggedIn()) {
-				if (firebase.auth().currentUser.emailVerified) {
-					this.message = "Confirmed your email, finishing the account creation process"
-					this.login.confirmEmail()
-				}
-				else this.message = "You email is not verified; something went wrong..."
+		this.message = "Your email address is confirmed; you can log into PridePocket now!"
+
+		setTimeout(() => {
+			console.log("closing window")
+			this.close()
+		}, 3000)
+		// const unsubscribe = setInterval(() => {
+		// 	if (!this.login.loading && this.login.loggedIn()) {
+		// 		console.log(firebase.auth().currentUser.emailVerified)
+		// 		if (firebase.auth().currentUser.emailVerified) {
+		// 			this.message = "Confirmed your email, finishing the account creation process"
+		// 			this.login.confirmEmail()
+		// 		}
+		// 		else this.message = "You email is not verified; something went wrong..."
 				
-				clearInterval(unsubscribe)
-			}
-			else if (!this.login.loading) this.message = "Could not confirm your email..."
-		}, 1000)
+		// 		clearInterval(unsubscribe)
+		// 	}
+		// 	else if (!this.login.loading) this.message = "Could not confirm your email..."
+		// }, 1000)
 
 	}
+	
+	close () { window.close() }
 
 }
