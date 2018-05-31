@@ -61,12 +61,12 @@
                     </div>
                     <div class="row">
                       <div class="col-md-12 mb-3">
-                        <a class="btn btn-facebook btn-block p-2 h-100 font-18" (click)="beginAuth('facebook')" href="#fakelink" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
+                        <a class="btn btn-facebook btn-block p-2 h-100 font-18" (click)="beginAuth('facebook')" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                       <a href="#fakelink" class="btn btn-google-plus btn-block p-2 h-100 font-18"><i class="icofont icofont-social-google-plus"></i> Sign Up with Google</a>
+                       <a (click)="beginAuth('google')" class="btn btn-google-plus btn-block p-2 h-100 font-18"><i class="icofont icofont-social-google-plus"></i> Sign Up with Google</a>
                       </div>
                     </div>
                   </form>
