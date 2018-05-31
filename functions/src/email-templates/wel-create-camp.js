@@ -39,10 +39,10 @@
 // // `;
 
 // // console.log(markup)
-// const user = {
-// 	"firstName": "Rachel",
-// 	"lastName": "Blank"
-// }
+const user = {
+	"firstName": "Rachel",
+	"lastName": "Blank"
+}
 
 function personalize(user) {
 	return `<!doctype html>
@@ -923,5 +923,4 @@ function personalize(user) {
  </body>
 </html>`}
 
-// console.log(personalize(user))
-exports.personalize = personalize
+console.log(personalize(user))

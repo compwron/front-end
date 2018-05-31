@@ -873,5 +873,4 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 `
 }
 
-// console.log(personalize(campaign))
-exports.personalize = personalize
+console.log(personalize(campaign))
