@@ -10,10 +10,10 @@
 				<h4 class="primary font-weight-bold">{{ campaign.name }}</h4>
 				<div class="row">
 					<div class="col-sm-9">
-						<small class="text-muted">Campaign runs from {{ campaign.begin | date }} to {{ displayEnd }}</small>
+						<small class="text-muted ml-1">Campaign runs from {{ campaign.begin | date }} to {{ displayEnd }}</small>
 					</div>
 					<div class="col-sm-3">
-						<button type="button" class="btn white text-uppercase btn-warning btn-rounded btn-sm" style="box-shadow: none;">
+						<button type="button" class="btn white text-uppercase btn-warning btn-rounded btn-sm float-right" style="box-shadow: none;">
 							{{ campaign.active ? "Active" : "Pending" }}
 						</button>
 					</div>
@@ -39,7 +39,7 @@
 			</div>
 
 			<div class="col-md-2 py-3">
-				<p  class=" lagoon pl-4 font-14">{{ campaign.active ? "Stop" : "Edit" }}</p>
+				<p  class=" lagoon pl-4 font-14">{{ campaign.active ? "Stop Campaign" : "Edit Campaign" }}</p>
 			</div>
 
 			<div *ngIf="!campaign.active" class="col-md-4">
@@ -48,7 +48,7 @@
 				</button>
 			</div>
 			<div *ngIf="campaign.active" class="col-md-4">
-				<button routerLink="/mycampaigns/{{ campaign.id }}/edit" class="btn  btn-inverse font-14">
+				<button routerLink="/mycampaigns/{{ campaign.id }}/edit" class="btn  btn-inverse font-14 float-right">
 					Edit Campaign
 				</button>
 			</div>
@@ -56,11 +56,13 @@
 		</div>
 		<hr>
 			<div class="row">
-				<div class="col-md-2">
-						<p style="font-size: 12px;">SHARE:</p>
+				<div class="col-md-4">
+						<p style="font-size: 12px;">SHARE:<a class="font-14" href="#" style="color:blue"> www.google.com</a></p>
 				</div>
-				<div class="col-md-2">
-						<a style="font-size:14px; color:blue;" href="#">www.google.com</a>
+				<div class="col-md-8">
+						<a href="#fakelink" class="btn email-share float-right"><i class="icofont icofont-email"></i> Share</a>
+						<a href="#fakelink" class="btn btn-twitter twitter-share float-right mr-2"><i class="icofont icofont-social-twitter"></i> Share</a>
+						<a href="#fakelink" class="btn btn-facebook facebook-share float-right mr-2"><i class="icofont icofont-social-facebook mr-2"></i>Share</a>
 				</div>
 			</div>
 	</div>
