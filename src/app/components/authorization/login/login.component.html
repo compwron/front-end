@@ -21,7 +21,7 @@
                       <p class="txt-small font-12 text-center">Don’t have an account? <a routerLink="/signup" class="string-link">Join Now</a></p>
                     </div>
                   </div>
-                  <div *ngIf="error" style="background-color: red; color: white; font-weight: bold; padding: 1em; margin: 0.5em; border-radius: 0.5em">
+                  <div *ngIf="error" style="background-color: red; color: white; font-weight: bold; padding: 1em; margin: 0.5em; border-radius: 0.5em;">
                   	Error logging in:
                   	<div style="padding: 0.3em">
                       <div>Code: {{ error.code }}</div>
@@ -60,16 +60,13 @@
                         <hr class="hr-text">
                     </div>
                     <div class="row">
-                      <div class="col-md-12">
-                        <a class="btn btn-facebook btn-block mb-2 h-100 font-18" (click)="beginAuth('facebook')" href="#fakelink" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
+                      <div class="col-md-12 mb-3">
+                        <a class="btn btn-facebook btn-block p-2 h-100 font-18" (click)="beginAuth('facebook')" href="#fakelink" ><i class="icofont icofont-social-facebook mr-2"></i>Login with Facebook</a>
                       </div>
-                    </div>
-                    <div>
-                        <hr class="hr-text">
                     </div>
                     <div class="row">
                       <div class="col-md-12">
-                        <a (click)="beginAuth('google')" class="btn btn-google btn-block mb-2 h-100 font-18 "><i class="icofont icofont-social-google mr-2"></i>Login with Google</a>
+                       <a href="#fakelink" class="btn btn-google-plus btn-block p-2 h-100 font-18"><i class="icofont icofont-social-google-plus"></i> Sign Up with Google</a>
                       </div>
                     </div>
                   </form>

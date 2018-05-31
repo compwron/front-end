@@ -527,9 +527,17 @@ a {
   box-shadow: 0 2px 0 0 $summernight;
 }
 
+.btn-twitter:hover {
+  color:white;
+}
+
 .email-share {
   background-color: $lagoon;
   box-shadow: 0 2px 0 0 $darkteal;
+}
+
+.email-share:hover {
+  color: white;
 }
 
 .paypal {

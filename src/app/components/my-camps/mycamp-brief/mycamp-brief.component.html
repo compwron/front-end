@@ -1,29 +1,28 @@
-<div routerLink="/campaigns/{{ campaign.id }}" class="card">
+<div routerLink="/campaigns/{{ campaign.id }}" class="card mb-4">
 	<div class="card-body">
-		
 		<div class="row mb-4">
-			
+
 			<div class="col-lg-3">
 				<img style="width: 100%; height: 100%" [src]="src" />
 			</div>
-			
+
 			<div class="col-lg-8  profile-info ml-2">
 				<h4 class="primary font-weight-bold">{{ campaign.name }}</h4>
 				<div class="row">
 					<div class="col-sm-9">
-						<small class="text-muted">Campaign runs from {{ campaign.begin | date }} to {{ displayEnd }}</small>
+						<small class="text-muted ml-1">Campaign runs from {{ campaign.begin | date }} to {{ displayEnd }}</small>
 					</div>
 					<div class="col-sm-3">
-						<button type="button" class="btn white text-uppercase btn-warning btn-rounded btn-sm" style="box-shadow: none;">
+						<button type="button" class="btn white text-uppercase btn-warning btn-rounded btn-sm float-right" style="box-shadow: none;">
 							{{ campaign.active ? "Active" : "Pending" }}
 						</button>
 					</div>
 				</div>
 				<p>{{ campaign.description }}</p>
 			</div>
-			
+
 		</div>
-		
+
 		<div class="row">
 
 			<div class="col-md-12">
@@ -33,23 +32,38 @@
 				</h2>
 			</div>
 
-			<div class="col-md-5 py-3">
+			<div class="col-md-6 py-3">
 				<div class="rounded-rect-1 w-100">
 					<div [ngStyle]="percentStyle"></div>
 				</div>
 			</div>
 
 			<div class="col-md-2 py-3">
-				<p routerLink="/mycampaigns/{{ campaign.id }}/edit" class=" lagoon pl-4 font-14">Edit</p>
+				<p  class=" lagoon pl-4 font-14">{{ campaign.active ? "Stop Campaign" : "Edit Campaign" }}</p>
 			</div>
 
-			<div *ngIf="!campaign.active" class="col-md-4 py-2">
+			<div *ngIf="!campaign.active" class="col-md-4">
 				<button (click)="activate()" type="button" class="btn btn-default p-3 font-14">
 					Launch Campaign
 				</button>
 			</div>
+			<div *ngIf="campaign.active" class="col-md-4">
+				<button routerLink="/mycampaigns/{{ campaign.id }}/edit" class="btn  btn-inverse font-14 float-right">
+					Edit Campaign
+				</button>
+			</div>
 
 		</div>
-		
+		<hr>
+			<div class="row">
+				<div class="col-md-4">
+						<p style="font-size: 12px;">SHARE:<a class="font-14" href="#" style="color:blue"> www.google.com</a></p>
+				</div>
+				<div class="col-md-8">
+						<a href="#fakelink" class="btn email-share float-right"><i class="icofont icofont-email"></i> Share</a>
+						<a href="#fakelink" class="btn btn-twitter twitter-share float-right mr-2"><i class="icofont icofont-social-twitter"></i> Share</a>
+						<a href="#fakelink" class="btn btn-facebook facebook-share float-right mr-2"><i class="icofont icofont-social-facebook mr-2"></i>Share</a>
+				</div>
+			</div>
 	</div>
 </div>
