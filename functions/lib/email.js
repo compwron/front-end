@@ -1,5 +1,7 @@
 // https://nodemailer.com/usage/
 // https://nodemailer.com/about/
+// set UIN/PW with firebase functions config
+// firebase functions:config:set gmail.email=email@address.com" gmail.password="password"
 // import * as functions from 'firebase-functions';
 // const admin = require("firebase-admin")
 const nodemailer = require('nodemailer');
@@ -11,8 +13,8 @@ const { personalize: exceed } = require('./email-templates/exceed-amount');
 const { personalize: launch } = require('./email-templates/launch-camp');
 // const gmailEmail = functions.config().gmail.email
 // const gmailPassword = functions.config().gmail.password
-const gmailEmail = "email";
-const gmailPassword = "password";
+const gmailEmail = "chris@rosettablock.com";
+const gmailPassword = "$AnsKR1T";
 const mailTransport = nodemailer.createTransport({
     service: 'gmail',
     auth: {

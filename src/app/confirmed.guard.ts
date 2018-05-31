@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable'
 import { Router } from '@angular/router'
 import { LoginService } from './services/login.service'
 
-import { firebase } from '../utilities/utilities'
+import { firebase } from './utilities/utilities'
 import { first } from 'rxjs/operators'
 
 @Injectable()
@@ -24,11 +24,11 @@ export class ConfirmedGuard implements CanActivate {
 				const unsubscribe = setInterval(() => {
 					if (!this.login.loading) {
 						clearInterval(unsubscribe)
-						observer.next(firebase.auth().currentUser.emailConfirmed)
+						observer.next(firebase.auth().currentUser.emailVerified)
 					}
 				}, 1000)
 			}
-			else { observer.next(firebase.auth().currentUser.emailConfirmed) }
+			else { observer.next(firebase.auth().currentUser.emailVerified) }
 
 		})
 	}

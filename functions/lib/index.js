@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const wepay_1 = require("wepay");
+const email_1 = require("./email");
 const express = require('express');
 const cors = require('cors');
 // const querystring = require('querystring')
@@ -32,6 +33,35 @@ const promiseCall = (url, data) => {
     const p = new Promise((resolve, reject) => wp.call(url, data, resolve));
     return p;
 };
+// const campaign = {
+//   "host": "Rachel Blank",
+//   "id": "xyz",
+//   "name": "Wedding",
+//   "security": "link",
+//   "raised": "$100",
+//   "goal":"100",
+//   "donator":"Jamie",
+//   "donation":"$20"
+// }
+exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((change, context) => {
+    console.log("running email function");
+    demo_data = [
+        "contribution",
+        "cjohnson6382@gmail.com",
+        "testing email templates",
+        {
+            "host": "Rachel Blank",
+            "id": "xyz",
+            "name": "Wedding",
+            "security": "link",
+            "raised": "$100",
+            "goal": "100",
+            "donator": "Jamie",
+            "donation": "$20"
+        }
+    ];
+    email_1.email(...demo_data);
+});
 // https://github.com/firebase/functions-cron
 exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPublish((event) => {
     // console.log("Deactivate all expired campaigns")
