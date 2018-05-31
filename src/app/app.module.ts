@@ -63,7 +63,8 @@ import { CampaignCreatorService } from './services/campaign-creator.service'
 import { TestingComponent } from './components/testing/testing.component'
 import { StorageUploaderDropzoneComponent } from './components/storage-uploader-dropzone/storage-uploader-dropzone.component'
 import { MycampBriefComponent } from './components/my-camps/mycamp-brief/mycamp-brief.component'
-import { LandingComponent } from './components/landing/landing.component'
+import { LandingComponent } from './components/landing/landing.component';
+import { ConfirmComponent } from './components/confirm/confirm.component'
 
 
 
@@ -84,7 +85,8 @@ const appRoutes: Routes = [
   {path:'resources', component:ResourcesComponent},
   {path:'resources/:id', component:ArticleComponent},
   {path:'signup', component:SignupComponent},
-  //{path:'tableofcontents', component:AppcontentsComponent},
+  {path:'tableofcontents', component:AppcontentsComponent},
+  {path:'confirm', component:ConfirmComponent},
   
   
   
@@ -138,7 +140,8 @@ const appRoutes: Routes = [
     StorageUploaderDropzoneComponent,
     MycampBriefComponent,
     FlexibleListPipe,
-    LandingComponent
+    LandingComponent,
+    ConfirmComponent
   ],
   imports: [
     BrowserModule,

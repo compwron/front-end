@@ -23,13 +23,6 @@ https://firebase.googleblog.com/2018/01/streamline-typescript-development-cloud-
 Downloads/projects/pridepocket/functions/node_modules/.bin/tsc --watch
 
 
-
-
-
-<!--custom email handler-->
-https://firebase.google.com/docs/auth/custom-email-handler
-
-
 **buglist**
 - something in the navbar dropdown menus prevents a full page refresh/component mount and so links to dynamic pages are not working right
 	* removed form tags

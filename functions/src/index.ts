@@ -7,8 +7,6 @@ import { email } from './email'
 const express = require('express');
 const cors = require('cors');
 
-
-
 // const querystring = require('querystring')
 
 const app = express();
