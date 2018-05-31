@@ -1,13 +1,13 @@
-const campaign = {
-  "host": "Rachel Blank",
-  "id": "xyz",
-  "name": "Wedding",
-  "security": "link",
-  "raised": "$100",
-  "goal":"100",
-  "donator":"Jamie",
-  "donation":"$20"
-}
+// const campaign = {
+//   "host": "Rachel Blank",
+//   "id": "xyz",
+//   "name": "Wedding",
+//   "security": "link",
+//   "raised": "$100",
+//   "goal":"100",
+//   "donator":"Jamie",
+//   "donation":"$20"
+// }
 
 function personalize(campaign) {
   return `<!doctype html>
@@ -865,4 +865,5 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 `
 }
 
-console.log(personalize(campaign))
+// console.log(personalize(campaign))
+exports.personalize = personalize

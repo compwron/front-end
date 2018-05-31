@@ -1,23 +1,27 @@
 // https://nodemailer.com/usage/
 // https://nodemailer.com/about/
 
-import * as functions from 'firebase-functions';
-const admin = require("firebase-admin")
+// set UIN/PW with firebase functions config
+// firebase functions:config:set gmail.email=email@address.com" gmail.password="password"
+
+
+// import * as functions from 'firebase-functions';
+// const admin = require("firebase-admin")
 
 const nodemailer = require('nodemailer')
 
-const { campaignEnd: personalize } = require('./email-templates/camp-end')
-const { contributionThankYou: personalize } = require('./email-templates/contribution-ty')
-const { contributionEmail: personalize } = require('./email-templates/contribution')
-const { draftCamp: personalize } = require('./email-templates/draft-camp')
-const { exceed: personalize } = require('./email-templates/exceed-amount')
-const { launch: personalize } = require('./email-templates/launch-camp')
+const { personalize: campaignEnd } = require('./email-templates/camp-end')
+const { personalize: contributionThankYou } = require('./email-templates/contribution-ty')
+const { personalize: contributionEmail } = require('./email-templates/contribution')
+const { personalize: draftCamp } = require('./email-templates/draft-camp')
+const { personalize: exceed } = require('./email-templates/exceed-amount')
+const { personalize: launch } = require('./email-templates/launch-camp')
 
 // const gmailEmail = functions.config().gmail.email
 // const gmailPassword = functions.config().gmail.password
 
-gmailEmail = "email"
-gmailPassword = "password"
+const gmailEmail = "chris@rosettablock.com"
+const gmailPassword = "$AnsKR1T"
 
 const mailTransport = nodemailer.createTransport({
   service: 'gmail',
@@ -41,12 +45,12 @@ const email = (type, to, subject, config) => {
 	const mailOptions = { from: "Info", to, subject, html }
 	
 	return mailTransport.sendMail(mailOptions)
-		.then((info) => res.send(info.toString()))
-		.catch(e => res.send(e.string()))
+		.then((info) => console.log(info.toString()))
+		.catch(e => console.log(e.string()))
 }
 
 
-
+exports.email = email
 
 // const campEnd = campaign => {
 // 	cosnt mailOptions = {

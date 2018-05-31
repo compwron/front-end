@@ -2,6 +2,7 @@ import * as functions from 'firebase-functions';
 const admin = require("firebase-admin")
 
 import { WEPAY as wepay } from 'wepay'
+import { email } from './email'
 
 const express = require('express');
 const cors = require('cors');
@@ -49,6 +50,39 @@ const promiseCall = (url, data) => {
 	return p
 }
 
+
+// const campaign = {
+//   "host": "Rachel Blank",
+//   "id": "xyz",
+//   "name": "Wedding",
+//   "security": "link",
+//   "raised": "$100",
+//   "goal":"100",
+//   "donator":"Jamie",
+//   "donation":"$20"
+// }
+
+exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((change, context) => {
+	console.log("running email function")
+	
+	demo_data = [
+		"contribution",
+		"cjohnson6382@gmail.com",
+		"testing email templates",
+		{
+			"host": "Rachel Blank",
+			"id": "xyz",
+			"name": "Wedding",
+			"security": "link",
+			"raised": "$100",
+			"goal":"100",
+			"donator":"Jamie",
+			"donation":"$20"
+		}
+	]
+	
+	email(...demo_data)
+})
 
 // https://github.com/firebase/functions-cron
 exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPublish((event) => {

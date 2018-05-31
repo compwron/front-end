@@ -1,7 +1,7 @@
-const user = {
-  "id": "xyz",
-  "name": "Rachel"
-}
+// const user = {
+//   "id": "xyz",
+//   "name": "Rachel"
+// }
 
 function personalize(user) {
   return `<!doctype html>
@@ -853,4 +853,6 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 </html>`
 }
 
-console.log(personalize(user))
+// console.log(personalize(user))
+
+exports.personalize = personalize
