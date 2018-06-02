@@ -1,17 +1,12 @@
-// const campaign = {
-//   "owner": "Rachel Blank",
-//   "id": "xyz",
-//   "name": "Wedding",
-//   "security": "link",
-//   "current": "100",
-//   "goal":"100",
-//   "payment": {
-//		"amount": 20
-//		"payer": {
-//		 	"name": "Jamie"
-//		}
-//   }
-// }
+const campaign = {
+  "host": "Rachel Blank",
+  "id": "xyz",
+  "name": "Wedding",
+  "security": "link",
+  "raised": "$100",
+  "goal":"100"
+
+}
 
 function personalize(campaign) {
   return `<!doctype html>
@@ -561,7 +556,9 @@ function personalize(campaign) {
       /*@editable*/line-height:150% !important;
     }
 
-}</style></head>
+}</style>
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"405167",ustr:"",originlat:"0",clientrtt:"30",ghostip:"77.67.85.136",ipv6:false,pct:"10",clientip:"66.234.211.203",requestid:"85c59ec",region:"19985",protocol:"h2",blver:13,akM:"x",akN:"ae",akTT:"O",akTX:"1",akTI:"85c59ec",ai:"343001",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    </head>
     <body>
     <!--*|IF:MC_PREVIEW_TEXT|*-->
     <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
@@ -655,14 +652,21 @@ function personalize(campaign) {
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; line-height: 150%;">
 
-                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
+                            <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Your&nbsp;Campaign Has Ended</span></strong></h1>
 
 <h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
+<span style="color:#130733">Hello, ${campaign.host}!</span></h1>
 <br>
-<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
+<span style="font-size:14px">Your campaign, ${campaign.name} is ended. You’ve raised&nbsp; ${campaign.raised}, great job! &nbsp;</span>
+
+<div style="text-align: justify;">&nbsp;</div>
+
+<h1 class="mc-toc-title" style="text-align: justify;"><span style="color:#130733">What Happens Now?</span></h1>
 <br>
-Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
+<span style="font-size:14px">Now that your campaign is over you can collect your remaining funds and thank everyone for their support.<br>
+<br>
+Remember, any contributions you receive will be sent to your account ever 15 days until the campaign has completed. So don’t worry if the remaining amount is not the full amount of the campaign, we’ve already sent most of it your way!</span><br>
+<br>
 &nbsp;
                         </td>
                     </tr>
@@ -870,4 +874,5 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 }
 
 // console.log(personalize(campaign))
+
 exports.personalize = personalize

@@ -6,18 +6,19 @@ const admin = require("firebase-admin")
 
 const nodemailer = require('nodemailer')
 
-const { campaignEnd: personalize } = require('./email-templates/camp-end')
-const { contributionThankYou: personalize } = require('./email-templates/contribution-ty')
-const { contributionEmail: personalize } = require('./email-templates/contribution')
-const { draftCamp: personalize } = require('./email-templates/draft-camp')
-const { exceed: personalize } = require('./email-templates/exceed-amount')
-const { launch: personalize } = require('./email-templates/launch-camp')
+// copy the 'email-templates' folder into functions/lib to avoid compilation problems
+const { personalize: campaignEnd } = require('./email-templates/camp-end')
+const { personalize: contributionThankYou } = require('./email-templates/contribution-ty')
+const { personalize: contributionEmail } = require('./email-templates/contribution')
+const { personalize: draftCamp } = require('./email-templates/draft-camp')
+const { personalize: exceed } = require('./email-templates/exceed-amount')
+const { personalize: launch } = require('./email-templates/launch-camp')
 
 // const gmailEmail = functions.config().gmail.email
 // const gmailPassword = functions.config().gmail.password
 
-gmailEmail = "email"
-gmailPassword = "password"
+const gmailEmail = "cjohnson6382@gmail.com"
+const gmailPassword = "goatsarethe|33$T"
 
 const mailTransport = nodemailer.createTransport({
   service: 'gmail',
@@ -38,14 +39,49 @@ const emailTypes = {
 
 const email = (type, to, subject, config) => {
 	const html = emailTypes[type](config)
+	
 	const mailOptions = { from: "Info", to, subject, html }
 	
 	return mailTransport.sendMail(mailOptions)
-		.then((info) => res.send(info.toString()))
-		.catch(e => res.send(e.string()))
+		.then((info) => {
+			console.log(info)
+			return
+		})
+		.catch(e => {
+			console.log(e)
+			return
+		})
 }
 
+const sendMail = options => mailTransport.sendMail(options)
+	.then((info) => {
+		console.log(info)
+		return
+	})
+	.catch(e => {
+		console.log(e)
+		return
+	})
 
+const campExpired = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your Pride Pocket Campaign has Ended.", html: campaignEnd(campaign) })
+const campaignLaunched = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your campaign is live! Spread the word", html: launch(campaign) })
+const draftCampaignCreated = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "You have created a draft campaign", html: draftCamp(campaign) })
+const goalExceeded = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your Pride Pocket Campaign exceeded your goal!", html: exceed(campaign) })
+
+const donationReceived = changeInfo => {
+	const mailOptions = { from: "Info", to: changeInfo.owner.email, subject: "You have received a donation!", html: contributionEmail(changeInfo) }
+	
+	return mailTransport.sendMail(mailOptions)
+		.then(info => {
+			return sendMail({ from: "Info", to: changeInfo.payment.payer.email, subject: "Thank you for contributing!!", html: contributionThankYou(changeInfo) })
+		})
+		.catch(e => {
+			console.log(e)
+			return
+		})
+}
+
+exports = { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired }
 
 
 // const campEnd = campaign => {

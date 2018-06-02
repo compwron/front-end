@@ -1,16 +1,9 @@
 // const campaign = {
-//   "owner": "Rachel Blank",
+//   "host": "Rachel Blank",
 //   "id": "xyz",
 //   "name": "Wedding",
-//   "security": "link",
-//   "current": "100",
-//   "goal":"100",
-//   "payment": {
-//		"amount": 20
-//		"payer": {
-//		 	"name": "Jamie"
-//		}
-//   }
+//   "security": "link"
+//   "amount": "$0"
 // }
 
 function personalize(campaign) {
@@ -270,7 +263,7 @@ function personalize(campaign) {
       /*@editable*/color:#202020;
       /*@editable*/font-family:Helvetica;
       /*@editable*/font-size:16px;
-      /*@editable*/line-height:100%;
+      /*@editable*/line-height:150%;
       /*@editable*/text-align:left;
     }
   /*
@@ -289,12 +282,12 @@ function personalize(campaign) {
   @tip Set the background color and borders for your email's body area.
   */
     #templateBody{
-      /*@editable*/background-color:#ffffff;
+      /*@editable*/background-color:#FFFFFF;
       /*@editable*/background-image:none;
       /*@editable*/background-repeat:no-repeat;
       /*@editable*/background-position:center;
       /*@editable*/background-size:cover;
-      /*@editable*/border-top:10px solid #544b96;
+      /*@editable*/border-top:0;
       /*@editable*/border-bottom:2px solid #EAEAEA;
       /*@editable*/padding-top:0;
       /*@editable*/padding-bottom:9px;
@@ -587,7 +580,7 @@ function personalize(campaign) {
                             <td class="mcnImageContent" valign="top" style="padding-right: 9px; padding-left: 9px; padding-top: 0; padding-bottom: 0; text-align:center;">
 
 
-                                        <img align="center" alt="" src="https://gallery.mailchimp.com/1e00d36f860da1cc727f46d5d/images/483b0661-1df0-4973-aabf-2dc6ee80bb1b.png" width="250" style="max-width:500px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnRetinaImage">
+                                        <img align="center" alt="" src="https://gallery.mailchimp.com/1e00d36f860da1cc727f46d5d/images/483b0661-1df0-4973-aabf-2dc6ee80bb1b.png" width="250" style="max-width:500px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
 
 
                             </td>
@@ -599,31 +592,31 @@ function personalize(campaign) {
 </table></td>
                             </tr>
                             <tr>
-                                <td valign="top" id="templateHeader"></td>
+                                <td valign="top" id="templateHeader"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnImageBlock" style="min-width:100%;">
+    <tbody class="mcnImageBlockOuter">
+            <tr>
+                <td valign="top" style="padding:0px" class="mcnImageBlockInner">
+                    <table align="left" width="100%" border="0" cellpadding="0" cellspacing="0" class="mcnImageContentContainer" style="min-width:100%;">
+                        <tbody><tr>
+                            <td class="mcnImageContent" valign="top" style="padding-right: 0px; padding-left: 0px; padding-top: 0; padding-bottom: 0; text-align:center;">
+
+                                    <a href="http://pridepocket.org/mycampaigns/${campaign.id}" title="" class="" target="_blank">
+                                        <img align="center" alt="" src="https://gallery.mailchimp.com/1e00d36f860da1cc727f46d5d/images/a8e49160-d780-4363-bf36-d94779756fb2.png" width="600" style="max-width:1200px; padding-bottom: 0; display: inline !important; vertical-align: bottom;" class="mcnImage">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table></td>
                             </tr>
                             <tr>
                                 <td valign="top" id="templateBody"><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
     <tbody class="mcnDividerBlockOuter">
         <tr>
-            <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 0px 18px 18px;">
-                <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px none #EAEAEA;">
-                    <tbody><tr>
-                        <td>
-                            <span></span>
-                        </td>
-                    </tr>
-                </tbody></table>
-<!--
-                <td class="mcnDividerBlockInner" style="padding: 18px;">
-                <hr class="mcnDividerContent" style="border-bottom-color:none; border-left-color:none; border-right-color:none; border-bottom-width:0; border-left-width:0; border-right-width:0; margin-top:0; margin-right:0; margin-bottom:0; margin-left:0;" />
--->
-            </td>
-        </tr>
-    </tbody>
-</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnDividerBlock" style="min-width:100%;">
-    <tbody class="mcnDividerBlockOuter">
-        <tr>
-            <td class="mcnDividerBlockInner" style="min-width: 100%; padding: 0px 18px 18px;">
+            <td class="mcnDividerBlockInner" style="min-width:100%; padding:18px;">
                 <table class="mcnDividerContent" border="0" cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%;border-top: 2px none #EAEAEA;">
                     <tbody><tr>
                         <td>
@@ -653,16 +646,22 @@ function personalize(campaign) {
                 <table align="left" border="0" cellpadding="0" cellspacing="0" style="max-width:100%; min-width:100%;" width="100%" class="mcnTextContentContainer">
                     <tbody><tr>
 
-                        <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; line-height: 150%;">
+                        <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
+                            <h1><span style="color:#130733">Hey there, </span>${campaign.host}<span style="color:#130733">!&nbsp;</span></h1>
 
-<h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
+<p><span style="font-size:14px">Your campaign, ${campaign.name}&nbsp;is now live and ready to go at the following link:<br>
 <br>
-<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
+http://pridepocket.org/mycampaigns/${campaign.id}</span></p>
+
+<h1 class="mc-toc-title"><span style="color:#130733">How will I get paid?</span></h1>
+
+<p><span style="font-size:14px">Great question! By launching your campaign you have already verified your WePay account. That means that once you are set up there, as you get contributions we’ll send your balance every 15 days until the end of your campaign. Once your campaign ends you can request the remaining balance be transferred to your account of you can wait until the 15 day mark has passed.</span></p>
+
+<h1 class="mc-toc-title"><span style="color:#130733">Want to reach your goal faster?</span></h1>
+<span style="font-size:14px">Your campaign security is ${campaign.security}. Each share with your friends and family can bring in $30 on average. Your loved ones are the people most likely to donate.<br>
 <br>
-Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
+<strong>Pro tip:</strong> Ask them to share with their network as well, which can lead to more donations.</span><br>
 &nbsp;
                         </td>
                     </tr>
@@ -865,8 +864,7 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
             </table>
         </center>
     </body>
-</html>
-`
+</html>`
 }
 
 // console.log(personalize(campaign))

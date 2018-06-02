@@ -39,11 +39,9 @@
 // // `;
 
 // // console.log(markup)
-
-
-
 // const user = {
-// 	"displayName": "Rachel Blank"
+// 	"firstName": "Rachel",
+// 	"lastName": "Blank"
 // }
 
 function personalize(user) {
@@ -692,7 +690,7 @@ function personalize(user) {
             	<tr class="user">
                 <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-  								<h1><span style="color:#00BACB">Hey there, ${user.displayName}!&nbsp;</span></h1>
+  								<h1><span style="color:#00BACB">Hey there, ${user.firstName} ${user.lastName}!&nbsp;</span></h1>
 
 									<p>Together, we are trying to make the world a bit more educated on LGBTQ+ issues and more prepared to deal with anything that might happen in life.</p>
 

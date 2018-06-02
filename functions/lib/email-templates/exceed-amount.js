@@ -1,16 +1,11 @@
 // const campaign = {
-//   "owner": "Rachel Blank",
+//   "host": "Rachel Blank",
 //   "id": "xyz",
 //   "name": "Wedding",
 //   "security": "link",
-//   "current": "100",
-//   "goal":"100",
-//   "payment": {
-//		"amount": 20
-//		"payer": {
-//		 	"name": "Jamie"
-//		}
-//   }
+//   "raised": "$100",
+//   "goal":"100"
+
 // }
 
 function personalize(campaign) {
@@ -655,15 +650,18 @@ function personalize(campaign) {
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; line-height: 150%;">
 
-                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
+                            <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">You exceeded your goal!</span></strong></h1>
 
-<h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
+<h1 class="null"><span style="color:#130733"><strong><span style="font-size:18px">Hey there, ${campaign.host}!</span></strong></span></h1>
+
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">Your campaign, ${campaign.name}&nbsp;has exceeded the initial goal you set. So far you have raised ${campaign.raised}.&nbsp;<br>
 <br>
-<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
+Make sure you thank your contributors and let them know how much their support means to you.</span><br>
 <br>
-Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
-&nbsp;
+<span style="color:#130733"><strong><span style="font-size:18px">Want to help others in need?</span></strong></span><br>
+<br>
+<span style="font-size:15px">Pride Pocket was built by and for queer individuals in need. In order to keep helping people like you, we require donations. Since you have surpassed your goal, would you like to contribute to keep Pride Pocket going?</span></p>
+
                         </td>
                     </tr>
                 </tbody></table>

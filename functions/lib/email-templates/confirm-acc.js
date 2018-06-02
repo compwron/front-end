@@ -1,19 +1,9 @@
-// const campaign = {
-//   "owner": "Rachel Blank",
+// const user = {
 //   "id": "xyz",
-//   "name": "Wedding",
-//   "security": "link",
-//   "current": "100",
-//   "goal":"100",
-//   "payment": {
-//		"amount": 20
-//		"payer": {
-//		 	"name": "Jamie"
-//		}
-//   }
+//   "name": "Rachel"
 // }
 
-function personalize(campaign) {
+function personalize(user) {
   return `<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -655,15 +645,14 @@ function personalize(campaign) {
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; line-height: 150%;">
 
-                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
-
-<h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
-<br>
-<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
-<br>
-Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
+                            <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Confirm Your Account</span></strong></h1>
 &nbsp;
+
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.name}, security is our top priority! Please click the "Confirm" button below to verify your identity and finish setting up your Pride Pocket acount!, and the process is entirely secure.&nbsp;</span><br>
+&nbsp;</p>
+
+<p style="text-align: center; line-height: 150%;">&nbsp;</p>
+
                         </td>
                     </tr>
                 </tbody></table>
@@ -675,6 +664,22 @@ Since this campaign is public, ${campaign.host} would appreciate if you shared o
         </tr>
         </table>
         <![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table><table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonBlock" style="min-width:100%;">
+    <tbody class="mcnButtonBlockOuter">
+        <tr>
+            <td style="padding-top:0; padding-right:18px; padding-bottom:18px; padding-left:18px;" valign="top" align="center" class="mcnButtonBlockInner">
+                <table border="0" cellpadding="0" cellspacing="0" width="100%" class="mcnButtonContentContainer" style="border-collapse: separate !important;border-radius: 3px;background-color: #F26D7D;">
+                    <tbody>
+                        <tr>
+                            <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 30px; padding: 15px;">
+                                <a class="mcnButton " title="Confirm " href="http://http://pridepocket.org/login" target="_blank" style="font-weight: normal;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">Confirm </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </td>
         </tr>
     </tbody>
@@ -867,7 +872,7 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
     </body>
 </html>
 `
-}
+  }
 
-// console.log(personalize(campaign))
+  //console.log(personalize(user))
 exports.personalize = personalize

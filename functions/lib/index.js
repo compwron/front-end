@@ -1,13 +1,25 @@
 "use strict";
+/*
+
+FUNCTIONS DOCS:
+
+Delivery of function invocations is not currently guaranteed.
+As the Cloud Firestore and Cloud Functions integration improves,
+we plan to guarantee "at least once" delivery.
+However, this may not always be the case during beta.
+This may also result in multiple invocations for a single event,
+so for the highest quality functions ensure that the functions are written to be idempotent.
+
+*/
 Object.defineProperty(exports, "__esModule", { value: true });
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const wepay_1 = require("wepay");
-const email_1 = require("./email");
 const express = require('express');
 const cors = require('cors');
 // const querystring = require('querystring')
 const app = express();
+const { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired } = require('./email');
 // Automatically allow cross-origin requests
 app.use(cors({ origin: true }));
 admin.initializeApp();
@@ -33,19 +45,29 @@ const promiseCall = (url, data) => {
     const p = new Promise((resolve, reject) => wp.call(url, data, resolve));
     return p;
 };
-// const campaign = {
-//   "host": "Rachel Blank",
-//   "id": "xyz",
-//   "name": "Wedding",
-//   "security": "link",
-//   "raised": "$100",
-//   "goal":"100",
-//   "donator":"Jamie",
-//   "donation":"$20"
-// }
-exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((change, context) => {
+exports.campaignCreated = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
+    const campaign = snap.data();
+    if (campaign.active)
+        return;
+    else
+        return draftCampaignCreated(campaign);
+});
+exports.campaignChanged = functions.firestore.document('campaigns/{campaignId}').onUpdate((change, context) => {
+    const campaign = change.after.data();
+    if (campaign.current > campaign.goal)
+        goalExceeded(campaign);
+});
+exports.donationReceived = functions.firestore.document('campaigns/{campaignId}/payments/{paymentId}').onUpdate((change, context) => {
+    const { campaign } = change.after.data();
+    const { paymentId } = context.params;
+    const payment = campaign.payments[paymentId];
+    delete campaign.payments;
+    const changeInfo = Object.assign({}, campaign, { payment });
+    return donationReceived(changeInfo);
+});
+exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
     console.log("running email function");
-    demo_data = [
+    const demo_data = [
         "contribution",
         "cjohnson6382@gmail.com",
         "testing email templates",
@@ -60,7 +82,7 @@ exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate(
             "donation": "$20"
         }
     ];
-    email_1.email(...demo_data);
+    return email(...demo_data);
 });
 // https://github.com/firebase/functions-cron
 exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPublish((event) => {
@@ -75,16 +97,33 @@ exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPubli
         const pArray = [];
         const size = expired.size;
         const docs = expired.docs;
+        let expiredCampaigns = [];
         for (let i = 0; i < size; i += 400) {
             const docSet = docs.slice(i, i + 400);
-            // console.log("adding to batch")
             const b = db.batch();
-            docSet.forEach(ex => b.set(ex.ref, { done: true }, { merge: true }));
+            expiredCampaigns.push(docSet.map(ex => {
+                b.set(ex.ref, { done: true }, { merge: true });
+                return ex;
+            }));
+            // docSet.forEach(ex => b.set(ex.ref, { done: true }, { merge: true}) )
+            // expiredCampaigns = expiredCampaigns.concat(docSet)
             pArray.push(b.commit());
         }
         console.log("resolving batches");
         return Promise.all(pArray)
-            .then((pa) => pa.every(p => p === false));
+            .then((pa) => {
+            // for each successful set operation, send out the 'campaign ended' email
+            // this may not be in the correct order
+            pa.forEach((rSet, i) => {
+                if (rSet.every(p => p === false))
+                    expiredCampaigns[i]
+                        .forEach(c => campExpired(c));
+            });
+            if (pa.every(p => p === false))
+                return true;
+            else
+                return false;
+        });
         // return b.commit().then(() => true)
     });
 });

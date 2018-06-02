@@ -1,7 +1,7 @@
-const user = {
-  "id": "xyz",
-  "name": "Rachel"
-}
+// const user = {
+//   "id": "xyz",
+//   "displayName": "Rachel"
+// }
 
 function personalize(user) {
   return `<!doctype html>
@@ -647,7 +647,7 @@ function personalize(user) {
 
                             <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Launch Your Draft Campaign</span></strong></h1>
 <br>
-<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.name}, you saved a campaign in draft mode but have not launched it. It’s not too late! Launching a draft campaign is simple. Log into your Pride Pocket account, go to “My Campaigns” and press the “Launch” button.</span><span style="font-size:14px">&nbsp;</span></p>
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.displayName}, you saved a campaign in draft mode but have not launched it. It’s not too late! Launching a draft campaign is simple. Log into your Pride Pocket account, go to “My Campaigns” and press the “Launch” button.</span><span style="font-size:14px">&nbsp;</span></p>
 
                         </td>
                     </tr>
@@ -853,4 +853,5 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 </html>`
 }
 
-console.log(personalize(user))
+// console.log(personalize(user))
+exports.personalize = personalize

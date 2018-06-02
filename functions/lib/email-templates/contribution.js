@@ -1,17 +1,14 @@
 // const campaign = {
-//   "owner": "Rachel Blank",
+//   "host": "Rachel Blank",
 //   "id": "xyz",
 //   "name": "Wedding",
 //   "security": "link",
-//   "current": "100",
+//   "raised": "$100",
 //   "goal":"100",
-//   "payment": {
-//		"amount": 20
-//		"payer": {
-//		 	"name": "Jamie"
-//		}
-//   }
+//   "donator":"Jamie",
+//   "donation":"$20"
 // }
+
 
 function personalize(campaign) {
   return `<!doctype html>
@@ -561,7 +558,9 @@ function personalize(campaign) {
       /*@editable*/line-height:150% !important;
     }
 
-}</style></head>
+}</style>
+                    <script>var w=window;if(w.performance||w.mozPerformance||w.msPerformance||w.webkitPerformance){var d=document;AKSB=w.AKSB||{},AKSB.q=AKSB.q||[],AKSB.mark=AKSB.mark||function(e,_){AKSB.q.push(["mark",e,_||(new Date).getTime()])},AKSB.measure=AKSB.measure||function(e,_,t){AKSB.q.push(["measure",e,_,t||(new Date).getTime()])},AKSB.done=AKSB.done||function(e){AKSB.q.push(["done",e])},AKSB.mark("firstbyte",(new Date).getTime()),AKSB.prof={custid:"405167",ustr:"",originlat:"0",clientrtt:"27",ghostip:"77.67.85.136",ipv6:false,pct:"10",clientip:"66.234.211.203",requestid:"870c1d5",region:"19985",protocol:"h2",blver:13,akM:"x",akN:"ae",akTT:"O",akTX:"1",akTI:"870c1d5",ai:"343001",ra:"false",pmgn:"",pmgi:"",pmp:"",qc:""},function(e){var _=d.createElement("script");_.async="async",_.src=e;var t=d.getElementsByTagName("script"),t=t[t.length-1];t.parentNode.insertBefore(_,t)}(("https:"===d.location.protocol?"https:":"http:")+"//ds-aksb-a.akamaihd.net/aksb.min.js")}</script>
+                    </head>
     <body>
     <!--*|IF:MC_PREVIEW_TEXT|*-->
     <!--[if !gte mso 9]><!----><span class="mcnPreviewText" style="display:none; font-size:0px; line-height:0px; max-height:0px; max-width:0px; opacity:0; overflow:hidden; visibility:hidden; mso-hide:all;">*|MC_PREVIEW_TEXT|*</span><!--<![endif]-->
@@ -655,14 +654,22 @@ function personalize(campaign) {
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; line-height: 150%;">
 
-                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
+                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>You Received&nbsp;a Contribution!</strong></font></h1>
 
 <h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
+<span style="color:#130733">Hooray, ${campaign.host}!</span></h1>
 <br>
-<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
+<span style="font-size:14px">Your campaign, ${campaign.name} is has received a contribution of ${campaign.donation} from ${campaign.donator}.&nbsp;<br>
 <br>
-Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
+Make sure you thank your contributors and let them know how much their support means to you.</span>
+
+<div style="text-align: justify;">&nbsp;</div>
+
+<h1 class="mc-toc-title" style="text-align: justify;"><span style="color:#130733">Want to Reach Your Goal Faster?</span></h1>
+<br>
+<span style="font-size:14px">Your campaign security is ${campaign.security}. Each share with your friends and family can bring in $30 on average. Your loved ones are the people most likely to donate.<br>
+<br>
+<strong>Pro tip:</strong> Ask them to share with their network as well, which can lead to more donations.</span><br>
 &nbsp;
                         </td>
                     </tr>

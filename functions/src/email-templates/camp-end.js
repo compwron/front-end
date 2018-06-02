@@ -1,11 +1,9 @@
 const campaign = {
-  "host": "Rachel Blank",
+  "owner": "Rachel Blank",
   "id": "xyz",
   "name": "Wedding",
-  "security": "link",
   "raised": "$100",
   "goal":"100"
-
 }
 
 function personalize(campaign) {
@@ -655,9 +653,9 @@ function personalize(campaign) {
                             <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Your&nbsp;Campaign Has Ended</span></strong></h1>
 
 <h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hello, ${campaign.host}!</span></h1>
+<span style="color:#130733">Hello, ${campaign.owner}!</span></h1>
 <br>
-<span style="font-size:14px">Your campaign, ${campaign.name} is ended. You’ve raised&nbsp; ${campaign.raised}, great job! &nbsp;</span>
+<span style="font-size:14px">Your campaign, ${campaign.name} is ended. You’ve raised&nbsp; ${campaign.current}, great job! &nbsp;</span>
 
 <div style="text-align: justify;">&nbsp;</div>
 
@@ -873,4 +871,6 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 `
 }
 
-console.log(personalize(campaign))
+// console.log(personalize(campaign))
+
+exports.personalize = personalize

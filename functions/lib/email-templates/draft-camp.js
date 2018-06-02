@@ -1,19 +1,9 @@
-// const campaign = {
-//   "owner": "Rachel Blank",
+// const user = {
 //   "id": "xyz",
-//   "name": "Wedding",
-//   "security": "link",
-//   "current": "100",
-//   "goal":"100",
-//   "payment": {
-//		"amount": 20
-//		"payer": {
-//		 	"name": "Jamie"
-//		}
-//   }
+//   "name": "Rachel"
 // }
 
-function personalize(campaign) {
+function personalize(user) {
   return `<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -655,15 +645,10 @@ function personalize(campaign) {
 
                         <td valign="top" class="mcnTextContent" style="padding: 0px 18px 9px; line-height: 150%;">
 
-                            <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
+                            <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Launch Your Draft Campaign</span></strong></h1>
+<br>
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.name}, you saved a campaign in draft mode but have not launched it. It’s not too late! Launching a draft campaign is simple. Log into your Pride Pocket account, go to “My Campaigns” and press the “Launch” button.</span><span style="font-size:14px">&nbsp;</span></p>
 
-<h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
-<br>
-<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
-<br>
-Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
-&nbsp;
                         </td>
                     </tr>
                 </tbody></table>
@@ -865,9 +850,8 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
             </table>
         </center>
     </body>
-</html>
-`
+</html>`
 }
 
-// console.log(personalize(campaign))
+// console.log(personalize(user))
 exports.personalize = personalize
