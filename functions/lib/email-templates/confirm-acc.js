@@ -1,6 +1,6 @@
 // const user = {
 //   "id": "xyz",
-//   "name": "Rachel"
+//   "displayName": "Rachel"
 // }
 
 function personalize(user) {
@@ -648,7 +648,7 @@ function personalize(user) {
                             <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Confirm Your Account</span></strong></h1>
 &nbsp;
 
-<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.name}, security is our top priority! Please click the "Confirm" button below to verify your identity and finish setting up your Pride Pocket acount!, and the process is entirely secure.&nbsp;</span><br>
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.displayName}, security is our top priority! Please click the "Confirm" button below to verify your identity and finish setting up your Pride Pocket acount!, and the process is entirely secure.&nbsp;</span><br>
 &nbsp;</p>
 
 <p style="text-align: center; line-height: 150%;">&nbsp;</p>

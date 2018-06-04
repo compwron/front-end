@@ -23,13 +23,17 @@ export class CampaignCreatorService {
 			campaign.end = new Date(campaign.end)
 			if (campaign.active) campaign.begin = new Date()
 			campaign._updated = new Date()
-			campaign.owner = Object.assign({}, campaign.owner, { uid: this.loginService.pridepocketUser.uid, email: this.loginService.pridepocketUser.email })
+			const { uid, email, displayName } = this.loginService.pridepocketUser
+			campaign.owner = Object.assign({}, campaign.owner, { uid, email, name: displayName })
 			
 			campaign.account_id = this.loginService.pridepocketUser.wepay_merchant.account_id
 			
+			const docRef = db.collection("campaigns").doc()
+			campaign.id = docRef.id
+			
 			// console.log(campaign)
 			
-			return fromPromise(db.collection("campaigns").doc().set(campaign))
+			return fromPromise(docRef.set(campaign))
 		}
 	}
 	

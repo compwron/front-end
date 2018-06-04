@@ -19,7 +19,7 @@ const express = require('express');
 const cors = require('cors');
 // const querystring = require('querystring')
 const app = express();
-const { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired, campaignLaunched } = require('./email');
+const { donationReceived, draftCampaignCreated, goalExceeded, campExpired, campaignLaunched } = require('./email'); //	email,
 // Automatically allow cross-origin requests
 app.use(cors({ origin: true }));
 admin.initializeApp();
@@ -70,25 +70,25 @@ exports.donationReceived = functions.firestore.document('campaigns/{campaignId}/
     const changeInfo = Object.assign({}, campaign, { payment });
     return donationReceived(changeInfo);
 });
-exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
-    console.log("running email function");
-    const demo_data = [
-        "contribution",
-        "cjohnson6382@gmail.com",
-        "testing email templates",
-        {
-            "host": "Rachel Blank",
-            "id": "xyz",
-            "name": "Wedding",
-            "security": "link",
-            "raised": "$100",
-            "goal": "100",
-            "donator": "Jamie",
-            "donation": "$20"
-        }
-    ];
-    return email(...demo_data);
-});
+// exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
+// 	console.log("running email function")
+// 	const demo_data = [
+// 		"contribution",
+// 		"cjohnson6382@gmail.com",
+// 		"testing email templates",
+// 		{
+// 			"host": "Rachel Blank",
+// 			"id": "xyz",
+// 			"name": "Wedding",
+// 			"security": "link",
+// 			"raised": "$100",
+// 			"goal":"100",
+// 			"donator":"Jamie",
+// 			"donation":"$20"
+// 		}
+// 	]
+// 	return email(...demo_data)
+// })
 // https://github.com/firebase/functions-cron
 exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPublish((event) => {
     // console.log("Deactivate all expired campaigns")
@@ -102,7 +102,7 @@ exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPubli
         const pArray = [];
         const size = expired.size;
         const docs = expired.docs;
-        let expiredCampaigns = [];
+        const expiredCampaigns = [];
         for (let i = 0; i < size; i += 400) {
             const docSet = docs.slice(i, i + 400);
             const b = db.batch();

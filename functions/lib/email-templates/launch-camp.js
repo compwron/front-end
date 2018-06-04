@@ -3,7 +3,6 @@
 //   "id": "xyz",
 //   "name": "Wedding",
 //   "security": "link"
-//   "amount": "$0"
 // }
 
 function personalize(campaign) {
@@ -648,7 +647,7 @@ function personalize(campaign) {
 
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-right:18px; padding-bottom:9px; padding-left:18px;">
 
-                            <h1><span style="color:#130733">Hey there, </span>${campaign.host}<span style="color:#130733">!&nbsp;</span></h1>
+                            <h1><span style="color:#130733">Hey there, </span>${campaign.owner.name}<span style="color:#130733">!&nbsp;</span></h1>
 
 <p><span style="font-size:14px">Your campaign, ${campaign.name}&nbsp;is now live and ready to go at the following link:<br>
 <br>

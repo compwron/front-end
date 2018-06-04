@@ -1,9 +1,15 @@
-// const user = {
+// {
+//   "owner": {
+//     "name": "Rachel Blank",
+// 	"email": "chris@rosettablock.com"
+//   },
 //   "id": "xyz",
-//   "name": "Rachel"
+//   "name": "Wedding",
+//   "security": "link",
+//   "active": false
 // }
 
-function personalize(user) {
+function personalize(campaign) {
   return `<!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
   <head>
@@ -647,7 +653,7 @@ function personalize(user) {
 
                             <h1 class="mc-toc-title" style="text-align: center;"><strong><span style="color:#00bacb">Launch Your Draft Campaign</span></strong></h1>
 <br>
-<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${user.name}, you saved a campaign in draft mode but have not launched it. It’s not too late! Launching a draft campaign is simple. Log into your Pride Pocket account, go to “My Campaigns” and press the “Launch” button.</span><span style="font-size:14px">&nbsp;</span></p>
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">${campaign.owner.name}, you saved a campaign in draft mode but have not launched it. It’s not too late! Launching a draft campaign is simple. Log into your Pride Pocket account, go to “My Campaigns” and press the “Launch” button.</span><span style="font-size:14px">&nbsp;</span></p>
 
                         </td>
                     </tr>
@@ -853,5 +859,4 @@ You can <a href="*|UPDATE_PROFILE|*">update your preferences</a> or <a href="*|U
 </html>`
 }
 
-// console.log(personalize(user))
 exports.personalize = personalize

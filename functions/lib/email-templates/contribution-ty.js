@@ -1,12 +1,16 @@
 // const campaign = {
-//   "host": "Rachel Blank",
+//   "owner": "Rachel Blank",
 //   "id": "xyz",
 //   "name": "Wedding",
 //   "security": "link",
-//   "raised": "$100",
+//   "current": "100",
 //   "goal":"100",
-//   "donator":"Jamie",
-//   "donation":"$20"
+//   "payment": {
+//		"amount": 20
+//		"payer": {
+//		 	"name": "Jamie"
+//		}
+//   }
 // }
 
 function personalize(campaign) {
@@ -654,9 +658,9 @@ function personalize(campaign) {
                             <h1 class="mc-toc-title" style="text-align: center;"><font color="#00bacb"><strong>Thank You For Your Contribution!</strong></font></h1>
 
 <h1 class="mc-toc-title"><br>
-<span style="color:#130733">Hey there, ${campaign.donator}!</span></h1>
+<span style="color:#130733">Hey there, ${campaign.payment.payer.name}!</span></h1>
 <br>
-<span style="font-size:14px">Your ${campaign.donation} to ${campaign.name}} is going to get one step closer to the goal.<br>
+<span style="font-size:14px">Your $${campaign.payment.amount} to ${campaign.name}} gets it one step closer to the goal.<br>
 <br>
 Since this campaign is public, ${campaign.host} would appreciate if you shared on social media or with close friends and family. Every little big counts and each share could help bring in an average of $30!</span><br>
 &nbsp;

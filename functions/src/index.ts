@@ -23,7 +23,7 @@ const cors = require('cors');
 
 const app = express();
 
-const { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired, campaignLaunched } = require('./email')
+const { donationReceived, draftCampaignCreated, goalExceeded, campExpired, campaignLaunched } = require('./email') //	email,
 
 // Automatically allow cross-origin requests
 app.use(cors({ origin: true }));
@@ -90,27 +90,27 @@ exports.donationReceived = functions.firestore.document('campaigns/{campaignId}/
 
 
 
-exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
-	console.log("running email function")
+// exports.email = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
+// 	console.log("running email function")
 	
-	const demo_data = [
-		"contribution",
-		"cjohnson6382@gmail.com",
-		"testing email templates",
-		{
-			"host": "Rachel Blank",
-			"id": "xyz",
-			"name": "Wedding",
-			"security": "link",
-			"raised": "$100",
-			"goal":"100",
-			"donator":"Jamie",
-			"donation":"$20"
-		}
-	]
+// 	const demo_data = [
+// 		"contribution",
+// 		"cjohnson6382@gmail.com",
+// 		"testing email templates",
+// 		{
+// 			"host": "Rachel Blank",
+// 			"id": "xyz",
+// 			"name": "Wedding",
+// 			"security": "link",
+// 			"raised": "$100",
+// 			"goal":"100",
+// 			"donator":"Jamie",
+// 			"donation":"$20"
+// 		}
+// 	]
 	
-	return email(...demo_data)
-})
+// 	return email(...demo_data)
+// })
 
 // https://github.com/firebase/functions-cron
 exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPublish((event) => {
@@ -129,7 +129,7 @@ exports.deactivateExpired = functions.pubsub.topic('deactivate-expired').onPubli
 			
 			const size = expired.size
 			const docs = expired.docs
-			let expiredCampaigns = []
+			const expiredCampaigns = []
 
 
 			for (let i = 0; i < size; i += 400) {

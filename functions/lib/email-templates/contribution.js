@@ -5,8 +5,12 @@
 //   "security": "link",
 //   "raised": "$100",
 //   "goal":"100",
-//   "donator":"Jamie",
-//   "donation":"$20"
+//   "payment": {
+//		"amount": 20
+//		"payer": {
+//		 	"name": "Jamie"
+//		}
+//   }
 // }
 
 
@@ -659,7 +663,7 @@ function personalize(campaign) {
 <h1 class="mc-toc-title"><br>
 <span style="color:#130733">Hooray, ${campaign.host}!</span></h1>
 <br>
-<span style="font-size:14px">Your campaign, ${campaign.name} is has received a contribution of ${campaign.donation} from ${campaign.donator}.&nbsp;<br>
+<span style="font-size:14px">Your campaign, ${campaign.name} is has received a contribution of ${campaign.payment.amount} from ${campaign.payment.payer.name}.&nbsp;<br>
 <br>
 Make sure you thank your contributors and let them know how much their support means to you.</span>
 

@@ -3,9 +3,8 @@
 //   "id": "xyz",
 //   "name": "Wedding",
 //   "security": "link",
-//   "raised": "$100",
+//   "current": "120",
 //   "goal":"100"
-
 // }
 
 function personalize(campaign) {
@@ -654,7 +653,7 @@ function personalize(campaign) {
 
 <h1 class="null"><span style="color:#130733"><strong><span style="font-size:18px">Hey there, ${campaign.host}!</span></strong></span></h1>
 
-<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">Your campaign, ${campaign.name}&nbsp;has exceeded the initial goal you set. So far you have raised ${campaign.raised}.&nbsp;<br>
+<p style="text-align: justify; line-height: 150%;"><span style="font-size:15px">Your campaign, ${campaign.name}&nbsp;has exceeded the initial goal you set. So far you have raised ${campaign.current}.&nbsp;<br>
 <br>
 Make sure you thank your contributors and let them know how much their support means to you.</span><br>
 <br>
