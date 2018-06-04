@@ -37,7 +37,7 @@ const emailTypes = {
 	"launch-camp": launch
 }
 
-const email = (type, to, subject, config) => {
+exports.email = (type, to, subject, config) => {
 	const html = emailTypes[type](config)
 	
 	const mailOptions = { from: "Info", to, subject, html }
@@ -63,12 +63,12 @@ const sendMail = options => mailTransport.sendMail(options)
 		return
 	})
 
-const campExpired = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your Pride Pocket Campaign has Ended.", html: campaignEnd(campaign) })
-const campaignLaunched = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your campaign is live! Spread the word", html: launch(campaign) })
-const draftCampaignCreated = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "You have created a draft campaign", html: draftCamp(campaign) })
-const goalExceeded = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your Pride Pocket Campaign exceeded your goal!", html: exceed(campaign) })
+exports.campExpired = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your Pride Pocket Campaign has Ended.", html: campaignEnd(campaign) })
+exports.campaignLaunched = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your campaign is live! Spread the word", html: launch(campaign) })
+exports.draftCampaignCreated = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "You have created a draft campaign", html: draftCamp(campaign) })
+exports.goalExceeded = campaign => sendMail({ from: "Info", to: campaign.owner.email, subject: "Your Pride Pocket Campaign exceeded your goal!", html: exceed(campaign) })
 
-const donationReceived = changeInfo => {
+exports.donationReceived = changeInfo => {
 	const mailOptions = { from: "Info", to: changeInfo.owner.email, subject: "You have received a donation!", html: contributionEmail(changeInfo) }
 	
 	return mailTransport.sendMail(mailOptions)
@@ -80,9 +80,6 @@ const donationReceived = changeInfo => {
 			return
 		})
 }
-
-exports = { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired }
-
 
 // const campEnd = campaign => {
 // 	cosnt mailOptions = {

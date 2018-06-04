@@ -23,7 +23,7 @@ const cors = require('cors');
 
 const app = express();
 
-const { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired } = require('./email')
+const { email, donationReceived, draftCampaignCreated, goalExceeded, campExpired, campaignLaunched } = require('./email')
 
 // Automatically allow cross-origin requests
 app.use(cors({ origin: true }));
@@ -64,13 +64,16 @@ const promiseCall = (url, data) => {
 
 exports.campaignCreated = functions.firestore.document('campaigns/{campaignId}').onCreate((snap, context) => {
 	const campaign = snap.data()
-	if (campaign.active) return
+	if (campaign.active) return campaignLaunched(campaign)
 	else return draftCampaignCreated(campaign)
 })
 
 exports.campaignChanged = functions.firestore.document('campaigns/{campaignId}').onUpdate((change, context) => {
 	const campaign = change.after.data()
+	const old = change.before.data()
 	if (campaign.current > campaign.goal) goalExceeded(campaign)
+	if (!old.active && campaign.active) campaignLaunched(campaign)
+	if (campaign.done) campExpired(campaign)
 })
 
 exports.donationReceived = functions.firestore.document('campaigns/{campaignId}/payments/{paymentId}').onUpdate((change, context) => {
