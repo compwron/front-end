@@ -37,26 +37,37 @@ const extractCampaigns = map((snapshot: firebase.firestore.QuerySnapshot): Campa
 export class CampaignService {
 	constructor() { }
 
-	subscribeCampaigns (filter): Observable<Campaign[]> {
-		const camps: Observable<firebase.firestore.QuerySnapshot> = new Observable(observer => {
-			db.collection("campaigns").where(filter.field, filter.operator, filter.value).onSnapshot(observer)
-		})
+	// subscribeCampaigns (filter): Observable<Campaign[]> {
+	// 	const camps: Observable<firebase.firestore.QuerySnapshot> = new Observable(observer => {
+	// 		db.collection("campaigns").where(filter.field, filter.operator, filter.value).onSnapshot(observer)
+	// 	})
 		
-		const campaigns: Observable<Campaign[]> = extractCampaigns(camps)
-		return campaigns
+	// 	const campaigns: Observable<Campaign[]> = extractCampaigns(camps)
+	// 	return campaigns
+	// }
+
+	addFilter (query, filter) {
+		// adds a filter to the query and returns the query
+		return query.where(...filter)
 	}
 
 	getCampaigns(filter = null): Observable<Campaign[]> {
 		console.log("getting campaigns")
-		
+
 		let dbObjects
 		
 		if (filter) dbObjects = fromPromise(db.collection("campaigns").where(filter.field, filter.operator, filter.value).get())
 		else dbObjects = fromPromise(db.collection("campaigns").get())
 		
-		// const dbObjects = fromPromise(db.collection("campaigns").get())
-		
 		const campaigns = extractCampaigns(dbObjects)
+		return campaigns
+	}
+
+	subscribeCampaigns (filter?: Array<Array<any>>): Observable<Campaign[]> {
+		const q = filter.reduce((a, f) => this.addFilter(a, f), db.collection("campaigns"))
+		const camps: Observable<firebase.firestore.QuerySnapshot> = new Observable(observer => { q.onSnapshot(observer) })
+		
+		const campaigns: Observable<Campaign[]> = extractCampaigns(camps)
 		return campaigns
 	}
 

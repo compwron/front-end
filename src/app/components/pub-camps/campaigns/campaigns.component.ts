@@ -55,15 +55,13 @@ export class CampaignsComponent implements OnInit {
 
 	sort (key) {
 		console.log(this.campaigns.map(c => c.name))
-		
-		// console.log(key)
 		this.campaigns.sort(this.sorter[key])
 		
 		console.log(this.campaigns.map(c => c.name))
 	}
 
 	getCampaigns (): void {
-		this.campaignService.subscribeCampaigns({ field: "active", operator: "==", value: true })
+		this.campaignService.subscribeCampaigns([["active", "==", true], ["privacy", "==", "public"]])
 			.subscribe(
 				campaigns => {this.campaigns = campaigns },
 				e => console.log("error getting campaigns from DB: ", e)

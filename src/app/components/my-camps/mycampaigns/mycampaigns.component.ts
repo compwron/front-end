@@ -46,7 +46,7 @@ export class MycampaignsComponent implements OnInit {
 	get fs () { return Object.entries(this.filters).map(([k, v]) => [k, v]) }
 	
 	getCampaigns (): void {
-		this.campaignService.subscribeCampaigns({ field: "owner.uid", operator: "==", value: this.login.pridepocketUser.uid })
+		this.campaignService.subscribeCampaigns([["owner.uid", "==", this.login.pridepocketUser.uid]])
 			.subscribe(
 				campaigns => { this.campaigns = campaigns },
 				e => console.log("error getting campaigns from DB: ", e)
